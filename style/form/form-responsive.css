@@ -1,0 +1,75 @@
+@CHARSET "UTF-8";
+
+/************************************************************************************
+MEDIA QUERIES
+*************************************************************************************/
+.section-body {
+}
+/* for 1300px or less */
+@media screen and (max-width: 1300px) {
+/* 为这张表单独创建的部分start */
+.q1 .q-body label,
+.q2 .q-body label,
+.q3 .q-body label,
+.q4 .q-body label,
+.q5 .q-body label,
+.q6 .q-body label,
+.q7 .q-body label,
+.q9 .q-body label {
+	width:30%;
+}
+/* 为这张表单独创建的部分end */
+}
+/* for 1050px or less */
+@media screen and (max-width: 1050px) {
+/* 为这张表单独创建的部分start */
+.q1 .q-body label,
+.q2 .q-body label,
+.q3 .q-body label,
+.q9 .q-body label {
+	width:48%;
+}
+.q4 .q-body label,
+.q5 .q-body label,
+.q7 .q-body label {
+	width:30%;
+}
+.q6 .q-body label,
+.q8 .q-body label {
+	width:96%;
+}
+/* 为这张表单独创建的部分end */
+}
+/* for 700px or less */
+@media screen and (max-width: 700px) {
+/* 为这张表单独创建的部分start */
+.q1 .q-body label,
+.q2 .q-body label,
+.q3 .q-body label {
+	width:96%;
+}
+.q9 .q-body label {
+	width:96%;
+}
+/* 为这张表单独创建的部分end */
+}
+/* for 500px or less */
+@media screen and (max-width: 500px) {
+/* 为这张表单独创建的部分start */
+.q4 .q-body label,
+.q5 .q-body label,
+.q7 .q-body label {
+	width:96%;
+}
+
+#form-field {
+	width:90%;
+}
+#form-body .q-number {
+	width:2em;
+}
+#form-body .q-whole {
+	padding:5px 0 5px 38px;
+}
+/* 为这张表单独创建的部分end */
+}
