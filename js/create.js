@@ -12,7 +12,7 @@ $(document).ready(function(){
 	}
 	$("#q-del").click(function(){
 		$(this).parent().slideUp(200);
-	
+
 	});
     $("#tool-construct-container li").draggable({
         appendTO: "parent",
@@ -73,5 +73,5 @@ $(document).ready(function(){
         items: "li",
 		axis:"y"
     });
-	
+
 });

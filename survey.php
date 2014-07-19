@@ -86,7 +86,7 @@
 		        	else{
 		        		$string = $answers[0];
 		        	}
-		        	$submit[$b++]= $string;
+		        	$submit['q'.$b++]= $string;
 		        	$string = null;
 		        }
 		        $test=$_POST;
@@ -101,6 +101,11 @@
 		        
 		        if(count($number)==9){
 		        	do_js_alert('感谢您的认真填写！');
+		        	//$query="insert into survey values('".$submit[1]."','".$submit[2]."','".$submit[3]."','".$submit[4]."','".$submit[5]."','".$submit[6]."','".$submit[7]."','".$submit[8]."','".$submit[9]."','".$submit[10]."')";
+		        	//mysql_query($query) or die(mysql_error());
+		        	mysql_connect('localhost','srtp-lzx','srtp-lzx');
+		        	@mysql_select_db('srtp-lzx') or die(mysql_error());
+		        	insert('survey', $submit);
 		        	$query="insert into survey values('".$submit[1]."','".$submit[2]."','".$submit[3]."','".$submit[4]."','".$submit[5]."','".$submit[6]."','".$submit[7]."','".$submit[8]."','".$submit[9]."','".$submit[10]."')";
 		        	mysql_query($query) or die(mysql_error());
 		        }
@@ -168,7 +173,7 @@
                     <div class="q-alternative">*</div>
                     <div class="q-body">
                         <label><input name="q1-mul1" type="checkbox" />98专楼</label>
-                        <label><input name="q1-mul2" type="checkbox" />人人日志</label>
+                        <label><input name="q1-mul1" type="checkbox" />人人日志</label>
                         <label><input name="q1-mul3" type="checkbox" />人人相册</label>
                         <label><input name="q1-mul4" type="checkbox" />文广摆摊</label>
                         <label><input name="q1-mul5" type="checkbox" />纸质宣传单（背面无报名表）</label>

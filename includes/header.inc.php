@@ -1,24 +1,22 @@
 <?php
-header('Content-Type:text/html; charset=utf-8');
-include 'functions.inc.php';
+include 'includes.inc.php';
 if(isset($_POST['username'])&&isset($_POST['password'])){
      @mysql_connect('localhost','srtp-lzx','srtp-lzx');
 	 @mysql_select_db('srtp-lzx') or die(mysql_error());
-     $sql = "SELECT * from _user where username='404764607@qq.com'";
-	 $result = mysql_query($sql) or die(mysql_error());
-	 if(@mysql_num_rows($result)!=0){
-	     @$row = mysql_fetch_array($result) or die(mysql_error());
-	     if($row['password']==$_POST['password']){
+     $result = fetchOne("select * from _user where username='".$_POST['username']."'");
+     print_r($result);
+	 if(count($result)!=0){
+	     if($result['password']==$_POST['password']){
              setcookie('srtp-username',$_POST['username'],0);
              setcookie('srtp-password',$_POST['password'],0);
              header("location:index.php");
 	     }
 		 else{
-		     echo "<script>alert('密码错误'); </script>";
+		     do_js_alert('密码错误');
 		 }
     }
 	 else{
-	     echo "<script>alert('不存在该用户名'); </script>";
+	     do_js_alert('不存在该用户名');
 	 }
 }
 ?>
