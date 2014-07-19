@@ -217,5 +217,26 @@ header('Content-Type:text/html; charset=utf-8');
 <?php
      include 'includes/footer.inc.php'
 ?>
+<!--<script type="text/javascript">
+function onshow(obj)
+{
+	document.getElementById(obj).className = "q-field-before";
+	}
+function offshow(obj)
+{
+	document.getElementById(obj).className = "q-field-after";
+	}
+function changeState(obj)
+{
+	if(document.getElementById(obj).innerHTML == "改为选答")
+	{
+		document.getElementById(obj).innerHTML = "改为必答";
+		}
+	if(document.getElementById(obj).innerHTML == "改为必答")
+	{
+		document.getElementById(obj).innerHTML = "改为选答";
+		}
+	}
+</script>-->
 </body>
 </html>
