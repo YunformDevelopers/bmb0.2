@@ -12,6 +12,7 @@ header('Content-Type:text/html; charset=utf-8');
 <script type="text/javascript" src="js/jQuery.js"></script>
 <script type="text/javascript" src="js/jquery-ui-1.10.4.js"></script>
 <script type="text/javascript" src="js/create.js"></script>
+<script type="text/javascript" src="js/cookie.js"></script>
 <script type="text/javascript" src="js/msg.js"></script>
 <?php
     require 'includes/header.inc.php';
@@ -138,6 +139,7 @@ header('Content-Type:text/html; charset=utf-8');
                      </a>
                  </div>
              </li>
+             <li><div id='q' class='q1 q-field-before' onmouseover='onshow(this)' onmouseout='offshow(this)'><div class='q-number'><span>Q</span></div><div class='q-whole'>          <div class='q-title'><textarea type='text' name='q1-title' rows='1' class='title edit' >姓名</textarea></div><div id='alt' class='q-alternative'><a onclick='changeState(this)'>改为选答</a></div><div class='q-body'><input type='text' name='q1-body1' class='body no-edit'/></div></div></div></li>
             <!--<div id="" class="q1 q-field free-singleline preserved-name">
                 <div class="q-number"><span>Q1</span></div>
                 <div class="q-whole">
