@@ -61,12 +61,7 @@ $(document).ready(function(){
                 $(this)
                     .find("#form-body")
                     .append("<li><div id='q' class='q3 q-field-before free-multichoice' onmouseover='onshow(this)' onmouseout='offshow(this)'><div class='q-number'><span>Q</span></div> <div class='q-whole'><div class='q-title'><textarea type='text' name='q3-title' rows='1' class='title edit' >请问你的志愿是哪几个？</textarea></div><div id='alt' class='q-alternative'><a onclick='changeState(this)'>改为选答</a></div><div class='q-body'><input type='checkbox' /><input type='text' name='q3-body1' class='body edit' value='项目部'/><input type='checkbox' /><input type='text' name='q3-body2' class='body edit' value='外联部'/><input type='checkbox' /><input type='text' name='q3-body3' class='body edit' value='技术部'/><br /><input type='checkbox' /><input type='text' name='q3-body3' class='body edit' value='点击这里添加选项'/></div></div><a href='javascript:;' id='q-del' style='display:none;' class='q-del' title='删除'></a></div></li>")            }
-            else if ($(ui.draggable).attr("id") == "rader") {
-                $(this)
-                    .find("#form-body")
-                    .append(q1.clone())
-
-            }
+            
         }
     });
     $("#form-body").sortable({
