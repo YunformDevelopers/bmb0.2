@@ -1,0 +1,260 @@
+﻿@CHARSET "UTF-8";
+
+/*清理样式*/
+body{
+    color:#333;
+    /* 注意这里一次定义了font-weight font-size/line-height font-family ,微软正黑（Microsoft Jhenghei）是个有待发掘的字体：）*/
+	/* 整个body除了特别定义font-size都是16px，除了这里之外其他地方少定义font-size，因为这样会改变整个网页布局*/
+    font: normal 100%/1.4 'Microsoft Jhenghei', 'Microsoft Yahei', sans-serif;
+    background:#faf8f5;
+}
+input,textarea,select{
+    font-size:1em;    
+    font-family:inherit;
+	outline:none;
+	padding:0;
+	margin:0;
+}
+body,h1,h2,h3,h4,h5,h6,p,ul,ol,form{
+    margin:0;
+}
+h2 {
+	font-size: 1.25em;/* 16(来自body)*1.25=20，注意这里h2的基准就改变了 */
+	font-weight:normal;
+	border-left: 0.2em solid #000; /* 20*0.2=4 */
+	padding-left:0.5em; /* 20*0.5=10 */
+}
+h4,h5,h6{
+    font-size:1em;
+}
+ul,ol{
+    padding-left:0; 
+    list-style-type:none;
+}
+/* 选中内容的样式 */
+*::-moz-selection{
+	color:#fff;
+	background:#de473a;
+}
+/*image with no-border*/
+a img{border:0;}
+img{border:0;}
+/*清除链接的样式*/
+a { 
+	text-decoration:none; 
+	color:inherit;
+	outline:none;
+}
+a:hover {
+	text-decoration:underline; 
+	cursor:pointer;
+}
+/* 清除btn的样式 */
+.btn {
+	width:50px;
+	height:25px;
+	cursor:pointer;
+	color:#fff;
+	border:none;
+	border-radius:2px;	
+	box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), 0 1px 1px rgba(255, 255, 255, 0.3) inset;-moz-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), 0 1px 1px rgba(255, 255, 255, 0.3) inset;	
+}
+.btn:active {
+	box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3), 0 1px 1px rgba(0, 0, 0, 0.2) inset;-moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3), 0 1px 1px rgba(0, 0, 0, 0.2) inset;
+}
+input.red {
+	background:#cd4337;
+}
+input.blue {
+	background:#37c1cd;
+}
+input.green {
+	background:#37cd43;
+}
+div{
+    margin:0;
+	padding:0;
+}
+
+/*因为justify一定要超过一行，所以这个放在最后用来撑宽度*/
+.justify-helper {width:100%; display:inline-block;}
+
+#header {
+	background:url(../images/header-bg.png) repeat-x;
+	height:4em; /* 16*4=64px */
+}
+#header ul {
+	height:4em; /* 16*4=64px */
+	line-height:4em;
+	width:90%;
+	padding:0 5%;
+	color:#fff;
+	text-align:justify;
+}
+#header ul:hover,#header ul:active {
+	cursor:default;
+}
+#header li {
+	height:64px;
+	display:inline-block;
+	font-size:18px;
+	text-shadow:0px -1px #000;/* 0.125*16=2px */
+}
+#header a:hover{
+	text-decoration:none;
+}
+
+#header .search-mobile {
+	display:none;
+}
+.search input.search-text {/* 1em=16px */
+	background:url(../images/search.png) no-repeat #fff 0.4em 62%;
+	background-size:16px 16px;
+	padding:0 1em 0 1.5em;
+	box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 1px rgba(0, 0, 0, 0.2) inset;-moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 1px rgba(0, 0, 0, 0.2) inset;
+	border:none;
+	border-radius:2em;-moz-border-radius:2em;-ms-border-radius:2em;
+	color:#6e432f;
+	width:3.1em;
+	transition:all 0.5s ease;-moz-transition:all 0.5s ease;
+}
+.search input.search-text:focus{
+	width:6em;
+}
+
+.section-header {
+	position:relative;
+}
+.section-header h2{
+	background:#faf8f5;
+	z-index:2;
+	padding-right:1em;
+	display:inline-block;
+}
+.h2-line {
+	z-index:-1;
+	position:absolute;
+	top:0.8em; left:0;
+	width:100%;
+	height:0;
+	border-bottom:#FFF solid 2px;
+	border-top:#d9cfbf solid 2px;
+}
+
+#slideshow {height:20em; display:block;}
+/* 这个其他section也可以重用  */
+.section,.reminder,#footer {
+	width:90%;
+	padding:0 5%;
+	text-align:justify;
+}
+/* 使justify的元素左端对齐 */
+.left-fix {
+	display:inline-block;
+	height:0;
+	padding:0; 
+	overflow:hidden;
+}
+
+
+/* 以下代码重用性高 */
+.card { 
+	display:inline-block; 
+	vertical-align:text-top;
+	width:15.125em;  /* 15.125*16=242px */
+	margin:1.8em 0.3em 0.2em 0.3em;
+}
+.card a:hover {
+	text-decoration:none;
+}
+.card .img-holder {
+	border:solid 0.0625em #d2d0ce; /* 0.0625*16=1px */
+	border-radius: 0.25em 0.25em/0.25em; /* 0.25*16=4px */
+	-moz-border-radius:0.25em  0.25em/0.25em;  
+	-webkit-border-radius:0.25em 0.25em/0.25em; 
+	box-shadow:0px 0.3125em 0.625em rgba(1,1,1,0.2); /* 0.3125*16=5px 0.625*16=10px */
+	-moz-box-shadow:0px 0.3125em 0.625em rgba(1,1,1,0.2); 
+	-webkit-box-shadow:0px 0.3125em 0.625em rgba(1,1,1,0.2);
+	transition:all 0.5s ease; 
+}
+.card .img-holder:hover {
+	-moz-transform:translateY(-10px);-webkit-transform:translateY(-10px);
+}
+
+
+/* 这里为了使图片不拉伸，做了一些裁剪，但并不完美 */
+.card .img-holder .fader img {
+	min-width:15em; /* 15*16=240px */
+	min-height:7.5em; /* 7.5*16=120px */
+	width:15em; /* 15*16=240px */
+	height:7.5em; /* 7.5*16=120px */
+	border-radius:0.18em 0.18em 0em 0em/0.18em;-moz-border-radius:0.18em 0.18em 0em 0em/0.18em; /* 0.18*16=2.88px */
+}
+.card .img-holder .fader {
+	width:15em; /* 15*16=240px */
+	height:7.5em; /* 7.5*16=120px */
+}
+.card .img-holder .fader a {
+	height:7.5em; /* 7.5*16=120px */
+	display:block;
+	overflow:hidden;
+	text-align: center;
+    vertical-align: middle;
+}
+
+
+.card .img-counter {
+	display:block;
+	background:#fff;
+	color:#777;
+	border-radius:0em 0em 0.26em 0.26em/0.26em;-moz-border-radius:0em 0em 0.26em 0.26em/0.26em;
+	font-size:0.8em;/*注意下面的em基准变为12.8px */
+	height:2em;
+	line-height:2em;
+	vertical-align:text-bottom;
+}
+.card .img-counter .counter .time-left,.written {
+	background:left no-repeat url(../images/clock.png);
+	background-size: 16px 16px;
+	opacity:0.6;
+	padding-left:1.5625em; /* 1.5625*12.8=20px */
+	margin-left:6px; /* 0.625*12.8=8px */
+}
+.card .img-counter .counter .written {
+	background:left no-repeat url(../images/pen.png);
+	background-size: 16px 16px;
+	opacity:0.6;
+}
+/* 注意这里要根据实际使用中的名称的长度来进行字体之类的调整 */
+.card .form-name {
+	padding:4px 0 0 6px ;
+	background:#fff;
+	font-weight:bold;
+}
+
+
+.reminder {
+	text-align:right;
+}
+.reminder p,.search {
+	display:inline-block;
+	margin-left:20px;
+}
+
+
+
+#footer {
+	font-size:14px;
+	margin-top:3em;
+	line-height:2em;
+	width:90%;
+	padding:1em 5%;
+	background:#ddd url(../images/footer-bg.png) repeat-x;
+	text-align:center;
+	text-align:justify;
+}
+#footer-logo,#footer-info,#footer-contact{
+	display:inline-block;
+}
+
+
