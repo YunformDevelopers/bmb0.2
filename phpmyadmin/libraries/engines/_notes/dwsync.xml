@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<dwsync>
+<file name="memory.lib.php" server="www.dmedia.zju.edu.cn" local="130456524781743124" remote="130420402200000000" Dst="0" />
+<file name="myisam.lib.php" server="www.dmedia.zju.edu.cn" local="130456524821805415" remote="130420402200000000" Dst="0" />
+<file name="berkeleydb.lib.php" server="www.dmedia.zju.edu.cn" local="130456524863827819" remote="130420402200000000" Dst="0" />
+<file name="merge.lib.php" server="www.dmedia.zju.edu.cn" local="130456524866017944" remote="130420402200000000" Dst="0" />
+<file name="bdb.lib.php" server="www.dmedia.zju.edu.cn" local="130420402200000000" remote="130420402200000000" Dst="0" />
+<file name="binlog.lib.php" server="www.dmedia.zju.edu.cn" local="130420402200000000" remote="130420402200000000" Dst="0" />
+<file name="innobase.lib.php" server="www.dmedia.zju.edu.cn" local="130420402200000000" remote="130420402200000000" Dst="0" />
+<file name="innodb.lib.php" server="www.dmedia.zju.edu.cn" local="130420402200000000" remote="130420402200000000" Dst="0" />
+<file name="mrg_myisam.lib.php" server="www.dmedia.zju.edu.cn" local="130420402200000000" remote="130420402200000000" Dst="0" />
+<file name="ndbcluster.lib.php" server="www.dmedia.zju.edu.cn" local="130420402800000000" remote="130420402800000000" Dst="0" />
+<file name="pbxt.lib.php" server="www.dmedia.zju.edu.cn" local="130420402800000000" remote="130420402800000000" Dst="0" />
+<file name="performance_schema.lib.php" server="www.dmedia.zju.edu.cn" local="130420402800000000" remote="130420402800000000" Dst="0" />
+</dwsync>
