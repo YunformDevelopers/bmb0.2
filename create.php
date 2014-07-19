@@ -114,14 +114,14 @@ header('Content-Type:text/html; charset=utf-8');
     <div id="form-construct-field">
     <p></p>
         <div id="form-title">
-            <h3><input type="text" value="求是潮社团纳新报名表" class="title edit"  /></h3>
+            <h3><input type="text" value="CC98社团纳新报名表" class="title edit"  /></h3>
         </div>
         <div id="form-intro">
             <textarea class="title edit" contentEditable="true" rows="1">为了促进社团发展，我们进行纳新。</textarea>
         </div>
         <ul id="form-body">
         	<li>
-            	<div id='q' class='q1 q-field-before' onmousemove='onshow(this)' onmouseout='offshow(this)'>
+            	<div id='q' class='q1 q-field-before' onMouseOver='showon(this)' onMouseOut='showoff(this)'>
                 	<div class='q-number'><span>Q</span></div>
                     <div class='q-whole'>
                     	<div class='q-title'>
@@ -134,12 +134,12 @@ header('Content-Type:text/html; charset=utf-8');
                             	<input type='text' name='q1-body1' class='body no-edit'/>
                             </div>
                      </div>
-                     <a href="javascript:;" id="q-del" style="display:none;" class="q-del" title="删除">
+                     <a href="javascript:;" id="q-del" style="display:none;" class="q-del" title="删除" onclick="qDel(this)">
                      	
                      </a>
                  </div>
              </li>
-             <li><div id='q' class='q1 q-field-before' onmouseover='onshow(this)' onmouseout='offshow(this)'><div class='q-number'><span>Q</span></div><div class='q-whole'>          <div class='q-title'><textarea type='text' name='q1-title' rows='1' class='title edit' >姓名</textarea></div><div id='alt' class='q-alternative'><a onclick='changeState(this)'>改为选答</a></div><div class='q-body'><input type='text' name='q1-body1' class='body no-edit'/></div></div></div></li>
+             <li><div id='q' class='q1 q-field-before' onMouseOver='showon(this)' onMouseOut='showoff(this)'><div class='q-number'><span>Q</span></div><div class='q-whole'>          <div class='q-title'><textarea type='text' name='q1-title' rows='1' class='title edit' >姓名</textarea></div><div id='alt' class='q-alternative'><a onclick='changeState(this)'>改为选答</a></div><div class='q-body'><input type='text' name='q1-body1' class='body no-edit'/></div></div><a href='javascript:;' id='q-del' style='display:none;' class='q-del' title='删除'></a></div></li>
             <!--<div id="" class="q1 q-field free-singleline preserved-name">
                 <div class="q-number"><span>Q1</span></div>
                 <div class="q-whole">
@@ -211,8 +211,11 @@ header('Content-Type:text/html; charset=utf-8');
             
             
         </ul>
+        <div id="next-step">
+    		<input class="btn blue" value="保存并下一步" type="submit" id="step1-step2" onclick="alert('正在建设中')"/>
+	    </div>
+
     </div>
-    
 </div>
 <?php
      include 'includes/footer.inc.php'
