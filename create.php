@@ -16,6 +16,7 @@ header('Content-Type:text/html; charset=utf-8');
 <script type="text/javascript" src="js/msg.js"></script>
 <?php
     require 'includes/header.inc.php';
+    create_to_db();
 ?>
 </head>
 <body>
@@ -40,7 +41,7 @@ header('Content-Type:text/html; charset=utf-8');
             <div class="loading-64" style="display:none">
             </div>
             <div class="bg blue">
-                <a class="tool save">
+                <a class="tool save" onclick="SetCookie();" >
                 </a>
             </div>
 		</div>
@@ -114,105 +115,19 @@ header('Content-Type:text/html; charset=utf-8');
     <div id="form-construct-field">
     <p></p>
         <div id="form-title">
-            <h3><input type="text" value="求是潮社团纳新报名表" class="title edit"  /></h3>
+            <h3><input type="text" value="CC98社团纳新报名表" class="title edit"  /></h3>
         </div>
         <div id="form-intro">
             <textarea class="title edit" contentEditable="true" rows="1">为了促进社团发展，我们进行纳新。</textarea>
         </div>
         <ul id="form-body">
-        	<li>
-            	<div id='q' class='q1 q-field-before' onmousemove='onshow(this)' onmouseout='offshow(this)'>
-                	<div class='q-number'><span>Q</span></div>
-                    <div class='q-whole'>
-                    	<div class='q-title'>
-                        	<textarea type='text' name='q1-title' rows='1' class='title edit' >姓名</textarea>
-                        </div>
-                        <div id='alt' class='q-alternative'>
-                        	<a onclick='changeState(this)'>改为选答</a>
-                        </div>
-                        	<div class='q-body'>
-                            	<input type='text' name='q1-body1' class='body no-edit'/>
-                            </div>
-                     </div>
-                     <a href="javascript:;" id="q-del" style="display:none;" class="q-del" title="删除">
-                     	
-                     </a>
-                 </div>
-             </li>
-             <li><div id='q' class='q1 q-field-before' onmouseover='onshow(this)' onmouseout='offshow(this)'><div class='q-number'><span>Q</span></div><div class='q-whole'>          <div class='q-title'><textarea type='text' name='q1-title' rows='1' class='title edit' >姓名</textarea></div><div id='alt' class='q-alternative'><a onclick='changeState(this)'>改为选答</a></div><div class='q-body'><input type='text' name='q1-body1' class='body no-edit'/></div></div></div></li>
-            <!--<div id="" class="q1 q-field free-singleline preserved-name">
-                <div class="q-number"><span>Q1</span></div>
-                <div class="q-whole">
-                    <div class="q-title"><textarea type="text" name="q1-title" rows="1" class="title edit" >姓名</textarea></div>
-                    <div class="q-alternative"><a>改为选答</a></div>
-                    <div class="q-body">
-                    <input type="text" name="q1-body1" class="body no-edit"/>
-                    </div>
-                </div>
-            </div>
-            <div id="" class="q2 q-field free-multiline">
-                <div class="q-number"><span>Q2</span></div>
-                <div class="q-whole">
-                    <div class="q-title"><textarea type="text" name="q2-title" rows="1" class="title edit" >请问你的理想是什么？</textarea></div>
-                    <div class="q-alternative"><a>改为选答</a></div>
-                    <div class="q-body">
-                        <textarea name="q2-body1" class="body no-edit"></textarea>
-                    </div>
-                </div>
-            </div>
-            <div id="" class="q3 q-field free-multichoice">
-                <div class="q-number"><span>Q3</span></div>
-                <div class="q-whole">
-                    <div class="q-title"><textarea type="text" name="q3-title" rows="1" class="title edit" >请问你的志愿是哪几个？</textarea></div>
-                    <div class="q-alternative"><a>改为选答</a></div>
-                    <div class="q-body">
-                        <input type="checkbox" /><input type="text" name="q3-body1" class="body edit" value="项目部"/>
-                        <input type="checkbox" /><input type="text" name="q3-body2" class="body edit" value="外联部"/>
-                        <input type="checkbox" /><input type="text" name="q3-body3" class="body edit" value="技术部"/>
-                        <br />
-                        <input type="checkbox" /><input type="text" name="q3-body3" class="body edit" value="点击这里添加选项"/>
-                    </div>
-                </div>
-            </div>
-            <div id="" class="q4 q-field free-singlechoice">
-                <div class="q-number"><span>Q4</span></div>
-                <div class="q-whole">
-                    <div class="q-title"><textarea type="text" name="q4-title" rows="1" class="title edit" >请问年级是？</textarea></div>
-                    <div class="q-alternative"><a>改为选答</a></div>
-                    <div class="q-body">
-                        <input type="radio" /><input type="text" name="q4-body1" class="body edit" value="大一"/>
-                        <input type="radio" /><input type="text" name="q4-body2" class="body edit" value="大二"/>
-                        <input type="radio" /><input type="text" name="q4-body3" class="body edit" value="大三"/>
-                        <br />
-                        <input type="radio" /><input type="text" name="q4-body3" class="body edit" value="点击这里添加选项"/>
-                    </div>
-                </div>
-            </div>
-            <div id="" class="q5 q-field free-personalphoto">
-                <div class="q-number"><span>Q5</span></div>
-                <div class="q-whole">
-                    <div class="q-title"><textarea type="text" name="q5-title" rows="1" class="title edit" >请上交你的个人照片</textarea></div>
-                    <div class="q-alternative"><a>改为选答</a></div>
-                    <div class="q-body">
-                        <input type="file" />
-                    </div>
-                </div>
-            </div>
-            <div id="" class="q6 q-field free-file">
-                <div class="q-number"><span>Q6</span></div>
-                <div class="q-whole">
-                    <div class="q-title"><textarea type="text" name="q6-title" rows="1" class="title edit" >请上传你的个人作品</textarea></div>
-                    <div class="q-alternative"><a>改为选答</a></div>
-                    <div class="q-body">
-                        <input type="file" />
-                    </div>
-                </div>
-            </div>-->
-            
-            
+
         </ul>
+        <div id="next-step">
+    		<input class="btn blue" value="保存并下一步" type="submit" id="step1-step2" onclick="SetCookie(); alert(GetCookie());"/>
+	    </div>
+
     </div>
-    
 </div>
 <?php
      include 'includes/footer.inc.php'

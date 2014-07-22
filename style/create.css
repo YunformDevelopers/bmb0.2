@@ -339,3 +339,10 @@ form-construct-field里面，分为form-title,form-intro，form-body，具体看
 #form-construct-field .edit:hover,#form-construct-field .edit:active,#form-construct-field .edit:focus {
 	background:#FF9;
 }
+#next-step {
+}
+#step1-step2 {
+	display:block;
+	width:200px;
+	margin:3em auto 0 auto;
+}

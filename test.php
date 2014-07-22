@@ -21,11 +21,12 @@
 ?>
 </head>
 <body>
-
+    <form action="test2.php" method="post">
+        <input type="text" placeholder="内容" name="t1"/>
+	    <input type="file" value="上传" name="t2"/>
+	    <input type="submit" value="提交"/>
+    </form>
 <?php
-     $test=array('q1'=>'he','q2'=>'g','q3'=>'fwq','q4'=>'wqeqwe');
-     connect();
-     print_r(fetch('select * from test'));
      include 'includes/footer.inc.php';
 ?>
 </body>
