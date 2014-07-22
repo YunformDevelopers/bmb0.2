@@ -131,5 +131,23 @@ header('Content-Type:text/html; charset=utf-8');
 <?php
      include 'includes/footer.inc.php'
 ?>
+<script type="text/javascript" src="js/jquery.pin.js"></script>
+<script type="text/javascript" src="js/jquery.pin.min.js">
+</script>
+<script type="text/javascript">
+function changeState(obj)
+{
+	if(obj.innerHTML == "改为选答")
+	{
+		 obj.innerHTML = "改为必答";
+		}
+	if(obj.innerHTML == "改为必答")
+	{
+		obj.innerHTML = "改为选答";
+		}
+	}
+
+$("#tool-field").pin();
+</script>
 </body>
 </html>

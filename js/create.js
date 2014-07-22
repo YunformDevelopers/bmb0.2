@@ -72,3 +72,15 @@ function showoff(id){
 function qDel(id){
 	id.parentNode.style.display = "none";
 }
+
+function changeState(obj)
+{
+	if(obj.innerHTML == "改为选答")
+	{
+		 obj.innerHTML = "改为必答";
+		}
+	else if(obj.innerHTML == "改为必答")
+	{
+		obj.innerHTML = "改为选答";
+		}
+	}
