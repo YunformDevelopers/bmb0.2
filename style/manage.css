@@ -62,14 +62,74 @@
 	height:76px;
 	width:76px;
 }
+#manage-table .section-menu {
+	margin:1em 0;
+}
+#manage-table .section-menu span {
+	display:inline-block;
+
+
+}
+#manage-table .quick-select {
+	margin-left:1em;
+}
+#manage-table .quick-search {
+	float:right;
+	margin-right:1em;
+}
+#manage-table .quick-select select {
+
+
+}
+#manage-table .quick-search .btn {
+	text-align:center;
+}
 #manage-table .section-body {
 	width:100%;
-	height:500px;
 	overflow:auto;
-	padding-top:30px;
 	position:relative;
 }
-#manage-table table {
+#manage-table #answer-field {
+	margin:0 auto;
+	width:98%;
+	border:solid 2px #ccc;
+	border-radius:5px 5px;
+	background:#FFF;
+	height:900px;
+}
+#manage-table #answer-content {
+	text-align:justify;
+}
+#manage-table .answer-container {
+	display:inline-block;
+	width:8em;
+	margin:2em 2.5em 0px 2.5em;
+	padding:4px;
+	cursor:pointer;
+	border:solid 1px rgba(255,255,255,0);
+	border-radius:3px 3px;
+}
+#manage-table .answer-container:hover {
+	border:solid 1px #ccc;
+	background:#eee;
+}
+#manage-table .answer-container a {
+	text-decoration:none;
+	
+}
+#manage-table .answer-container .answer {
+	
+}
+#manage-table .answer-container .submit-time {
+	color:#ccc;
+	font-size:12px;
+}
+#manage-table .answer-container.left-fix {
+	padding:0;
+	border-radius:0px 0px; /* 这些都是为了修复无内容的answer-container hover会显示出边框 */
+}
+
+/*#manage-table table {
 	background:#FFF;
 }
 #manage-table table,td,th {
@@ -79,7 +139,7 @@
 	padding:0 1em;
 	text-align:center;
 	word-break:break-all;/* 设置换行 */
-	text-overflow:ellipsis; -o-text-overflow:ellipsis; -moz-binding: url('ellipsis.xml#ellipsis');
+/*	text-overflow:ellipsis; -o-text-overflow:ellipsis; -moz-binding: url('ellipsis.xml#ellipsis');
 	white-space:nowrap;
 	overflow:hidden;
 }
@@ -89,4 +149,4 @@
 #manage-table #th {
 	position:absolute;
 	top:0; left:0;
-}
+}*/

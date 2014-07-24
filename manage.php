@@ -19,9 +19,9 @@ header('Content-Type:text/html; charset=utf-8');
 <script src="js/css3-mediaqueries.js"></script>
 <script type="text/javascript" src="js/jQuery.js"></script>
 <script type="text/javascript" src="js/showtips.js"></script>
-<script type="text/javascript" src="test for Liang/test.js"></script>
-<script type="text/javascript" src="js/msg.js"></script>
-<script type="text/javascript">
+<!--<script type="text/javascript" src="test for Liang/test.js"></script>
+--><script type="text/javascript" src="js/msg.js"></script>
+<!--<script type="text/javascript">
 var pre_scrollTop=0;//滚动条事件之前文档滚动高度
 var pre_scrollLeft=0;//滚动条事件之前文档滚动宽度
 var obj_th;
@@ -45,7 +45,7 @@ window.onscroll = function(){
     }
 };
 </script>
-
+-->
 </head>
 <div id='header'>
 	<ul>
@@ -75,7 +75,7 @@ window.onscroll = function(){
         <div class="h2-line">
         </div>
     </div>
-    <div class="section-body">
+    <div class="section-body" unselectable="on" onselectstart="return false;" style="-moz-user-select:none;">
     	<div class="tool" id="manage-xls">
         	<a href="#" title="下载已填写的数据的表格">
             	XLS
@@ -120,8 +120,45 @@ window.onscroll = function(){
         <div class="h2-line">
         </div>
     </div>
+	<div class="section-menu">
+		<span class="quick-select">
+			<b>快速查看</b>
+			<select>
+				<option>1:姓名</option>
+				<option>2:学号</option>
+				<option>3:班级</option>
+				<option>4:请问你的梦想是什么呢？你是怎么走到这个舞台上的？能和我们说说吗？我培养过一个冠军。欢迎</option>
+				<option>5:你是怎么走到这个舞台上的？能和我们说说吗？我培养过一个冠军。欢迎你加入阿妹family！</option>
+				<option>6:注意事项</option>
+				<option>1:姓名</option>
+				<option>2:学号</option>
+				<option>3:班级</option>
+				<option>4:请问你的梦想是什么呢？你是怎么走到这个舞台上的？能和我们说说吗？我培养过一个冠军。欢迎</option>
+				<option>5:你是怎么走到这个舞台上的？能和我们说说吗？我培养过一个冠军。欢迎你加入阿妹family！</option>
+				<option>6:注意事项</option>
+				<option>1:姓名</option>
+				<option>2:学号</option>
+				<option>3:班级</option>
+				<option>4:请问你的梦想是什么呢？你是怎么走到这个舞台上的？能和我们说说吗？我培养过一个冠军。欢迎</option>
+				<option>5:你是怎么走到这个舞台上的？能和我们说说吗？我培养过一个冠军。欢迎你加入阿妹family！</option>
+				<option>6:注意事项</option>
+				<option>1:姓名</option>
+				<option>2:学号</option>
+				<option>3:班级</option>
+				<option>4:请问你的梦想是什么呢？你是怎么走到这个舞台上的？能和我们说说吗？我培养过一个冠军。欢迎</option>
+				<option>5:你是怎么走到这个舞台上的？能和我们说说吗？我培养过一个冠军。欢迎你加入阿妹family！</option>
+				<option>6:注意事项</option>
+			</select>
+		</span>
+		<span class="quick-search">
+			<input type="search">
+			</input>
+            <input type="btn" class="btn red" name="quick-search" value="搜索" />
+		</span>
+	
+	</div>
     <div class="section-body">
-    	<table cellpadding="0" cellspacing="0">
+<!--    	<table cellpadding="0" cellspacing="0">
             <tr id="th">
             	<th>&nbsp;</th>
                 <th>填写时间</th>
@@ -339,7 +376,73 @@ window.onscroll = function(){
             </tr>
 
         </table>
-    
+-->
+		<div id="answer-field">
+        	<div id="answer-content">
+            	<div class="answer-container">
+                	<p class="answer">
+                        <a href="#" title="" id="">
+                            请问你的梦想是什。欢迎
+                        </a>
+                    </p>
+                	<p class="submit-time">2014-6-17 18:45 填写</p>
+                </div>
+            	<div class="answer-container">
+                	<p class="answer">
+                        <a href="#" title="" id="">
+                            请问你的梦想是什么呢？你是怎么走到这我培养过一个冠军。欢迎
+                        </a>
+                    </p>
+                	<p class="submit-time">2014-6-17 18:45 填写</p>
+                </div>
+            	<div class="answer-container">
+                	<p class="answer">
+                        <a href="#" title="" id="">
+                            请问你的梦想是什么呢？你是怎么走到这个舞台上的？能和我们说说吗？我培养过一个冠军。欢迎
+                        </a>
+                    </p>
+                	<p class="submit-time">2014-6-17 18:45 填写</p>
+                </div>
+            	<div class="answer-container">
+                	<p class="answer">
+                        <a href="#" title="" id="">
+                            请
+                        </a>
+                    </p>
+                	<p class="submit-time">2014-6-17 18:45 填写</p>
+                </div>
+            	<div class="answer-container">
+                	<p class="answer">
+                        <a href="#" title="" id="">
+                            请问过一个冠军。欢迎
+                        </a>
+                    </p>
+                	<p class="submit-time">2014-6-17 18:45 填写</p>
+                </div>
+            	<div class="answer-container">
+                	<p class="answer">
+                        <a href="#" title="" id="">
+                            请问你的梦想是什么呢？你是怎么走到这个舞台上的？能和我们说说吗？我培养过一个冠军。欢迎
+                        </a>
+                    </p>
+                	<p class="submit-time">2014-6-17 18:45 填写</p>
+                </div>
+            	<div class="answer-container">
+                	<p class="answer">
+                        <a href="#" title="" id="">
+                            请问你的梦想是什么呢？你是怎么走到这个舞台上的？能和我们说说吗？我培养过一个冠军。欢迎
+                        </a>
+                    </p>
+                	<p class="submit-time">2014-6-17 18:45 填写</p>
+                </div>
+            
+                    <!-- 这里是用来使元素左端对齐的 -->
+                <div class='answer-container left-fix'>&nbsp;</div>
+                <div class='answer-container left-fix'>&nbsp;</div>
+                <div class='answer-container left-fix'>&nbsp;</div>
+                <div class='answer-container left-fix'>&nbsp;</div>
+            </div>
+        </div>
 	</div>
 </div>
 
