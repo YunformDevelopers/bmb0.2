@@ -1,11 +1,12 @@
 $(document).ready(function(){
 	//页面开始加载时定义几个初始值
 	var currentView = "list";//以列表形式展现
-	$("#answer-field table.matrix-table").hide();
-	$("#answer-field table.list-table").show();
+		$("#answer-field table.matrix-table").hide();
+		$("#answer-field table.list-table").show();
 	var currentTimeOrder = "now2past";//顺序为从现在到过去，即先显示最新的
-	$("#time-toggle .now2past").css("color","#DE473A");
-	$("#time-toggle .past2now").css("color","black");
+		$("#time-toggle .now2past").css("color","#DE473A");
+		$("#time-toggle .past2now").css("color","black");
+	trBackgroundColor();//为IE8这样的不支持伪类的浏览器的表格的奇数背景颜色改变
 	
 	$(".list-view").click(function(){
 		if (currentView == "matrix"){
@@ -50,5 +51,10 @@ $(document).ready(function(){
 	})
 
 });
-
+function trBackgroundColor(){
+	var trTotalNumber = $("#answer-field table.list-table tr").length;
+	for(var i=1;i<trTotalNumber;i=i+2){
+		$("#answer-field table.list-table tbody").children().eq(i).css("background","#f7f7f7");
+	}
+}
 

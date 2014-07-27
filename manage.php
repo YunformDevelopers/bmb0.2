@@ -348,17 +348,19 @@ window.onscroll = function(){
 					<th id="table-tool" class="col-1">
 						<span id="table-view">
 							<a id="dfdfd" class="list-view active" title="列表视图"  >
-							
+							<b></b>
 							
 							</a><a class="matrix-view" title="矩阵视图" >
-							
+							<b></b>
 							
 							</a>
 						</span>
 						<span class="quick-search">
-							<input type="search" class="search" placeholder="搜索答案" >
-							</input>
-							<input type="submit" class="btn red" name="quick-search" value="搜索" />
+							<a>
+								<input type="text" class="search" placeholder="搜索答案" >
+								</input>
+								<input type="submit" class="btn red" name="quick-search" value="搜索" />
+							</a>
 						</span>
 						
 					</th>

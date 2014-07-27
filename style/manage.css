@@ -125,19 +125,31 @@
 #table-menu #table-view .list-view {
 	border-bottom-left-radius:3px;
 	border-top-left-radius:3px;
-	background:url(../images/tool/list-view.gif) center no-repeat, linear-gradient(#fff, #ccc);
+	background:linear-gradient(#fff, #ccc);
+}
+#table-menu #table-view .list-view b {
+	display:block; _display:inline-block;
+	width:100%;
+	height:100%;
+	background:url(../images/tool/list-view.gif) center no-repeat;
 }
 #table-menu #table-view .list-view:active, #table-menu #table-view .list-view.active{
-	background:url(../images/tool/list-view.gif) center no-repeat, linear-gradient(#aaa, #ddd);
+	background:linear-gradient(#aaa, #ddd);
 }
 #table-menu #table-view .matrix-view {
 	border-left:none;
 	border-bottom-right-radius:3px;
 	border-top-right-radius:3px;
-	background:url(../images/tool/matrix-view.gif) no-repeat, linear-gradient(#fff, #ccc);
+	background:linear-gradient(#fff, #ccc);
+}
+#table-menu #table-view .matrix-view b {
+	display:block; _display:inline-block;
+	width:100%;
+	height:100%;
+	background:url(../images/tool/matrix-view.gif) center no-repeat;
 }
 #table-menu #table-view .matrix-view:active, #table-menu #table-view .matrix-view.active {
-	background:url(../images/tool/matrix-view.gif) center no-repeat, linear-gradient(#aaa, #ddd);
+	background:linear-gradient(#aaa, #ddd);
 }
 #table-menu #table-tool .quick-search {
 	height:28px;
@@ -145,13 +157,22 @@
 	margin-left:5px;
 	padding:0 8px;
 	vertical-align:middle;
-	background:url(../images/tool/search.png) 7px center no-repeat, linear-gradient(#eee, #fff);
+	background:linear-gradient(#eee, #fff);
 	border-radius:3px;
 	border:solid 1px #666;
 	opacity:0.8;
 }
+#table-menu #table-tool .quick-search a {
+	display:block; _display:inline-block;
+	width:100%;
+	height:100%;
+	background:url(../images/tool/search.png) left center no-repeat;
+}
 #table-menu #table-tool .quick-search input.search {
-	border:none;
+	border-left: 0;
+   border-right: 0;
+   border-top: 0;
+   border-bottom:1px solid #000000;
 	outline:none;
 	height:28px;
 	width:4.2em;
@@ -180,6 +201,9 @@
 	border:none;
 	background:transparent;
 }
+#table-menu #time-toggle {
+	cursor:pointer;
+}
 #table-menu #time-toggle  a {
 	height:100%;
 	text-decoration:none;
@@ -202,10 +226,10 @@
 	padding:5px 0;
 }
 #answer-field table.list-table  tr:nth-child(even) {
-	background:#f7f7f7;
+	background:#f7f7f7 ;
 }
 #answer-field table.list-table  tr:hover {
-	background:#e6e6e6;
+	background:#e6e6e6 !important;
 	cursor:pointer;
 }
 #answer-field table.matrix-table td:hover {
