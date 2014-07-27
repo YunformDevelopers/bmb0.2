@@ -18,9 +18,11 @@ header('Content-Type:text/html; charset=utf-8');
 <!--下面这个js文件是为了兼容IE的媒体查询而准备的-->
 <script src="js/css3-mediaqueries.js"></script>
 <script type="text/javascript" src="js/jQuery.js"></script>
+<script type="text/javascript" src="js/jquery-ui-1.10.4.js"></script>
 <script type="text/javascript" src="js/showtips.js"></script>
 <!--<script type="text/javascript" src="test for Liang/test.js"></script>
 --><script type="text/javascript" src="js/msg.js"></script>
+<script type="text/javascript" src="js/manage.js"></script>
 <!--<script type="text/javascript">
 var pre_scrollTop=0;//滚动条事件之前文档滚动高度
 var pre_scrollLeft=0;//滚动条事件之前文档滚动宽度
@@ -120,43 +122,6 @@ window.onscroll = function(){
         <div class="h2-line">
         </div>
     </div>
-	<div class="section-menu">
-		<span class="quick-select">
-			<b>快速查看</b>
-			<select>
-				<option>1:姓名</option>
-				<option>2:学号</option>
-				<option>3:班级</option>
-				<option>4:请问你的梦想是什么呢？你是怎么走到这个舞台上的？能和我们说说吗？我培养过一个冠军。欢迎</option>
-				<option>5:你是怎么走到这个舞台上的？能和我们说说吗？我培养过一个冠军。欢迎你加入阿妹family！</option>
-				<option>6:注意事项</option>
-				<option>1:姓名</option>
-				<option>2:学号</option>
-				<option>3:班级</option>
-				<option>4:请问你的梦想是什么呢？你是怎么走到这个舞台上的？能和我们说说吗？我培养过一个冠军。欢迎</option>
-				<option>5:你是怎么走到这个舞台上的？能和我们说说吗？我培养过一个冠军。欢迎你加入阿妹family！</option>
-				<option>6:注意事项</option>
-				<option>1:姓名</option>
-				<option>2:学号</option>
-				<option>3:班级</option>
-				<option>4:请问你的梦想是什么呢？你是怎么走到这个舞台上的？能和我们说说吗？我培养过一个冠军。欢迎</option>
-				<option>5:你是怎么走到这个舞台上的？能和我们说说吗？我培养过一个冠军。欢迎你加入阿妹family！</option>
-				<option>6:注意事项</option>
-				<option>1:姓名</option>
-				<option>2:学号</option>
-				<option>3:班级</option>
-				<option>4:请问你的梦想是什么呢？你是怎么走到这个舞台上的？能和我们说说吗？我培养过一个冠军。欢迎</option>
-				<option>5:你是怎么走到这个舞台上的？能和我们说说吗？我培养过一个冠军。欢迎你加入阿妹family！</option>
-				<option>6:注意事项</option>
-			</select>
-		</span>
-		<span class="quick-search">
-			<input type="search">
-			</input>
-            <input type="btn" class="btn red" name="quick-search" value="搜索" />
-		</span>
-	
-	</div>
     <div class="section-body">
 <!--    	<table cellpadding="0" cellspacing="0">
             <tr id="th">
@@ -377,74 +342,255 @@ window.onscroll = function(){
 
         </table>
 -->
-		<div id="answer-field">
-        	<div id="answer-content">
-            	<div class="answer-container">
-                	<p class="answer">
-                        <a href="#" title="" id="">
-                            请问你的梦想是什。欢迎
-                        </a>
-                    </p>
-                	<p class="submit-time">2014-6-17 18:45 填写</p>
-                </div>
-            	<div class="answer-container">
-                	<p class="answer">
-                        <a href="#" title="" id="">
-                            请问你的梦想是什么呢？你是怎么走到这我培养过一个冠军。欢迎
-                        </a>
-                    </p>
-                	<p class="submit-time">2014-6-17 18:45 填写</p>
-                </div>
-            	<div class="answer-container">
-                	<p class="answer">
-                        <a href="#" title="" id="">
-                            请问你的梦想是什么呢？你是怎么走到这个舞台上的？能和我们说说吗？我培养过一个冠军。欢迎
-                        </a>
-                    </p>
-                	<p class="submit-time">2014-6-17 18:45 填写</p>
-                </div>
-            	<div class="answer-container">
-                	<p class="answer">
-                        <a href="#" title="" id="">
-                            请
-                        </a>
-                    </p>
-                	<p class="submit-time">2014-6-17 18:45 填写</p>
-                </div>
-            	<div class="answer-container">
-                	<p class="answer">
-                        <a href="#" title="" id="">
-                            请问过一个冠军。欢迎
-                        </a>
-                    </p>
-                	<p class="submit-time">2014-6-17 18:45 填写</p>
-                </div>
-            	<div class="answer-container">
-                	<p class="answer">
-                        <a href="#" title="" id="">
-                            请问你的梦想是什么呢？你是怎么走到这个舞台上的？能和我们说说吗？我培养过一个冠军。欢迎
-                        </a>
-                    </p>
-                	<p class="submit-time">2014-6-17 18:45 填写</p>
-                </div>
-            	<div class="answer-container">
-                	<p class="answer">
-                        <a href="#" title="" id="">
-                            请问你的梦想是什么呢？你是怎么走到这个舞台上的？能和我们说说吗？我培养过一个冠军。欢迎
-                        </a>
-                    </p>
-                	<p class="submit-time">2014-6-17 18:45 填写</p>
-                </div>
-            
-                    <!-- 这里是用来使元素左端对齐的 -->
-                <div class='answer-container left-fix'>&nbsp;</div>
-                <div class='answer-container left-fix'>&nbsp;</div>
-                <div class='answer-container left-fix'>&nbsp;</div>
-                <div class='answer-container left-fix'>&nbsp;</div>
-            </div>
+		<div id="table-menu"  unselectable="on" onselectstart="return false;" style="-moz-user-select:none;">
+			<table cellpadding="0" cellspacing="0">
+				<tr>
+					<th id="table-tool" class="col-1">
+						<span id="table-view">
+							<a class="list-view active" title="列表视图" onclick="ChangeView();" >
+							
+							
+							</a><a class="matrix-view" title="矩阵视图" onclick="ChangeView();" >
+							
+							
+							</a>
+						</span>
+						<span class="quick-search">
+							<input type="search" class="search" placeholder="搜索答案" >
+							</input>
+							<input type="submit" class="btn red" name="quick-search" value="搜索" />
+						</span>
+						
+					</th>
+					<th id="table-select" class="col-2">
+						<span class="quick-select">
+							<select>
+								<option>1:姓名</option>
+								<option>2:学号</option>
+								<option>3:班级</option>
+								<option>4:请问你的梦想是什么呢？你是怎么走到这个舞台上的？能和我们说说吗？我培养过一个冠军。欢迎</option>
+								<option>5:你是怎么走到这个舞台上的？能和我们说说吗？我培养过一个冠军。欢迎你加入阿妹family！</option>
+								<option>6:注意事项</option>
+								<option>1:姓名</option>
+								<option>2:学号</option>
+								<option>3:班级</option>
+								<option>4:请问你的梦想是什么呢？你是怎么走到这个舞台上的？能和我们说说吗？我培养过一个冠军。欢迎</option>
+								<option>5:你是怎么走到这个舞台上的？能和我们说说吗？我培养过一个冠军。欢迎你加入阿妹family！</option>
+								<option>6:注意事项</option>
+								<option>1:姓名</option>
+								<option>2:学号</option>
+								<option>3:班级</option>
+								<option>4:请问你的梦想是什么呢？你是怎么走到这个舞台上的？能和我们说说吗？我培养过一个冠军。欢迎</option>
+								<option>5:你是怎么走到这个舞台上的？能和我们说说吗？我培养过一个冠军。欢迎你加入阿妹family！</option>
+								<option>6:注意事项</option>
+								<option>1:姓名</option>
+								<option>2:学号</option>
+								<option>3:班级</option>
+								<option>4:请问你的梦想是什么呢？你是怎么走到这个舞台上的？能和我们说说吗？我培养过一个冠军。欢迎</option>
+								<option>5:你是怎么走到这个舞台上的？能和我们说说吗？我培养过一个冠军。欢迎你加入阿妹family！</option>
+								<option>6:注意事项</option>
+							</select>
+						</span>
+					
+					</th>
+					<th id="" class="col-3" style="display:none;">
+						<a>对应问题</a>
+					
+					</th>
+					<th id="time-toggle" class="col-4">
+						<a>填写时间↓↑</a>
+					
+					</th>
+				</tr>
+			</table>
+		</div>
+        
+        <div id="answer-field">
+			<table class="list-table" cellpadding="0" cellspacing="0" >
+				<tr>
+					<td class="col-1 a-order">
+					1
+					</td>
+					<td class="col-2 a-content">请问你的梦想是什么呢？你是怎么走到这个舞台上的？能和我们说说吗？我培养过一个冠军。欢迎
+					</td>
+					<td class="col-3 q-number">
+					</td>
+					<td class="col-4 a-time">
+					2014-6-17
+					</td>
+				</tr>
+				<tr>
+					<td class="col-1 a-order">
+					2
+					</td>
+					<td class="col-2 a-content">请问你的梦想是什么呢？你是怎么走到这个舞台上的？能和我们说说吗？我培养过一个冠军。欢迎
+					</td>
+					<td class="col-3 q-number">
+					</td>
+					<td class="col-4 a-time">
+					2014-09-27
+					</td>
+				</tr>
+				<tr>
+					<td class="col-1 a-order">
+					3
+					</td>
+					<td class="col-2 a-content">请问你的梦想是什么呢？你是怎么走到这个舞台上的？能和我们说说吗？我培养过一个冠军。欢迎
+					</td>
+					<td class="col-3 q-number">
+					</td>
+					<td class="col-4 a-time">
+					2014-6-17
+					</td>
+				</tr>
+				<tr>
+					<td class="col-1 a-order">
+					4
+					</td>
+					<td class="col-2 a-content">请问你的梦想是什么呢？你是怎么走到这个舞台上的？能和我们说说吗？我培养过一个冠军。欢迎
+					</td>
+					<td class="col-3 q-number">
+					</td>
+					<td class="col-4 a-time">
+					2014-09-27
+					</td>
+				</tr>
+				<tr>
+					<td class="col-1 a-order">
+					5
+					</td>
+					<td class="col-2 a-content">请问你的梦想是什么呢？你是怎么走到这个舞台上的？能和我们说说吗？我培养过一个冠军。欢迎
+					</td>
+					<td class="col-3 q-number">
+					</td>
+					<td class="col-4 a-time">
+					2014-09-27
+					</td>
+				</tr>
+				<tr>
+					<td class="col-1 a-order">
+					6
+					</td>
+					<td class="col-2 a-content">请问你的梦想是什么呢？你是怎么走到这个舞台上的？能和我们说说吗？我培养过一个冠军。欢迎
+					</td>
+					<td class="col-3 q-number">
+					</td>
+					<td class="col-4 a-time">
+					2014-09-27
+					</td>
+				</tr>
+				<tr>
+					<td class="col-1 a-order">
+					7
+					</td>
+					<td class="col-2 a-content">请问你的梦想是什么呢？你是怎么走到这个舞台上的？能和我们说说吗？我培养过一个冠军。欢迎
+					</td>
+					<td class="col-3 q-number">
+					</td>
+					<td class="col-4 a-time">
+					2014-09-27
+					</td>
+				</tr>
+				<tr>
+					<td class="col-1 a-order">
+					8
+					</td>
+					<td class="col-2 a-content">请问你的梦想是什么呢？你是怎么走到这个舞台上的？能和我们说说吗？我培养过一个冠军。欢迎
+					</td>
+					<td class="col-3 q-number">
+					</td>
+					<td class="col-4 a-time">
+					2014-09-27
+					</td>
+				</tr>
+				<tr>
+					<td class="col-1 a-order">
+					9
+					</td>
+					<td class="col-2 a-content">请问你的梦想是什么呢？你是怎么走到这个舞台上的？能和我们说说吗？我培养过一个冠军。欢迎
+					</td>
+					<td class="col-3 q-number">
+					</td>
+					<td class="col-4 a-time">
+					2014-09-27
+					</td>
+				</tr>
+
+			</table>
+        	<table class="matrix-table" cellpadding="0" cellspacing="0" >
+				<tr>
+					<td class="answer-container">
+						<p class="answer">
+							<a href="#" title="" id="">
+								请问你的梦想是什。欢迎
+							</a>
+						</p>
+						<p class="submit-time">2014-6-17 18:45 填写</p>
+					</td>
+					<td class="answer-container">
+						<p class="answer">
+							<a href="#" title="" id="">
+								请问你的梦想是什么呢？你是怎么走到这我培养过一个冠军。欢迎
+							</a>
+						</p>
+						<p class="submit-time">2014-6-17 18:45 填写</p>
+					</td>
+					<td class="answer-container">
+						<p class="answer">
+							<a href="#" title="" id="">
+								请问你的梦想是什么呢？你是怎么走到这个舞台上的？能和我们说说吗？我培养过一个冠军。欢迎
+							</a>
+						</p>
+						<p class="submit-time">2014-6-17 18:45 填写</p>
+					</td>
+					<td class="answer-container">
+						<p class="answer">
+							<a href="#" title="" id="">
+								请
+							</a>
+						</p>
+						<p class="submit-time">2014-6-17 18:45 填写</p>
+					</td>
+					<td class="answer-container">
+						<p class="answer">
+							<a href="#" title="" id="">
+								请问过一个冠军。欢迎
+							</a>
+						</p>
+						<p class="submit-time">2014-6-17 18:45 填写</p>
+					</td>
+				</tr>
+				<tr>
+					<td class="answer-container">
+						<p class="answer">
+							<a href="#" title="" id="">
+								请问你的梦想是什么呢？你是怎么走到这个舞台上的？能和我们说说吗？我培养过一个冠军。欢迎
+							</a>
+						</p>
+						<p class="submit-time">2014-6-17 18:45 填写</p>
+					</td>
+					<td class="answer-container">
+						<p class="answer">
+							<a href="#" title="" id="">
+								请问你的梦想是什么呢？你是怎么走到这个舞台上的？能和我们说说吗？我培养过一个冠军。欢迎
+							</a>
+						</p>
+						<p class="submit-time">2014-6-17 18:45 填写</p>
+					</td>
+				</tr>
+             </table>
         </div>
+		</div>
 	</div>
 </div>
+<div class="mask">
+	<div class="mask-content">
+    
+    
+    
+    </div>
+</div>
+
 
 <div class='msg'>
     <div class='msg-border'>

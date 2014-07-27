@@ -62,7 +62,197 @@
 	height:76px;
 	width:76px;
 }
-#manage-table .section-menu {
+.section-body {
+	padding-top:2em;
+}
+#table-menu {
+
+}
+#table-menu table ,.quick-select select {
+	text-shadow:0px 1px #fff;
+}
+#table-menu table {
+	border-top:solid 4px #DE473A;
+}
+#table-menu table ,#answer-field table.list-table {
+	margin:0;
+	width:100%;
+	border-collapse:separate;
+	font-size:16px;
+	background:#fff;
+}
+#table-menu tr {
+	height:48px;
+	border:solid 1px #ccc;
+}
+#table-menu th {
+	border:solid 1px #ddd;
+	border-top:solid 1px #fff;
+	border-right:solid 1px #fff;
+	border-bottom:solid 2px #ddd;
+	height:48px;
+	background:linear-gradient(#FCFCFC, #EEE);
+}
+#table-menu th:active {
+	background:linear-gradient(#eee, #fcfcfc);
+}
+#table-menu th:first-of-type:active {
+	background:linear-gradient(#FCFCFC, #EEE);
+}
+#table-menu th:last-of-type {
+	text-align:center;
+	border-right:solid 1px #ddd;
+}
+#table-menu #table-tool {
+
+}
+#table-menu #table-tool #table-view  {
+	line-height:80px;
+	display:inline-block;
+	padding-left:12px;
+	font-size:16px;
+	vertical-align:middle;
+}
+#table-menu #table-view .list-view, #table-menu #table-view .matrix-view {
+	line-height:80px;
+	display:inline-block;
+	width:28px;
+	height:28px;
+	border:solid 1px #666;
+	vertical-align:middle;
+	opacity:0.8;
+}
+#table-menu #table-view .list-view {
+	border-bottom-left-radius:3px;
+	border-top-left-radius:3px;
+	background:url(../images/tool/list-view.gif) center no-repeat, linear-gradient(#fff, #ccc);
+}
+#table-menu #table-view .list-view:active, #table-menu #table-view .list-view.active{
+	background:url(../images/tool/list-view.gif) center no-repeat, linear-gradient(#aaa, #ddd);
+}
+#table-menu #table-view .matrix-view {
+	border-left:none;
+	border-bottom-right-radius:3px;
+	border-top-right-radius:3px;
+	background:url(../images/tool/matrix-view.gif) no-repeat, linear-gradient(#fff, #ccc);
+}
+#table-menu #table-view .matrix-view:active, #table-menu #table-view .matrix-view.active {
+	background:url(../images/tool/matrix-view.gif) center no-repeat, linear-gradient(#aaa, #ddd);
+}
+#table-menu #table-tool .quick-search {
+	height:28px;
+	display:inline-block;
+	margin-left:5px;
+	padding:0 8px;
+	vertical-align:middle;
+	background:url(../images/tool/search.png) 7px center no-repeat, linear-gradient(#eee, #fff);
+	border-radius:3px;
+	border:solid 1px #666;
+	opacity:0.8;
+}
+#table-menu #table-tool .quick-search input.search {
+	border:none;
+	outline:none;
+	height:28px;
+	width:4.2em;
+	vertical-align:middle;
+	background:transparent;
+}
+#table-menu #table-tool .quick-search input.btn {
+	vertical-align:middle;
+	display:none;
+}
+#table-menu #table-select {
+
+
+}
+#table-menu #table-select .quick-select {
+	display:inline-block;
+	width:100%;
+	height:100%;
+}
+#table-menu #table-select .quick-select select {
+	width:100%;
+	height:48px;
+	line-height:48px;
+	padding:12px 0;
+	border:none;
+	background:transparent;
+}
+#table-menu #time-toggle  a {
+	height:100%;
+	text-decoration:none;
+}
+
+#answer-field {
+	width:100%;
+}
+#answer-field table {
+	border-left:solid 1px #ddd;
+	border-right:solid 1px #ddd;
+	border-bottom:solid 1px #ddd;
+	background:#fff;
+}
+#answer-field table.list-table {
+	display:none;
+}
+
+#answer-field table.list-table td {
+	padding:5px 0;
+}
+#answer-field table.list-table  tr:nth-child(even) {
+	background:#f7f7f7;
+}
+#answer-field table.list-table  tr:hover {
+	background:#e6e6e6;
+	cursor:pointer;
+}
+#answer-field table.matrix-table td:hover {
+	background:#e6e6e6;
+	cursor:pointer;	
+}
+#answer-field table  td {
+	text-align:center;	
+}
+
+#answer-field table.list-table td.a-order{
+	color:#999;
+}
+#answer-field table.list-table td.a-content{
+	text-align:left;
+}
+#answer-field table.list-table td.q-number {
+
+}
+#answer-field table.list-table td.a-time {
+	color:#666;
+}
+#answer-field table.matrix-table a {
+	text-decoration:none;
+}
+#answer-field table.matrix-table {
+	padding:1em;
+}
+#answer-field table.matrix-table td {
+	padding:1em;
+}
+#answer-field table.matrix-table .submit-time {
+	color:#888;
+	font-size:12px;
+}
+.col-1 {
+	width:12.2em;
+}
+.col-2 {
+
+}
+.col-3 {
+	display:none;
+}
+.col-4 {
+	width:7em;
+}
+/*#manage-table .section-menu {
 	margin:1em 0;
 }
 #manage-table .section-menu span {
@@ -72,6 +262,7 @@
 }
 #manage-table .quick-select {
 	margin-left:1em;
+	width:60%;
 }
 #manage-table .quick-search {
 	float:right;
@@ -79,7 +270,7 @@
 }
 #manage-table .quick-select select {
 
-
+	width:80%;
 }
 #manage-table .quick-search .btn {
 	text-align:center;
@@ -127,8 +318,7 @@
 #manage-table .answer-container.left-fix {
 	padding:0;
 	border-radius:0px 0px; /* 这些都是为了修复无内容的answer-container hover会显示出边框 */
-}
-
+}*/
 /*#manage-table table {
 	background:#FFF;
 }

@@ -27,3 +27,6 @@ slideshow accomplished
 
 7/15 卢智雄
 增加intro.html,完善首页slideshow。
+
+7/25 卢智雄
+TODO：想到将unselectable用CSS+js做出来
