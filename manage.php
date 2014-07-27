@@ -347,10 +347,10 @@ window.onscroll = function(){
 				<tr>
 					<th id="table-tool" class="col-1">
 						<span id="table-view">
-							<a class="list-view active" title="列表视图" onclick="ChangeView();" >
+							<a id="dfdfd" class="list-view active" title="列表视图"  >
 							
 							
-							</a><a class="matrix-view" title="矩阵视图" onclick="ChangeView();" >
+							</a><a class="matrix-view" title="矩阵视图" >
 							
 							
 							</a>
@@ -398,7 +398,7 @@ window.onscroll = function(){
 					
 					</th>
 					<th id="time-toggle" class="col-4">
-						<a>填写时间↓↑</a>
+						<a>填写时间<span class="now2past">↓</span><span class="past2now">↑</span></a>
 					
 					</th>
 				</tr>

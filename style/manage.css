@@ -170,6 +170,7 @@
 	display:inline-block;
 	width:100%;
 	height:100%;
+	cursor:pointer;
 }
 #table-menu #table-select .quick-select select {
 	width:100%;
