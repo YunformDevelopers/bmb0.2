@@ -123,225 +123,6 @@ window.onscroll = function(){
         </div>
     </div>
     <div class="section-body">
-<!--    	<table cellpadding="0" cellspacing="0">
-            <tr id="th">
-            	<th>&nbsp;</th>
-                <th>填写时间</th>
-                <th>Q1:姓名</th>
-                <th>Q2:学号</th>
-                <th>Q3:班级</th>
-                <th>Q4:请问你的梦想是什么呢？你是怎么走到这个舞台上的？能和我们说说吗？我培养过一个冠军。欢迎你加入阿妹family！</th>
-                <th>Q5:请问你的梦想是什么呢？你是怎么走到这个舞台上的？能和我们说说吗？我培养过一个冠军。欢迎你加入阿妹family！</th>
-                <th>Q6:请问你的梦想是什么呢？你是怎么走到这个舞台上的？能和我们说说吗？我培养过一个冠军。欢迎你加入阿妹family！</th>
-            </tr>
-            <tr>
-            	<td>24</td>
-            	<td>5.28/09:00</td>
-            	<td>卢智雄</td>
-                <td>3120103599</td>
-                <td>科创1201</td>
-                <td>你是怎么走到这个舞台上的？能和我们说说吗？我培养过一个冠军。欢迎你加入阿妹family！</td>
-                <td>你是怎么走到这个舞台上的？能和我们说说吗？我培养过一个冠军。欢迎你加入阿妹family！</td>
-                <td>你是怎么走到这个舞台上的？能和我们说说吗？我培养过一个冠军。欢迎你加入阿妹family！</td>
-            </tr>
-            <tr>
-            	<td>23</td>
-            	<td>5.28/09:00</td>
-            	<td>卢智雄</td>
-                <td>3120103599</td>
-                <td>科创1201</td>
-                <td>你是怎么走到这个舞台上的？能和我们说说吗？我培养过一个冠军。欢迎你加入阿妹family！</td>
-                <td>你是怎么走到这个舞台上的？能和我们说说吗？我培养过一个冠军。欢迎你加入阿妹family！</td>
-                <td>你是怎么走到这个舞台上的？能和我们说说吗？我培养过一个冠军。欢迎你加入阿妹family！</td>
-            </tr>
-            <tr>
-            	<td>22</td>
-            	<td>5.28/09:00</td>
-            	<td>卢智雄</td>
-                <td>3120103599</td>
-                <td>科创1201</td>
-                <td>你是怎么走到这个舞台上的？能和我们说说吗？我培养过一个冠军。欢迎你加入阿妹family！</td>
-                <td>你是怎么走到这个舞台上的？能和我们说说吗？我培养过一个冠军。欢迎你加入阿妹family！</td>
-                <td>你是怎么走到这个舞台上的？能和我们说说吗？我培养过一个冠军。欢迎你加入阿妹family！</td>
-            </tr>
-            <tr>
-            	<td>21</td>
-            	<td>5.28/09:00</td>
-            	<td>卢智雄</td>
-                <td>3120103599</td>
-                <td>科创1201</td>
-                <td>你是怎么走到这个舞台上的？能和我们说说吗？我培养过一个冠军。欢迎你加入阿妹family！</td>
-                <td>你是怎么走到这个舞台上的？能和我们说说吗？我培养过一个冠军。欢迎你加入阿妹family！</td>
-                <td>你是怎么走到这个舞台上的？能和我们说说吗？我培养过一个冠军。欢迎你加入阿妹family！</td>
-            </tr>
-            <tr>
-            	<td>20</td>
-            	<td>5.28/09:00</td>
-            	<td>卢智雄</td>
-                <td>3120103599</td>
-                <td>科创1201</td>
-                <td>你是怎么走到这个舞台上的？能和我们说说吗？我培养过一个冠军。欢迎你加入阿妹family！</td>
-                <td>你是怎么走到这个舞台上的？能和我们说说吗？我培养过一个冠军。欢迎你加入阿妹family！</td>
-                <td>你是怎么走到这个舞台上的？能和我们说说吗？我培养过一个冠军。欢迎你加入阿妹family！</td>
-            </tr>
-            <tr>
-            	<td>15</td>
-            	<td>5.28/09:00</td>
-            	<td>卢智雄</td>
-                <td>3120103599</td>
-                <td>科创1201</td>
-                <td>你是怎么走到这个舞台上的？能和我们说说吗？我培养过一个冠军。欢迎你加入阿妹family！</td>
-                <td>你是怎么走到这个舞台上的？能和我们说说吗？我培养过一个冠军。欢迎你加入阿妹family！</td>
-                <td>你是怎么走到这个舞台上的？能和我们说说吗？我培养过一个冠军。欢迎你加入阿妹family！</td>
-            </tr>
-            <tr>
-            	<td>19</td>
-            	<td>5.28/09:00</td>
-            	<td>卢智雄</td>
-                <td>3120103599</td>
-                <td>科创1201</td>
-                <td>你是怎么走到这个舞台上的？能和我们说说吗？我培养过一个冠军。欢迎你加入阿妹family！</td>
-                <td>你是怎么走到这个舞台上的？能和我们说说吗？我培养过一个冠军。欢迎你加入阿妹family！</td>
-                <td>你是怎么走到这个舞台上的？能和我们说说吗？我培养过一个冠军。欢迎你加入阿妹family！</td>
-            </tr>
-            <tr>
-            	<td>18</td>
-            	<td>5.28/09:00</td>
-            	<td>卢智雄</td>
-                <td>3120103599</td>
-                <td>科创1201</td>
-                <td>你是怎么走到这个舞台上的？能和我们说说吗？我培养过一个冠军。欢迎你加入阿妹family！</td>
-                <td>你是怎么走到这个舞台上的？能和我们说说吗？我培养过一个冠军。欢迎你加入阿妹family！</td>
-                <td>你是怎么走到这个舞台上的？能和我们说说吗？我培养过一个冠军。欢迎你加入阿妹family！</td>
-            </tr>
-            <tr>
-            	<td>17</td>
-            	<td>5.28/09:00</td>
-            	<td>卢智雄</td>
-                <td>3120103599</td>
-                <td>科创1201</td>
-                <td>你是怎么走到这个舞台上的？能和我们说说吗？我培养过一个冠军。欢迎你加入阿妹family！</td>
-                <td>你是怎么走到这个舞台上的？能和我们说说吗？我培养过一个冠军。欢迎你加入阿妹family！</td>
-                <td>你是怎么走到这个舞台上的？能和我们说说吗？我培养过一个冠军。欢迎你加入阿妹family！</td>
-            </tr>
-            <tr>
-            	<td>16</td>
-            	<td>5.28/09:00</td>
-            	<td>卢智雄</td>
-                <td>3120103599</td>
-                <td>科创1201</td>
-                <td>你是怎么走到这个舞台上的？能和我们说说吗？我培养过一个冠军。欢迎你加入阿妹family！</td>
-                <td>你是怎么走到这个舞台上的？能和我们说说吗？我培养过一个冠军。欢迎你加入阿妹family！</td>
-                <td>你是怎么走到这个舞台上的？能和我们说说吗？我培养过一个冠军。欢迎你加入阿妹family！</td>
-            </tr>
-            <tr>
-            	<td>15</td>
-            	<td>5.28/09:00</td>
-            	<td>卢智雄</td>
-                <td>3120103599</td>
-                <td>科创1201</td>
-            </tr>
-            <tr>
-            	<td>14</td>
-            	<td>5.28/09:00</td>
-            	<td>卢智雄</td>
-                <td>3120103599</td>
-                <td>科创1201</td>
-            </tr>
-            <tr>
-            	<td>13</td>
-            	<td>5.28/09:00</td>
-            	<td>卢智雄</td>
-                <td>3120103599</td>
-                <td>科创1201</td>
-            </tr>
-            <tr>
-            	<td>12</td>
-            	<td>5.28/09:00</td>
-            	<td>卢智雄</td>
-                <td>3120103599</td>
-                <td>科创1201</td>
-            </tr>
-            <tr>
-            	<td>11</td>
-            	<td>5.28/09:00</td>
-            	<td>卢智雄</td>
-                <td>3120103599</td>
-                <td>科创1201</td>
-            </tr>
-            <tr>
-            	<td>10</td>
-            	<td>5.28/09:00</td>
-            	<td>卢智雄</td>
-                <td>3120103599</td>
-                <td>科创1201</td>
-            </tr>
-            <tr>
-            	<td>9</td>
-            	<td>5.28/09:00</td>
-            	<td>卢智雄</td>
-                <td>3120103599</td>
-                <td>科创1201</td>
-            </tr>
-            <tr>
-            	<td>8</td>
-            	<td>5.28/09:00</td>
-            	<td>卢智雄</td>
-                <td>3120103599</td>
-                <td>科创1201</td>
-            </tr>
-            <tr>
-            	<td>7</td>
-            	<td>5.28/09:00</td>
-            	<td>卢智雄</td>
-                <td>3120103599</td>
-                <td>科创1201</td>
-            </tr>
-            <tr>
-            	<td>6</td>
-            	<td>5.28/09:00</td>
-            	<td>卢智雄</td>
-                <td>3120103599</td>
-                <td>科创1201</td>
-            </tr>
-            <tr>
-            	<td>5</td>
-            	<td>5.28/09:00</td>
-            	<td>卢智雄</td>
-                <td>3120103599</td>
-                <td>科创1201</td>
-            </tr>
-            <tr>
-            	<td>4</td>
-            	<td>5.28/09:00</td>
-            	<td>卢智雄</td>
-                <td>3120103599</td>
-                <td>科创1201</td>
-            </tr>
-            <tr>
-            	<td>3</td>
-            	<td>5.28/09:00</td>
-            	<td>卢智雄</td>
-                <td>3120103599</td>
-                <td>科创1201</td>
-            </tr>
-            <tr>
-            	<td>2</td>
-            	<td>5.28/09:00</td>
-            	<td>卢智雄</td>
-                <td>3120103599</td>
-                <td>科创1201</td>
-            </tr>
-            <tr>
-            	<td>1</td>
-            	<td>5.28/09:00</td>
-            	<td>卢智雄</td>
-                <td>3120103599</td>
-                <td>科创1201</td>
-            </tr>
-
-        </table>
--->
 		<div id="table-menu"  unselectable="on" onselectstart="return false;" style="-moz-user-select:none;">
 			<table cellpadding="0" cellspacing="0">
 				<tr>
@@ -409,7 +190,7 @@ window.onscroll = function(){
         
         <div id="answer-field">
 			<table class="list-table" cellpadding="0" cellspacing="0" >
-				<tr>
+				<tr class="a-all-msg">
 					<td class="col-1 a-order">
 					1
 					</td>
@@ -421,7 +202,7 @@ window.onscroll = function(){
 					2014-6-17
 					</td>
 				</tr>
-				<tr>
+				<tr class="a-all-msg">
 					<td class="col-1 a-order">
 					2
 					</td>
@@ -433,7 +214,7 @@ window.onscroll = function(){
 					2014-09-27
 					</td>
 				</tr>
-				<tr>
+				<tr class="a-all-msg">
 					<td class="col-1 a-order">
 					3
 					</td>
@@ -445,7 +226,7 @@ window.onscroll = function(){
 					2014-6-17
 					</td>
 				</tr>
-				<tr>
+				<tr class="a-all-msg">
 					<td class="col-1 a-order">
 					4
 					</td>
@@ -457,7 +238,7 @@ window.onscroll = function(){
 					2014-09-27
 					</td>
 				</tr>
-				<tr>
+				<tr class="a-all-msg">
 					<td class="col-1 a-order">
 					5
 					</td>
@@ -469,7 +250,7 @@ window.onscroll = function(){
 					2014-09-27
 					</td>
 				</tr>
-				<tr>
+				<tr class="a-all-msg">
 					<td class="col-1 a-order">
 					6
 					</td>
@@ -481,7 +262,7 @@ window.onscroll = function(){
 					2014-09-27
 					</td>
 				</tr>
-				<tr>
+				<tr class="a-all-msg">
 					<td class="col-1 a-order">
 					7
 					</td>
@@ -521,63 +302,63 @@ window.onscroll = function(){
 			</table>
         	<table class="matrix-table" cellpadding="0" cellspacing="0" >
 				<tr>
-					<td class="answer-container">
-						<p class="answer">
+					<td class="answer-container a-all-msg">
+						<p class="a-content">
 							<a href="#" title="" id="">
 								请问你的梦想是什。欢迎
 							</a>
 						</p>
-						<p class="submit-time">2014-6-17 18:45 填写</p>
+						<p class="a-time">2014-6-17 18:45 填写</p>
 					</td>
-					<td class="answer-container">
-						<p class="answer">
+					<td class="answer-container a-all-msg">
+						<p class="a-content">
 							<a href="#" title="" id="">
 								请问你的梦想是什么呢？你是怎么走到这我培养过一个冠军。欢迎
 							</a>
 						</p>
-						<p class="submit-time">2014-6-17 18:45 填写</p>
+						<p class="a-time">2014-6-17 18:45 填写</p>
 					</td>
-					<td class="answer-container">
-						<p class="answer">
+					<td class="answer-container a-all-msg">
+						<p class="a-content">
 							<a href="#" title="" id="">
 								请问你的梦想是什么呢？你是怎么走到这个舞台上的？能和我们说说吗？我培养过一个冠军。欢迎
 							</a>
 						</p>
-						<p class="submit-time">2014-6-17 18:45 填写</p>
+						<p class="a-time">2014-6-17 18:45 填写</p>
 					</td>
-					<td class="answer-container">
-						<p class="answer">
+					<td class="answer-container a-all-msg">
+						<p class="a-content">
 							<a href="#" title="" id="">
 								请
 							</a>
 						</p>
-						<p class="submit-time">2014-6-17 18:45 填写</p>
+						<p class="a-time">2014-6-17 18:45 填写</p>
 					</td>
-					<td class="answer-container">
-						<p class="answer">
+					<td class="answer-container a-all-msg">
+						<p class="a-content">
 							<a href="#" title="" id="">
 								请问过一个冠军。欢迎
 							</a>
 						</p>
-						<p class="submit-time">2014-6-17 18:45 填写</p>
+						<p class="a-time">2014-6-17 18:45 填写</p>
 					</td>
 				</tr>
 				<tr>
-					<td class="answer-container">
-						<p class="answer">
+					<td class="answer-container a-all-msg">
+						<p class="a-content">
 							<a href="#" title="" id="">
 								请问你的梦想是什么呢？你是怎么走到这个舞台上的？能和我们说说吗？我培养过一个冠军。欢迎
 							</a>
 						</p>
-						<p class="submit-time">2014-6-17 18:45 填写</p>
+						<p class="a-time">2014-6-17 18:45 填写</p>
 					</td>
-					<td class="answer-container">
-						<p class="answer">
+					<td class="answer-container a-all-msg">
+						<p class="a-content">
 							<a href="#" title="" id="">
 								请问你的梦想是什么呢？你是怎么走到这个舞台上的？能和我们说说吗？我培养过一个冠军。欢迎
 							</a>
 						</p>
-						<p class="submit-time">2014-6-17 18:45 填写</p>
+						<p class="a-time">2014-6-17 18:45 填写</p>
 					</td>
 				</tr>
              </table>
@@ -585,14 +366,16 @@ window.onscroll = function(){
 		</div>
 	</div>
 </div>
-<div class="mask">
-	<div class="mask-content">
+
+<!--以下的bojs的弹出函数，但表现形式有所不同，在需要用到这个box的页面才需要，例如需要预览图片、表格等等-->
+<div class='box'>
+	<div class='box-border'>
+		<div class='box-content'>
     
     
-    
+    	</div>
     </div>
 </div>
-
 
 <div class='msg'>
     <div class='msg-border'>

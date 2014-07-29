@@ -222,34 +222,29 @@
 	display:none;
 }
 
-#answer-field table.list-table td {
+#answer-field table.list-table td, 
+.a-all-msg table td {
 	padding:5px 0;
 }
 #answer-field table.list-table  tr:nth-child(even) {
 	background:#f7f7f7 ;
 }
-#answer-field table.list-table  tr:hover {
+#answer-field table.list-table  tr:hover, 
+#answer-field table.matrix-table td:hover {
 	background:#e6e6e6 !important;
 	cursor:pointer;
-}
-#answer-field table.matrix-table td:hover {
-	background:#e6e6e6;
-	cursor:pointer;	
 }
 #answer-field table  td {
 	text-align:center;	
 }
-
 #answer-field table.list-table td.a-order{
 	color:#999;
 }
 #answer-field table.list-table td.a-content{
 	text-align:left;
 }
-#answer-field table.list-table td.q-number {
-
-}
-#answer-field table.list-table td.a-time {
+#answer-field table.list-table td.a-time, 
+#answer-field table.matrix-table .a-time {
 	color:#666;
 }
 #answer-field table.matrix-table a {
@@ -258,11 +253,11 @@
 #answer-field table.matrix-table {
 	padding:1em;
 }
-#answer-field table.matrix-table td {
+#answer-field table.matrix-table td,
+.a-all-msg table td {
 	padding:1em;
 }
-#answer-field table.matrix-table .submit-time {
-	color:#888;
+#answer-field table.matrix-table .a-time {
 	font-size:12px;
 }
 .col-1 {
@@ -276,6 +271,22 @@
 }
 .col-4 {
 	width:7em;
+}
+.a-all-msg p.a-time {
+	text-align:right;
+	font-size:12px;
+	color:#666;
+}
+.a-all-msg table {
+	border:solid 1px #ddd; 
+	background:#fff;
+}
+.a-all-msg table tr {
+	border-bottom:solid 1px #ddd;
+}
+.a-all-msg table td.q-content {
+	background:#f7f7f7;
+	width:40%;
 }
 /*#manage-table .section-menu {
 	margin:1em 0;

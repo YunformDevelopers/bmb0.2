@@ -1,5 +1,5 @@
 /* CSS Document */
-.msg {
+.msg, .box {
 	position:fixed;
 	width:25em;
 	top:110%;
@@ -10,28 +10,35 @@
 	-moz-border-radius:5px;
 	border-radius:5px;
 }
-.msg .msg-border {	
-	background: url(../images/border.png) repeat ;
+.msg .msg-border, .box .box-border {	
 	-moz-border-radius:5px;
 	border-radius:5px;
+}
+.msg .msg-border {
+	background: url(../images/border.png) repeat ;
 	padding:5px;
 }
-.msg .msg-content {
+.box .box-border {
+	background-color:rgba(100,100,100,0.5);
+	padding:10px;
+}
+.msg .msg-content,.box .box-content {
 	background-color:#FFF;
 	-moz-border-radius:3px;
 	border-radius:3px;
 	padding:15px;
 	box-sizing:content-box;
+	overflow:auto;
 }
-.msg h3 {
+.msg h3, .box h3 {
 	text-align:center;
 	padding-bottom:6px;
 }
-.msg .btn {
+.msg .btn, .box .btn {
 	margin:10px auto 0px auto;
 	display:block;
 }
-.msg a{
+.msg a, .box a{
 	color:#F00;
 }
 
