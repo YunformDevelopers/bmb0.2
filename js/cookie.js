@@ -44,7 +44,10 @@ function SetCookie () {
 			cookieString += "γ" //向cookieString添加q-body结束的分隔符
 		}
 		
-		
+	/*  最后获取qAlternative并放到cookieString里   */	
+		var qAlternative = qFieldIth.find(".q-alternative a").attr('name');//获取到#form-body元素里的第i道题的q-alternative 的a里的name
+		cookieString += qAlternative ;//向cookieString添加qAlternative
+	
 		cookieString += "δ";//向cookieString添加题目结束的分隔符
 		//alert(cookieString);
 		
