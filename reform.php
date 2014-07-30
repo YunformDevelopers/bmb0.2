@@ -19,7 +19,9 @@
 	            注：标 * 的题目为必填
 	        </div>
 	        <div id="form-body">
-	        	<form method="post" action="survey.php?action=submit">
+	        	<form method="post" action="formaction.php">
+	        	    <input type="hidden" name="action" value="answer"/>
+	        	    <input type="hidden" name="id" value="1"/>
 		        	<?php create_to_db();?>
 		        	<input id="submit" class="btn red" name="submit" type="submit" value="提交" />
                 </form>   

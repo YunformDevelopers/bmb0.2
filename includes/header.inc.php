@@ -4,7 +4,6 @@ if(isset($_POST['username'])&&isset($_POST['password'])){
      @mysql_connect('localhost','srtp-lzx','srtp-lzx');
 	 @mysql_select_db('srtp-lzx') or die(mysql_error());
      $result = fetchOne("select * from _user where username='".$_POST['username']."'");
-     print_r($result);
 	 if(count($result)!=0){
 	     if($result['password']==$_POST['password']){
              setcookie('srtp-username',$_POST['username'],0);

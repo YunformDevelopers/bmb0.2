@@ -16,7 +16,10 @@ header('Content-Type:text/html; charset=utf-8');
 <script type="text/javascript" src="js/msg.js"></script>
 <?php
     require 'includes/header.inc.php';
-    create_to_db();
+    if(!isset($_COOKIE['srtp-username'])){
+    	do_js_alert('请先登录');
+    	do_js_link('index.php');
+    }
 ?>
 </head>
 <body>
@@ -124,7 +127,7 @@ header('Content-Type:text/html; charset=utf-8');
 
         </ul>
         <div id="next-step">
-    		<input class="btn blue" value="保存并下一步" type="submit" id="step1-step2" onclick="SetCookie(); alert(GetCookie());"/>
+    		<input class="btn blue" value="保存并下一步" type="submit" id="step1-step2" onclick="SetCookie(); window.location.href='formaction.php?action=save&id=<?php echo '1';?>'"/>
 	    </div>
 
     </div>

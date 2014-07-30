@@ -19,100 +19,6 @@
 </script>
 <?php 
         require 'includes/functions.inc.php';
-        if(isset($_GET['action']) && $_GET['action']=='submit'){
-	           @$result=mysql_connect('localhost','srtp-lzx','srtp-lzx') or die(mysql_error());
-	           mysql_query("set names utf8") or die(mysql_error());
-	           mysql_select_db('srtp-lzx') or die(mysql_error());
-	           $num=1;
-	           $answer_array = null;
-	           $i=0;
-	           $old = null;
-	           foreach ($_POST as $question => $answers){
-		           	$new = explode("-", $question);
-		           	if($old == $new[0]){
-		           		if(isset($new[2])&&$new[2]=='note'){
-		           			$answer_array[$num][$i++]=$answers;
-		           			$old = $new[0];
-		           			continue;
-		           		}
-		           		else{
-		           			$answer_array[$num][$i++]=$question;
-		           			$old = $new[0];
-		           			continue;
-		           		}
-		           	}
-		           	else{
-		           		$i=0;
-		           		if($old==null){
-			           		if($answers=="on"){
-			           			if(isset($new[2])&&$new[2]=='note'){
-			           				$answer_array[1][$i++]=$answers;
-			           				$old = $new[0];
-			           			}
-			           			else{
-				           		$answer_array[1][$i++]=$question;
-				           		$old = $new[0];
-			           			}
-			           		}
-			           		else{
-			           			$answer_array[1][$i++]=$answers;
-			           			$old = $new[0];
-			           		}
-		           		}
-		           		else{
-		           			if($answers=="on"){
-		           				$num++;
-		           				$answer_array[$num][$i++]=$question;
-		           				$old = $new[0];
-		           			}
-		           			else{
-		           				$num++;
-		           				$answer_array[$num][$i++]=$answers;
-		           				$old = $new[0];
-		           			}
-		           		}
-		           	}
-		        }
-		        $submit = null;
-		        $i=1;
-		        $b=1;
-		        $string = null;
-		        foreach($answer_array as $answers){
-		        	if(count($answers)>1){
-		        		foreach ($answers as $value){
-		        			$string .= $value.'&';
-		        		}
-		        	}
-		        	else{
-		        		$string = $answers[0];
-		        	}
-		        	$submit['q'.$b++]= $string;
-		        	$string = null;
-		        }
-		        $test=$_POST;
-		        $number= array();
-		        foreach ($_POST as $question => $answers){
-		        	$string=explode('-', $question);
-		        	if(in_array($string[0], $number)||$string[0]=='q10'||$answers=='提交'||$answers='');
-		        	else {
-		        		array_push($number, $string[0]);
-		        	}
-		        }
-		        
-		        if(count($number)==9){
-		        	do_js_alert('感谢您的认真填写！');
-		        	//$query="insert into survey values('".$submit[1]."','".$submit[2]."','".$submit[3]."','".$submit[4]."','".$submit[5]."','".$submit[6]."','".$submit[7]."','".$submit[8]."','".$submit[9]."','".$submit[10]."')";
-		        	//mysql_query($query) or die(mysql_error());
-		        	mysql_connect('localhost','srtp-lzx','srtp-lzx');
-		        	@mysql_select_db('srtp-lzx') or die(mysql_error());
-		        	insert('survey', $submit);
-		        	$query="insert into survey values('".$submit[1]."','".$submit[2]."','".$submit[3]."','".$submit[4]."','".$submit[5]."','".$submit[6]."','".$submit[7]."','".$submit[8]."','".$submit[9]."','".$submit[10]."')";
-		        	mysql_query($query) or die(mysql_error());
-		        }
-		        else{
-		        	do_js_alert('还有些必选题没有回答哦！');
-		        }
-        	}
         	//else {
         	//	echo "<script>alert('请将必填项填写完整'); </script>";
         	//}
@@ -172,15 +78,15 @@
                     <div class="q-title">贵社团在纳新宣传时会使用下列哪些宣传方式？(多选)</div>
                     <div class="q-alternative">*</div>
                     <div class="q-body">
-                        <label><input name="q1-mul1" type="checkbox" />98专楼</label>
-                        <label><input name="q1-mul1" type="checkbox" />人人日志</label>
-                        <label><input name="q1-mul3" type="checkbox" />人人相册</label>
-                        <label><input name="q1-mul4" type="checkbox" />文广摆摊</label>
-                        <label><input name="q1-mul5" type="checkbox" />纸质宣传单（背面无报名表）</label>
-                        <label><input name="q1-mul6" type="checkbox" />纸质宣传单（背面有报名表）</label>
-                        <label><input name="q1-mul7" type="checkbox" />寝室楼道海报</label>
-                        <label><input name="q1-mul8" type="checkbox" />青年通</label>
-                        <label><input name="q1-mul9-*" type="checkbox" />横幅</label>
+                        <label><input name="q1-98专楼" type="checkbox" />98专楼</label>
+                        <label><input name="q1-人人日志" type="checkbox" />人人日志</label>
+                        <label><input name="q1-人人相册" type="checkbox" />人人相册</label>
+                        <label><input name="q1-文广摆摊" type="checkbox" />文广摆摊</label>
+                        <label><input name="q1-纸质宣传单（背面无报名表）" type="checkbox" />纸质宣传单（背面无报名表）</label>
+                        <label><input name="q1-纸质宣传单（背面有报名表）" type="checkbox" />纸质宣传单（背面有报名表）</label>
+                        <label><input name="q1-寝室楼道海报" type="checkbox" />寝室楼道海报</label>
+                        <label><input name="q1-青年通" type="checkbox" />青年通</label>
+                        <label><input name="q1-横幅" type="checkbox" />横幅</label>
                     </div>
                 </div>
             </div>
@@ -264,9 +170,9 @@
                     <div class="q-title">信息统计中，除基本统计外，您还需要其他什么功能？(多选)</div>
                     <div class="q-alternative">*</div>
                     <div class="q-body">
-                        <label><input name="q8-mul1" type="checkbox" />趋势图</label>
-                        <label><input name="q8-mul2" type="checkbox" />参加人员比例分析</label>
-                        <label><input name="q8-mul3" type="checkbox" />标记参加人员不同状态（晋级与未晋级）</label>
+                        <label><input name="q8-趋势图" type="checkbox" />趋势图</label>
+                        <label><input name="q8-参加人员比例分析" type="checkbox" />参加人员比例分析</label>
+                        <label><input name="q8-标记参加人员不同状态（晋级与未晋级）" type="checkbox" />标记参加人员不同状态（晋级与未晋级）</label>
                         <span class="note-position"><label><input name="q8-mul4" type="checkbox" />其他</label><input name="q8-body-note" class="note" type="text" value="请注明"/></span>
                     </div>
                 </div>
@@ -277,11 +183,11 @@
                     <div class="q-title">对于网站主色调，您偏好哪种颜色？（多选）</div>
                     <div class="q-alternative">*</div>
                     <div class="q-body">
-                        <label><input name="q9-mul1" type="checkbox" />红</label>
-                        <label><input name="q9-mul2" type="checkbox" />绿</label>
-                        <label><input name="q9-mul3" type="checkbox" />黄</label>
-                        <label><input name="q9-mul4" type="checkbox" />蓝</label>
-                        <label><input name="q9-mul5" type="checkbox" />紫</label>
+                        <label><input name="q9-红" type="checkbox" />红</label>
+                        <label><input name="q9-绿" type="checkbox" />绿</label>
+                        <label><input name="q9-黄" type="checkbox" />黄</label>
+                        <label><input name="q9-蓝" type="checkbox" />蓝</label>
+                        <label><input name="q9-紫" type="checkbox" />紫</label>
                         <span  class="note-position"><label><input name="q9-mul6" type="checkbox" />其他</label><input name="q9-body-note" class="note" type="text" value="请注明"/></span>
                     </div>
                 </div>

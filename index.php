@@ -32,7 +32,7 @@
     </div>
     <div class="section-body">
         <div class="card hottest" > 
-            <a href='survey.php'>
+            <a href='reform.php?id=1'>
                 <div class="img-holder">
                     <div class="fader">
                         <img src="images/1.jpg" alt="" />

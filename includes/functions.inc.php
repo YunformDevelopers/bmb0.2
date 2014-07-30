@@ -1,19 +1,4 @@
 <?php
-function no_empty(){
-	$test=$_POST;
-	$array= array();
-	unset($array['q10-body']);
-	foreach ($test as $question => $value){
-		$string = explode("-", $question);
-		if(!in_array($string[0], $array)){
-			array_push($array, $string[0]);
-		}
-	}
-	if(count($array)!=11||count($array)!=10){
-		return false;
-	}
-	return true;
-};
 function do_js_alert($string){
 	echo "<script>alert('".$string."')</script>";
 }
@@ -52,8 +37,8 @@ function delete($table,$where=null){
 	return mysql_affected_rows();
 }
 function fetchOne($sql){
-	$result = mysql_query($sql);
-	$rows = mysql_fetch_assoc($result);
+	$result = mysql_query($sql) or die(mysql_error());
+	$rows = mysql_fetch_assoc($result) or die(mysql_error());
 	return $rows;
 }
 function fetchAll($sql){
@@ -68,8 +53,8 @@ function create_to_db(){
 	$link=mysql_connect(DB_SERVER,DB_USERNAME,DB_PASSWORD) or die('连接数据库出错');
 	mysql_select_db('srtp-lzx') or die('选择数据库出错');
 	mysql_set_charset(DB_CHARSET) or die('设置编码出错');
-	$string=explode('δ', $_COOKIE['qStore']);
-	$i=0;
+	if(isset($_COOKIE['qStore'])){
+		$string=explode('δ', $_COOKIE['qStore']);
 	    for($i=0;$i<count($string)-1;$i++){
 		    $explode1 = explode('α', $string[$i]);
 			$question = $explode1[0];
@@ -104,8 +89,115 @@ function create_to_db(){
 				echo '</div>';
 				echo '</div>';
 			echo '</div>';
-			
+			}
     }
+}
+
+function save_form_to_db($string){
+	connect();
+	$array['question_string'] = $string;
+	$array['username']=$_COOKIE['srtp-username'];
+	date_default_timezone_set("Asia/Shanghai");
+	$array['Date'] = date("Y-m-d h:i:s");
+	insert('question', $array);
+	$sql="select * from question where Date ='{$array['Date']}'";
+	$result=fetchOne($sql);
+	return $result['form_id'];
+}
+
+function save_answer_to_db($string,$id){
+	connect();
+	$array['form_id']=$id;
+	$array['answer_string'] = $string;
+	$array['username']=$_COOKIE['srtp-username'];
+	date_default_timezone_set("Asia/Shanghai");
+	$array['date'] = date("Y-m-d h:i:s");
+	insert('answer', $array);
+}
+
+function do_js_link($url){
+	echo "<script>location.href = '$url';</script>";
+}
+
+function get_id(){
+}
+
+function change_to_string(){
+	if(isset($_GET['action']) && $_GET['action']=='submit'){
+		connect();
+		$num=1;
+		$answer_array = null;
+		$i=0;
+		$old = null;
+		foreach ($_POST as $question => $answers){
+			$new = explode("-", $question);
+			if($old == $new[0]){
+				if(isset($new[2])&&$new[2]=='note'){
+					$answer_array[$num][$i++]=$answers;
+					$old = $new[0];
+					continue;
+				}
+				else{
+					$answer_array[$num][$i++]=$question;
+					$old = $new[0];
+					continue;
+				}
+			}
+			else{
+				$i=0;
+				if($old==null){
+					if($answers=="on"){
+						if(isset($new[2])&&$new[2]=='note'){
+							$answer_array[1][$i++]=$answers;
+							$old = $new[0];
+						}
+						else{
+							$answer_array[1][$i++]=$question;
+							$old = $new[0];
+						}
+					}
+					else{
+						$answer_array[1][$i++]=$answers;
+						$old = $new[0];
+					}
+				}
+				else{
+					if($answers=="on"){
+						$num++;
+						$answer_array[$num][$i++]=$question;
+						$old = $new[0];
+					}
+					else{
+						$num++;
+						$answer_array[$num][$i++]=$answers;
+						$old = $new[0];
+					}
+				}
+			}
+		}
+		$submit = null;
+		$i=1;
+		$b=1;
+		$string = null;
+		foreach($answer_array as $answers){
+			if(count($answers)>1){
+				foreach ($answers as $value){
+					$string .= $value.'γ';
+				}
+			}
+			else{
+				$string = $answers[0];
+			}
+			$submit['q'.$b++]= $string;
+			$string = null;
+		}
+		$answer_string = null;
+		foreach ($submit as $question => $value){
+			$answer_string .=$question."β".$value."α";
+		}
+		return $answer_string;
+	}
+	
 }
 
 
