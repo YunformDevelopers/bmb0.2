@@ -14,13 +14,13 @@ header('Content-Type:text/html; charset=utf-8');
 <script type="text/javascript" src="js/create.js"></script>
 <script type="text/javascript" src="js/cookie.js"></script>
 <script type="text/javascript" src="js/msg.js"></script>
-<?php /*?><?php
+<?php
     require 'includes/header.inc.php';
     if(!isset($_COOKIE['srtp-username'])){
     	do_js_alert('请先登录');
     	do_js_link('index.php');
     }
-?><?php */?>
+?>
 </head>
 <body>
 <div id="wrapper">

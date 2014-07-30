@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="style/form/paper.css" />
 <link rel="stylesheet" href="style/form/form-responsive.css"/>
 <script src="js/jquery-2.1.1.min.js"></script>
+<script src="js/answerCookie.js"></script>
 <?php require 'includes/includes.inc.php';?>
 </head>
 <body>
