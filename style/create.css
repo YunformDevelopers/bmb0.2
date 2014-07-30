@@ -254,13 +254,12 @@ form-construct-field里面，分为form-title,form-intro，form-body，具体看
 	margin:0 auto;
 	text-align:center;
 }
-#form-intro {
+#form-intro, #form-tip {
 	padding:10px 0;
+}
+#form-intro {
 	border-bottom:#de473a solid 2px;
 	margin-bottom:30px;
-}
-#form-body {
-	
 }
 #form-body .q-field-before {
 	position:relative;
@@ -324,6 +323,13 @@ form-construct-field里面，分为form-title,form-intro，form-body，具体看
 	resize:none;
 	width:200px;
 } 
+#form-tip {
+	border-top:#de473a solid 2px;
+	margin-top:30px;	
+}
+#form-tip textarea {
+	text-align:center;	
+}
 #form-construct-field .title.edit {
 	width:100%;
 	overflow:auto;
@@ -344,5 +350,5 @@ form-construct-field里面，分为form-title,form-intro，form-body，具体看
 #step1-step2 {
 	display:block;
 	width:200px;
-	margin:3em auto 0 auto;
+	margin:0 auto;
 }

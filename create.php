@@ -14,13 +14,13 @@ header('Content-Type:text/html; charset=utf-8');
 <script type="text/javascript" src="js/create.js"></script>
 <script type="text/javascript" src="js/cookie.js"></script>
 <script type="text/javascript" src="js/msg.js"></script>
-<?php
+<?php /*?><?php
     require 'includes/header.inc.php';
     if(!isset($_COOKIE['srtp-username'])){
     	do_js_alert('请先登录');
     	do_js_link('index.php');
     }
-?>
+?><?php */?>
 </head>
 <body>
 <div id="wrapper">
@@ -123,9 +123,20 @@ header('Content-Type:text/html; charset=utf-8');
         <div id="form-intro">
             <textarea class="title edit" contentEditable="true" rows="1">为了促进社团发展，我们进行纳新。</textarea>
         </div>
+
         <ul id="form-body">
+        
+        
 
         </ul>
+        <br />
+        <br />
+        <br />
+        <br />
+		<div id="form-tip">
+            <textarea class="title edit" contentEditable="true" rows="1">欢迎填写这张表，希望您能关注我们的其他活动。</textarea>
+        </div>
+
         <div id="next-step">
     		<input class="btn blue" value="保存并下一步" type="submit" id="step1-step2" onclick="SetCookie(); window.location.href='formaction.php?action=save&id=<?php echo '1';?>'"/>
 	    </div>
