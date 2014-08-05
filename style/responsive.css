@@ -42,9 +42,11 @@ MEDIA QUERIES
 		margin-left:-45%;/*这是为了居中写的代码*/
 	}
 	#header li.search {
-		display:none;
+		/*display:none;*/
 	}
 	#header .search-mobile {
+		/*TODO*/
+		display:none;
 		font-size:18px;
 		display:block;
 		position:fixed;

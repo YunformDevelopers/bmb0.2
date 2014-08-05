@@ -31,7 +31,7 @@ if(isset($_POST['username'])&&isset($_POST['password'])){
             	<span class="head-name">更多</span>
             </a>
         </li>
-        <li class="head-item personal right">
+        <li class="head-item personal right active">
         	<a class="head-link" href='personal.php' >
             	<span class="head-name">我的</span>
             </a>
@@ -59,17 +59,17 @@ if(isset($_POST['username'])&&isset($_POST['password'])){
 <div id="tab-container">
 	<ul class="tab-list clear-float">
     	<li class="tab-item left active">
-        	<a class="tab-link">
+        	<a class="tab-link" onClick="slideTo(0);">
         		<span class="tab-name">推荐</span>
             </a>
         </li>
         <li class="tab-item left">
-        	<a class="tab-link">
+        	<a class="tab-link" onClick="slideTo(1);">
         		<span class="tab-name">榜单</span>
             </a>
         </li>
         <li class="tab-item left">
-        	<a class="tab-link">
+        	<a class="tab-link" onClick="slideTo(2);">
         		<span class="tab-name">筛选</span>
             </a>
         </li>

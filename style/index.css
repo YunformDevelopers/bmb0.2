@@ -7,6 +7,7 @@ body{
 	/* 整个body除了特别定义font-size都是16px，除了这里之外其他地方少定义font-size，因为这样会改变整个网页布局*/
     font: normal 100%/1.4 'Microsoft Jhenghei', 'Microsoft Yahei', sans-serif;
     background:#faf8f5;
+	overflow:hidden;
 }
 input,textarea,select{
     font-size:1em;    
@@ -75,6 +76,12 @@ div{
 	zoom:1;
 	_height:1%;
 }
+/* 去除移动端上点击元素时产生的highlight边框和背景等 */
+*:active {
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+	-moz-tap-highlight-color: rgba(0,0,0,0);
+	tap-highlight-color: rgba(0,0,0,0);
+}
 
 /*因为justify一定要超过一行，所以这个放在最后用来撑宽度*/
 .justify-helper {width:100%; display:inline-block;}
@@ -111,49 +118,48 @@ div{
 #header li.logo a {
 	background:url(../images/header-icon/logo.png) no-repeat 24px center;
 }
-#header li.logo a:hover, #header li.logo a:active, #header li.logo.active a {
-	background:url(../images/header-icon/logo-hover.png) no-repeat 24px center;
-}
 
 #header li.more a {
 	background:url(../images/header-icon/more.png) no-repeat 24px center;
 }
-#header li.more a:hover, #header li.more a:active, #header li.more.active a {
+#header li.more a:hover {
 	background:url(../images/header-icon/more-hover.png) no-repeat 24px center;
 }
-
-#header li.search a {
+#header li.more a:active, #header li.more.active a {
+	background:url(../images/header-icon/more-active.png) no-repeat 24px center;
 }
 #header li.search a {
 	background:url(../images/header-icon/search.png) no-repeat 24px center;
 }
-#header li.search a:hover, #header li.search a:active, #header li.search.active a {
+#header li.search a:hover {
 	background:url(../images/header-icon/search-hover.png) no-repeat 24px center;
 }
-
+#header li.search a:active, #header li.search.active a {
+	background:url(../images/header-icon/search-active.png) no-repeat 24px center;
+}
 #header li.create a {
 	background:url(../images/header-icon/create.png) no-repeat 24px center;
 }
-#header li.create a:hover, #header li.create a:active, #header li.create.active a {
+#header li.create a:hover {
 	background:url(../images/header-icon/create-hover.png) no-repeat 24px center;
 }
-
+#header li.create a:active, #header li.create.active a {
+	background:url(../images/header-icon/create-active.png) no-repeat 24px center;
+}
 #header li.personal a {
 	background:url(../images/header-icon/personal.png) no-repeat 24px center;
 }
 #header li.personal a:hover, #header li.personal a:active, #header li.personal.active a {
 	background:url(../images/header-icon/personal-hover.png) no-repeat 24px center;
 }
-
+#header li.personal a:active, #header li.personal.active a {
+	background:url(../images/header-icon/personal-active.png) no-repeat 24px center;
+}
 #header li.head-item a:hover {
 	color:#E1331C;
 }
-#header li.head-item a:active {
-	text-shadow:0px 0px 8px #fff;
-}
-#header li.active a, #header li.active a:hover, #header li.active a:active {
-	background-color:#e1331c !important;
-	color:#fff;	
+#header li.active a {
+	color:#E1331C;
 }
 #header a:hover, #tab-container li.tab-item a.tab-link:hover{
 	text-decoration:none;
@@ -198,19 +204,45 @@ div{
 	border-bottom:solid 4px rgba(255,255,255,0);
 }
 #tab-container li.tab-item a.tab-link:hover {
-	background-color:#eee;
+	background-color:#f1f1f1;
 	border-bottom:solid 4px #ef4b35;
 }
 #tab-container li.tab-item a.tab-link:active {
 	background-color:#ddd;
 	border-bottom:solid 4px #b01500;
-	text-shadow:0px 0px 10px #fff;
+	text-shadow:0px 0px 4px #fff;
 }
 #tab-container li.active a.tab-link, #tab-container li.active a.tab-link:hover, #tab-container li.active a.tab-link:active {
 	border-bottom:solid 4px #E1331C;
 	color:#E1331C;
 }
 
+#content-container {
+	overflow:auto;
+}
+#content {
+	margin-top:50px;
+}
+
+/* Swipe 2 required styles */
+
+.swipe {
+  overflow: hidden;
+  visibility: hidden;
+  position: relative;
+  width:90%;
+  margin:0 auto;
+}
+.swipe-wrap {
+  overflow: hidden;
+  position: relative;
+}
+.swipe-wrap > div {
+  float:left;
+  position: relative;
+}
+
+/* END required styles */
 
 .section-header {
 	position:relative;
@@ -238,9 +270,12 @@ div{
 #slideshow {height:20em; display:block;}
 
 /* 这个其他section也可以重用  */
-.section,.reminder,#footer {
+.reminder,#footer {
 	width:90%;
 	padding:0 5%;
+	text-align:justify;
+}
+.section {
 	text-align:justify;
 }
 /* 使justify的元素左端对齐 */
