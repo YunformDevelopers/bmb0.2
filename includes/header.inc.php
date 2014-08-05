@@ -20,26 +20,58 @@ if(isset($_POST['username'])&&isset($_POST['password'])){
 }
 ?>
 <div id='header'>
-	<ul>
-		<li><a href='index.php' title="访问首页，看看新鲜事物">报名吧</a></li>
-		<li><a href='create.php'>创建</a></li>
-		<?php if(!(isset($_COOKIE['srtp-username'])&&isset($_COOKIE['srtp-password']))) 
-		echo "<li><a href='#' id=\"register-msg\">注册</a>/<a href='#' id=\"login-msg\">登录</a></li>";
-		else
-		echo "<li><a href='#'>欢迎你</a>/<a href='logout.php'>退出</a></li>";?>
-		<li><a href='personal.php'>我的</a></li>
-		<li class="search">
-	       	<div class='search'>
+    <ul class="header-list clear-float">
+    	<li class="head-item index logo left">
+        	<a class="head-link" href='index.php' title="报名吧首页" >
+            	<span class="head-name">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            </a>
+        </li>
+		<li class="head-item more right">
+        	<a class="head-link">
+            	<span class="head-name">更多</span>
+            </a>
+        </li>
+        <li class="head-item personal right">
+        	<a class="head-link" href='personal.php' >
+            	<span class="head-name">我的</span>
+            </a>
+        </li>
+        <li class="head-item create right">
+        	<a class="head-link" href='create.php' >
+            	<span class="head-name">创建</span>
+            </a>
+        </li>
+        <li class="head-item search right">
+        	
+        	<a class="head-link">
                 <form id="search" action="#">
-                    <input class="search-text" type="text"  placeholder="search" name="q"></input>
+                    <input class="search-text" type="text"  placeholder="搜索组织/活动" name="q"></input>
                 </form>
-			</div>
-		</li>
-		<li  class='justify-helper'></li>
-	</ul>
+            </a>
+        </li>
+    </ul>
     <div class='search-mobile search'>
         <form id="search" action="#">
             <input class="search-text" type="text"  placeholder="输入你要找的组织或活动名" name="q"></input>
         </form>
     </div>
+</div>
+<div id="tab-container">
+	<ul class="tab-list clear-float">
+    	<li class="tab-item left active">
+        	<a class="tab-link">
+        		<span class="tab-name">推荐</span>
+            </a>
+        </li>
+        <li class="tab-item left">
+        	<a class="tab-link">
+        		<span class="tab-name">榜单</span>
+            </a>
+        </li>
+        <li class="tab-item left">
+        	<a class="tab-link">
+        		<span class="tab-name">筛选</span>
+            </a>
+        </li>
+    </ul>
 </div>

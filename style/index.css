@@ -18,12 +18,6 @@ input,textarea,select{
 body,h1,h2,h3,h4,h5,h6,p,ul,ol,form{
     margin:0;
 }
-h2 {
-	font-size: 1.25em;/* 16(来自body)*1.25=20，注意这里h2的基准就改变了 */
-	font-weight:normal;
-	border-left: 0.2em solid #000; /* 20*0.2=4 */
-	padding-left:0.5em; /* 20*0.5=10 */
-}
 h4,h5,h6{
     font-size:1em;
 }
@@ -75,63 +69,163 @@ div{
     margin:0;
 	padding:0;
 }
+/* 清除浮动 */
+.clear-float {
+	overflow:auto;
+	zoom:1;
+	_height:1%;
+}
 
 /*因为justify一定要超过一行，所以这个放在最后用来撑宽度*/
 .justify-helper {width:100%; display:inline-block;}
 
 #header {
-	background:url(../images/header-bg.png) repeat-x;
-	height:4em; /* 16*4=64px */
+	width:100%;
+	background:#FFF;
+	height:80px;
 }
-#header ul {
-	height:4em; /* 16*4=64px */
-	line-height:4em;
+#header ul, #tab-container ul.tab-list {
+	height:80px; 
 	width:90%;
 	padding:0 5%;
-	color:#fff;
-	text-align:justify;
 }
 #header ul:hover,#header ul:active {
 	cursor:default;
 }
 #header li {
-	height:64px;
-	display:inline-block;
+	height:100%;
 	font-size:18px;
-	text-shadow:0px -1px #000;/* 0.125*16=2px */
 }
-#header a:hover{
-	text-decoration:none;
+#header li.left, #tab-container li.left {
+	float:left;	
+}
+#header li.right {
+	float:right;	
+}
+#header li.head-item a {
+	display:block;
+	height:18px;
+	line-height:18px;
+	padding:31px 31px 31px 49px;
+}
+#header li.logo a {
+	background:url(../images/header-icon/logo.png) no-repeat 24px center;
+}
+#header li.logo a:hover, #header li.logo a:active, #header li.logo.active a {
+	background:url(../images/header-icon/logo-hover.png) no-repeat 24px center;
 }
 
+#header li.more a {
+	background:url(../images/header-icon/more.png) no-repeat 24px center;
+}
+#header li.more a:hover, #header li.more a:active, #header li.more.active a {
+	background:url(../images/header-icon/more-hover.png) no-repeat 24px center;
+}
+
+#header li.search a {
+}
+#header li.search a {
+	background:url(../images/header-icon/search.png) no-repeat 24px center;
+}
+#header li.search a:hover, #header li.search a:active, #header li.search.active a {
+	background:url(../images/header-icon/search-hover.png) no-repeat 24px center;
+}
+
+#header li.create a {
+	background:url(../images/header-icon/create.png) no-repeat 24px center;
+}
+#header li.create a:hover, #header li.create a:active, #header li.create.active a {
+	background:url(../images/header-icon/create-hover.png) no-repeat 24px center;
+}
+
+#header li.personal a {
+	background:url(../images/header-icon/personal.png) no-repeat 24px center;
+}
+#header li.personal a:hover, #header li.personal a:active, #header li.personal.active a {
+	background:url(../images/header-icon/personal-hover.png) no-repeat 24px center;
+}
+
+#header li.head-item a:hover {
+	color:#E1331C;
+}
+#header li.head-item a:active {
+	text-shadow:0px 0px 8px #fff;
+}
+#header li.active a, #header li.active a:hover, #header li.active a:active {
+	background-color:#e1331c !important;
+	color:#fff;	
+}
+#header a:hover, #tab-container li.tab-item a.tab-link:hover{
+	text-decoration:none;
+}
+/* TODO:这里待修改 */
 #header .search-mobile {
 	display:none;
 }
-.search input.search-text {/* 1em=16px */
-	background:url(../images/search.png) no-repeat #fff 0.4em 62%;
-	background-size:16px 16px;
-	padding:0 1em 0 1.5em;
-	box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 1px rgba(0, 0, 0, 0.2) inset;-moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 1px rgba(0, 0, 0, 0.2) inset;
+.search input.search-text {
+	font-size:18px;
 	border:none;
-	border-radius:2em;-moz-border-radius:2em;-ms-border-radius:2em;
-	color:#6e432f;
-	width:3.1em;
+	border-bottom:solid 1px #ccc;
+	color:#000;
+	height:18px;
+	width:6.5em;
 	transition:all 0.5s ease;-moz-transition:all 0.5s ease;
 }
 .search input.search-text:focus{
-	width:6em;
+	width:9em;
 }
+
+#tab-container {
+	width:100%;
+	height:50px;
+	background:#FFF;
+	border-bottom:solid #ccc 2px;
+}
+#tab-container ul.tab-list {
+	height:52px;
+}
+#tab-container li.tab-item {
+	height:48px;
+}
+
+#tab-container li.tab-item a.tab-link {
+	display:block;
+	font-size:16px;
+	padding:0 4em;
+	height:100%;
+	line-height:48px;
+	color:#555;
+	border-bottom:solid 4px rgba(255,255,255,0);
+}
+#tab-container li.tab-item a.tab-link:hover {
+	background-color:#eee;
+	border-bottom:solid 4px #ef4b35;
+}
+#tab-container li.tab-item a.tab-link:active {
+	background-color:#ddd;
+	border-bottom:solid 4px #b01500;
+	text-shadow:0px 0px 10px #fff;
+}
+#tab-container li.active a.tab-link, #tab-container li.active a.tab-link:hover, #tab-container li.active a.tab-link:active {
+	border-bottom:solid 4px #E1331C;
+	color:#E1331C;
+}
+
 
 .section-header {
 	position:relative;
 }
-.section-header h2{
-	background:#faf8f5;
+.section-header h2 {
+	font-size:16px;
 	z-index:2;
 	padding-right:1em;
-	display:inline-block;
+	font-weight:normal;
+	border-left: 0.2em solid #000; 
+	padding-left:0.5em; 
 }
+
 .h2-line {
+	display:none;
 	z-index:-1;
 	position:absolute;
 	top:0.8em; left:0;
@@ -142,6 +236,7 @@ div{
 }
 
 #slideshow {height:20em; display:block;}
+
 /* 这个其他section也可以重用  */
 .section,.reminder,#footer {
 	width:90%;
