@@ -110,84 +110,39 @@ $(document).ready(function(){
         </div>
     </div>
     <div class="section-body">
-        <div class="card my-release" > 
-            <a href='#'>
-                <div class='form-op'>
-                    <a href="#"><input class='btn red' type="button" value='编辑'/></a>
-                    <a href="manage.php"><input class='btn blue' type="button" value='管理'/></a>
-                    <a href="#"><input class='btn green' type="button" value='查看'/></a>
-                </div>
-                <div class='form-status'>
-                    <img src="images/form-status-on.png" alt="已下架" />
-                </div>
-                <div class="img-holder">
-                    <div class="fader">
-                        <img src="images/2.jpg" alt="" />
-                    </div>
-                    <div class="form-name">
-                        浙大某个社团网站纳新报名表
-                    </div>
-                    <div class="img-counter">
-                        <div class="counter">
-                            <span class="time-left">还有两天</span>
-                            <span class="written">14次</span>
-                        </div>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="card my-release" > 
-            <a href='#'>
-                <div class='form-op'>
-                    <a href="#"><input class='btn red' type="button" value='编辑'/></a>
-                    <a href="manage.php"><input class='btn blue' type="button" value='管理'/></a>
-                    <a href="#"><input class='btn green' type="button" value='查看'/></a>
-                </div>
-                <div class='form-status'>
-                    <img src="images/form-status-off.png" alt="已下架" />
-                </div>
-                <div class="img-holder">
-                    <div class="fader">
-                        <img src="images/1.jpg" alt="" />
-                    </div>
-                    <div class="form-name">
-                        浙大某个社团网站纳新报名表
-                    </div>
-                    <div class="img-counter">
-                        <div class="counter">
-                            <span class="time-left">还有两天</span>
-                            <span class="written">14次</span>
-                        </div>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="card my-release" > 
-            <a href='#'>
-                <div class='form-op'>
-                    <a href="#"><input class='btn red' type="button" value='编辑'/></a>
-                    <a href="manage.php"><input class='btn blue' type="button" value='管理'/></a>
-                    <a href="#"><input class='btn green' type="button" value='查看'/></a>
-                </div>
-                <div class='form-status'>
-                    <img src="images/form-status-wait.png" alt="已下架" />
-                </div>
-                <div class="img-holder">
-                    <div class="fader">
-                        <img src="images/1.jpg" alt="" />
-                    </div>
-                    <div class="form-name">
-                        浙大某个社团网站纳新报名表
-                    </div>
-                    <div class="img-counter">
-                        <div class="counter">
-                            <span class="time-left">还有两天</span>
-                            <span class="written">14次</span>
-                        </div>
-                    </div>
-                </div>
-            </a>
-        </div>
+    	<?php 
+    		connect();
+    		$result = mysql_query("select * from question where username='".$_COOKIE['srtp-username']."'") or die(mysql_error());
+    		while($rows=mysql_fetch_assoc($result)){
+    			echo '<div class="card my-release" > 
+            			<a href="#">
+	                		<div class="form-op">
+		                    	<a href="#"><input class="btn red" type="button" value="编辑"/></a>
+		                    	<a href="manage.php?id='.$rows['form_id'].'"><input class="btn blue" type="button" value="管理"/></a>
+	                    		<a href="#"><input class="btn green" type="button" value="查看"/></a>
+	                		</div>
+	                		<div class="form-status">
+	                   			<img src="images/form-status-on.png" alt="已下架" />
+	                		</div>
+	                		<div class="img-holder">
+	                    		<div class="fader">
+	                        		<img src="images/2.jpg" alt="" />
+	                    		</div>
+	                    		<div class="form-name">
+	                        		'.$rows['form_title'].'
+	                    		</div>
+	                    		<div class="img-counter">
+	                        		<div class="counter">
+	                            		<span class="time-left">还有两天</span>
+	                            		<span class="written">14次</span>
+	                        		</div>
+	                    		</div>
+	                		</div>
+            			</a>
+        			</div>';
+    		}
+    	?>
+        
         <div class="card my-release create-new" > 
             <a href="create.php">
                 <div class="img-holder">

@@ -7,7 +7,6 @@ if(isset($_POST['username'])&&isset($_POST['password'])){
 	 if(count($result)!=0){
 	     if($result['password']==$_POST['password']){
              setcookie('srtp-username',$_POST['username'],0);
-             setcookie('srtp-password',$_POST['password'],0);
              header("location:index.php");
 	     }
 		 else{

@@ -129,22 +129,22 @@ window.onscroll = function(){
 						<span class="quick-select">
 							<select>
 							 <?php
-							    if(isset($_COOKIE['qStore'])) {
-							    	$string=explode('δ', $_COOKIE['qStore']);
-									for($i=0;$i<count($string)-1;$i++){
-										$explode1 = explode('α', $string[$i]);
-										$question = $explode1[0];
-										echo '<option>'.($i+1).':'.$question.'</option>';
+							 	if(isset($_GET['id'])){
+										connect();
+										$result = mysql_query("select * from question where form_id='".$_GET['id']."'");
+										$row = mysql_fetch_array($result);
+										$title_string=explode('ζ', $row['question_string']);
+										$title=$title_string[0];
+										$string=explode('δ', $title_string[1]);
+										for($i=0;$i<count($string)-1;$i++){
+											$explode1 = explode('α', $string[$i]);
+											$question = $explode1[0];
+											echo '<option>'.($i+1).':'.$question.'</option>';
+										}
 									}
-							    }
-							    else{
-							    	echo '<option>1:姓名</option>
-									<option>2:学号</option>
-									<option>3:班级</option>
-									<option>4:请问你的梦想是什么呢？你是怎么走到这个舞台上的？能和我们说说吗？我培养过一个冠军。欢迎</option>
-									<option>5:你是怎么走到这个舞台上的？能和我们说说吗？我培养过一个冠军。欢迎你加入阿妹family！</option>
-									<option>6:注意事项</option>';
-							    }
+									else{
+										do_js_alert('请从正确路径访问该页');
+									}
 						    ?>
 							</select>
 						</span>
@@ -165,9 +165,6 @@ window.onscroll = function(){
         <div id="answer-field">
 			<table class="list-table" cellpadding="0" cellspacing="0" >
 				<tr class="a-all-msg">
-				<?php 
-					$sql="select * from question where form_id = '{$_GET['form_id']}'";
-					$rows = fetchAll($sql);?>
 					<td class="col-1 a-order">
 					1
 					</td>

@@ -49,12 +49,21 @@ function fetchAll($sql){
 	}
 	return $rows;
 } 
-function create_to_db(){
-	$link=mysql_connect(DB_SERVER,DB_USERNAME,DB_PASSWORD) or die('连接数据库出错');
-	mysql_select_db('srtp-lzx') or die('选择数据库出错');
-	mysql_set_charset(DB_CHARSET) or die('设置编码出错');
-	if(isset($_COOKIE['qStore'])){
-		$string=explode('δ', $_COOKIE['qStore']);
+function create_to_db($data,$id){
+		$title_string=explode('ζ', $data);
+		$title=$title_string[0];
+		$string=explode('δ', $title_string[1]);
+		echo '<div id="form-field">';
+		echo '<div id="form-title">';
+		echo '<h3>'.$title.'</h3>';
+		echo '</div>';
+		echo '<div id="form-intro" >
+	            注：标 * 的题目为必填
+	        </div>
+	        <div id="form-body">
+	        	<form method="post" action="formaction.php">
+	        	    <input type="hidden" name="action" value="answer"/>
+	        	    <input type="hidden" name="id" value="'.$id.'"/>';
 	    for($i=0;$i<count($string)-1;$i++){
 		    $explode1 = explode('α', $string[$i]);
 			$question = $explode1[0];
@@ -86,17 +95,20 @@ function create_to_db(){
 				if($type=="free-multiline"){
 					echo '<textarea name="q'.($i+1).'-body" class="body edit" ></textarea>';
 				}
+				if($type=="free-singleline"){
+					echo '<input type="text" name="q'.($i+1).'-body" class="body edit" >';
+				}
 				echo '</div>';
 				echo '</div>';
 			echo '</div>';
 			}
     }
-}
 
-function save_form_to_db($string){
+function save_form_to_db($string,$title){
 	connect();
 	$array['question_string'] = $string;
 	$array['username']=$_COOKIE['srtp-username'];
+	$array['form_title']=$title;
 	date_default_timezone_set("Asia/Shanghai");
 	$array['Date'] = date("Y-m-d h:i:s");
 	insert('question', $array);
@@ -119,85 +131,80 @@ function do_js_link($url){
 	echo "<script>location.href = '$url';</script>";
 }
 
-function get_id(){
-}
-
-function change_to_string(){
-	if(isset($_GET['action']) && $_GET['action']=='submit'){
-		connect();
-		$num=1;
-		$answer_array = null;
-		$i=0;
-		$old = null;
-		foreach ($_POST as $question => $answers){
-			$new = explode("-", $question);
-			if($old == $new[0]){
-				if(isset($new[2])&&$new[2]=='note'){
-					$answer_array[$num][$i++]=$answers;
-					$old = $new[0];
-					continue;
-				}
-				else{
-					$answer_array[$num][$i++]=$question;
-					$old = $new[0];
-					continue;
-				}
-			}
-			else{
-				$i=0;
-				if($old==null){
-					if($answers=="on"){
-						if(isset($new[2])&&$new[2]=='note'){
-							$answer_array[1][$i++]=$answers;
-							$old = $new[0];
-						}
-						else{
-							$answer_array[1][$i++]=$question;
-							$old = $new[0];
-						}
-					}
-					else{
-						$answer_array[1][$i++]=$answers;
-						$old = $new[0];
-					}
-				}
-				else{
-					if($answers=="on"){
-						$num++;
-						$answer_array[$num][$i++]=$question;
-						$old = $new[0];
-					}
-					else{
-						$num++;
-						$answer_array[$num][$i++]=$answers;
-						$old = $new[0];
-					}
-				}
-			}
-		}
-		$submit = null;
-		$i=1;
-		$b=1;
-		$string = null;
-		foreach($answer_array as $answers){
-			if(count($answers)>1){
-				foreach ($answers as $value){
-					$string .= $value.'γ';
-				}
-			}
-			else{
-				$string = $answers[0];
-			}
-			$submit['q'.$b++]= $string;
-			$string = null;
-		}
-		$answer_string = null;
-		foreach ($submit as $question => $value){
-			$answer_string .=$question."β".$value."α";
-		}
-		return $answer_string;
-	}
-	
+function change_to_string($post){
+// 		connect();
+// 		$num=1;
+// 		$answer_array = null;
+// 		$i=0;
+// 		$old = null;
+// 		foreach ($_POST as $question => $answers){
+// 			$new = explode("-", $question);
+// 			if($old == $new[0]){
+// 				if(isset($new[2])&&$new[2]=='note'){
+// 					$answer_array[$num][$i++]=$answers;
+// 					$old = $new[0];
+// 					continue;
+// 				}
+// 				else{
+// 					$answer_array[$num][$i++]=$question;
+// 					$old = $new[0];
+// 					continue;
+// 				}
+// 			}
+// 			else{
+// 				$i=0;
+// 				if($old==null){
+// 					if($answers=="on"){
+// 						if(isset($new[2])&&$new[2]=='note'){
+// 							$answer_array[1][$i++]=$answers;
+// 							$old = $new[0];
+// 						}
+// 						else{
+// 							$answer_array[1][$i++]=$question;
+// 							$old = $new[0];
+// 						}
+// 					}
+// 					else{
+// 						$answer_array[1][$i++]=$answers;
+// 						$old = $new[0];
+// 					}
+// 				}
+// 				else{
+// 					if($answers=="on"){
+// 						$num++;
+// 						$answer_array[$num][$i++]=$question;
+// 						$old = $new[0];
+// 					}
+// 					else{
+// 						$num++;
+// 						$answer_array[$num][$i++]=$answers;
+// 						$old = $new[0];
+// 					}
+// 				}
+// 			}
+// 		}
+// 		$submit = null;
+// 		$i=1;
+// 		$b=1;
+// 		$string = null;
+// 		foreach($answer_array as $answers){
+// 			if(count($answers)>1){
+// 				foreach ($answers as $value){
+// 					$string .= $value.'γ';
+// 				}
+// 			}
+// 			else{
+// 				$string = $answers[0];
+// 			}
+// 			$submit['q'.$b++]= $string;
+// 			$string = null;
+// 		}
+// 		$answer_string = null;
+// 		foreach ($submit as $question => $value){
+// 			$answer_string .=$question."β".$value."α";
+// 		}
+// 		return $answer_string;
+		print_r($post);
 }
 
 

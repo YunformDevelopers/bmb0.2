@@ -138,7 +138,7 @@ header('Content-Type:text/html; charset=utf-8');
         </div>
 
         <div id="next-step">
-    		<input class="btn blue" value="保存并下一步" type="submit" id="step1-step2" onclick="SetCookie(); window.location.href='formaction.php?action=save&id=<?php echo '1';?>'"/>
+    		<input class="btn blue" value="保存并下一步" type="submit" id="step1-step2" onclick="SetCookie(); window.location.href='formaction.php?action=save'"/>
 	    </div>
 
     </div>

@@ -72,7 +72,9 @@
             注：标 * 的题目为必填
         </div>
         <ul id="form-body">
-        	<form method="post" action="survey.php?action=submit">
+        	<form method="post" action="formaction.php?action=answer">
+        	<input type="hidden" name="action" value="answer"/>
+        	<input type="hidden" name="id" value="<?php echo $_GET['id'];?>"/>
             <li id="" class="q1 q-field free-multichoice">
                 <div class="q-number"><span>1</span></div>
                 <div class="q-whole">

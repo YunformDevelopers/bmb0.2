@@ -117,7 +117,31 @@
         </div>
     </div>
     <div class="section-body">
-        <div class="card newest" > 
+    	<?php 
+    		connect();
+    		$result=mysql_query("select * from question order by Date desc limit 4") or die(mysql_error());
+    		while($row=mysql_fetch_assoc($result)){
+    			echo '<div class="card newest" >';
+				echo '<a href="reform.php?id='.$row['form_id'].'&data='.$row['question_string'].'">';
+				echo '<div class="img-holder">
+			    		<div class="fader">
+			    		<img src="images/5.jpg" alt="" />
+			    	</div>
+    		<div class="form-name">
+    		'.$row['form_title'].'
+    		</div>
+    		<div class="img-counter">
+    		<div class="counter">
+    		<span class="time-left">还有两天</span>
+    				<span class="written">14次</span>
+    				</div>
+    				</div>
+    				</div>';
+    		}
+    		
+    		
+    	?>
+        <!--<div class="card newest" > 
             <a href='#'>
                 <div class="img-holder">
                     <div class="fader">
@@ -188,7 +212,7 @@
                     </div>
                 </div>
             </a>
-        </div>
+        </div>  -->
     <!-- 这里是用来使元素左端对齐的 -->
         <div class='card left-fix'>&nbsp;</div>
         <div class='card left-fix'>&nbsp;</div>
