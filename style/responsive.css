@@ -3,10 +3,71 @@
 /************************************************************************************
 MEDIA QUERIES
 *************************************************************************************/
-.section-body {
+
+
+/* 当设备像素比不小于1.5的时候... */
+@media only screen and (-Webkit-min-device-pixel-ratio: 1.5) {
+    #header li.logo a {
+	background-image:url(../images/header-icon/logo.png);
+	}
+	#header li.index a {
+		background-image:url(../images/header-icon/index@2x.png);
+	}
+	#header li.index a:hover, #header li.index a:active, #header li.index.active a {
+		background-image:url(../images/header-icon/index-active@2x.png);
+	}
+	#header li.more a {
+		background-image:url(../images/header-icon/more@2x.png);
+	}
+	#header li.more a:hover {
+		background-image:url(../images/header-icon/more-hover@2x.png);
+	}
+	#header li.more a:active, #header li.more.active a {
+		background-image:url(../images/header-icon/more-active@2x.png);
+	}
+	#header li.search a, #header li.search-input a {
+		background-image:url(../images/header-icon/search@2x.png);
+	}
+	#header li.search a:hover, #header li.search-input a:hover {
+		background-image:url(../images/header-icon/search-hover@2x.png);
+	}
+	#header li.search a:active, #header li.search.active a, #header li.search-input a:active, #header li.search-input.active a {
+		background-image:url(../images/header-icon/search-active@2x.png);
+	}
+	#header li.create a {
+		background-image:url(../images/header-icon/create@2x.png);
+	}
+	#header li.create a:hover {
+		background-image:url(../images/header-icon/create-hover@2x.png);
+	}
+	#header li.create a:active, #header li.create.active a {
+		background-image:url(../images/header-icon/create-active@2x.png);
+	}
+	#header li.personal a {
+		background-image:url(../images/header-icon/personal@2x.png);
+	}
+	#header li.personal a:hover, #header li.personal a:active, #header li.personal.active a {
+		background-image:url(../images/header-icon/personal-hover@2x.png);
+	}
+	#header li.personal a:active, #header li.personal.active a {
+		background-image:url(../images/header-icon/personal-active@2x.png);
+	}
+
 }
+
 /* for 900px or less */
 @media screen and (max-width: 900px) {
+	/* header里的nav样式改变，节省空间 */
+	#header li.nav a {
+		background-position:center 19px !important;
+		padding:42px 19px 19px 19px;
+	}
+	/* 减小header的字体 */
+	#header li.nav {
+		font-size:14px;
+	}
+	
+	
 	.section-body {
 		padding:0 10% 0 10%;
 	}
@@ -15,6 +76,11 @@ MEDIA QUERIES
 
 /* for 750px or less */
 @media screen and (max-width: 750px) {
+	/* tab-container 的a宽度减小 */
+	#tab-container li.tab-item a.tab-link {
+		padding:0 2em;
+	}
+	/* section-body宽度减小，居中 */
 	.section-body {
 		width:250px;
 		padding:0;		
@@ -23,12 +89,41 @@ MEDIA QUERIES
 }
 /* for 500px or less   这里开始算作移动设备 */
 @media screen and (max-width: 500px) {
+	/* 去除与屏幕之间的间隔，节省空间 */
+	#header ul, #tab-container ul.tab-list, .swipe, .reminder, #footer  {
+		width:100%;
+		padding:0;
+	}
+	/* 3个tab，宽度为33.33% */
+	#tab-container ul.tab-list li {
+		width:33.333%;
+	}
+	/* 放置header和tab-container溢出 */
+	#header ul, #tab-container ul {
+		overflow:hidden;
+	}
+	/* 5个head 宽度为20% */
+	#header li {
+		width:20%;	
+	}
+	/* 使nav的文字居中 */
+	#header li.nav a {
+		text-align:center;
+	}
+	/* 将header放到页面底下 */
+	#header {
+		position:fixed;
+		bottom:0;
+		left:0;
+		z-index:500;
+	}
+	
 	.section-body {
 		width:250px;
 		padding:0;		
 		margin:0 auto;
 	}
-	#header {
+	/*#header {
 		position:fixed;
 		top:0; left:0;
 		z-index:99;
@@ -36,7 +131,7 @@ MEDIA QUERIES
 	}
 	#footer div {
 		display:block;
-	}
+	}*/
 	.msg {
 		width:90%;
 		margin-left:-45%;/*这是为了居中写的代码*/

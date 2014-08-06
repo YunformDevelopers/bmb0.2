@@ -103,72 +103,51 @@ div{
 	height:100%;
 	font-size:18px;
 }
+
 #header li.left, #tab-container li.left {
 	float:left;	
 }
 #header li.right {
 	float:right;	
 }
-#header li.head-item a {
-	display:block;
-	height:18px;
-	line-height:18px;
-	padding:31px 31px 31px 49px;
-}
-#header li.logo a {
-	background:url(../images/header-icon/logo.png) no-repeat 24px center;
-}
-
-#header li.more a {
-	background:url(../images/header-icon/more.png) no-repeat 24px center;
-}
-#header li.more a:hover {
-	background:url(../images/header-icon/more-hover.png) no-repeat 24px center;
-}
-#header li.more a:active, #header li.more.active a {
-	background:url(../images/header-icon/more-active.png) no-repeat 24px center;
-}
-#header li.search a {
-	background:url(../images/header-icon/search.png) no-repeat 24px center;
-}
-#header li.search a:hover {
-	background:url(../images/header-icon/search-hover.png) no-repeat 24px center;
-}
-#header li.search a:active, #header li.search.active a {
-	background:url(../images/header-icon/search-active.png) no-repeat 24px center;
-}
-#header li.create a {
-	background:url(../images/header-icon/create.png) no-repeat 24px center;
-}
-#header li.create a:hover {
-	background:url(../images/header-icon/create-hover.png) no-repeat 24px center;
-}
-#header li.create a:active, #header li.create.active a {
-	background:url(../images/header-icon/create-active.png) no-repeat 24px center;
-}
-#header li.personal a {
-	background:url(../images/header-icon/personal.png) no-repeat 24px center;
-}
-#header li.personal a:hover, #header li.personal a:active, #header li.personal.active a {
-	background:url(../images/header-icon/personal-hover.png) no-repeat 24px center;
-}
-#header li.personal a:active, #header li.personal.active a {
-	background:url(../images/header-icon/personal-active.png) no-repeat 24px center;
-}
-#header li.head-item a:hover {
-	color:#E1331C;
-}
-#header li.active a {
-	color:#E1331C;
-}
 #header a:hover, #tab-container li.tab-item a.tab-link:hover{
 	text-decoration:none;
 }
-/* TODO:这里待修改 */
-#header .search-mobile {
+#header li.head-item a {
+	display:block;
+	background-repeat:no-repeat;
+}
+#header li.head-item a:hover, #header li.active a {
+	color:#E1331C;
+}
+/* 给nav加样式 */
+#header li.nav a {
+	height:18px;
+	line-height:18px;
+	padding:31px 31px 31px 49px;
+	background-position:24px center;
+	background-size:18px 18px;
+}
+/* 给除了nav之外的item加样式 */
+#header li.search-input a.head-link span.head-name, #header li.logo a.head-link span.head-name, #header li.search form {
 	display:none;
 }
-.search input.search-text {
+#header li.logo a {
+	padding:0 !important;
+	width:128px;
+	height:80px !important;
+	background-position:left center;
+	background-image:url(../images/header-icon/logo.png);
+}
+#header li.search-input a {
+	height:18px;
+	line-height:18px;
+	padding:31px 31px 31px 49px;
+	background-image:url(../images/header-icon/search.png);
+	background-position:24px center;
+	background-size:18px;
+}
+#header li.search-input input.search-text {
 	font-size:18px;
 	border:none;
 	border-bottom:solid 1px #ccc;
@@ -177,9 +156,62 @@ div{
 	width:6.5em;
 	transition:all 0.5s ease;-moz-transition:all 0.5s ease;
 }
-.search input.search-text:focus{
+#header li.search-input input.search-text:focus{
 	width:9em;
 }
+
+/* 给每种item加背景图片 */
+#header li.logo a {
+	background-image:url(../images/header-icon/logo.png);
+}
+#header li.index a {
+	background-image:url(../images/header-icon/index.png);
+}
+#header li.index a:hover, #header li.index a:active, #header li.index.active a {
+	background-image:url(../images/header-icon/index-active.png);
+}
+#header li.more a {
+	background-image:url(../images/header-icon/more.png);
+}
+#header li.more a:hover {
+	background-image:url(../images/header-icon/more-hover.png);
+}
+#header li.more a:active, #header li.more.active a {
+	background-image:url(../images/header-icon/more-active.png);
+}
+#header li.search a, #header li.search-input a {
+	background-image:url(../images/header-icon/search.png);
+}
+#header li.search a:hover, #header li.search-input a:hover {
+	background-image:url(../images/header-icon/search-hover.png);
+}
+#header li.search a:active, #header li.search.active a, #header li.search-input a:active, #header li.search-input.active a {
+	background-image:url(../images/header-icon/search-active.png);
+}
+#header li.create a {
+	background-image:url(../images/header-icon/create.png);
+}
+#header li.create a:hover {
+	background-image:url(../images/header-icon/create-hover.png);
+}
+#header li.create a:active, #header li.create.active a {
+	background-image:url(../images/header-icon/create-active.png);
+}
+#header li.personal a {
+	background-image:url(../images/header-icon/personal.png);
+}
+#header li.personal a:hover, #header li.personal a:active, #header li.personal.active a {
+	background-image:url(../images/header-icon/personal-hover.png);
+}
+#header li.personal a:active, #header li.personal.active a {
+	background-image:url(../images/header-icon/personal-active.png);
+}
+
+/* TODO:这里待修改 */
+#header .search-mobile {
+	display:none;
+}
+
 
 #tab-container {
 	width:100%;
@@ -195,6 +227,7 @@ div{
 }
 
 #tab-container li.tab-item a.tab-link {
+	text-align:center;
 	display:block;
 	font-size:16px;
 	padding:0 4em;
@@ -213,6 +246,7 @@ div{
 	text-shadow:0px 0px 4px #fff;
 }
 #tab-container li.active a.tab-link, #tab-container li.active a.tab-link:hover, #tab-container li.active a.tab-link:active {
+	font-weight:bold;
 	border-bottom:solid 4px #E1331C;
 	color:#E1331C;
 }
@@ -366,7 +400,7 @@ div{
 .reminder {
 	text-align:right;
 }
-.reminder p,.search {
+.reminder p {
 	display:inline-block;
 	margin-left:20px;
 }

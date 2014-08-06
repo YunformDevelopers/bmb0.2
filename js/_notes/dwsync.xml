@@ -4,7 +4,7 @@
 <file name="jquery-ui-1.10.4.js" server="www.dmedia.zju.edu.cn" local="130500756000000000" remote="130500756000000000" Dst="0" />
 <file name="jQuery.js" server="www.dmedia.zju.edu.cn" local="130500756000000000" remote="130500756000000000" Dst="0" />
 <file name="abandon.js" server="www.dmedia.zju.edu.cn" local="130500756000000000" remote="130500756000000000" Dst="0" />
-<file name="create.js" server="www.dmedia.zju.edu.cn" local="130511694919920124" remote="130511705400000000" Dst="0" />
+<file name="create.js" server="www.dmedia.zju.edu.cn" local="130517339566213430" remote="130517360400000000" Dst="0" />
 <file name="showtips.js" server="www.dmedia.zju.edu.cn" local="130500756000000000" remote="130500756000000000" Dst="0" />
 <file name="msg.js" server="www.dmedia.zju.edu.cn" local="130510967507662534" remote="130510977600000000" Dst="0" />
 <file name="jquery-2.1.1.min.js" server="www.dmedia.zju.edu.cn" local="130500756000000000" remote="130500756000000000" Dst="0" />
@@ -17,7 +17,8 @@
 <file name="stickUp.js" server="www.dmedia.zju.edu.cn" local="130500756000000000" remote="130500756000000000" Dst="0" />
 <file name="stickUp.min.js" server="www.dmedia.zju.edu.cn" local="130500756000000000" remote="130500756000000000" Dst="0" />
 <file name="unslider.js" server="www.dmedia.zju.edu.cn" local="130500756000000000" remote="130500756000000000" Dst="0" />
-<file name="cookie.js" server="www.dmedia.zju.edu.cn" local="130517133143205743" remote="130517130000000000" Dst="0" />
+<file name="cookie.js" server="www.dmedia.zju.edu.cn" local="130517140882548001" remote="130517360400000000" Dst="0" />
 <file name="manage.js" server="www.dmedia.zju.edu.cn" local="130509457960573539" remote="130509865200000000" Dst="0" />
 <file name="answerCookie.js" server="www.dmedia.zju.edu.cn" local="130513706262381851" remote="130517130000000000" Dst="0" />
+<file name="swipe.js" server="www.dmedia.zju.edu.cn" local="130313391670000000" remote="130517360400000000" Dst="0" />
 </dwsync>
