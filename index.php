@@ -14,22 +14,25 @@
 <script type="text/javascript" src="js/showtips.js"></script>
 <script type="text/javascript" src="test for Liang/test.js"></script>
 <script type="text/javascript" src="js/msg.js"></script>
+<script src='js/iscroll.js'></script>
 <?php
     require 'includes/header.inc.php';
 ?>
 </head>
-<body>
+<body onload="loaded()">
 <div id='slideshow' style="display:none;">
 	
 </div>
 
-<div id="content-container">
-	<div id="content">
-    	<div id="wrapper">
-			<div id="mySwipe" id='slider'  class='swipe'>
-				<div class='swipe-wrap'>
-					<div>
+<!--<div id="content-container">
+	<div id="content">-->
+    	<div id="wrapper" class="content-container">
+		<!--	<div id="mySwipe" id='slider'  class='swipe'>
+				<div class='swipe-wrap'>-->
+				<ul id="scroller" class="content">
+					<li class="innerWrapper">
 						<div id='newest' class="section">
+							<br />
 							<div class="section-header">
 								<h2>最新上架</h2>
 								<div class="h2-line">
@@ -120,9 +123,10 @@
 							</div>
 
 						</div>
-					</div>
-					<div>
+					</li>
+					<li class="innerWrapper2">
 						<div id='hottest' class="section">
+							<br />
 							<div class="section-header">
 								<h2>最热门</h2>
 								<div class="h2-line">
@@ -212,9 +216,10 @@
 								<p class = "reminder">你也可以切换到<a class="btn white" onClick= "slideTo(0)">推荐</a><a class="btn white" onClick= "slideTo(2)">筛选</a>标签页</p>
 							</div>
 						</div>
-					</div>
-					<div>
+					</li>
+					<li class="innerWrapper3">
 						<div id='hottest' class="section">
+							<br />
 							<div class="section-header">
 								<h2>标签云</h2>
 								<div class="h2-line">
@@ -225,12 +230,13 @@
 							</div>
 						</div>
 					</div>
-					</div>
-				</div>
-            </div>
+					</li>
+				</ul>
+			<!--	</div>
+            </div>-->
 		</div>
-	</div>
-</div>
+<!--	</div>
+</div>-->
 			
 <div class='msg'>
     <div class='msg-border'>
@@ -243,6 +249,6 @@
      include 'includes/footer.inc.php';
 ?>
 </body>
-<script src='js/swipe.js'></script>
+
 <script src='js/common.js'></script>
 </html>

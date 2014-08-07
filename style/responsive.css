@@ -97,7 +97,7 @@ MEDIA QUERIES
 /* for 500px or less   这里开始算作手机 */
 @media screen and (max-width: 500px) {
 	/* 去除与屏幕之间的间隔，节省空间 */
-	#header ul, #tab-container ul.tab-list, .swipe, .reminder, #footer  {
+	#header ul, #tab-container ul.tab-list, .swipe, .reminder, #footer, .content-container  {
 		width:100%;
 		padding:0;
 	}

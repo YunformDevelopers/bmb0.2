@@ -258,16 +258,17 @@ div{
 	color:#E1331C;
 }
 
-#content-container {
+.content-container {
 	overflow:auto;
+	width:90%;
+	margin:0 auto;
 }
-#content {
-	margin-top:50px;
+.content {
 }
 
 /* Swipe 2 required styles */
 
-.swipe {
+/*.swipe {
   overflow: hidden;
   visibility: hidden;
   position: relative;
@@ -284,6 +285,45 @@ div{
 }
 
 /* END required styles */
+#wrapper {
+	position: relative;
+	overflow: hidden;
+
+	/* Prevent native touch events on Windows */
+	-ms-touch-action: none;
+
+	/* Prevent the callout on tap-hold and text selection */
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+
+	/* Prevent text resize on orientation change, useful for web-apps */
+	-webkit-text-size-adjust: none;
+	-moz-text-size-adjust: none;
+	-ms-text-size-adjust: none;
+	-o-text-size-adjust: none;
+	text-size-adjust: none;
+}
+#scroller {
+	position: absolute;
+	width:200000px;
+
+	/* Prevent elements to be highlighted on tap */
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+
+	/* Put the scroller into the HW Compositing layer right from the start */
+	-webkit-transform: translateZ(0);
+	-moz-transform: translateZ(0);
+	-ms-transform: translateZ(0);
+	-o-transform: translateZ(0);
+	transform: translateZ(0);
+}
+#scroller li {
+	float:left;
+	overflow:auto;
+}
 
 .section-header {
 	position:relative;
@@ -307,6 +347,10 @@ div{
 	border-bottom:#FFF solid 2px;
 	border-top:#d9cfbf solid 2px;
 }
+.section-body {
+	padding:0 5px;
+}
+
 
 #slideshow {height:20em; display:block;}
 
