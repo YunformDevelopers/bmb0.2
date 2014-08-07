@@ -6,7 +6,8 @@ MEDIA QUERIES
 
 
 /* 当设备像素比不小于1.5的时候... */
-@media only screen and (-Webkit-min-device-pixel-ratio: 1.5) {
+@media only screen and (-Webkit-min-device-pixel-ratio: 1.5),  
+    only screen and (min-device-pixel-ratio : 1.5) {
     #header li.logo a {
 	background-image:url(../images/header-icon/logo.png);
 	}
@@ -74,11 +75,17 @@ MEDIA QUERIES
 
 }
 
-/* for 750px or less */
+/* for 750px or less 从这里开始算包括平板在内的触摸手持设备 */
 @media screen and (max-width: 750px) {
 	/* tab-container 的a宽度减小 */
 	#tab-container li.tab-item a.tab-link {
 		padding:0 2em;
+	}
+	#footer {
+		display:none;
+	}
+	.card .img-holder:hover {
+	-moz-transform:translateY(0px);-webkit-transform:translateY(0px);
 	}
 	/* section-body宽度减小，居中 */
 	.section-body {
@@ -87,7 +94,7 @@ MEDIA QUERIES
 		margin:0 auto;
 	}
 }
-/* for 500px or less   这里开始算作移动设备 */
+/* for 500px or less   这里开始算作手机 */
 @media screen and (max-width: 500px) {
 	/* 去除与屏幕之间的间隔，节省空间 */
 	#header ul, #tab-container ul.tab-list, .swipe, .reminder, #footer  {
@@ -156,10 +163,7 @@ MEDIA QUERIES
 		text-align:center;
 		position:relative;
 	}
-	.reminder {
-		display:none;
-	}
-	.h2-line {/*分割线变细*/
+ 	.h2-line {/*分割线变细*/
 	border-top: 1px solid #D9CFBF;
 	border-bottom: px solid #FFF;
 	}

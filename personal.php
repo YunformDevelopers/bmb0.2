@@ -103,172 +103,186 @@ $(document).ready(function(){
 <?php
     require 'includes/header.inc.php';
 ?>
-<div id='my-release' class="section">
-	<div class="section-header">
-        <h2>我发布的</h2>
-        <div class="h2-line">
-        </div>
-    </div>
-    <div class="section-body">
-        <div class="card my-release" > 
-            <a href='#'>
-                <div class='form-op'>
-                    <a href="#"><input class='btn red' type="button" value='编辑'/></a>
-                    <a href="manage.php"><input class='btn blue' type="button" value='管理'/></a>
-                    <a href="#"><input class='btn green' type="button" value='查看'/></a>
-                </div>
-                <div class='form-status'>
-                    <img src="images/form-status-on.png" alt="已下架" />
-                </div>
-                <div class="img-holder">
-                    <div class="fader">
-                        <img src="images/2.jpg" alt="" />
-                    </div>
-                    <div class="form-name">
-                        浙大某个社团网站纳新报名表
-                    </div>
-                    <div class="img-counter">
-                        <div class="counter">
-                            <span class="time-left">还有两天</span>
-                            <span class="written">14次</span>
-                        </div>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="card my-release" > 
-            <a href='#'>
-                <div class='form-op'>
-                    <a href="#"><input class='btn red' type="button" value='编辑'/></a>
-                    <a href="manage.php"><input class='btn blue' type="button" value='管理'/></a>
-                    <a href="#"><input class='btn green' type="button" value='查看'/></a>
-                </div>
-                <div class='form-status'>
-                    <img src="images/form-status-off.png" alt="已下架" />
-                </div>
-                <div class="img-holder">
-                    <div class="fader">
-                        <img src="images/1.jpg" alt="" />
-                    </div>
-                    <div class="form-name">
-                        浙大某个社团网站纳新报名表
-                    </div>
-                    <div class="img-counter">
-                        <div class="counter">
-                            <span class="time-left">还有两天</span>
-                            <span class="written">14次</span>
-                        </div>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="card my-release" > 
-            <a href='#'>
-                <div class='form-op'>
-                    <a href="#"><input class='btn red' type="button" value='编辑'/></a>
-                    <a href="manage.php"><input class='btn blue' type="button" value='管理'/></a>
-                    <a href="#"><input class='btn green' type="button" value='查看'/></a>
-                </div>
-                <div class='form-status'>
-                    <img src="images/form-status-wait.png" alt="已下架" />
-                </div>
-                <div class="img-holder">
-                    <div class="fader">
-                        <img src="images/1.jpg" alt="" />
-                    </div>
-                    <div class="form-name">
-                        浙大某个社团网站纳新报名表
-                    </div>
-                    <div class="img-counter">
-                        <div class="counter">
-                            <span class="time-left">还有两天</span>
-                            <span class="written">14次</span>
-                        </div>
-                    </div>
-                </div>
-            </a>
-        </div>
-        <div class="card my-release create-new" > 
-            <a href="create.php">
-                <div class="img-holder">
-                    <b>+</b>
-                    <p>点此创建新表</p>
-                </div>
-            </a>	
-        </div>
-    <!-- 这里是用来使元素左端对齐的 -->
-        <div class='card left-fix'>&nbsp;</div>
-        <div class='card left-fix'>&nbsp;</div>
-        <div class='card left-fix'>&nbsp;</div>
-        <div class='card left-fix'>&nbsp;</div>
-    </div>
+<div id="content-container">
+	<div id="content">
+    	<div id="wrapper">
+			<div id="mySwipe" id='slider'  class='swipe'>
+				<div class='swipe-wrap'>
+					<div>
+						<div id='my-release' class="section">
+							<div class="section-header">
+								<h2>我发布的</h2>
+								<div class="h2-line">
+								</div>
+							</div>
+							<div class="section-body">
+								<div class="card my-release" > 
+									<a href='#'>
+										<div class='form-op'>
+											<a href="#"><input class='btn red' type="button" value='编辑'/></a>
+											<a href="manage.php"><input class='btn blue' type="button" value='管理'/></a>
+											<a href="#"><input class='btn green' type="button" value='查看'/></a>
+										</div>
+										<div class='form-status'>
+											<img src="images/form-status-on.png" alt="已下架" />
+										</div>
+										<div class="img-holder">
+											<div class="fader">
+												<img src="images/2.jpg" alt="" />
+											</div>
+											<div class="form-name">
+												浙大某个社团网站纳新报名表
+											</div>
+											<div class="img-counter">
+												<div class="counter">
+													<span class="time-left">还有两天</span>
+													<span class="written">14次</span>
+												</div>
+											</div>
+										</div>
+									</a>
+								</div>
+								<div class="card my-release" > 
+									<a href='#'>
+										<div class='form-op'>
+											<a href="#"><input class='btn red' type="button" value='编辑'/></a>
+											<a href="manage.php"><input class='btn blue' type="button" value='管理'/></a>
+											<a href="#"><input class='btn green' type="button" value='查看'/></a>
+										</div>
+										<div class='form-status'>
+											<img src="images/form-status-off.png" alt="已下架" />
+										</div>
+										<div class="img-holder">
+											<div class="fader">
+												<img src="images/1.jpg" alt="" />
+											</div>
+											<div class="form-name">
+												浙大某个社团网站纳新报名表
+											</div>
+											<div class="img-counter">
+												<div class="counter">
+													<span class="time-left">还有两天</span>
+													<span class="written">14次</span>
+												</div>
+											</div>
+										</div>
+									</a>
+								</div>
+								<div class="card my-release" > 
+									<a href='#'>
+										<div class='form-op'>
+											<a href="#"><input class='btn red' type="button" value='编辑'/></a>
+											<a href="manage.php"><input class='btn blue' type="button" value='管理'/></a>
+											<a href="#"><input class='btn green' type="button" value='查看'/></a>
+										</div>
+										<div class='form-status'>
+											<img src="images/form-status-wait.png" alt="已下架" />
+										</div>
+										<div class="img-holder">
+											<div class="fader">
+												<img src="images/1.jpg" alt="" />
+											</div>
+											<div class="form-name">
+												浙大某个社团网站纳新报名表
+											</div>
+											<div class="img-counter">
+												<div class="counter">
+													<span class="time-left">还有两天</span>
+													<span class="written">14次</span>
+												</div>
+											</div>
+										</div>
+									</a>
+								</div>
+								<div class="card my-release create-new" > 
+									<a href="create.php">
+										<div class="img-holder">
+											<b>+</b>
+											<p>点此创建新表</p>
+										</div>
+									</a>	
+								</div>
+							<!-- 这里是用来使元素左端对齐的 -->
+								<div class='card left-fix'>&nbsp;</div>
+								<div class='card left-fix'>&nbsp;</div>
+								<div class='card left-fix'>&nbsp;</div>
+								<div class='card left-fix'>&nbsp;</div>
+							</div>
+						</div>
+					</div>
+					<div>
+						<div id='my-fill' class="section">
+							<div class="section-header">
+								<h2>我填写的</h2>
+								<div class="h2-line">
+								</div>
+							</div>
+							<div class="section-body">
+								<div class="card my-fill" > 
+									<a href='#'>
+										<div class="img-holder">
+											<div class="fader">
+												<img src="images/1.jpg" alt="" />
+											</div>
+											<div class="form-name">
+												浙大某个社团网站纳新报名表
+											</div>
+											<div class="img-counter">
+												<div class="counter">
+													<span class="time-left">还有两天</span>
+													<span class="written">14次</span>
+												</div>
+											</div>
+										</div>
+									</a>
+								</div>
+							<!-- 这里是用来使元素左端对齐的 -->
+								<div class='card left-fix'>&nbsp;</div>
+								<div class='card left-fix'>&nbsp;</div>
+								<div class='card left-fix'>&nbsp;</div>
+								<div class='card left-fix'>&nbsp;</div>
+							</div>
+						</div>
+					</div>
+					<div>
+						<div id='my-browse' class="section">
+							<div class="section-header">
+								<h2>我浏览的</h2>
+								<div class="h2-line">
+								</div>
+							</div>
+							<div class="section-body">
+								<div class="card my-browse" > 
+									<a href='#'>
+										<div class="img-holder">
+											<div class="fader">
+												<img src="images/1.jpg" alt="" />
+											</div>
+											<div class="form-name">
+												浙大某个社团网站纳新报名表
+											</div>
+											<div class="img-counter">
+												<div class="counter">
+													<span class="time-left">还有两天</span>
+													<span class="written">14次</span>
+												</div>
+											</div>
+										</div>
+									</a>
+								</div>
+							<!-- 这里是用来使元素左端对齐的 -->
+								<div class='card left-fix'>&nbsp;</div>
+								<div class='card left-fix'>&nbsp;</div>
+								<div class='card left-fix'>&nbsp;</div>
+								<div class='card left-fix'>&nbsp;</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 </div>
-<div id='my-fill' class="section">
-	<div class="section-header">
-        <h2>我填写的</h2>
-        <div class="h2-line">
-        </div>
-    </div>
-    <div class="section-body">
-        <div class="card my-fill" > 
-            <a href='#'>
-                <div class="img-holder">
-                    <div class="fader">
-                        <img src="images/1.jpg" alt="" />
-                    </div>
-                    <div class="form-name">
-                        浙大某个社团网站纳新报名表
-                    </div>
-                    <div class="img-counter">
-                        <div class="counter">
-                            <span class="time-left">还有两天</span>
-                            <span class="written">14次</span>
-                        </div>
-                    </div>
-                </div>
-            </a>
-        </div>
-    <!-- 这里是用来使元素左端对齐的 -->
-        <div class='card left-fix'>&nbsp;</div>
-        <div class='card left-fix'>&nbsp;</div>
-        <div class='card left-fix'>&nbsp;</div>
-        <div class='card left-fix'>&nbsp;</div>
-    </div>
-</div>
-<div id='my-browse' class="section">
-	<div class="section-header">
-        <h2>我浏览的</h2>
-        <div class="h2-line">
-        </div>
-    </div>
-    <div class="section-body">
-        <div class="card my-browse" > 
-            <a href='#'>
-                <div class="img-holder">
-                    <div class="fader">
-                        <img src="images/1.jpg" alt="" />
-                    </div>
-                    <div class="form-name">
-                        浙大某个社团网站纳新报名表
-                    </div>
-                    <div class="img-counter">
-                        <div class="counter">
-                            <span class="time-left">还有两天</span>
-                            <span class="written">14次</span>
-                        </div>
-                    </div>
-                </div>
-            </a>
-        </div>
-    <!-- 这里是用来使元素左端对齐的 -->
-        <div class='card left-fix'>&nbsp;</div>
-        <div class='card left-fix'>&nbsp;</div>
-        <div class='card left-fix'>&nbsp;</div>
-        <div class='card left-fix'>&nbsp;</div>
-    </div>
-</div>
-
-
 <div class='msg'>
     <div class='msg-border'>
         <div class='msg-content'>			
@@ -280,4 +294,6 @@ $(document).ready(function(){
      include 'includes/footer.inc.php';
 ?>
 </body>
+<script src='js/swipe.js'></script>
+<script src='js/common.js'></script>
 </html>
