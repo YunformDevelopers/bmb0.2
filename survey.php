@@ -72,9 +72,7 @@
             注：标 * 的题目为必填
         </div>
         <ul id="form-body">
-        	<form method="post" action="formaction.php?action=answer">
-        	<input type="hidden" name="action" value="answer"/>
-        	<input type="hidden" name="id" value="<?php echo $_GET['id'];?>"/>
+        	<form method="post" action="#">
             <li id="" class="q1 q-field free-multichoice">
                 <div class="q-number"><span>1</span></div>
                 <div class="q-whole">
@@ -235,8 +233,7 @@
                     </div>
                 </div>
             </li>
-			
-            <input id="submit" class="btn red" name="submit" type="submit" value="提交" onClick="SetFillCookie(); SetAnswerCookie();"/>
+            <input id="submit" class="btn red" name="submit" type="submit" value="提交" onClick="SetFillCookie(); SetAnswerCookie();alert(document.cookie)"/>
 			<input id="submit" class="btn red" name="submit" value="重填" onClick="ReFill()"/>
          </form>
         </ul>

@@ -165,24 +165,32 @@ $(document).ready(function(){
         </div>
     </div>
     <div class="section-body">
-        <div class="card my-fill" > 
-            <a href='#'>
-                <div class="img-holder">
-                    <div class="fader">
-                        <img src="images/1.jpg" alt="" />
-                    </div>
-                    <div class="form-name">
-                        浙大某个社团网站纳新报名表
-                    </div>
-                    <div class="img-counter">
-                        <div class="counter">
-                            <span class="time-left">还有两天</span>
-                            <span class="written">14次</span>
-                        </div>
-                    </div>
-                </div>
-            </a>
-        </div>
+    	<?php 
+    	connect();
+    	$result=mysql_query("select * from answer where username='".$_COOKIE['srtp-username']."'") or die(mysql_error());
+    	while($rows=mysql_fetch_assoc($result)){
+    		echo '<div class="card my-fill" > 
+            		<a href="fillanswer.php?id='.$rows['form_id'].'">
+                		<div class="img-holder">
+                    		<div class="fader">
+                        		<img src="images/1.jpg" alt="" />
+                    		</div>';
+    		$result2=mysql_query("select * from question where form_id='".$rows['form_id']."'");
+    		$rows2=mysql_fetch_assoc($result2);
+    		echo '<div class="form-name">
+                       			'.$rows2['form_title'].'
+                    		</div>
+                    		<div class="img-counter">
+                        		<div class="counter">
+                            		<span class="time-left">还有两天</span>
+                            		<span class="written">14次</span>
+                        		</div>
+                    		</div>
+                		</div>
+            		</a>
+        		</div>';	
+    	}
+    	?>
     <!-- 这里是用来使元素左端对齐的 -->
         <div class='card left-fix'>&nbsp;</div>
         <div class='card left-fix'>&nbsp;</div>

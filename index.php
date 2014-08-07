@@ -32,7 +32,7 @@
     </div>
     <div class="section-body">
         <div class="card hottest" > 
-            <a href='reform.php?id=1'>
+            <a href='#'>
                 <div class="img-holder">
                     <div class="fader">
                         <img src="images/1.jpg" alt="" />
@@ -125,21 +125,21 @@
 				echo '<a href="reform.php?id='.$row['form_id'].'&data='.$row['question_string'].'">';
 				echo '<div class="img-holder">
 			    		<div class="fader">
-			    		<img src="images/5.jpg" alt="" />
-			    	</div>
-    		<div class="form-name">
-    		'.$row['form_title'].'
-    		</div>
-    		<div class="img-counter">
-    		<div class="counter">
-    		<span class="time-left">还有两天</span>
-    				<span class="written">14次</span>
+			    			<img src="images/5.jpg" alt="" />
+			    		</div>
+    					<div class="form-name">
+    						'.$row['form_title'].'
+    					</div>
+    					<div class="img-counter">
+    						<div class="counter">
+    							<span class="time-left">还有两天</span>
+    							<span class="written">14次</span>
+    						</div>
+    					</div>
     				</div>
-    				</div>
-    				</div>';
-    		}
-    		
-    		
+					</a>
+					</div>';
+    		}	
     	?>
         <!--<div class="card newest" > 
             <a href='#'>

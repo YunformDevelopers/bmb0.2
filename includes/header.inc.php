@@ -22,7 +22,7 @@ if(isset($_POST['username'])&&isset($_POST['password'])){
 	<ul>
 		<li><a href='index.php' title="访问首页，看看新鲜事物">报名吧</a></li>
 		<li><a href='create.php'>创建</a></li>
-		<?php if(!(isset($_COOKIE['srtp-username'])&&isset($_COOKIE['srtp-password']))) 
+		<?php if(!(isset($_COOKIE['srtp-username']))) 
 		echo "<li><a href='#' id=\"register-msg\">注册</a>/<a href='#' id=\"login-msg\">登录</a></li>";
 		else
 		echo "<li><a href='#'>欢迎你</a>/<a href='logout.php'>退出</a></li>";?>
