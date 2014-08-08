@@ -60,7 +60,7 @@ function create_to_db($data,$id){
 		echo '<div id="form-intro" >
 	            注：标 * 的题目为必填
 	        </div>
-	        <div id="form-body">
+	        <ul id="form-body">
 	        	<form method="post" action="formaction.php">
 	        	    <input type="hidden" name="action" value="answer"/>
 	        	    <input type="hidden" name="id" value="'.$id.'"/>';
@@ -70,7 +70,7 @@ function create_to_db($data,$id){
 			$explode2 = explode('β', $explode1[1]);
 			$type=$explode2[0];
 			$choice=explode('γ', $explode2[1]);
-			echo '<div id="" class="q1 q-field '.$type.'">';
+			echo '<li id="" class="q'.($i+1).' q-field '.$type.'">';
 				echo '<div class="q-number"><span>'.($i+1).'</span></div>';
 				echo '<div class="q-whole">';
 				if($type=="free-multichoice"){
@@ -86,21 +86,21 @@ function create_to_db($data,$id){
 				echo '<div class="q-body">';
 				if($type=="free-multichoice")
 					for($j=0;$j<count($choice)-1;$j++){
-						echo '<label><input name="q'.($i+1).'-'.$choice[$j].'" type="checkbox" />'.$choice[$j].'</label>';
+						echo '<label><input name="q'.($i+1).'-'.$choice[$j].'" type="checkbox" value="'.$choice[$j].'"/>'.$choice[$j].'</label>';
 					}
 				if($type=="free-singlechoice")
 					for($j=0;$j<count($choice)-1;$j++){
-						echo '<label><input name="q'.($i+1).'-body" type="radio" />'.$choice[$j].'</label>';
+						echo '<label><input name="q'.($i+1).'-body" type="radio" value="'.$choice[$j].'"/>'.$choice[$j].'</label>';
 					}
 				if($type=="free-multiline"){
 					echo '<textarea name="q'.($i+1).'-body" class="body edit" ></textarea>';
 				}
 				if($type=="free-singleline"){
-					echo '<input type="text" name="q'.($i+1).'-body" class="body edit" >';
+					echo '<input type="text" name="q'.($i+1).'-body" class="body edit" />';
 				}
 				echo '</div>';
 				echo '</div>';
-			echo '</div>';
+			echo '</li>';
 			}
     }
 
@@ -124,6 +124,7 @@ function save_answer_to_db($string,$id){
 	$array['username']=$_COOKIE['srtp-username'];
 	date_default_timezone_set("Asia/Shanghai");
 	$array['date'] = date("Y-m-d h:i:s");
+	print_r($array);
 	insert('answer', $array);
 }
 

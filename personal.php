@@ -102,6 +102,10 @@ $(document).ready(function(){
 <body>
 <?php
     require 'includes/header.inc.php';
+    if(!isset($_COOKIE['srtp-username'])){
+    	do_js_alert('请先登录');
+    	do_js_link('index.php');
+    }
 ?>
 <div id='my-release' class="section">
 	<div class="section-header">

@@ -26,8 +26,7 @@
 		        	?>
 		        	<input id="submit" class="btn red" name="submit" type="submit" value="提交" onClick="SetFillCookie(); SetAnswerCookie();"/>
                 </form>   
-            </div>
+            </ul>
 	</div>
-<?php require 'includes/footer.inc.php';?>
 </body>
 </html>

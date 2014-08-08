@@ -9,8 +9,10 @@ if(isset($_GET['action'])&&$_GET['action']=='save'){
  	do_js_link('reform.php?id='.$id.'&data='.$data);
 }
 else if(isset($_POST['action'])&&$_POST['action']=='answer'){
+	print_r($_COOKIE);
+	exit();
 	save_answer_to_db($_COOKIE['answerStore'], $_POST['id']);
  	do_js_alert("感谢您的回答");
  	setcookie('answerStore','',time()-1);
-// 	do_js_link('index.php');
+ 	do_js_link('index.php');
 }

@@ -12,11 +12,10 @@
 <link rel="stylesheet" href="style/responsive.css"></link>
 <script src="js/jquery-2.1.1.min.js"></script>
 <script src="js/answerCookie.js"></script>
-<?php require 'includes/includes.inc.php';?>
 </head>
 <body>
-
-		        	<?php 
+		        	<?php
+		        	require 'includes/header.inc.php';
 		        	if(isset($_GET['data']) && isset($_GET['id'])){
                     	create_to_db($_GET['data'],$_GET['id']);}
                     else if(isset($_GET['id'])){
@@ -35,7 +34,7 @@
 						echo '<div id="form-intro" >
 	            注：标 * 的题目为必填
 	        </div>
-	        <div id="form-body">
+	        <ul id="form-body">
 	        	<form method="post" action="formaction.php">
 	        	    <input type="hidden" name="action" value="answer"/>
 	        	    <input type="hidden" name="id" value="'.$_GET['id'].'"/>';
@@ -45,7 +44,7 @@
 							$explode2 = explode('β', $explode1[1]);
 							$type=$explode2[0];
 							$choice=explode('γ', $explode2[1]);
-							echo '<div id="" class="q1 q-field '.$type.'">';
+							echo '<li id="" class="q'.($i+1).' q-field '.$type.'">';
 							echo '<div class="q-number"><span>'.($i+1).'</span></div>';
 							echo '<div class="q-whole">';
 							if($type=="free-multichoice"){
@@ -54,18 +53,18 @@
 							else {
 								echo '<div class="q-title">'.$question.'</div>';
 							}
-							echo '<div class="q-alternative">*</div>';
+							echo '<div class="q-alternative" name="required">*</div>';
 							// 					if($type=="free-multichoice"){
 							// 						echo '<div class="q-alternative">*</div>';
 							// 					}
 							echo '<div class="q-body">';
 							if($type=="free-multichoice")
 							for($j=0;$j<count($choice)-1;$j++){
-								echo '<label><input name="q'.($i+1).'-'.$choice[$j].'" type="checkbox" />'.$choice[$j].'</label>';
+								echo '<label><input name="q'.($i+1).'-'.$choice[$j].'" type="checkbox" value="'.$choice[$j].'"/>'.$choice[$j].'</label>';
 							}
 							if($type=="free-singlechoice")
 							for($j=0;$j<count($choice)-1;$j++){
-								echo '<label><input name="q'.($i+1).'-body" type="radio" />'.$choice[$j].'</label>';
+								echo '<label><input name="q'.($i+1).'-body" type="radio" value="'.$choice[$j].'"/>'.$choice[$j].'</label>';
 							}
 							if($type=="free-multiline"){
 								echo '<textarea name="q'.($i+1).'-body" class="body edit" ></textarea>';
@@ -75,7 +74,7 @@
 							}
 							echo '</div>';
 							echo '</div>';
-							echo '</div>';
+							echo '</li>';
 						}
                     }
                     else{
@@ -83,10 +82,9 @@
                     	do_js_link('index.php');
                     }
 		        	?>
-		        	<input id="submit" class="btn red" name="submit" type="submit" value="提交" onClick="SetFillCookie(); SetAnswerCookie();"/>
+		        	<input id="submit" class="btn red" name="submit" type="submit" value="提交" onClick="SetAnswerCookie();"/>
                 </form>   
-            </div>
+            </ul>
 	</div>
-<?php require 'includes/footer.inc.php';?>
 </body>
 </html>
