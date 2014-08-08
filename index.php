@@ -19,224 +19,218 @@
     require 'includes/header.inc.php';
 ?>
 </head>
-<body onload="loaded()">
+<body>
 <div id='slideshow' style="display:none;">
 	
 </div>
 
-<!--<div id="content-container">
-	<div id="content">-->
-    	<div id="wrapper" class="content-container">
-		<!--	<div id="mySwipe" id='slider'  class='swipe'>
-				<div class='swipe-wrap'>-->
-				<ul id="scroller" class="content">
-					<li class="innerWrapper">
-						<div id='newest' class="section">
-							<br />
-							<div class="section-header">
-								<h2>最新上架</h2>
-								<div class="h2-line">
-								</div>
-							</div>
-							<div class="section-body">
-								<div class="card hottest" > 
-									<a href='reform.php?id=1'>
-										<div class="img-holder">
-											<div class="fader">
-												<img src="images/1.jpg" alt="" />
-											</div>
-											<div class="form-name">
-												浙大某个社团网站纳新报名表
-											</div>
-											<div class="img-counter">
-												<div class="counter">
-													<span class="time-left">还有两天</span>
-													<span class="written">14次</span>
-												</div>
-											</div>
-										</div>
-									</a>
-								</div>
-								<div class="card hottest" > 
-									<a href='#'>
-										<div class="img-holder">
-											<div class="fader">
-												<img src="images/2.jpg" alt="" />
-											</div>
-											<div class="form-name">
-												浙大某个社团网站纳新报名表
-											</div>
-											<div class="img-counter">
-												<div class="counter">
-													<span class="time-left">还有两天</span>
-													<span class="written">14次</span>
-												</div>
-											</div>
-										</div>
-									</a>
-								</div>
-								<div class="card hottest" > 
-									<a href='#'>
-										<div class="img-holder">
-											<div class="fader">
-												<img src="images/3.jpg" alt="" />
-											</div>
-											<div class="form-name">
-												浙大某个社团网站纳新报名表
-											</div>
-											<div class="img-counter">
-												<div class="counter">
-													<span class="time-left">还有两天</span>
-													<span class="written">14次</span>
-												</div>
-											</div>
-										</div>
-									</a>
-								</div>
-								<div class="card hottest" > 
-									<a href='#'>
-										<div class="img-holder">
-											<div class="fader">
-												<img src="images/4.jpg" alt="" />
-											</div>
-											<div class="form-name">
-												浙大某个社团网站纳新报名表
-											</div>
-											<div class="img-counter">
-												<div class="counter">
-													<span class="time-left">还有两天</span>
-													<span class="written">14次</span>
-												</div>
-											</div>
-										</div>
-									</a>
-								</div>
-							<!-- 这里是用来使元素左端对齐的 -->
-								<div class='card left-fix'>&nbsp;</div>
-								<div class='card left-fix'>&nbsp;</div>
-								<div class='card left-fix'>&nbsp;</div>
-								<div class='card left-fix'>&nbsp;</div>
-							</div>
-							<div id='content-footer'>
-								<a class = "load-more btn white">点击加载更多</a>
-								<p class = "reminder">你也可以切换到<a class="btn white" onClick= "slideTo(1)">榜单</a><a class="btn white" onClick="slideTo(2)">筛选</a>标签页</p>
-							</div>
 
-						</div>
-					</li>
-					<li class="innerWrapper2">
-						<div id='hottest' class="section">
-							<br />
-							<div class="section-header">
-								<h2>最热门</h2>
-								<div class="h2-line">
-								</div>
-							</div>
-							<div class="section-body">
-								<div class="card hottest" > 
-									<a href='reform.php?id=1'>
-										<div class="img-holder">
-											<div class="fader">
-												<img src="images/1.jpg" alt="" />
-											</div>
-											<div class="form-name">
-												浙大某个社团网站纳新报名表
-											</div>
-											<div class="img-counter">
-												<div class="counter">
-													<span class="time-left">还有两天</span>
-													<span class="written">14次</span>
-												</div>
-											</div>
-										</div>
-									</a>
-								</div>
-								<div class="card hottest" > 
-									<a href='#'>
-										<div class="img-holder">
-											<div class="fader">
-												<img src="images/2.jpg" alt="" />
-											</div>
-											<div class="form-name">
-												浙大某个社团网站纳新报名表
-											</div>
-											<div class="img-counter">
-												<div class="counter">
-													<span class="time-left">还有两天</span>
-													<span class="written">14次</span>
-												</div>
-											</div>
-										</div>
-									</a>
-								</div>
-								<div class="card hottest" > 
-									<a href='#'>
-										<div class="img-holder">
-											<div class="fader">
-												<img src="images/3.jpg" alt="" />
-											</div>
-											<div class="form-name">
-												浙大某个社团网站纳新报名表
-											</div>
-											<div class="img-counter">
-												<div class="counter">
-													<span class="time-left">还有两天</span>
-													<span class="written">14次</span>
-												</div>
-											</div>
-										</div>
-									</a>
-								</div>
-								<div class="card hottest" > 
-									<a href='#'>
-										<div class="img-holder">
-											<div class="fader">
-												<img src="images/4.jpg" alt="" />
-											</div>
-											<div class="form-name">
-												浙大某个社团网站纳新报名表
-											</div>
-											<div class="img-counter">
-												<div class="counter">
-													<span class="time-left">还有两天</span>
-													<span class="written">14次</span>
-												</div>
-											</div>
-										</div>
-									</a>
-								</div>
-							<!-- 这里是用来使元素左端对齐的 -->
-								<div class='card left-fix'>&nbsp;</div>
-								<div class='card left-fix'>&nbsp;</div>
-								<div class='card left-fix'>&nbsp;</div>
-								<div class='card left-fix'>&nbsp;</div>
-							</div>
-							<div id='content-footer'>
-								<a class = "load-more btn white">点击加载更多</a>
-								<p class = "reminder">你也可以切换到<a class="btn white" onClick= "slideTo(0)">推荐</a><a class="btn white" onClick= "slideTo(2)">筛选</a>标签页</p>
-							</div>
-						</div>
-					</li>
-					<li class="innerWrapper3">
-						<div id='hottest' class="section">
-							<br />
-							<div class="section-header">
-								<h2>标签云</h2>
-								<div class="h2-line">
-							</div>
-							<div id='content-footer'>
-								<a class = "load-more btn white">点击加载更多</a>
-								<p class = "reminder">你也可以切换到<a class="btn white" onClick= "slideTo(0)">推荐</a><a class="btn white" onClick= "slideTo(1)">榜单</a>标签页</p>
-							</div>
-						</div>
+<div id="wrapper" class="content-container">		
+	<ul id="scroller" class="content">
+		<li class="innerWrapper">
+			<div id='newest' class="section">
+				<br />
+				<div class="section-header">
+					<h2>最新上架</h2>
+					<div class="h2-line">
 					</div>
-					</li>
-				</ul>
-			<!--	</div>
-            </div>-->
+				</div>
+				<div class="section-body">
+					<div class="card hottest" > 
+						<a href='reform.php?id=1'>
+							<div class="img-holder">
+								<div class="fader">
+									<img src="images/1.jpg" alt="" />
+								</div>
+								<div class="form-name">
+									浙大某个社团网站纳新报名表
+								</div>
+								<div class="img-counter">
+									<div class="counter">
+										<span class="time-left">还有两天</span>
+										<span class="written">14次</span>
+									</div>
+								</div>
+							</div>
+						</a>
+					</div>
+					<div class="card hottest" > 
+						<a href='#'>
+							<div class="img-holder">
+								<div class="fader">
+									<img src="images/2.jpg" alt="" />
+								</div>
+								<div class="form-name">
+									浙大某个社团网站纳新报名表
+								</div>
+								<div class="img-counter">
+									<div class="counter">
+										<span class="time-left">还有两天</span>
+										<span class="written">14次</span>
+									</div>
+								</div>
+							</div>
+						</a>
+					</div>
+					<div class="card hottest" > 
+						<a href='#'>
+							<div class="img-holder">
+								<div class="fader">
+									<img src="images/3.jpg" alt="" />
+								</div>
+								<div class="form-name">
+									浙大某个社团网站纳新报名表
+								</div>
+								<div class="img-counter">
+									<div class="counter">
+										<span class="time-left">还有两天</span>
+										<span class="written">14次</span>
+									</div>
+								</div>
+							</div>
+						</a>
+					</div>
+					<div class="card hottest" > 
+						<a href='#'>
+							<div class="img-holder">
+								<div class="fader">
+									<img src="images/4.jpg" alt="" />
+								</div>
+								<div class="form-name">
+									浙大某个社团网站纳新报名表
+								</div>
+								<div class="img-counter">
+									<div class="counter">
+										<span class="time-left">还有两天</span>
+										<span class="written">14次</span>
+									</div>
+								</div>
+							</div>
+						</a>
+					</div>
+				<!-- 这里是用来使元素左端对齐的 -->
+					<div class='card left-fix'>&nbsp;</div>
+					<div class='card left-fix'>&nbsp;</div>
+					<div class='card left-fix'>&nbsp;</div>
+					<div class='card left-fix'>&nbsp;</div>
+				</div>
+				<div id='content-footer'>
+					<a class = "load-more btn white">点击加载更多</a>
+					<p class = "reminder">你也可以切换到<a class="btn white" onClick= "slideTo(1)">榜单</a><a class="btn white" onClick="slideTo(2)">筛选</a>标签页</p>
+				</div>
+
+			</div>
+		</li>
+		<li class="innerWrapper2">
+			<div id='hottest' class="section">
+				<br />
+				<div class="section-header">
+					<h2>最热门</h2>
+					<div class="h2-line">
+					</div>
+				</div>
+				<div class="section-body">
+					<div class="card hottest" > 
+						<a href='reform.php?id=1'>
+							<div class="img-holder">
+								<div class="fader">
+									<img src="images/1.jpg" alt="" />
+								</div>
+								<div class="form-name">
+									浙大某个社团网站纳新报名表
+								</div>
+								<div class="img-counter">
+									<div class="counter">
+										<span class="time-left">还有两天</span>
+										<span class="written">14次</span>
+									</div>
+								</div>
+							</div>
+						</a>
+					</div>
+					<div class="card hottest" > 
+						<a href='#'>
+							<div class="img-holder">
+								<div class="fader">
+									<img src="images/2.jpg" alt="" />
+								</div>
+								<div class="form-name">
+									浙大某个社团网站纳新报名表
+								</div>
+								<div class="img-counter">
+									<div class="counter">
+										<span class="time-left">还有两天</span>
+										<span class="written">14次</span>
+									</div>
+								</div>
+							</div>
+						</a>
+					</div>
+					<div class="card hottest" > 
+						<a href='#'>
+							<div class="img-holder">
+								<div class="fader">
+									<img src="images/3.jpg" alt="" />
+								</div>
+								<div class="form-name">
+									浙大某个社团网站纳新报名表
+								</div>
+								<div class="img-counter">
+									<div class="counter">
+										<span class="time-left">还有两天</span>
+										<span class="written">14次</span>
+									</div>
+								</div>
+							</div>
+						</a>
+					</div>
+					<div class="card hottest" > 
+						<a href='#'>
+							<div class="img-holder">
+								<div class="fader">
+									<img src="images/4.jpg" alt="" />
+								</div>
+								<div class="form-name">
+									浙大某个社团网站纳新报名表
+								</div>
+								<div class="img-counter">
+									<div class="counter">
+										<span class="time-left">还有两天</span>
+										<span class="written">14次</span>
+									</div>
+								</div>
+							</div>
+						</a>
+					</div>
+				<!-- 这里是用来使元素左端对齐的 -->
+					<div class='card left-fix'>&nbsp;</div>
+					<div class='card left-fix'>&nbsp;</div>
+					<div class='card left-fix'>&nbsp;</div>
+					<div class='card left-fix'>&nbsp;</div>
+				</div>
+				<div id='content-footer'>
+					<a class = "load-more btn white">点击加载更多</a>
+					<p class = "reminder">你也可以切换到<a class="btn white" onClick= "slideTo(0)">推荐</a><a class="btn white" onClick= "slideTo(2)">筛选</a>标签页</p>
+				</div>
+			</div>
+		</li>
+		<li class="innerWrapper3">
+			<div id='hottest' class="section">
+				<br />
+				<div class="section-header">
+					<h2>标签云</h2>
+					<div class="h2-line">
+				</div>
+				<div id='content-footer'>
+					<a class = "load-more btn white">点击加载更多</a>
+					<p class = "reminder">你也可以切换到<a class="btn white" onClick= "slideTo(0)">推荐</a><a class="btn white" onClick= "slideTo(1)">榜单</a>标签页</p>
+				</div>
+			</div>
 		</div>
-<!--	</div>
-</div>-->
+		</li>
+	</ul>
+</div>
+
 			
 <div class='msg'>
     <div class='msg-border'>

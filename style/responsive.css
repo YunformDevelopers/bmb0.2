@@ -85,7 +85,7 @@ MEDIA QUERIES
 		display:none;
 	}
 	.card .img-holder:hover {
-	-moz-transform:translateY(0px);-webkit-transform:translateY(0px);
+	-moz-transform:none;-webkit-transform:none;
 	}
 	/* section-body宽度减小，居中 */
 	.section-body {
@@ -123,6 +123,7 @@ MEDIA QUERIES
 		bottom:0;
 		left:0;
 		z-index:500;
+		border-top:solid 2px #ccc;
 	}
 	
 	.section-body {

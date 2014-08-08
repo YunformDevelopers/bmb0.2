@@ -1,17 +1,20 @@
 // JavaScript Document
 /* 初始化宽高 */
 $(document).ready(function(){
+	var myScroll;//负责横向滑动的iscroll对象
+	var innerScroll;//负责移动端纵向滑动的iscroll对象
+	var innerScroll2;
+	var innerScroll3;//三个标签页意味着三个iscroll对象
 	initSectionWidth ();
 	initContentHeight ();
 	initHeader();
+	loaded();
 });
 
 
-var myScroll;
-var innerScroll;
-var innerScroll2;
-var innerScroll3;
-function loaded () {
+function loaded () {//在body load完之后执行
+	/* 初始化iscroll对象 */
+	
 	myScroll = new IScroll('#wrapper', {
 		scrollX: true,
 		scrollY: false,
@@ -22,12 +25,13 @@ function loaded () {
 		momentum: false,
 		freeScroll: false,
 	});
+	//滚动完之后执行的函数
 	myScroll.on('scrollEnd', function () {
 		var currentPos = myScroll.currentPage['pageX'];
 		$("#tab-container ul.tab-list").children().removeClass("active");//移除已经存在的active的class
 		$("#tab-container ul.tab-list").children().eq(currentPos).addClass("active");//被点击的父级元素添加active class
 	});
-	
+	//获取浏览器的信息
 	var browser = {
 		versions : function() {
 				var u = navigator.userAgent, app = navigator.appVersion;
@@ -39,8 +43,25 @@ function loaded () {
 		}(),
 		language : (navigator.browserLanguage || navigator.language).toLowerCase()
 	}
+	//为移动端做设置
 	if (browser.versions.mobile){//是否为移动终端  
 		$("#scroller li").css("overflow","hidden");
+		//为优化性能，去除盒子的阴影
+		$(".card .img-holder").css("box-shadow","none");
+		//为节省流量，去除图片
+		$(".card .img-holder .fader ").css("display","none");
+		$(".card").css("margin","0.5em 0.3em 0.2em 0.3em");
+		$("#my-release .form-op").css("height","52px");
+		$("#my-release .form-op .btn").css({
+			"float":"left",
+			"margin":"14px"
+		});
+		$("#my-release .form-status").css("height","52px");
+		$("#my-release .form-status img").css({
+			"width":"50px",
+			"height":"50px",
+			"margin":"-20px 210px"
+			});
 		/* 初始化content-container高度 */
 		var contentHeight = ($(window).height()-$("#header").height()-$("#tab-container").height());//计算除去header和tab-container外的高度
 		$(".content li").css("height",contentHeight);
@@ -62,22 +83,18 @@ function loaded () {
 			mouseWheel: true,
 			bounce:false,//测试中
 		});
-		$(".card .img-holder").css("box-shadow","none");
+		
 	}
 	
 }
-
-document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);//iscroll的设置
 
 /* 改变窗口宽高时重新初始化宽高 */
 window.onresize=function(){
 	initSectionWidth ();
 	initContentHeight ();
 	initHeader();
-	
-	
-	
-	
+
 }
 /* 初始化head里面的部分class */
 function initHeader () {
@@ -158,7 +175,7 @@ $('#tab-container .tab-link, #header .head-link').click(function(){
 });
 	
 
-/* 去除触摸300ms延迟的对象 */		
+/* 去除触摸300ms延迟的对象 *//*
 function NoClickDelay(el) {
 	this.element = typeof el == 'object' ? el: document.getElementById(el);       
 	if (window.Touch)  this.element.addEventListener('touchstart', this, false);
@@ -206,6 +223,6 @@ new NoClickDelay(document.getElementById('header'));
 new NoClickDelay(document.getElementById('tab-container'));
 new NoClickDelay(document.getElementById('newest'));		
 new NoClickDelay(document.getElementById('hottest'));
-
+*/
 
 

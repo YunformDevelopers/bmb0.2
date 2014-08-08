@@ -25,21 +25,25 @@ if(isset($_POST['username'])&&isset($_POST['password'])){
         	<a class="head-link" href='index.php' title="报名吧首页" >
             	<span class="head-name">首页</span>
             </a>
+			<div class="reddot"></div>
         </li>
 		<li class="head-item nav more right">
         	<a class="head-link">
             	<span class="head-name">更多</span>
             </a>
+			<div class="reddot"></div>
         </li>
         <li class="head-item nav personal right">
         	<a class="head-link" href='personal.php' >
             	<span class="head-name">我的</span>
             </a>
+			<div class="reddot"></div>
         </li>
         <li class="head-item nav create right">
         	<a class="head-link" href='create.php' >
             	<span class="head-name">创建</span>
             </a>
+			<div class="reddot"></div>
         </li>
         <li class="head-item search-input right">	
         	<a class="head-link">
@@ -48,6 +52,7 @@ if(isset($_POST['username'])&&isset($_POST['password'])){
                     <input class="search-text" type="text"  placeholder="搜索组织/活动" name="q"></input>
                 </form>
             </a>
+			<div class="reddot"></div>
         </li>
     </ul>
     <!--<div class='search-mobile search'>

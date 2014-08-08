@@ -213,6 +213,18 @@ div{
 #header li.personal a:active, #header li.personal.active a {
 	background-image:url(../images/header-icon/personal-active.png);
 }
+#header li.head-item {
+	position:relative;
+}
+#header li.head-item .reddot {
+	display:none;
+	position:absolute;
+	top:12px;
+	right:12px;
+	width:8px; height:8px;
+	border-radius:4px;
+	background:#ef4b35;
+}
 
 /* TODO:这里待修改 */
 #header .search-mobile {
@@ -266,25 +278,7 @@ div{
 .content {
 }
 
-/* Swipe 2 required styles */
 
-/*.swipe {
-  overflow: hidden;
-  visibility: hidden;
-  position: relative;
-  width:90%;
-  margin:0 auto;
-}
-.swipe-wrap {
-  overflow: hidden;
-  position: relative;
-}
-.swipe-wrap > div {
-  float:left;
-  position: relative;
-}
-
-/* END required styles */
 #wrapper {
 	position: relative;
 	overflow: hidden;
@@ -368,6 +362,7 @@ div{
 	display:inline-block;
 	height:0;
 	padding:0; 
+	margin:0 !important;
 	overflow:hidden;
 }
 
@@ -385,11 +380,12 @@ div{
 .card .img-holder {
 	border:solid 0.0625em #d2d0ce; /* 0.0625*16=1px */
 	border-radius: 0.25em 0.25em/0.25em; /* 0.25*16=4px */
-	-moz-border-radius:0.25em  0.25em/0.25em;  
-	-webkit-border-radius:0.25em 0.25em/0.25em; 
+		-moz-border-radius:0.25em  0.25em/0.25em;  
+		-webkit-border-radius:0.25em 0.25em/0.25em; 
 	box-shadow:0px 0.3125em 0.625em rgba(1,1,1,0.2); /* 0.3125*16=5px 0.625*16=10px */
-	-moz-box-shadow:0px 0.3125em 0.625em rgba(1,1,1,0.2); 
-	-webkit-box-shadow:0px 0.3125em 0.625em rgba(1,1,1,0.2);
+		-moz-box-shadow:0px 0.3125em 0.625em rgba(1,1,1,0.2); 
+		-webkit-box-shadow:0px 0.3125em 0.625em rgba(1,1,1,0.2);
+	background:#FFF;
 	transition:all 0.5s ease; 
 }
 .card .img-holder:hover {
@@ -403,7 +399,8 @@ div{
 	min-height:7.5em; /* 7.5*16=120px */
 	width:15em; /* 15*16=240px */
 	height:7.5em; /* 7.5*16=120px */
-	border-radius:0.18em 0.18em 0em 0em/0.18em;-moz-border-radius:0.18em 0.18em 0em 0em/0.18em; /* 0.18*16=2.88px */
+	border-radius:0.18em 0.18em 0em 0em/0.18em;
+		-moz-border-radius:0.18em 0.18em 0em 0em/0.18em; /* 0.18*16=2.88px */
 }
 .card .img-holder .fader {
 	width:15em; /* 15*16=240px */
@@ -420,9 +417,7 @@ div{
 
 .card .img-counter {
 	display:block;
-	background:#fff;
 	color:#777;
-	border-radius:0em 0em 0.26em 0.26em/0.26em;-moz-border-radius:0em 0em 0.26em 0.26em/0.26em;
 	font-size:0.8em;/*注意下面的em基准变为12.8px */
 	height:2em;
 	line-height:2em;
@@ -444,7 +439,6 @@ div{
 /* 注意这里要根据实际使用中的名称的长度来进行字体之类的调整 */
 .card .form-name {
 	padding:4px 0 0 6px ;
-	background:#fff;
 	font-weight:bold;
 }
 
@@ -459,7 +453,7 @@ div{
 	padding:0.2em 0;
 	text-align:center;
 	text-decoration:none;
-	color:#000;
+	color:#555;
 	
 }
 #content-footer .reminder {
@@ -472,7 +466,7 @@ div{
 	margin:0 0.2em;
 	padding:0 0.2em;
 	text-align:center;
-	color:#000;
+	color:#555;
 	
 }
 #content-footer .reminder a {
