@@ -27,6 +27,10 @@
 						$title_string=explode('ζ', $rows1['question_string']);
 						$title=$title_string[0];
 						$string=explode('δ', $title_string[1]);
+						$answer=explode('δ', $rows2['answer_string']);
+						for($i=0;$i<count($answer)-1;$i++){
+							$answer_array[$i]=explode('γ', $answer[$i]);
+						}
 						echo '<div id="form-field">';
 						echo '<div id="form-title">';
 						echo '<h3>'.$title.'</h3>';
@@ -35,9 +39,7 @@
 	            注：标 * 的题目为必填
 	        </div>
 	        <ul id="form-body">
-	        	<form method="post" action="formaction.php">
-	        	    <input type="hidden" name="action" value="answer"/>
-	        	    <input type="hidden" name="id" value="'.$_GET['id'].'"/>';
+	        	<form method="post" action="formaction.php?action=update&id='.$_GET['id'].'">';
 						for($i=0;$i<count($string)-1;$i++){
 							$explode1 = explode('α', $string[$i]);
 							$question = $explode1[0];
@@ -64,13 +66,18 @@
 							}
 							if($type=="free-singlechoice")
 							for($j=0;$j<count($choice)-1;$j++){
-								echo '<label><input name="q'.($i+1).'-body" type="radio" value="'.$choice[$j].'"/>'.$choice[$j].'</label>';
+								if(in_array($choice[$j], $answer_array[$i])){
+									echo '<label><input name="q'.($i+1).'-body" type="radio" value="'.$choice[$j].'" checked="checked"/>'.$choice[$j].'</label>';
+								}
+								else{
+									echo '<label><input name="q'.($i+1).'-body" type="radio" value="'.$choice[$j].'"/>'.$choice[$j].'</label>';
+								}
 							}
 							if($type=="free-multiline"){
-								echo '<textarea name="q'.($i+1).'-body" class="body edit" ></textarea>';
+								echo '<textarea name="q'.($i+1).'-body" class="body edit">'.$answer_array[$i][0].'</textarea>';
 							}
 							if($type=="free-singleline"){
-								echo '<input type="text" name="q'.($i+1).'-body" class="body edit" >';
+								echo '<input type="text" name="q'.($i+1).'-body" class="body edit" value="'.$answer_array[$i][0].'">';
 							}
 							echo '</div>';
 							echo '</div>';

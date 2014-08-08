@@ -27,7 +27,7 @@ function update($table,$array,$where=null){
 		$str.=$sep.$key."='".$value."'";
 	}
 	$query="update {$table} set {$str} ".($where==null?null:"where".$where);
-	mysql_query($query);
+	mysql_query($query) or die(mysql_error());
 	return mysql_affected_rows();
 }
 function delete($table,$where=null){
@@ -53,26 +53,24 @@ function create_to_db($data,$id){
 		$title_string=explode('ζ', $data);
 		$title=$title_string[0];
 		$string=explode('δ', $title_string[1]);
-		echo '<div id="form-field">';
-		echo '<div id="form-title">';
-		echo '<h3>'.$title.'</h3>';
-		echo '</div>';
-		echo '<div id="form-intro" >
-	            注：标 * 的题目为必填
-	        </div>
-	        <ul id="form-body">
-	        	<form method="post" action="formaction.php">
-	        	    <input type="hidden" name="action" value="answer"/>
-	        	    <input type="hidden" name="id" value="'.$id.'"/>';
-	    for($i=0;$i<count($string)-1;$i++){
-		    $explode1 = explode('α', $string[$i]);
-			$question = $explode1[0];
-			$explode2 = explode('β', $explode1[1]);
-			$type=$explode2[0];
-			$choice=explode('γ', $explode2[1]);
-			echo '<li id="" class="q'.($i+1).' q-field '.$type.'">';
-				echo '<div class="q-number"><span>'.($i+1).'</span></div>';
-				echo '<div class="q-whole">';
+		echo '<div id="form-field">
+				<div id="form-title">
+					<h3>'.$title.'</h3>
+				</div>
+				<div id="form-intro" >
+	            	注：标 * 的题目为必填
+	        	</div>
+	        	<ul id="form-body">
+	        		<form method="post" action="formaction.php?action=answer&id='.$_GET['id'].'">';
+	    				for($i=0;$i<count($string)-1;$i++){
+					    $explode1 = explode('α', $string[$i]);
+						$question = $explode1[0];
+						$explode2 = explode('β', $explode1[1]);
+						$type=$explode2[0];
+						$choice=explode('γ', $explode2[1]);
+				echo '<li class="q'.($i+1).' q-field '.$type.'">
+						<div class="q-number"><span>'.($i+1).'</span></div>
+						<div class="q-whole">';
 				if($type=="free-multichoice"){
 					echo '<div class="q-title">'.$question.'(多选)</div>';
 				}
@@ -102,6 +100,10 @@ function create_to_db($data,$id){
 				echo '</div>';
 			echo '</li>';
 			}
+			echo '<input id="submit" class="btn red" name="submit" type="submit" value="提交" onClick="SetFillCookie(); SetAnswerCookie();"/>
+					</form>
+				</ul>
+			</div>';
     }
 
 function save_form_to_db($string,$title){
@@ -124,7 +126,6 @@ function save_answer_to_db($string,$id){
 	$array['username']=$_COOKIE['srtp-username'];
 	date_default_timezone_set("Asia/Shanghai");
 	$array['date'] = date("Y-m-d h:i:s");
-	print_r($array);
 	insert('answer', $array);
 }
 
@@ -132,90 +133,11 @@ function do_js_link($url){
 	echo "<script>location.href = '$url';</script>";
 }
 
-function change_to_string($post){
-// 		connect();
-// 		$num=1;
-// 		$answer_array = null;
-// 		$i=0;
-// 		$old = null;
-// 		foreach ($_POST as $question => $answers){
-// 			$new = explode("-", $question);
-// 			if($old == $new[0]){
-// 				if(isset($new[2])&&$new[2]=='note'){
-// 					$answer_array[$num][$i++]=$answers;
-// 					$old = $new[0];
-// 					continue;
-// 				}
-// 				else{
-// 					$answer_array[$num][$i++]=$question;
-// 					$old = $new[0];
-// 					continue;
-// 				}
-// 			}
-// 			else{
-// 				$i=0;
-// 				if($old==null){
-// 					if($answers=="on"){
-// 						if(isset($new[2])&&$new[2]=='note'){
-// 							$answer_array[1][$i++]=$answers;
-// 							$old = $new[0];
-// 						}
-// 						else{
-// 							$answer_array[1][$i++]=$question;
-// 							$old = $new[0];
-// 						}
-// 					}
-// 					else{
-// 						$answer_array[1][$i++]=$answers;
-// 						$old = $new[0];
-// 					}
-// 				}
-// 				else{
-// 					if($answers=="on"){
-// 						$num++;
-// 						$answer_array[$num][$i++]=$question;
-// 						$old = $new[0];
-// 					}
-// 					else{
-// 						$num++;
-// 						$answer_array[$num][$i++]=$answers;
-// 						$old = $new[0];
-// 					}
-// 				}
-// 			}
-// 		}
-// 		$submit = null;
-// 		$i=1;
-// 		$b=1;
-// 		$string = null;
-// 		foreach($answer_array as $answers){
-// 			if(count($answers)>1){
-// 				foreach ($answers as $value){
-// 					$string .= $value.'γ';
-// 				}
-// 			}
-// 			else{
-// 				$string = $answers[0];
-// 			}
-// 			$submit['q'.$b++]= $string;
-// 			$string = null;
-// 		}
-// 		$answer_string = null;
-// 		foreach ($submit as $question => $value){
-// 			$answer_string .=$question."β".$value."α";
-// 		}
-// 		return $answer_string;
-		print_r($post);
+function update_answer_to_db($string,$id){
+	connect();
+	$array['answer_string'] = $string;
+	date_default_timezone_set("Asia/Shanghai");
+	$array['date'] = date("Y-m-d h:i:s");
+	update('answer', $array," form_id='".$id."' and username='".$_COOKIE['srtp-username']."'");
 }
-
-
-
-
-
-
-
-
-
-
-
 ?>

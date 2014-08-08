@@ -9,10 +9,21 @@ if(isset($_GET['action'])&&$_GET['action']=='save'){
  	do_js_link('reform.php?id='.$id.'&data='.$data);
 }
 else if(isset($_POST['action'])&&$_POST['action']=='answer'){
-	print_r($_COOKIE);
-	exit();
 	save_answer_to_db($_COOKIE['answerStore'], $_POST['id']);
  	do_js_alert("感谢您的回答");
  	setcookie('answerStore','',time()-1);
  	do_js_link('index.php');
+}
+else if(isset($_GET['action'])&&$_GET['action']=='answer'){
+	print_r($_COOKIE);
+	save_answer_to_db($_COOKIE['answerStore'], $_GET['id']);
+	do_js_alert("感谢您的回答");
+	setcookie('answerStore','',time()-1);
+	do_js_link('index.php');
+}
+else if(isset($_GET['action'])&&$_GET['action']=='update'){
+	update_answer_to_db($_COOKIE['answerStore'],$_GET['id']);
+	do_js_alert('相关信息已进行更改');
+	setcookie('answerStore','',time()-1);
+	do_js_link('personal.php');
 }

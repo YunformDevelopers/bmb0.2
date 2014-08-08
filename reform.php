@@ -24,9 +24,5 @@
                     	do_js_link('index.php');
                     }
 		        	?>
-		        	<input id="submit" class="btn red" name="submit" type="submit" value="提交" onClick="SetFillCookie(); SetAnswerCookie();"/>
-                </form>   
-            </ul>
-	</div>
 </body>
 </html>

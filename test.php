@@ -22,9 +22,12 @@
 </head>
 <body>
     <form action="test2.php" method="post">
-        <input type="text" placeholder="内容" name="t1"/>
-	    <input type="file" value="上传" name="t2"/>
-	    <input type="submit" value="提交"/>
+        <?php 
+        $test='1q2q3qw41231w';
+        $string=explode('w', $test);
+        print_r($string);
+        $string1=explode('q', $string[0]);
+        print_r($string1)?>
     </form>
 <?php
      include 'includes/footer.inc.php';
