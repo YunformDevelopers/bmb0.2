@@ -49,6 +49,18 @@ $(document).ready(function(){
 		}
 	
 	})
+	
+	$("#select").change(function(){
+		$.ajax({
+			type:'GET',
+			url:'manageajax.php?data='+$(this).val(),
+			data:$(this).val(),
+			success:function(response){
+				$(".a-all-msg").remove();
+				$(".list-table").append(response);
+			}
+		})
+	})
 
 });
 function trBackgroundColor(){

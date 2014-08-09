@@ -127,7 +127,7 @@ window.onscroll = function(){
 					</th>
 					<th id="table-select" class="col-2">
 						<span class="quick-select">
-							<select>
+							<select id="select">
 							 <?php
 							 	if(isset($_GET['id'])){
 										connect();
@@ -139,7 +139,7 @@ window.onscroll = function(){
 										for($i=0;$i<count($string)-1;$i++){
 											$explode1 = explode('α', $string[$i]);
 											$question = $explode1[0];
-											echo '<option>'.($i+1).':'.$question.'</option>';
+											echo '<option value="'.($i+1).'-'.$_GET['id'].'">'.($i+1).':'.$question.'</option>';
 										}
 									}
 									else{
@@ -164,7 +164,7 @@ window.onscroll = function(){
         
         <div id="answer-field">
 			<table class="list-table" cellpadding="0" cellspacing="0" >
-				<tr class="a-all-msg">
+				<!-- <tr class="a-all-msg">
 					<td class="col-1 a-order">
 					1
 					</td>
@@ -271,7 +271,7 @@ window.onscroll = function(){
 					<td class="col-4 a-time">
 					2014-09-27
 					</td>
-				</tr>
+				</tr> -->
 
 			</table>
         	<table class="matrix-table" cellpadding="0" cellspacing="0" >
