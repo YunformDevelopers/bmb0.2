@@ -60,6 +60,62 @@ if(isset($_POST['username'])&&isset($_POST['password'])){
             <input class="search-text" type="text"  placeholder="输入你要找的组织或活动名" name="q"></input>
         </form>
     </div>-->
+		<div id="more-dropDown" class="dropDown" >
+			<ul class="more-list" >
+				<li class="more-item">
+					<a><span>账号管理</span></a>
+				</li>
+				<br />
+				<li class="more-item">
+					<a><span>提醒与通知</span></a>
+				</li>
+				<li class="more-item">
+					<a><span>省流量模式</span></a>
+				</li>
+				<li class="more-item">
+					<a><span>夜间模式</span></a>
+				</li>
+				<li class="more-item">
+					<a><span>关闭音效</span></a>
+				</li>
+				<br />
+				<li class="more-item">
+					<a><span>意见反馈</span></a>
+				</li>
+				<li class="more-item">
+					<a><span>关于报名吧</span></a>
+				</li>
+				<br />
+				<li class="more-item">
+					<a><span>注销当前账号</span></a>
+				</li>
+			</ul>
+		</div>
+		<div id="search-dropDown" class="dropDown" >
+			<ul class="search-list" >
+				<p class="search-header">活动</p>
+				<li class="search-item">
+					<a><span>某某社团报名表</span></a>
+				</li>
+				<li class="search-item">
+					<a><span>某某社团报名表</span></a>
+				</li>
+				<p class="search-header">组织</p>
+				<li class="search-item">
+					<a><span>某某社团</span></a>
+				</li>
+				<li class="search-item">
+					<a><span>某某社团</span></a>
+				</li>
+				<p class="search-header">我的</p>
+				<li class="search-item">
+					<a><span>某某社团报名表</span></a>
+				</li>
+				<p class="reminder">没有了</p>
+			</ul>
+		</div>
+		
+		
 </div>
 <div id="tab-container">
 	<ul class="tab-list clear-float">

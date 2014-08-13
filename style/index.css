@@ -225,6 +225,63 @@ div{
 	border-radius:4px;
 	background:#ef4b35;
 }
+#header ul.header-list {
+	position:relative;
+}
+#header .dropDown {
+	display:none;/* TODO */
+	position:absolute;
+	z-index:101;
+	background:#fff;
+	top:80px;
+	box-shadow:0px 3px 5px 3px rgba(0,0,0,0.3);
+}
+#header #more-dropDown {
+	width:8em;
+	right:5%;
+}
+#header #search-dropDown {
+	width:15em;
+	right:400px;
+}
+#header .dropDown ul {
+	width:100%;
+	height:auto;
+	padding:0;
+	border:solid 2px #eee;
+	background:#eee;
+}
+#header .dropDown li {
+	background:#fff;
+	font-size:16px;
+	width:100%;
+	height:30px;
+	line-height:30px;
+}
+#header .dropDown a {
+	display:block;
+	width:100%;
+	height:100%;
+}
+#header .dropDown a:hover {
+	background:#e0e0e0;
+}
+#header .dropDown span {
+	margin-left:1em;
+}
+#header #search-dropDown p.search-header {
+	padding-left:0.5em;
+	font-size:14px;
+	font-weight:bold;
+}
+#header #search-dropDown .reminder {
+	text-align:center;
+	color:#666;
+	font-size:14px;
+	font-weight:bold;
+}
+
+
 
 /* TODO:这里待修改 */
 #header .search-mobile {

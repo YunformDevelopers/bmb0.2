@@ -67,7 +67,10 @@ MEDIA QUERIES
 	#header li.nav {
 		font-size:14px;
 	}
-	
+	/* 搜索dropDown的水平位置 */
+	#header #search-dropDown {
+		right:240px;
+	}
 	
 	.section-body {
 		padding:0 10% 0 10%;
@@ -124,6 +127,11 @@ MEDIA QUERIES
 		left:0;
 		z-index:500;
 		border-top:solid 2px #ccc;
+	}
+	
+	#header .dropDown {
+		top:auto;
+		bottom:80px;
 	}
 	
 	.section-body {
