@@ -245,6 +245,9 @@ form-construct-field里面，分为form-title,form-intro，form-body，具体看
 	padding:3em;
 	overflow:visible;
 }
+#form-construct-field .raw {
+	color:#555;
+}
 #form-title {
 	margin:0 auto;
 	margin-bottom:1em;
@@ -321,7 +324,6 @@ form-construct-field里面，分为form-title,form-intro，form-body，具体看
 	outline:none;
 	cursor:default;
 	resize:none;
-	width:200px;
 } 
 #form-tip {
 	border-top:#de473a solid 2px;
@@ -343,6 +345,12 @@ form-construct-field里面，分为form-title,form-intro，form-body，具体看
 	transition:all ease 0.1s;
 }
 #form-construct-field .edit:hover,#form-construct-field .edit:active,#form-construct-field .edit:focus {
+	background:#FF9;
+}
+.q-body li {
+	display:inline-block;
+}
+.form-placeholder {
 	background:#FF9;
 }
 #next-step {

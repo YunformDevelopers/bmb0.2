@@ -15,11 +15,11 @@ header('Content-Type:text/html; charset=utf-8');
 <script type="text/javascript" src="js/cookie.js"></script>
 <script type="text/javascript" src="js/msg.js"></script>
 <?php
-    require 'includes/header.inc.php';
+    require 'includes/header.inc.php';/*
     if(!isset($_COOKIE['srtp-username'])){
     	do_js_alert('请先登录');
     	do_js_link('index.php');
-    }
+    }*/
 ?>
 </head>
 <body>
@@ -51,7 +51,7 @@ header('Content-Type:text/html; charset=utf-8');
         <div id="tool-construct-container">
             <div id="tool-construct-perserved">
                 <h4>预留题型</h4>
-                <ul>
+                <ul class="tool-construct-list">
                     <li id="personality">
                         <a href="javascript:;">
                             <span class="tool-float-left"></span>个人信息组<span class="tool-construct-icon-name"></span>
@@ -63,7 +63,7 @@ header('Content-Type:text/html; charset=utf-8');
             </div>
             <div id="tool-construct-free">
                 <h4>自由题型</h4>
-                <ul>
+                <ul class="tool-construct-list">
                     <li id="singleline" class="" name="">
                         <a href="javascript:;">
                             <span class="tool-float-left"></span>单行文本<span class="tool-construct-icon-singleline"></span>
@@ -118,10 +118,10 @@ header('Content-Type:text/html; charset=utf-8');
     <div id="form-construct-field">
     <p></p>
         <div id="form-title">
-            <h3><input type="text" value="CC98社团纳新报名表" class="title edit"  /></h3>
+            <h3><input type="text" value="请在这里输入报名表的名字" class="title edit raw" onfocus='rawChange(this)' /></h3>
         </div>
         <div id="form-intro">
-            <textarea class="title edit" contentEditable="true" rows="1">为了促进社团发展，我们进行纳新。</textarea>
+            <textarea class="title edit raw" onfocus='rawChange(this)' contentEditable="true" rows="1">请在这里输入报名表的说明</textarea>
         </div>
 
         <ul id="form-body">
@@ -134,7 +134,7 @@ header('Content-Type:text/html; charset=utf-8');
         <br />
         <br />
 		<div id="form-tip">
-            <textarea class="title edit" contentEditable="true" rows="1">欢迎填写这张表，希望您能关注我们的其他活动。</textarea>
+            <textarea class="title edit raw" onfocus='rawChange(this)' contentEditable="true" rows="1">请在这里输入报名表的注意事项</textarea>
         </div>
 
         <div id="next-step">

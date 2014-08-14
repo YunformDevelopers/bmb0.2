@@ -5,7 +5,8 @@ function GetCookie()
 	return Cookie;
 	}
 function SetCookie () {
-	var qTotalNumber = $("#form-body li").length;//这是获得form-body里面li的数量，也就是题目的总数
+	delInvisible ();
+	var qTotalNumber = $("#form-body").children("li").length;//这是获得form-body里面li的数量，也就是题目的总数
 	var formBody = $("#form-body");//获取到form-body元素
 	var cookieString = "qStore=";//先把准备存进cookie里的字符串放在cookieString里,名为qStore
 	
@@ -41,9 +42,9 @@ function SetCookie () {
 		
 		
 		if(qType == "free-singlechoice"||qType == "free-multichoice"){//判断是否为单选或多选这两种有多个q-body的题型
-			var qBodyNumber = (qFieldIth.find(".q-body input.body").length) - 1;//这里需要减去一（最后一个选项不要，这可能改变）
+			var qBodyNumber = (qFieldIth.find(".q-body input.body.edit").length) - 1;//这里需要减去一（最后一个选项不要，这可能改变）
 				for (var j=0 ; j < qBodyNumber ; j++){
-					var qBodyJth = qFieldIth.find(".q-body").children().eq(2*j+1);
+					var qBodyJth = qFieldIth.find(".q-body").children().eq(j).find("input.body.edit");
 					qBody = qBodyJth.val();
 					//qBody = escape(qBody);
 					qBody = qBody;//escape转义（可以去除空格）
@@ -68,5 +69,4 @@ function SetCookie () {
 //	var formTip = $("#form-tip textarea.edit").val();
 //	cookieString += formTip + "θ";//向cookieString添加报名表的末尾tip，末尾加分隔符
 	document.cookie = cookieString;
-
 }
