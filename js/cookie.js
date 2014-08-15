@@ -31,7 +31,7 @@ function SetCookie () {
 	/*  4.分情况获取qBody并放到cookieString里   */	
 		var qTypeIth = qFieldIth.children().eq(0);//获取到#form-body元素里的第i个li下的div
 			var qType;
-			var typeList = new Array("free-singleline","free-multiline","free-file","free-personalphoto","free-singlechoice","free-multichoice");
+			var typeList = new Array("free-singleline","free-multiline","free-file","free-personalphoto","free-singlechoice","free-multichoice","logic-name","logic-sex","logic-studentID","logic-address","logic-tel","logic-email","logic-class");
 			var t;
 			for (t in typeList){
 				if (qTypeIth.hasClass(typeList[t])) {
@@ -41,7 +41,7 @@ function SetCookie () {
 		cookieString += qType+ "β";//向cookieString添加题目的type，末尾加分隔符
 		
 		
-		if(qType == "free-singlechoice"||qType == "free-multichoice"){//判断是否为单选或多选这两种有多个q-body的题型
+		if(qType == "free-singlechoice"||qType == "free-multichoice"||qType == "logic-sex"){//判断是否为单选或多选这两种有多个q-body的题型
 			var qBodyNumber = (qFieldIth.find(".q-body input.body.edit").length) - 1;//这里需要减去一（最后一个选项不要，这可能改变）
 				for (var j=0 ; j < qBodyNumber ; j++){
 					var qBodyJth = qFieldIth.find(".q-body").children().eq(j).find("input.body.edit");
@@ -69,4 +69,5 @@ function SetCookie () {
 //	var formTip = $("#form-tip textarea.edit").val();
 //	cookieString += formTip + "θ";//向cookieString添加报名表的末尾tip，末尾加分隔符
 	document.cookie = cookieString;
+	//alert(cookieString);
 }

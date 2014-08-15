@@ -1,4 +1,5 @@
 $(document).ready(function(){
+	autoSave (50000);//每隔50s自动保存一次
     $("#tool-construct-container li").draggable({
         appendTO: "parent",
         cancel: "a.ui-icon",
@@ -15,7 +16,7 @@ $(document).ready(function(){
             if ($(ui.draggable).attr("id") == "personality") {
                 $(this)
                     .find("#form-body")
-                    .append("<li><div id='q' class='q1 q-field-before preserved-personality' onMouseOver='showon(this)' onMouseOut='showoff(this)'><div class='q-number'><span>Q</span></div><div class='q-whole'>          <div class='q-title'><textarea type='text' name='q1-title' rows='1' class='title edit raw' onfocus='rawChange(this)' >姓名</textarea></div><div id='alt' class='q-alternative'><a onclick='changeState(this)' name='required' >改为选答</a></div><div class='q-body'><input type='text' name='q1-body1' class='body no-edit'/></div></div><a href='javascript:;' id='q-del' style='display:none;' class='q-del' title='删除' onclick='qDel(this)'></a></div></li>")
+                    .append("<li><div id='q' class='q1 q-field-before preserved-personality logic-name' onMouseOver='showon(this)' onMouseOut='showoff(this)'><div class='q-number'><span>Q</span></div><div class='q-whole'>          <div class='q-title'><textarea type='text' name='q1-title' rows='1' class='title edit changed' >姓名</textarea></div><div id='alt' class='q-alternative'><a onclick='changeState(this)' name='required' >改为选答</a></div><div class='q-body'><input type='text' name='q1-body1' class='body no-edit'/></div></div><a href='javascript:;' id='q-del' style='display:none;' class='q-del' title='删除' onclick='qDel(this)'></a></div></li><li><div id='q' class='q4 q-field-before preserved-personality logic-sex' onMouseOver='showon(this)' onMouseOut='showoff(this)'><div class='q-number'><span>Q</span></div><div class='q-whole'><div class='q-title'><textarea type='text' name='q4-title' rows='1' class='title edit changed' >性别</textarea></div><div id='alt' class='q-alternative'><a onclick='changeState(this)' name='required' >改为选答</a></div><div class='q-body'><span><input type='radio' class='body no-edit' /><input type='text' name='q4-body3' class='body edit changed' onblur='delOption(this)'  value='男'/></span><span><input type='radio' class='body no-edit' /><input type='text' name='q4-body3' class='body edit changed' onblur='delOption(this)' value='女'/></span><span><input type='radio' class='body no-edit' /><input type='text' name='q4-body3' class='body edit raw' onfocus='rawChangeRadio(this)' value='点击这里添加选项'/></span></div></div><a href='javascript:;' id='q-del' style='display:none;' class='q-del' title='删除' onclick='qDel(this)'></a></div></li><li><div id='q' class='q1 q-field-before preserved-personality logic-studentID' onMouseOver='showon(this)' onMouseOut='showoff(this)'><div class='q-number'><span>Q</span></div><div class='q-whole'>          <div class='q-title'><textarea type='text' name='q1-title' rows='1' class='title edit changed' >学号</textarea></div><div id='alt' class='q-alternative'><a onclick='changeState(this)' name='required' >改为选答</a></div><div class='q-body'><input type='text' name='q1-body1' class='body no-edit'/></div></div><a href='javascript:;' id='q-del' style='display:none;' class='q-del' title='删除' onclick='qDel(this)'></a></div></li><li><div id='q' class='q1 q-field-before preserved-personality logic-address' onMouseOver='showon(this)' onMouseOut='showoff(this)'><div class='q-number'><span>Q</span></div><div class='q-whole'>          <div class='q-title'><textarea type='text' name='q1-title' rows='1' class='title edit changed' >住址</textarea></div><div id='alt' class='q-alternative'><a onclick='changeState(this)' name='required' >改为选答</a></div><div class='q-body'><input type='text' name='q1-body1' class='body no-edit'/></div></div><a href='javascript:;' id='q-del' style='display:none;' class='q-del' title='删除' onclick='qDel(this)'></a></div></li><li><div id='q' class='q1 q-field-before preserved-personality logic-tel' onMouseOver='showon(this)' onMouseOut='showoff(this)'><div class='q-number'><span>Q</span></div><div class='q-whole'>          <div class='q-title'><textarea type='text' name='q1-title' rows='1' class='title edit changed' >电话长短号</textarea></div><div id='alt' class='q-alternative'><a onclick='changeState(this)' name='required' >改为选答</a></div><div class='q-body'><input type='text' name='q1-body1' class='body no-edit'/>（长号：必填）<input type='text' name='q1-body1' class='body no-edit'/>（短号：可不填）</div></div><a href='javascript:;' id='q-del' style='display:none;' class='q-del' title='删除' onclick='qDel(this)'></a></div></li><li><div id='q' class='q1 q-field-before preserved-personality logic-email' onMouseOver='showon(this)' onMouseOut='showoff(this)'><div class='q-number'><span>Q</span></div><div class='q-whole'>          <div class='q-title'><textarea type='text' name='q1-title' rows='1' class='title edit changed' >邮箱</textarea></div><div id='alt' class='q-alternative'><a onclick='changeState(this)' name='required' >改为选答</a></div><div class='q-body'><input type='text' name='q1-body1' class='body no-edit'/></div></div><a href='javascript:;' id='q-del' style='display:none;' class='q-del' title='删除' onclick='qDel(this)'></a></div></li><li><div id='q' class='q1 q-field-before preserved-personality logic-class' onMouseOver='showon(this)' onMouseOut='showoff(this)'><div class='q-number'><span>Q</span></div><div class='q-whole'>          <div class='q-title'><textarea type='text' name='q1-title' rows='1' class='title edit changed' >专业班级</textarea></div><div id='alt' class='q-alternative'><a onclick='changeState(this)' name='required' >改为选答</a></div><div class='q-body'><input type='text' name='q1-body1' class='body no-edit'/></div></div><a href='javascript:;' id='q-del' style='display:none;' class='q-del' title='删除' onclick='qDel(this)'></a></div></li>")
             }
             else if ($(ui.draggable).attr("id") == "singleline") {
                 $(this)
@@ -52,13 +53,12 @@ $(document).ready(function(){
                     .append(q1.clone())
 
             }
-			
-			
+			//下面的这些函数的调用有些是因为drag涉及到DOM变化
 			qNumberRefresh ();
 			disableNoEdit ();
-			
-			
-			
+			scrollBottom ();
+			$("#form-body>li:last-child textarea.title.edit").focus();
+			initPin ();			
         },
     });
 	/*$(".tool-construct-list").sortable({
@@ -73,13 +73,36 @@ $(document).ready(function(){
 		placeholder: "form-placeholder",
 		opacity: 0.8,
 		stop: function ( event,ui ) {
+			//下面的这些函数的调用有些是因为drag涉及到DOM变化
 			qNumberRefresh ();
-		
+			initPin ();
 		},
 		
     });
-
 	
+	
+	
+	initPin ();
+	initFormConstructField ();//注意要在生成了pin之后再执行该语句
+	initEditor ();
+	/*var editor = new Quill('#quill-editor',{
+		modules: {
+			'authorship': { authorId: 'galadriel', enabled: true },
+			'multi-cursor': true,
+			'toolbar': { container: '#quill-toolbar' },
+			'link-tooltip': true
+		},
+		theme: 'snow'
+		
+		
+	});
+	editor.addModule('toolbar', { container: '#quill-toolbar' });*/
+	
+});
+//窗口改变大小时执行的函数
+$(window).resize(function(){
+	initFormConstructField();
+	initEditor ();
 });
 //改变Q-number的值
 function qNumberRefresh (){
@@ -95,12 +118,21 @@ function disableNoEdit (){
 /*注意，对于新生成的DOM对象，简单用jQuery选择器是选不到的，因为生成出来时函数本身已经不执行了
 一种解决方案是在html语句里面绑定onclick类型的事件，并且把this传进函数里面去*/
 function showon(id){
-  id.style.border="solid 2px #CCC";
-  id.children[2].style.display = "block";
+	$id = $(id);
+	//$id.parent().parent().find(".qHover").css("border","solid 2px #fff").find("#q-del").hide();
+	$id.addClass("qHover");
+	$id.css({
+		"border":"solid 2px #ccc",
+	});
+	$id.find("#q-del").show();
 }
 function showoff(id){
-  id.style.border = "solid 2px rgba(255,255,255,0)";
-  id.children[2].style.display = "none";
+	$id = $(id);
+	$id.removeClass("qHover");
+	$id.css({
+		"border":"solid 2px #fff",
+	});//这里颜色注意改变
+	$id.find("#q-del").hide();
 }
 function qDel(id){
 	var $id = $(id);
@@ -189,8 +221,63 @@ function changeState(id){
 function delInvisible (){
 	$("#form-body").children("li:hidden").remove();
 }
-
+//初始化form-construct-field的宽度
+function initFormConstructField (){
+	var fieldWrapperWidth = $("#field-wrapper").width();
+	var toolFieldWidth = $("#tool-field").width();
+	var formConstructFieldWidth = fieldWrapperWidth - toolFieldWidth - 230;
+	//alert (formConstructFieldWidth);
+	$("#form-construct-field").css("width",formConstructFieldWidth);
+}
+//初始化pin
+function initPin (){
+	$("#tool-field").pin({
+      containerSelector: "#field-wrapper",
+	});
+}
+//初始化editor
+function initEditor (){
+	var editorArr = ['title','bold','italic','underline','strikethrough','color','ol','ul','blockquote','table','link','image' ,'hr','indent','outdent' ];
+	var editor = new Simditor({
+		textarea: $('#simditor'),
+		tabIndent: false,
+		pasteImage: true,
+		toolbar: true,
+	});
+	$(".simditor-toolbar").hide();
+	$(".simditor-body").addClass("raw");
+	$(".simditor-body,.simditor-popover").attr("onfocus","rawEditor(this)");//添加onfocus事件，调用rawEditor函数
+}
+//对于editor focus和blur时高度不同
+function rawEditor (id){
+	$id = $(id);
+	$(".simditor-toolbar").slideDown(300,function(){//隐藏toolbar
+		$(".simditor-body").animate({minHeight:"8em",height:"auto"},300);//增加高度，注意height改为auto
+	});
+	$id.blur(function(){
+		$(".simditor-toolbar").slideUp(300,function(){//显示toolbar
+			$(".simditor-body").animate({height:"2em",minHeight:"2em"},300);//减小高度
+		});
+	});
+}
+//滚动到页面底部
+function scrollBottom (){
+	$body = (window.opera) ? (document.compatMode == "CSS1Compat" ? $('html') : $('body')) : $('html,body');// 这行是 Opera 的补丁, 少了它 Opera 是直接用跳的而且画面闪烁 by willin
+	$body.animate({scrollTop: $(document).height()}, 1000);
+}
+//当toolsave被点击后执行的函数
+function toolSaveAct (id){
+	$id = $(id);
+	SetCookie();//设置cookie
+	$id.parent().parent().find(".loading-64").show();
+	$id.removeClass("save").addClass("uploading");
 	
+}
+//自动保存，参数time单位为毫秒
+function autoSave (time){
+	var saveInterval; //调度器对象。
+	saveInterval = setInterval("SetCookie()",time);
 
+}
 	
 

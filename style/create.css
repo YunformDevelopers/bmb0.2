@@ -2,6 +2,7 @@
 #wrapper {
 	overflow:hidden;
 }
+
 /* 这个页面分为四个大块，分别是 #create-form-steps #tool-save-container #tool-construct-container #form-construct-field
 具体结构可以用Firebug去看。
 讲一下可操作区域，tool-save-container里面有作为背景的div和作为上面图案的可操作的a，这两个都是有样式的，要更改请看下面注释。
@@ -60,9 +61,14 @@ form-construct-field里面，分为form-title,form-intro，form-body，具体看
 #step-status-set .justify-helper {
 	height:0;
 }
+#field-wrapper {
+	width:90%;
+	margin:0 auto;
+	overflow:hidden;
+}
 #tool-field {
 	float:left;
-	margin:0 5%;
+	margin-right:3em;
 	width:150px;
 }
 #tool-save-container {
@@ -227,10 +233,12 @@ form-construct-field里面，分为form-title,form-intro，form-body，具体看
 10.q-body里面的选项需要点击一个就能添加选项，一个选项的内容清空之后就把这个选项删除掉。
 11.“点击添加选项”这个选项总是和其他选项隔一行
  */
+ .pin-wrapper {
+	float:left;
+ }
 #form-construct-field {
 	float:right;
-	width:840px;
-	margin:1em 5% 0 0;
+	margin:1em 2em 0 2em;
 	background:#fff;
 	border-radius:;
 	padding:3em;
@@ -291,11 +299,11 @@ form-construct-field里面，分为form-title,form-intro，form-body，具体看
 	background:#FFF;
 	text-align:center;
 	font-weight:600;
-	cursor:help;
 }
 #form-body .q-number span {
 	display:block;
 	margin:5px auto;
+	padding: 5px 0;
 }
 #form-body .q-whole {
 	padding:5px 5em 5px 58px;/* 注意这里的5em是“改为选答”这几个字的数量加一 */
@@ -304,6 +312,9 @@ form-construct-field里面，分为form-title,form-intro，form-body，具体看
 #form-body .q-title {
 	display:inline-block;
 	width:100%;
+}
+#form-body .q-title  textarea.edit.title {
+	max-height:1.2em;
 }
 #form-body .q-alternative {
 	display:inline-block;
@@ -319,6 +330,10 @@ form-construct-field里面，分为form-title,form-intro，form-body，具体看
 }
 #form-body .q-body {
 	margin-top:5px;
+}
+#form-body .free-multichoice .q-body span , #form-body .free-singlechoice .q-body span {
+	display:inline-block;
+
 }
 #form-body .no-edit {
 	outline:none;
@@ -341,10 +356,10 @@ form-construct-field里面，分为form-title,form-intro，form-body，具体看
 	border:none;
 	outline:none;
 	resize:none;	
-	padding:0; margin:0;
+	padding:5px; margin:0;
 	transition:all ease 0.1s;
 }
-#form-construct-field .edit:hover,#form-construct-field .edit:active,#form-construct-field .edit:focus {
+#form-construct-field .edit:hover,#form-construct-field .edit:active,#form-construct-field .edit:focus,#form-construct-field .simditor-body:hover,#form-construct-field .simditor-body:active,#form-construct-field .simditor-body:focus {
 	background:#FF9;
 }
 .q-body li {
