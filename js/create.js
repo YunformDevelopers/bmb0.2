@@ -77,6 +77,7 @@ $(document).ready(function(){
 			qNumberRefresh ();
 			initPin ();
 		},
+		containment: "#tool-construct-container",
 		
     });
 	
