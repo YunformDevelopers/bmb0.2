@@ -53,6 +53,7 @@ $(document).ready(function(){
                     .append(q1.clone())
 
             }
+<<<<<<< HEAD
 			//下面的这些函数的调用有些是因为drag涉及到DOM变化
 			qNumberRefresh ();
 			disableNoEdit ();
@@ -60,6 +61,28 @@ $(document).ready(function(){
 			$("#form-body>li:last-child textarea.title.edit").focus();
 			initPin ();			
         },
+=======
+			
+			/*注意，对于新生成的DOM对象，简单用jQuery选择器是选不到的，因为生成出来时函数本身已经不执行了
+			一种解决方案是在html语句里面绑定onclick类型的事件,并且注意这时候调用的函数最好使用纯js而不是jQuery，以防出现奇怪的问题
+			一种是像现在这里把函数放在生成DOM对象后执行的函数里，这样就能够把相应函数及事件绑定到对应对象了*/
+			
+			
+			//以下是为了使q-alternative点击之后改变状态
+			$('#form-body .q-alternative a ').click(function(){
+				if($(this).attr('name')=='required'){
+					$(this).html('改为必答');
+					$(this).attr('name','alternative');
+				}
+				else if ($(this).attr('name')=='alternative'){
+					$(this).html('改为选答');
+					$(this).attr('name','required');		
+				}
+			});
+			
+			
+        }
+>>>>>>> redesign
     });
 	/*$(".tool-construct-list").sortable({
 		connectWith: "#form-body",

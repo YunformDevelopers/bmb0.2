@@ -7,6 +7,7 @@ body{
 	/* 整个body除了特别定义font-size都是16px，除了这里之外其他地方少定义font-size，因为这样会改变整个网页布局*/
     font: normal 100%/1.4 'Microsoft Jhenghei', 'Microsoft Yahei', sans-serif;
     background:#faf8f5;
+	overflow:hidden;
 }
 input,textarea,select{
     font-size:1em;    
@@ -17,12 +18,6 @@ input,textarea,select{
 }
 body,h1,h2,h3,h4,h5,h6,p,ul,ol,form{
     margin:0;
-}
-h2 {
-	font-size: 1.25em;/* 16(来自body)*1.25=20，注意这里h2的基准就改变了 */
-	font-weight:normal;
-	border-left: 0.2em solid #000; /* 20*0.2=4 */
-	padding-left:0.5em; /* 20*0.5=10 */
 }
 h4,h5,h6{
     font-size:1em;
@@ -62,76 +57,339 @@ a:hover {
 .btn:active {
 	box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3), 0 1px 1px rgba(0, 0, 0, 0.2) inset;-moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3), 0 1px 1px rgba(0, 0, 0, 0.2) inset;
 }
-input.red {
+/* TODO 这里原来是input.red之类的，现在这个改变不知道会不会带来什么后果，待验证 */
+.red {
 	background:#cd4337;
 }
-input.blue {
+.blue {
 	background:#37c1cd;
 }
-input.green {
+.green {
 	background:#37cd43;
+}
+.white {
+	background:#fff;
 }
 div{
     margin:0;
 	padding:0;
 }
-
+/* 清除浮动 */
+.clear-float {
+	overflow:auto;
+	zoom:1;
+	_height:1%;
+}
+/* 去除移动端上点击元素时产生的highlight边框和背景等 */
+* {
+	-moz-tap-highlight-color: rgba(0,0,0,0);
+	tap-highlight-color: rgba(0,0,0,0);
+	-webkit-tap-highlight-color:rgba(0,0,0,0); /* 去掉点击链接和文本框对象的半透明覆盖层(iOS)或者虚框(Android) */
+	-webkit-touch-callout:none; /* 禁用长按页面时的弹出菜单(iOS下有效) */
+	-webkit-text-size-adjust: none; /* 禁止文字自动调整大小(默认情况下旋转设备的时候文字大小会发生变化) */
+	-webkit-user-select: none; /* 禁止页面文字选择 */
+	-webkit-overflow-scrolling:touch;/* 局部滚动(仅iOS 5以上支持) */
+}
 /*因为justify一定要超过一行，所以这个放在最后用来撑宽度*/
 .justify-helper {width:100%; display:inline-block;}
 
 #header {
-	background:url(../images/header-bg.png) repeat-x;
-	height:4em; /* 16*4=64px */
+	width:100%;
+	background:#FFF;
+	height:80px;
 }
-#header ul {
-	height:4em; /* 16*4=64px */
-	line-height:4em;
+#header ul, #tab-container ul.tab-list {
+	height:80px; 
 	width:90%;
 	padding:0 5%;
-	color:#fff;
-	text-align:justify;
 }
 #header ul:hover,#header ul:active {
 	cursor:default;
 }
 #header li {
-	height:64px;
-	display:inline-block;
+	height:100%;
 	font-size:18px;
-	text-shadow:0px -1px #000;/* 0.125*16=2px */
-}
-#header a:hover{
-	text-decoration:none;
 }
 
+#header li.left, #tab-container li.left {
+	float:left;	
+}
+#header li.right {
+	float:right;	
+}
+#header a:hover, #tab-container li.tab-item a.tab-link:hover{
+	text-decoration:none;
+}
+#header li.head-item a {
+	display:block;
+	background-repeat:no-repeat;
+}
+#header li.head-item a:hover, #header li.active a {
+	color:#E1331C;
+}
+/* 给nav加样式 */
+#header li.nav a {
+	height:18px;
+	line-height:18px;
+	padding:31px 31px 31px 49px;
+	background-position:24px center;
+	background-size:18px 18px;
+}
+/* 给除了nav之外的item加样式 */
+#header li.search-input a.head-link span.head-name, #header li.logo a.head-link span.head-name, #header li.search form {
+	display:none;
+}
+#header li.logo a {
+	padding:0 !important;
+	width:128px;
+	height:80px !important;
+	background-position:left center;
+	background-image:url(../images/header-icon/logo.png);
+}
+#header li.search-input a {
+	height:18px;
+	line-height:18px;
+	padding:31px 31px 31px 49px;
+	background-image:url(../images/header-icon/search.png);
+	background-position:24px center;
+	background-size:18px;
+}
+#header li.search-input input.search-text {
+	font-size:18px;
+	border:none;
+	border-bottom:solid 1px #ccc;
+	color:#000;
+	height:18px;
+	width:6.5em;
+	transition:all 0.5s ease;-moz-transition:all 0.5s ease;
+}
+#header li.search-input input.search-text:focus{
+	width:9em;
+}
+
+/* 给每种item加背景图片 */
+#header li.logo a {
+	background-image:url(../images/header-icon/logo.png);
+}
+#header li.index a {
+	background-image:url(../images/header-icon/index.png);
+}
+#header li.index a:hover, #header li.index a:active, #header li.index.active a {
+	background-image:url(../images/header-icon/index-active.png);
+}
+#header li.more a {
+	background-image:url(../images/header-icon/more.png);
+}
+#header li.more a:hover {
+	background-image:url(../images/header-icon/more-hover.png);
+}
+#header li.more a:active, #header li.more.active a {
+	background-image:url(../images/header-icon/more-active.png);
+}
+#header li.search a, #header li.search-input a {
+	background-image:url(../images/header-icon/search.png);
+}
+#header li.search a:hover, #header li.search-input a:hover {
+	background-image:url(../images/header-icon/search-hover.png);
+}
+#header li.search a:active, #header li.search.active a, #header li.search-input a:active, #header li.search-input.active a {
+	background-image:url(../images/header-icon/search-active.png);
+}
+#header li.create a {
+	background-image:url(../images/header-icon/create.png);
+}
+#header li.create a:hover {
+	background-image:url(../images/header-icon/create-hover.png);
+}
+#header li.create a:active, #header li.create.active a {
+	background-image:url(../images/header-icon/create-active.png);
+}
+#header li.personal a {
+	background-image:url(../images/header-icon/personal.png);
+}
+#header li.personal a:hover, #header li.personal a:active, #header li.personal.active a {
+	background-image:url(../images/header-icon/personal-hover.png);
+}
+#header li.personal a:active, #header li.personal.active a {
+	background-image:url(../images/header-icon/personal-active.png);
+}
+#header li.head-item {
+	position:relative;
+}
+#header li.head-item .reddot {
+	display:none;
+	position:absolute;
+	top:12px;
+	right:12px;
+	width:8px; height:8px;
+	border-radius:4px;
+	background:#ef4b35;
+}
+#header ul.header-list {
+	position:relative;
+}
+#header .dropDown {
+	display:none;/* TODO */
+	position:absolute;
+	z-index:101;
+	background:#fff;
+	top:80px;
+	box-shadow:0px 3px 5px 3px rgba(0,0,0,0.3);
+}
+#header #more-dropDown {
+	width:8em;
+	right:5%;
+}
+#header #search-dropDown {
+	width:15em;
+	right:400px;
+}
+#header .dropDown ul {
+	width:100%;
+	height:auto;
+	padding:0;
+	border:solid 2px #eee;
+	background:#eee;
+}
+#header .dropDown li {
+	background:#fff;
+	font-size:16px;
+	width:100%;
+	height:30px;
+	line-height:30px;
+}
+#header .dropDown a {
+	display:block;
+	width:100%;
+	height:100%;
+}
+#header .dropDown a:hover {
+	background:#e0e0e0;
+}
+#header .dropDown span {
+	margin-left:1em;
+}
+#header #search-dropDown p.search-header {
+	padding-left:0.5em;
+	font-size:14px;
+	font-weight:bold;
+}
+#header #search-dropDown .reminder {
+	text-align:center;
+	color:#666;
+	font-size:14px;
+	font-weight:bold;
+}
+
+
+
+/* TODO:这里待修改 */
 #header .search-mobile {
 	display:none;
 }
-.search input.search-text {/* 1em=16px */
-	background:url(../images/search.png) no-repeat #fff 0.4em 62%;
-	background-size:16px 16px;
-	padding:0 1em 0 1.5em;
-	box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 1px rgba(0, 0, 0, 0.2) inset;-moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.1), 0 1px 1px rgba(0, 0, 0, 0.2) inset;
-	border:none;
-	border-radius:2em;-moz-border-radius:2em;-ms-border-radius:2em;
-	color:#6e432f;
-	width:3.1em;
-	transition:all 0.5s ease;-moz-transition:all 0.5s ease;
+
+
+#tab-container {
+	width:100%;
+	height:50px;
+	background:#FFF;
+	border-bottom:solid #ccc 2px;
 }
-.search input.search-text:focus{
-	width:6em;
+#tab-container ul.tab-list {
+	height:52px;
+}
+#tab-container li.tab-item {
+	height:48px;
+}
+
+#tab-container li.tab-item a.tab-link {
+	text-align:center;
+	display:block;
+	font-size:16px;
+	padding:0 4em;
+	height:100%;
+	line-height:48px;
+	color:#555;
+	border-bottom:solid 4px rgba(255,255,255,0);
+}
+#tab-container li.tab-item a.tab-link:hover {
+	background-color:#f1f1f1;
+	border-bottom:solid 4px #ef4b35;
+}
+#tab-container li.tab-item a.tab-link:active {
+	background-color:#ddd;
+	border-bottom:solid 4px #b01500;
+	text-shadow:0px 0px 4px #fff;
+}
+#tab-container li.active a.tab-link, #tab-container li.active a.tab-link:hover, #tab-container li.active a.tab-link:active {
+	font-weight:bold;
+	border-bottom:solid 4px #E1331C;
+	color:#E1331C;
+}
+
+.content-container {
+	overflow:auto;
+	width:90%;
+	margin:0 auto;
+}
+.content {
+}
+
+
+#wrapper {
+	position: relative;
+	overflow: hidden;
+
+	/* Prevent native touch events on Windows */
+	-ms-touch-action: none;
+
+	/* Prevent the callout on tap-hold and text selection */
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+
+	/* Prevent text resize on orientation change, useful for web-apps */
+	-webkit-text-size-adjust: none;
+	-moz-text-size-adjust: none;
+	-ms-text-size-adjust: none;
+	-o-text-size-adjust: none;
+	text-size-adjust: none;
+}
+#scroller {
+	position: absolute;
+	width:200000px;
+
+	/* Prevent elements to be highlighted on tap */
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+
+	/* Put the scroller into the HW Compositing layer right from the start */
+	-webkit-transform: translateZ(0);
+	-moz-transform: translateZ(0);
+	-ms-transform: translateZ(0);
+	-o-transform: translateZ(0);
+	transform: translateZ(0);
+}
+#scroller li {
+	float:left;
+	overflow:auto;
 }
 
 .section-header {
 	position:relative;
 }
-.section-header h2{
-	background:#faf8f5;
+.section-header h2 {
+	font-size:16px;
 	z-index:2;
 	padding-right:1em;
-	display:inline-block;
+	font-weight:normal;
+	border-left: 0.2em solid #000; 
+	padding-left:0.5em; 
 }
+
 .h2-line {
+	display:none;
 	z-index:-1;
 	position:absolute;
 	top:0.8em; left:0;
@@ -140,12 +398,20 @@ div{
 	border-bottom:#FFF solid 2px;
 	border-top:#d9cfbf solid 2px;
 }
+.section-body {
+	padding:0 5px;
+}
+
 
 #slideshow {height:20em; display:block;}
+
 /* 这个其他section也可以重用  */
-.section,.reminder,#footer {
+.reminder,#footer {
 	width:90%;
 	padding:0 5%;
+	text-align:justify;
+}
+.section {
 	text-align:justify;
 }
 /* 使justify的元素左端对齐 */
@@ -153,6 +419,7 @@ div{
 	display:inline-block;
 	height:0;
 	padding:0; 
+	margin:0 !important;
 	overflow:hidden;
 }
 
@@ -170,11 +437,12 @@ div{
 .card .img-holder {
 	border:solid 0.0625em #d2d0ce; /* 0.0625*16=1px */
 	border-radius: 0.25em 0.25em/0.25em; /* 0.25*16=4px */
-	-moz-border-radius:0.25em  0.25em/0.25em;  
-	-webkit-border-radius:0.25em 0.25em/0.25em; 
+		-moz-border-radius:0.25em  0.25em/0.25em;  
+		-webkit-border-radius:0.25em 0.25em/0.25em; 
 	box-shadow:0px 0.3125em 0.625em rgba(1,1,1,0.2); /* 0.3125*16=5px 0.625*16=10px */
-	-moz-box-shadow:0px 0.3125em 0.625em rgba(1,1,1,0.2); 
-	-webkit-box-shadow:0px 0.3125em 0.625em rgba(1,1,1,0.2);
+		-moz-box-shadow:0px 0.3125em 0.625em rgba(1,1,1,0.2); 
+		-webkit-box-shadow:0px 0.3125em 0.625em rgba(1,1,1,0.2);
+	background:#FFF;
 	transition:all 0.5s ease; 
 }
 .card .img-holder:hover {
@@ -188,7 +456,8 @@ div{
 	min-height:7.5em; /* 7.5*16=120px */
 	width:15em; /* 15*16=240px */
 	height:7.5em; /* 7.5*16=120px */
-	border-radius:0.18em 0.18em 0em 0em/0.18em;-moz-border-radius:0.18em 0.18em 0em 0em/0.18em; /* 0.18*16=2.88px */
+	border-radius:0.18em 0.18em 0em 0em/0.18em;
+		-moz-border-radius:0.18em 0.18em 0em 0em/0.18em; /* 0.18*16=2.88px */
 }
 .card .img-holder .fader {
 	width:15em; /* 15*16=240px */
@@ -205,15 +474,15 @@ div{
 
 .card .img-counter {
 	display:block;
-	background:#fff;
 	color:#777;
-	border-radius:0em 0em 0.26em 0.26em/0.26em;-moz-border-radius:0em 0em 0.26em 0.26em/0.26em;
 	font-size:0.8em;/*注意下面的em基准变为12.8px */
 	height:2em;
 	line-height:2em;
 	vertical-align:text-bottom;
 }
-.card .img-counter .counter .time-left,.written {
+.card .img-counter .counter .time-left, .card .img-counter .counter .written {
+	height:16px;
+	line-height:16px;
 	background:left no-repeat url(../images/clock.png);
 	background-size: 16px 16px;
 	opacity:0.6;
@@ -223,23 +492,44 @@ div{
 .card .img-counter .counter .written {
 	background:left no-repeat url(../images/pen.png);
 	background-size: 16px 16px;
-	opacity:0.6;
 }
 /* 注意这里要根据实际使用中的名称的长度来进行字体之类的调整 */
 .card .form-name {
 	padding:4px 0 0 6px ;
-	background:#fff;
 	font-weight:bold;
 }
 
 
-.reminder {
+#content-footer {
+
+}
+#content-footer a.load-more {
+	display:block;
+	width:99%;
+	margin:1em auto;
+	padding:0.2em 0;
+	text-align:center;
+	text-decoration:none;
+	color:#555;
+	
+}
+#content-footer .reminder {
 	text-align:right;
+	margin-bottom:0.5em;
 }
-.reminder p,.search {
+#content-footer .reminder a {
 	display:inline-block;
-	margin-left:20px;
+	text-decoration:none;
+	margin:0 0.2em;
+	padding:0 0.2em;
+	text-align:center;
+	color:#555;
+	
 }
+#content-footer .reminder a {
+
+}
+
 
 
 

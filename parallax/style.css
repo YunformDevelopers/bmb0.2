@@ -1,0 +1,269 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.mobile body {
+  overflow: hidden;
+  background: #2989d8;
+}
+
+.mobile #wrapper {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.mobile #scroller {
+  height: 3000px;
+}
+
+body {
+  background:#234354;
+}
+
+section {
+  position: relative;
+  top: 0;
+  width: 100%;
+  height:1800px;
+  margin: 0 auto;
+  padding-top:0px;
+}
+
+.foreground {
+	position: absolute;
+	width:100%;
+	height:3000px;
+	
+	
+
+}
+
+.bg3 {
+	position: absolute;
+	top:0px;
+	left:0px;
+	background:url(image/bubbles3.png) repeat;
+	width:100%;
+	height:100%;
+	z-index:4;
+}
+.bg2 {
+	position: absolute;
+	top:0px;
+	left:0px;
+	background:url(image/bubbles2.png) repeat;
+	width:100%;
+	height:100%;
+	z-index:3;
+}
+.bg1 {
+	position: absolute;
+	top:0px;
+	left:0px;
+	background:url(image/bubbles.png) repeat;
+	width:100%;
+	height:100%;
+	z-index:2;
+}
+
+
+
+input,textarea,select{
+    font-size:1em;    
+    font-family:inherit;
+	outline:none;
+}
+body,p,ul,ol,form{
+    margin:0;
+}
+ul,ol{
+    padding-left:0; 
+    list-style-type:none;
+}
+/* 閫変腑鍐呭鐨勬牱寮�*/
+*::-moz-selection{
+	color:#fff;
+	background:#de473a;
+}
+/*image with no-border*/
+a img{border:0;}
+img{border:0;}
+/*娓呴櫎閾炬帴鐨勬牱寮�/
+a { 
+	text-decoration:none; 
+	color:inherit;
+	outline:none;
+}
+a:hover {
+	text-decoration:underline; 
+	cursor:pointer;
+}
+/* 娓呴櫎btn鐨勬牱寮�*/
+.btn {
+	width:50px;
+	height:25px;
+	cursor:pointer;
+	color:#fff;
+	border:none;
+	border-radius:2px;	
+	box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), 0 1px 1px rgba(255, 255, 255, 0.3) inset;-moz-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), 0 1px 1px rgba(255, 255, 255, 0.3) inset;	
+}
+.btn:active {
+	box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3), 0 1px 1px rgba(0, 0, 0, 0.2) inset;-moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3), 0 1px 1px rgba(0, 0, 0, 0.2) inset;
+}
+input.red {
+	background:#cd4337;
+}
+input.blue {
+	background:#37c1cd;
+}
+input.green {
+	background:#37cd43;
+}
+div{
+    margin:0;
+	padding:0;
+}
+
+
+
+#bg {
+	position:absolute;
+	top:0;left:0;
+	width:100%;
+	height:1500px;
+	background:url(../../images/1.jpg) center top ;
+	background-size:cover;
+	z-index:-2;
+	 -webkit-filter: blur(20px); /* Chrome, Opera */
+       -moz-filter: blur(20px);
+        -ms-filter: blur(20px);    
+            filter: blur(20px);    
+}
+#form-field {
+	position:relative;
+	width:60%;
+	margin:8em auto;
+	background:#FFF;
+	border:10px solid rgba(0,0,0,0.5);
+	border-radius:14px;
+	padding:1em;
+	z-index:80;
+}
+#form-title {
+	margin:0 auto;
+	margin-bottom:1em;
+	text-align:center;
+}
+#form-title h3 {
+	font-size:30px;
+}
+#form-intro {
+	padding:10px 0;
+	border-bottom:#de473a solid 2px;
+	margin-bottom:30px;
+}
+#form-body {
+	
+}
+#form-body .q-field {
+	margin:1.5em 0;
+	position:relative;
+}
+#form-body .q-number {
+	border-right:#CCC solid 1px;
+	display:block;
+	position:absolute;
+	height:100%;
+	width:50px;
+	padding:5px 0;
+	background:#FFF;
+	color:#aaa;
+	text-align:center;
+}
+#form-body .q-whole {
+	padding:5px 0 5px 58px;
+	position:relative;
+} 
+#form-body .q-title {
+	display:inline;
+	font-weight:bold;
+}
+#form-body .q-alternative {
+	display:inline;
+	font-weight:bold;
+}
+#form-body .q-body {
+	margin-top:10px;
+	font-size:14px;
+}
+.q-body label {
+	display:inline-block;
+	border-radius:4px 4px;
+	padding:8px 0;
+}
+.q-body label:hover {
+	background:#3399ff;	
+	color:#FFF;
+}
+.q-body .note-position {
+	position:relative;
+}
+.q-body .note {
+	position:absolute;
+	color:#666;
+	left: 4em;
+}
+.q-body .note:hover {
+	color:#000;
+}
+/* 涓鸿繖寮犺〃鍗曠嫭鍒涘缓鐨勯儴鍒唖tart */
+.q1 .q-body label,
+.q2 .q-body label,
+.q3 .q-body label {
+	width:96%;
+}
+.q4 .q-body label,
+.q5 .q-body label,
+.q6 .q-body label,
+.q7 .q-body label {
+	width:96%;
+}
+.q8 .q-body label {
+	width:96%;
+}
+.q9 .q-body label {
+	width:96%;
+}
+/* 涓鸿繖寮犺〃鍗曠嫭鍒涘缓鐨勯儴鍒唀nd */
+.free-multiline .q-body textarea {
+	width:100%;
+	height:200px;
+	font-size:16px;
+	resize:none;
+}
+
+#submit {
+	display:block;
+	font-size:16px;
+	margin:5px auto;
+	margin-bottom:30px;
+	text-align:center;
+	border:none;
+	outline:none;
+}
+#footer {
+	width:100%;
+	margin:0 auto;
+	padding:2em 0 ; 
+	text-align:center;
+	font-size:12px;
+	background:rgb(250, 248, 245);
+	border-top:solid 1px rgb(217, 207, 191);
+	color:#d9cfbf;
+}
+
