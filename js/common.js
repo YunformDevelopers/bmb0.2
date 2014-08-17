@@ -8,6 +8,8 @@ $(document).ready(function(){
 	initSectionWidth ();
 	initContentHeight ();
 	initHeader();
+	initSlideshow ();
+	initDropDown ();
 	loaded();
 });
 
@@ -94,6 +96,7 @@ window.onresize=function(){
 	initSectionWidth ();
 	initContentHeight ();
 	initHeader();
+	initSlideshow ();
 
 }
 /* 初始化head里面的部分class */
@@ -166,7 +169,57 @@ function initContentHeight () {
 function slideTo (herePos){
 	myScroll.goToPage(herePos, 0, 500);
 }
-
+//初始化slideshow高度
+function initSlideshow (){
+	if ($(window).width() < 500) {
+		var slideshowHeight = $(window).height()-$("#header").height()-$("#tab-container").height();
+		$("#slideshow").css("height",slideshowHeight);
+		//定义topoff为slideshow高度减去slideshow-inner高度的一半，这是为了让slideshow-innner垂直居中
+		var topoff = (slideshowHeight-$(".slideshow-inner").height())/ 2 + "px";
+		$(".slideshow-inner").css("top",topoff);
+	}
+	else {
+		var slideshowHeight = $(window).height()-$("#header").height();
+		$("#slideshow").css("height",slideshowHeight);
+		//定义topoff为slideshow高度减去slideshow-inner高度的一半，这是为了让slideshow-innner垂直居中
+		var topoff = (slideshowHeight-$(".slideshow-inner").height())/ 2 + "px";
+		$(".slideshow-inner").css("top",topoff);
+	}
+}
+//初始化dropDown
+function initDropDown (){
+	//$("#header .more .head-link")
+	$("#header .more .head-link").bind("click",function(event){
+		upDrop("search");
+		$(".search-text").slideUp();
+		$(".search-mobile").slideUp();
+		downDrop("more");
+        event.stopPropagation();    //  阻止事件冒泡
+    });
+	$("#header .search .head-link, #header .search-input .head-link, input.search-text, .search-mobile").bind("click",function(event){
+		upDrop("more");
+		$(".search-text").slideDown();
+		$(".search-mobile").slideDown();
+		//downDrop("search");
+		$("input.search-text").focus();
+        event.stopPropagation();    //  阻止事件冒泡
+    });	
+	$("input.search-text").change(function(){
+		downDrop("search");
+	});
+	$(document).bind("click",function(){
+		upDrop("more");
+		upDrop("search");
+		$(".search-text").slideUp();
+		$(".search-mobile").slideUp();
+	});
+}
+function downDrop (id){
+	$("#" + id + "-dropDown").slideDown();
+}
+function upDrop (id){
+	$("#" + id + "-dropDown").slideUp();
+}
 /* 点击后activate的函数 */
 $('#tab-container .tab-link, #header .head-link').click(function(){
 	$(this).parent("li").parent("ul").find(".active").removeClass("active");//移除已经存在的active的class

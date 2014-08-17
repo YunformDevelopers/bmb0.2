@@ -108,6 +108,25 @@ $(document).ready(function(){
     	do_js_link('index.php');
     }
 ?>
+<div id="tab-container">
+	<ul class="tab-list clear-float">
+    	<li class="tab-item left active">
+        	<a class="tab-link" onClick="slideTo(0);">
+        		<span class="tab-name">我创建的</span>
+            </a>
+        </li>
+        <li class="tab-item left">
+        	<a class="tab-link" onClick="slideTo(1);">
+        		<span class="tab-name">我收藏的</span>
+            </a>
+        </li>
+        <li class="tab-item left">
+        	<a class="tab-link" onClick="slideTo(2);">
+        		<span class="tab-name">我浏览的</span>
+            </a>
+        </li>
+    </ul>
+</div>
 <div id="wrapper" class="content-container">		
 	<ul id="scroller" class="content">
 		<li class="innerWrapper">

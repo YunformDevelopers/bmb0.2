@@ -27,7 +27,7 @@ if(isset($_POST['username'])&&isset($_POST['password'])){
 			<div class="reddot"></div>
         </li>
 		<li class="head-item nav more right">
-        	<a class="head-link">
+        	<a class="head-link" >
             	<span class="head-name">更多</span>
             </a>
 			<div class="reddot"></div>
@@ -57,11 +57,12 @@ if(isset($_POST['username'])&&isset($_POST['password'])){
 			<div class="reddot"></div>
         </li>
     </ul>
-    <!--<div class='search-mobile search'>
+    <div class='search-mobile search'>
         <form id="search" action="#">
-            <input class="search-text" type="text"  placeholder="输入你要找的组织或活动名" name="q"></input>
+            <input class="search-text" type="text"  placeholder="搜索组织/活动" name="q"></input>
+            <!--<input type="submit" value="搜索"  /> -->
         </form>
-    </div>-->
+    </div>
 		<div id="more-dropDown" class="dropDown" >
 			<ul class="more-list" >
 				<li class="more-item">
@@ -84,15 +85,18 @@ if(isset($_POST['username'])&&isset($_POST['password'])){
 				<li class="more-item">
 					<a><span>意见反馈</span></a>
 				</li>
+                <li class="more-item">
+					<a id="contact-msg"><span>联系我们</span></a>
+				</li>
 				<li class="more-item">
 					<a><span>关于报名吧</span></a>
 				</li>
 				<br />
 				<li class="more-item">
 					<?php if(!(isset($_COOKIE['srtp-username']))) 
-					echo "<a href='#' id=\"login-msg\"><span>请先登录</span></a>";
+					echo "<a class=\"loginExit\" href='#' id=\"login-msg\"><span>请先登录</span></a>";
 					else
-					echo "<a href='logout.php'><span>退出当前账号</span></a>";?><!-- 这里有退出或登录 -->
+					echo "<a class=\"loginExit\" href='logout.php'><span>退出当前账号</span></a>";?><!-- 这里有退出或登录 -->
 				</li>
 			</ul>
 		</div>
@@ -121,23 +125,4 @@ if(isset($_POST['username'])&&isset($_POST['password'])){
 		</div>
 		
 		
-</div>
-<div id="tab-container">
-	<ul class="tab-list clear-float">
-    	<li class="tab-item left active">
-        	<a class="tab-link" onClick="slideTo(0);">
-        		<span class="tab-name">推荐</span>
-            </a>
-        </li>
-        <li class="tab-item left">
-        	<a class="tab-link" onClick="slideTo(1);">
-        		<span class="tab-name">榜单</span>
-            </a>
-        </li>
-        <li class="tab-item left">
-        	<a class="tab-link" onClick="slideTo(2);">
-        		<span class="tab-name">筛选</span>
-            </a>
-        </li>
-    </ul>
 </div>

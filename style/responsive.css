@@ -96,6 +96,11 @@ MEDIA QUERIES
 		padding:0;		
 		margin:0 auto;
 	}
+	#header #search-dropDown {
+		top:121px;
+		right:0;
+		width:100%;
+	}
 }
 /* for 500px or less   这里开始算作手机 */
 @media screen and (max-width: 500px) {
@@ -133,7 +138,12 @@ MEDIA QUERIES
 		top:auto;
 		bottom:80px;
 	}
-	
+	#header #search-dropDown {
+		top:auto;
+		bottom:121px;
+		right:0;
+		width:100%;
+	}
 	.section-body {
 		width:250px;
 		padding:0;		
@@ -155,8 +165,8 @@ MEDIA QUERIES
 	#header li.search {
 		/*display:none;*/
 	}
-	#header .search-mobile {
-		/*TODO*/
+	/*#header .search-mobile {
+		/*TODO/*
 		display:none;
 		font-size:18px;
 		display:block;
@@ -166,11 +176,15 @@ MEDIA QUERIES
 		text-align:center;
 		padding:0.8em 0;
 		width:100%;
-	}
-	#header .search-mobile input.search-text {
+	}*/
+	/*#header .search-mobile input.search-text {
 		width:300px;
 		text-align:center;
 		position:relative;
+	}*/
+	#header .search-mobile {
+		top:auto;
+		bottom:80px;
 	}
  	.h2-line {/*分割线变细*/
 	border-top: 1px solid #D9CFBF;
@@ -179,7 +193,7 @@ MEDIA QUERIES
 }
 
 
-/* for 320px or less */
+/* for 320px or less 
 @media screen and (max-width: 320px) {
 	.section-body {
 		width:250px;
@@ -195,5 +209,5 @@ MEDIA QUERIES
 		z-index:99;
 		width:100%;
 	}
-}
+}*/
 

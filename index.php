@@ -19,9 +19,34 @@
     require 'includes/header.inc.php';
 ?>
 </head>
-<body>
-<div id='slideshow' style="display:none;">
-	
+<body>																																																					
+<div id='slideshow' style="" >
+	<div class="slideshow-inner">
+        <h2><b>见证一个新的时代</b></h2>
+        <i>Witness a new era.</i>
+        <br /><br />
+        <p class="banner-content">欢迎参加报名吧首次内测！</p>
+        <p><a href="intro.html">了解详情</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="create.php">开始创建第一张报名表</a></p>
+    </div>
+</div>
+<div id="tab-container">
+	<ul class="tab-list clear-float">
+    	<li class="tab-item left active">
+        	<a class="tab-link" onClick="slideTo(0);">
+        		<span class="tab-name">推荐</span>
+            </a>
+        </li>
+        <li class="tab-item left">
+        	<a class="tab-link" onClick="slideTo(1);">
+        		<span class="tab-name">榜单</span>
+            </a>
+        </li>
+        <li class="tab-item left">
+        	<a class="tab-link" onClick="slideTo(2);">
+        		<span class="tab-name">筛选</span>
+            </a>
+        </li>
+    </ul>
 </div>
 <div id="wrapper" class="content-container">		
 	<ul id="scroller" class="content">
@@ -34,7 +59,7 @@
 					</div>
 				</div>
 				<div class="section-body">
-					<?php 
+					<?php /*?><?php 
 						connect();
 						$result=mysql_query("select * from question order by Date desc limit 4") or die(mysql_error());
 						while($row=mysql_fetch_assoc($result)){
@@ -57,7 +82,7 @@
 								</a>
 								</div>';
 						}	
-					?>
+					?><?php */?>
 				<!-- 这里是用来使元素左端对齐的 -->
 					<div class='card left-fix'>&nbsp;</div>
 					<div class='card left-fix'>&nbsp;</div>

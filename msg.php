@@ -26,7 +26,7 @@
          <div class="zju-passport">
             <a href="#">浙大通行证登录</a>
          </div>
-         <a href="#">已有账号？快速登录</a>
+         <a href="#" id="login-msg" onclick="loginMsgPopOver()" >已有账号？快速登录</a>
      </div>
 </div>
 
@@ -46,7 +46,7 @@
          <div class="zju-passport">
             <a href="#">浙大通行证登录</a>
          </div>
-         <a href="#">还没有账号？10秒快速注册</a>
+         <a href="#" id="register-msg" onclick="registerMsgPopOver()" >还没有账号？10秒快速注册</a>
      </div>
 </div>
 <div id="a-all-msg-content">
