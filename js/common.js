@@ -97,7 +97,7 @@ window.onresize=function(){
 	initContentHeight ();
 	initHeader();
 	initSlideshow ();
-
+	initDropDown ();
 }
 /* 初始化head里面的部分class */
 function initHeader () {
@@ -191,26 +191,28 @@ function initDropDown (){
 	//$("#header .more .head-link")
 	$("#header .more .head-link").bind("click",function(event){
 		upDrop("search");
-		$(".search-text").slideUp();
+		$(".search-mobile .search-text").slideUp();
 		$(".search-mobile").slideUp();
 		downDrop("more");
         event.stopPropagation();    //  阻止事件冒泡
     });
-	$("#header .search .head-link, #header .search-input .head-link, input.search-text, .search-mobile").bind("click",function(event){
-		upDrop("more");
-		$(".search-text").slideDown();
-		$(".search-mobile").slideDown();
-		//downDrop("search");
-		$("input.search-text").focus();
-        event.stopPropagation();    //  阻止事件冒泡
-    });	
-	$("input.search-text").change(function(){
+	if ($(window).width() < 750){
+		$("#header .search .head-link, #header .search-input .head-link, input.search-text, .search-mobile").bind("click",function(event){
+			upDrop("more");
+			$(".search-mobile .search-text").slideDown();
+			$(".search-mobile").slideDown();
+			//downDrop("search");
+			$("input.search-text").focus();
+			event.stopPropagation();    //  阻止事件冒泡
+		});	
+	}
+	$("input.search-text").keydown(function(){
 		downDrop("search");
 	});
 	$(document).bind("click",function(){
 		upDrop("more");
 		upDrop("search");
-		$(".search-text").slideUp();
+		$(".search-mobile .search-text").slideUp();
 		$(".search-mobile").slideUp();
 	});
 }

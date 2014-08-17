@@ -1,4 +1,6 @@
 $(document).ready(function(){
+	
+
 	autoSave (50000);//每隔50s自动保存一次
     $("#tool-construct-container li").draggable({
         appendTO: "parent",
@@ -53,7 +55,6 @@ $(document).ready(function(){
                     .append(q1.clone())
 
             }
-<<<<<<< HEAD
 			//下面的这些函数的调用有些是因为drag涉及到DOM变化
 			qNumberRefresh ();
 			disableNoEdit ();
@@ -61,28 +62,7 @@ $(document).ready(function(){
 			$("#form-body>li:last-child textarea.title.edit").focus();
 			initPin ();			
         },
-=======
-			
-			/*注意，对于新生成的DOM对象，简单用jQuery选择器是选不到的，因为生成出来时函数本身已经不执行了
-			一种解决方案是在html语句里面绑定onclick类型的事件,并且注意这时候调用的函数最好使用纯js而不是jQuery，以防出现奇怪的问题
-			一种是像现在这里把函数放在生成DOM对象后执行的函数里，这样就能够把相应函数及事件绑定到对应对象了*/
-			
-			
-			//以下是为了使q-alternative点击之后改变状态
-			$('#form-body .q-alternative a ').click(function(){
-				if($(this).attr('name')=='required'){
-					$(this).html('改为必答');
-					$(this).attr('name','alternative');
-				}
-				else if ($(this).attr('name')=='alternative'){
-					$(this).html('改为选答');
-					$(this).attr('name','required');		
-				}
-			});
-			
-			
-        }
->>>>>>> redesign
+
     });
 	/*$(".tool-construct-list").sortable({
 		connectWith: "#form-body",
@@ -196,7 +176,7 @@ function rawChangeChoiceCommon (id,afterString){
 	var storeString = $id.val();//将元素的默认值存储下来
 	$id.val("");
 
-	$id.one("change",function(){
+	$id.one("keydown",function(){
 		if($id.val()!=null){//如果元素的值发生了改变
 			$id.removeClass("raw");
 			$id.addClass("changed");
@@ -220,8 +200,8 @@ function rawChangeChoiceCommon (id,afterString){
 function delOption (id) {
 	$id = $(id);
 	if ($id.val()==""){//当选项的值变为null的时候
-		$id.parent().fadeOut(500,function(){//先fadeOut，然后删除
-			$id.parent().remove();
+		$id.parent("span").fadeOut(500,function(){//先fadeOut，然后删除
+			$id.parent("span").remove();
 		})
 
 	}
@@ -261,16 +241,91 @@ function initPin (){
 }
 //初始化editor
 function initEditor (){
-	var editorArr = ['title','bold','italic','underline','strikethrough','color','ol','ul','blockquote','table','link','image' ,'hr','indent','outdent' ];
-	var editor = new Simditor({
-		textarea: $('#simditor'),
-		tabIndent: false,
-		pasteImage: true,
-		toolbar: true,
+	KindEditor.ready(function(K) {
+		K.each({
+			'plug-align' : {
+				name : '对齐方式',
+				method : {
+					'justifyleft' : '左对齐',
+					'justifycenter' : '居中对齐',
+					'justifyright' : '右对齐'
+				}
+			},
+			'plug-order' : {
+				name : '编号',
+				method : {
+					'insertorderedlist' : '数字编号',
+					'insertunorderedlist' : '项目编号'
+				}
+			},
+			'plug-indent' : {
+				name : '缩进',
+				method : {
+					'indent' : '向右缩进',
+					'outdent' : '向左缩进'
+				}
+			}
+		},function( pluginName, pluginData ){
+			var lang = {};
+			lang[pluginName] = pluginData.name;
+			KindEditor.lang( lang );
+			KindEditor.plugin( pluginName, function(K) {
+				var self = this;
+				self.clickToolbar( pluginName, function() {
+					var menu = self.createMenu({
+							name : pluginName,
+							width : pluginData.width || 100
+						});
+					K.each( pluginData.method, function( i, v ){
+						menu.addItem({
+							title : v,
+							checked : false,
+							iconClass : pluginName+'-'+i,
+							click : function() {
+								self.exec(i).hideMenu();
+							}
+						});
+					})
+				});
+			});
+		});
+		K.create('#simditor', {
+			themeType : 'qq',
+			width : '100%',
+			minHeight : '2em',
+			items : [
+				'bold','italic','underline','fontname','fontsize','forecolor','hilitecolor','plug-align','plug-order','plug-indent','link'
+			],
+			afterCreate : function(){
+				$(".ke-toolbar").hide();
+				$(".ke-edit").addClass("raw").addClass("title").addClass("edit");
+				$(".ke-edit").attr("onfocus","rawChange(this)").css("overflow","hidden");
+				$("iframe.ke-edit-iframe").attr("name","ke-edit-iframe");
+			} ,
+			afterFocus : function(){
+				$(".ke-toolbar").slideDown(300,function(){//隐藏toolbar
+					$(".ke-edit-iframe").contents().find(".ke-content").css({
+						"min-height":"8em",
+						"height":"auto"
+						});//增加高度，注意height改为auto
+					$(".ke-edit-iframe ").css("min-height","8em").css("height","auto");
+					$(" .ke-edit").animate({minHeight:"8em",height:"8em"},500);
+					
+				});
+			} ,
+			afterBlur : function(){
+				$(".ke-toolbar").slideUp(300,function(){//隐藏toolbar
+					$(" .ke-edit").animate({minHeight:"2em",height:"2em"},500);
+					$(".ke-edit-iframe").contents().find(".ke-content").css({
+						"min-height":"2em",
+						"height":"2em"
+						});//增加高度，注意height改为auto
+					$(".ke-edit-iframe ").css("min-height","2em").css("height","2em");
+				});
+			},
+		});
 	});
-	$(".simditor-toolbar").hide();
-	$(".simditor-body").addClass("raw");
-	$(".simditor-body,.simditor-popover").attr("onfocus","rawEditor(this)");//添加onfocus事件，调用rawEditor函数
+
 }
 //对于editor focus和blur时高度不同
 function rawEditor (id){
