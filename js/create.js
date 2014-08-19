@@ -240,7 +240,7 @@ function initPin (){
 	});
 }
 //初始化editor
-function initEditor (){
+/*function initEditor (){
 	KindEditor.ready(function(K) {
 		K.each({
 			'plug-align' : {
@@ -326,6 +326,19 @@ function initEditor (){
 		});
 	});
 
+}*/
+//初始化editor
+function initEditor (){
+	var editorArr = ['title','bold','italic','underline','strikethrough','color','ol','ul','blockquote','table','link','image' ,'hr','indent','outdent' ];
+	var editor = new Simditor({
+		textarea: $('#simditor'),
+		tabIndent: false,
+		pasteImage: true,
+		toolbar: true,
+	});
+	$(".simditor-toolbar").hide();
+	$(".simditor-body").addClass("raw");
+	$(".simditor-body,.simditor-popover").attr("onfocus","rawEditor(this)");//添加onfocus事件，调用rawEditor函数
 }
 //对于editor focus和blur时高度不同
 function rawEditor (id){

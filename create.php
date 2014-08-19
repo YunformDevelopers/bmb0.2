@@ -12,8 +12,9 @@ header('Content-Type:text/html; charset=utf-8');
 
 <script type="text/javascript" src="js/jQuery.js"></script>
 <script type="text/javascript" src="js/jquery-ui-1.10.4.js"></script>
-<script charset="utf-8" src="editor/kindeditor-all-min.js"></script>
-<script charset="utf-8" src="editor/lang/zh_CN.js"></script>
+<link rel="stylesheet" type="text/css" href="style/font-awesome.css" />
+<link rel="stylesheet" type="text/css" href="style/simditor.css" />
+<script type="text/javascript" src="js/simditor-all.min.js"></script>
 <script type="text/javascript" src="js/create.js"></script>
 <script type="text/javascript" src="js/cookie.js"></script>
 <script type="text/javascript" src="js/msg.js"></script>
@@ -22,9 +23,9 @@ header('Content-Type:text/html; charset=utf-8');
 </script>
 
 <!-- Include the Quill library 
-<link rel="stylesheet" type="text/css" href="style/font-awesome.css" />
-<link rel="stylesheet" type="text/css" href="style/simditor.css" />
-<script type="text/javascript" src="js/simditor-all.min.js"></script>
+<script charset="utf-8" src="editor/kindeditor-all-min.js"></script>
+<script charset="utf-8" src="editor/lang/zh_CN.js"></script>
+
 <script src="js/quill.min.js"></script>
 <link rel="stylesheet" href="style/quill.snow.css" />
 -->
