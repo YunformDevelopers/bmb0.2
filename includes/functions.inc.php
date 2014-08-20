@@ -110,13 +110,15 @@ function create_to_db($data,$id){
 			</div>';
     }
 
-function save_form_to_db($string,$title){
+function save_form_to_db($title,$intro,$string,$tip){
 	connect();
 	$array['question_string'] = $string;
 	$array['username']=$_COOKIE['srtp-username'];
 	$array['form_title']=$title;
 	date_default_timezone_set("Asia/Shanghai");
 	$array['Date'] = date("Y-m-d h:i:s");
+	$array['form_intro']=$intro;
+	$array['form_tip']=$tip;
 	insert('question', $array);
 	$sql="select * from question where Date ='{$array['Date']}'";
 	$result=fetchOne($sql);
