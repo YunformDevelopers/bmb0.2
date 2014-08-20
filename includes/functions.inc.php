@@ -61,7 +61,7 @@ function create_to_db($data,$id){
 	            	注：标 * 的题目为必填
 	        	</div>
 	        	<ul id="form-body">
-	        		<form method="post" action="formaction.php?action=answer&id='.$_GET['id'].'">';
+	        		<form enctype="multipart/form-data" method="post" action="formaction.php?action=answer&id='.$_GET['id'].'">';
 	    				for($i=0;$i<count($string)-1;$i++){
 					    $explode1 = explode('α', $string[$i]);
 						$question = $explode1[0];
@@ -95,6 +95,10 @@ function create_to_db($data,$id){
 				}
 				if($type=="free-singleline"){
 					echo '<input type="text" name="q'.($i+1).'-body" class="body edit" />';
+				}
+				if($type=="free-file"){
+					echo '<input type="file" name="user" class="body edit" ></input>';
+					//echo '<input type="file" name="q'.($i+1).'-body" class="body edit" ></input>';
 				}
 				echo '</div>';
 				echo '</div>';
@@ -140,4 +144,63 @@ function update_answer_to_db($string,$id){
 	$array['date'] = date("Y-m-d h:i:s");
 	update('answer', $array," form_id='".$id."' and username='".$_COOKIE['srtp-username']."'");
 }
+
+function answer_file($data,$file,$amount){
+	for($i=1;$i<$amount;$i++){
+		
+	}
+	foreach ($data as $question=>$answer){
+		$num_q=explode('-', $question);
+		$num=explode('q',$num_q[0]);
+		if($i==$num[1]){
+			$i++;
+			echo $i;
+			continue;
+		}
+		else{
+			move_file($file,$j);
+			$j++;
+		}
+	}
+	exit();
+}
+
+function move_file($index){
+	$name=$_FILES['q'.$index.'-body']['name'];
+	$type=$_FILES['q'.$index.'-body']['type'];
+	$tmp_name=$_FILES['q'.$index.'-body']['tmp_name'];
+	$error=$_FILES['q'.$index.'-body']['error'];
+	$size=$_FILES['q'.$index.'-body']['size'];
+	$ext=getExt($name);
+	$newname=getuniname().'.'.$ext;
+	$destination="uploads/".$newname;
+	if(is_uploaded_file($tmp_name)){
+		move_uploaded_file($tmp_name, $destination);
+	}
+	return $newname;
+}
+
+function getuniname(){
+	return md5(uniqid(microtime(true),true));
+}
+
+function getExt($name){
+	$a=explode('.', $name);
+	return strtolower(end($a));
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ?>

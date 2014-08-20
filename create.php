@@ -30,11 +30,11 @@ header('Content-Type:text/html; charset=utf-8');
 <link rel="stylesheet" href="style/quill.snow.css" />
 -->
 <?php
-    require 'includes/header.inc.php';/*
+    require 'includes/header.inc.php';
     if(!isset($_COOKIE['srtp-username'])){
     	do_js_alert('请先登录');
     	do_js_link('index.php');
-    }*/
+    }
 ?>
 </head>
 <body>
