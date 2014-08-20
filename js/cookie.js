@@ -15,10 +15,10 @@ function SetCookie () {
 	cookieString += formTitle + "ζ";//向cookieString添加报名表的title，末尾加分隔符
 	
 	/*  2.获取formIntro并放到cookieString里   */
-//	var formIntro = $("#form-intro textarea.edit").val();
-//	cookieString += formIntro + "η";//向cookieString添加报名表的intro，末尾加分隔符
-//	
-//	cookieString += formTitle + "α";//向cookieString添加题目的title，末尾加分隔符
+    editor.sync();
+	var formIntro = $("#form-intro textarea.edit").val();
+	cookieString += formIntro + "η";//向cookieString添加报名表的intro，末尾加分隔符
+
 	for(var i=0;i<qTotalNumber;i++){//这个循环遍历所有题目，并将内容存放到cookie里面
 		var qFieldIth= $("#form-body ").children().eq(i);//获取到#form-body元素里的第i个li
 	/*  3.获取qTitle并放到cookieString里   */
@@ -56,9 +56,9 @@ function SetCookie () {
 		}
 		
 	/*  5.获取qAlternative并放到cookieString里   */	
-//		var qAlternative = qFieldIth.find(".q-alternative a").attr('name');//获取到#form-body元素里的第i道题的q-alternative 的a里的name
-//		cookieString += qAlternative ;//向cookieString添加qAlternative
-//	
+		var qAlternative = qFieldIth.find(".q-alternative a").attr('name');//获取到#form-body元素里的第i道题的q-alternative 的a里的name
+		cookieString += qAlternative ;//向cookieString添加qAlternative
+	
 		cookieString += "δ";//向cookieString添加题目结束的分隔符
 		//alert(cookieString);
 	
@@ -66,8 +66,8 @@ function SetCookie () {
 	
 	}
 	/*  6.获取formTip并放到cookieString里   */
-//	var formTip = $("#form-tip textarea.edit").val();
-//	cookieString += formTip + "θ";//向cookieString添加报名表的末尾tip，末尾加分隔符
+	var formTip = $("#form-tip textarea.edit").val();
+	cookieString += formTip + "θ";//向cookieString添加报名表的末尾tip，末尾加分隔符
 	document.cookie = cookieString;
-	//alert(cookieString);
+	alert(cookieString);
 }

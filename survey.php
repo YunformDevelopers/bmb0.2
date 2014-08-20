@@ -238,7 +238,7 @@
          </form>
         </ul>
 	</div>
-	<div id="footer">
+	<div id="footer" class="form-footer">
 		<p>Powered by 报名吧</p>
 		<p>由于网站还在开发，不能提供最佳的用户体验，希望您能理解！</p>
 	</div>

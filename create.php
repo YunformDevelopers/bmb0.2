@@ -9,18 +9,15 @@ header('Content-Type:text/html; charset=utf-8');
 <title>创建</title>
 <link rel="stylesheet" href="style/index.css"></link>
 <link rel="stylesheet" href="style/create.css"></link>
-
-<script type="text/javascript" src="js/jQuery.js"></script>
-<script type="text/javascript" src="js/jquery-ui-1.10.4.js"></script>
 <link rel="stylesheet" type="text/css" href="style/font-awesome.css" />
 <link rel="stylesheet" type="text/css" href="style/simditor.css" />
-<script type="text/javascript" src="js/simditor-all.min.js"></script>
+<script type="text/javascript" src="js/jQuery.js"></script>
+<script type="text/javascript" src="js/jquery-ui-1.10.4.js"></script>
+<script type="text/javascript" src="js/simditor-all.js"></script>
 <script type="text/javascript" src="js/create.js"></script>
 <script type="text/javascript" src="js/cookie.js"></script>
 <script type="text/javascript" src="js/msg.js"></script>
-<script>
 
-</script>
 
 <!-- Include the Quill library 
 <script charset="utf-8" src="editor/kindeditor-all-min.js"></script>
@@ -152,7 +149,7 @@ header('Content-Type:text/html; charset=utf-8');
 	-->
 				
 
-				<textarea id="simditor" name="content" class="title edit raw" onfocus='rawChange(this)' contentEditable="true" rows="1">&lt;strong&gt;HTML内容&lt;/strong&gt;</textarea>
+				<textarea id="simditor" class="title edit raw" onfocus='rawChange(this)' contentEditable="true" rows="1" placeholder="请在这里输入报名表的说明">请在这里输入报名表的说明</textarea>
 			</div>
 
 			<ul id="form-body">
@@ -179,6 +176,5 @@ header('Content-Type:text/html; charset=utf-8');
      include 'includes/footer.inc.php'
 ?>
 </body>
-
 <script type="text/javascript" src="js/jquery.pin.min.js"></script>
 </html>
