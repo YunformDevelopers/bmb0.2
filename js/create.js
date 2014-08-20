@@ -328,29 +328,45 @@ function initPin (){
 
 }*/
 //初始化editor
+var editor ;
 function initEditor (){
-	var editorArr = ['title','bold','italic','underline','strikethrough','color','ol','ul','blockquote','table','link','image' ,'hr','indent','outdent' ];
-	var editor = new Simditor({
+	var toolbar;
+	toolbar = ['title', 'bold', 'italic', 'underline', 'strikethrough', 'color', '|', 'ol', 'ul', 'blockquote', 'code', 'table', '|', 'link', 'image', 'hr', '|', 'indent', 'outdent'];
+    
+	editor = new Simditor({
 		textarea: $('#simditor'),
+		placeholder: '',
 		tabIndent: false,
 		pasteImage: true,
-		toolbar: true,
+		toolbar: toolbar,
 	});
 	$(".simditor-toolbar").hide();
 	$(".simditor-body").addClass("raw");
-	$(".simditor-body,.simditor-popover").attr("onfocus","rawEditor(this)");//添加onfocus事件，调用rawEditor函数
+	$(".simditor-wrapper .simditor-popover input, .simditor-wrapper .simditor-popover select").attr("onfocus","rawEditor('down')");
+	editor.on('focus',function(e){
+		rawEditor("down");
+	})
+	editor.on('blur',function(e){
+		rawEditor("up");
+	})
+	//editor.focus(rawEditor());//添加onfocus事件，调用rawEditor函数
+	//editor.blur(rawEditor());
+	/*editor.sync();
+  	var formIntro = $("#form-intro textarea.edit").val();
+	alert(formIntro);*/
 }
 //对于editor focus和blur时高度不同
-function rawEditor (id){
-	$id = $(id);
-	$(".simditor-toolbar").slideDown(300,function(){//隐藏toolbar
-		$(".simditor-body").animate({minHeight:"8em",height:"auto"},300);//增加高度，注意height改为auto
-	});
-	$id.blur(function(){
+function rawEditor (command){
+	if(command == "down"){
+		$(".simditor-toolbar").slideDown(300,function(){//隐藏toolbar
+			$(".simditor-body").animate({minHeight:"8em",height:"auto"},300);//增加高度，注意height改为auto
+		});
+	}
+	else if (command == "up"){
 		$(".simditor-toolbar").slideUp(300,function(){//显示toolbar
 			$(".simditor-body").animate({height:"2em",minHeight:"2em"},300);//减小高度
 		});
-	});
+	}
 }
 //滚动到页面底部
 function scrollBottom (){
