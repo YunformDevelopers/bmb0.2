@@ -16,6 +16,7 @@
 <script type="text/javascript" src="test for Liang/test.js"></script>
 <script type="text/javascript" src="js/msg.js"></script>
 <script src='js/iscroll.js'></script>
+<script src='js/common.js'></script>
 <?php
     require 'includes/header.inc.php';
 ?>
@@ -148,6 +149,4 @@
      include 'includes/footer.inc.php';
 ?>
 </body>
-
-<script src='js/common.js'></script>
 </html>

@@ -21,15 +21,12 @@ header('Content-Type:text/html; charset=utf-8');
 	#form-field {
 		width:100%;	
 	}
+	#tool-field {
+		width:300px;
+	}
+
 </style>
 
-<!-- Include the Quill library 
-<script charset="utf-8" src="editor/kindeditor-all-min.js"></script>
-<script charset="utf-8" src="editor/lang/zh_CN.js"></script>
-
-<script src="js/quill.min.js"></script>
-<link rel="stylesheet" href="style/quill.snow.css" />
--->
 <?php
     require 'includes/header.inc.php';/*
     if(!isset($_COOKIE['srtp-username'])){
@@ -66,67 +63,50 @@ header('Content-Type:text/html; charset=utf-8');
 				</div>
 			</div>
 			<div id="tool-construct-container">
-				<div id="tool-construct-perserved">
+				<div id="tool-personalize">
 					<h4>个性化设置</h4>
-					<ul class="tool-construct-list">
-						<li id="personality">
-							<a href="javascript:;">
-								<span class="tool-float-left"></span>个人信息组<span class="tool-construct-icon-name"></span>
-							</a>
+					<ul class="tool-personalize-list">
+						<li class="tool-personalize-item">
+							<h6>
+								<b>1.</b>
+								请设置报名表的下架要求
+							</h6>
+							<p class="personalize-tip" >
+								两者满足其一即下架。
+							</p>
+							<div class="personalize-main">
+								当时间到达<input type="time"></input>时，或者
+								当回收分数达到<input type="number"></input>份时。
+							</div>
+						</li>
+						<li class="tool-personalize-item">
+							<h6>
+								<b>2.</b>
+								请上传卡片的背景图
+							</h6>
+							<p class="personalize-tip" >
+								分辨率为320*200px，格式为jpg。该图片同时将出现在报名表的标题背景中，并将影响报名表的配色。
+							</p>
+							<div class="personalize-main">
+								<input type="file"></input>
+							</div>
+						</li>
+						<li class="tool-personalize-item">
+							<h6>
+								<b>3.</b>
+								请为报名表添加标签
+							</h6>
+							<p class="personalize-tip" >
+								
+							</p>
+							<div class="personalize-main">
+								<input type="text"></input>
+							</div>
 						</li>
 					</ul>
-					
 			  
 				</div>
-				<div id="tool-construct-free">
-					<h4>自由题型</h4>
-					<ul class="tool-construct-list">
-						<li id="singleline" class="" name="">
-							<a href="javascript:;">
-								<span class="tool-float-left"></span>单行文本<span class="tool-construct-icon-singleline"></span>
-							</a>
-						</li>
-						<li id="multiline">
-							<a href="javascript:;">
-								<span class="tool-float-left"></span>多行文本<span class="tool-construct-icon-multiline"></span>
-							</a>
-						</li>
-						<li id="file">
-							<a href="javascript:;">
-								<span class="tool-float-left"></span>文件<span class="tool-construct-icon-file"></span>
-							</a>
-						</li>
-						<li id="personalphoto" class="" name="">
-							<a href="javascript:;">
-								<span class="tool-float-left"></span>个人照片<span class="tool-construct-icon-personalphoto"></span>
-							</a>
-						</li>
-						<li id="singlechoice">
-							<a href="javascript:;">
-								<span class="tool-float-left"></span>单选<span class="tool-construct-icon-singlechoice"></span>
-							</a>
-						</li>
-						<li id="multichoice">
-							<a href="javascript:;">
-								<span class="tool-float-left"></span>多选<span class="tool-construct-icon-multichoice"></span>
-							</a>
-						</li>
-						<li id="ratejudge">
-							<a href="javascript:;">
-								<span class="tool-float-left"></span>评级<span class="tool-construct-icon-rate"></span>
-							</a>
-						</li>
-						<li id="rader">
-							<a href="javascript:;">
-								<span class="tool-float-left"></span>雷达图<span class="tool-construct-icon-radar"></span>
-							</a>
-						</li>
-					</ul>
-				</div>
 				<div id="tool-container-bg">
-					
-				</div>
-				<div id="tool-container-side">
 					
 				</div>
 			</div>
