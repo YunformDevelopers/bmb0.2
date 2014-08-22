@@ -69,5 +69,5 @@ function SetCookie () {
 	var formTip = $("#form-tip textarea.edit").val();
 	cookieString += formTip + "θ";//向cookieString添加报名表的末尾tip，末尾加分隔符
 	document.cookie = cookieString;
-	alert(cookieString);
+	//alert(cookieString);
 }
