@@ -140,7 +140,7 @@ $(document).ready(function(){
 				<div class="section-body">
 					<?php 
 						connect();
-						$result = mysql_query("select * from question where username='".$_COOKIE['srtp-username']."'") or die(mysql_error());
+						$result = mysql_query("select * from question where username='".$_COOKIE['srtp-username']."' order by Date desc") or die(mysql_error());
 						while($rows=mysql_fetch_assoc($result)){
 							echo '<div class="card my-release" > 
 									<a href="#">

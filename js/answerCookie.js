@@ -51,7 +51,7 @@ function SetAnswerCookie () {
 		}
 		else if(qType == "free-file"){//文件题
 			var answer = qBody.find("input.body").val();
-			cookieString += answer+ "γ"//向cookieString添加答案，末尾加分隔符γ
+			cookieString += "$_FILES-"+answer+ "γ"//向cookieString添加答案，末尾加分隔符γ
 		}
 		else if(qType == "free-personalphoto"){//照片题
 		}
