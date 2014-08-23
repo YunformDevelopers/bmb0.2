@@ -152,10 +152,10 @@ form-construct-field里面，分为form-title,form-intro，form-body，具体看
 	height:2em;
 	line-height:2em;
 	box-shadow: 0px 3px 3px rgba(102,102,102,0.8);
-	z-index:70;
+	z-index:40;
 	position:relative;
 }
-#tool-construct-container a {
+#tool-construct-container .tool-construct-list a {
 	text-decoration:none;
 	display:block;
 	cursor:move;
@@ -164,7 +164,7 @@ form-construct-field里面，分为form-title,form-intro，form-body，具体看
 	position:relative;
 	left:10px;
 }
-#tool-construct-container ul span {/* 为了改变icon在屏幕上表现的颜色 */
+#tool-construct-container ul.tool-construct-list span {/* 为了改变icon在屏幕上表现的颜色 */
 	filter:alpha(opacity=70);
 	-moz-opacity:0.7;
 	-khtml-opacity: 0.7;
@@ -198,9 +198,10 @@ form-construct-field里面，分为form-title,form-intro，form-body，具体看
 	color:#aaa;
 }
 #tool-construct-container .tool-personalize-list li .personalize-main {
-	line-height:1.5em;
+	line-height:1.8em;
 }
-#tool-construct-container span{
+
+#tool-construct-container .tool-construct-list span{
 	width:1em; height:1.5em;
 	/* 这里inline-block是为了让icon居右，文字居中，为了达到这一目的左边还有一个空的span */
 	display:inline-block;

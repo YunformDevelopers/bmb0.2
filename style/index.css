@@ -29,7 +29,7 @@ ul,ol{
 /* 选中内容的样式 */
 *::-moz-selection{
 	color:#fff;
-	background:#de473a;
+	background:#E1331C;
 }
 /*image with no-border*/
 a img{border:0;}
