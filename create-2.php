@@ -442,7 +442,7 @@ header('Content-Type:text/html; charset=utf-8');
 								请为报名表添加标签
 							</h6>
 							<p class="personalize-tip" >
-								
+								标签之间请用空格分隔
 							</p>
 							<div class="personalize-main">
 								<input id="form-tag"></input>
@@ -629,7 +629,7 @@ header('Content-Type:text/html; charset=utf-8');
 				</li>
 			 </form>
 			</ul>
-			<input id="submit" class="btn blue" name="submit" type="submit" style="width:auto" value="保存并下一步" onClick="formPersonalize.submit(); alert('fdsfsd');"/>
+			<input id="submit" class="btn blue" name="submit" type="submit" style="width:auto" value="保存并下一步" onClick="formPersonalize.submit(); document.location.href='create-3.php';"/>
 		</div>
 		</div>
 	</div>
