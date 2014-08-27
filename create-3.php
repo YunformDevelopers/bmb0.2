@@ -412,11 +412,14 @@ header('Content-Type:text/html; charset=utf-8');
 </style>
 
 <?php
-    require 'includes/header.inc.php';/*
-    if(!isset($_COOKIE['srtp-username'])){
-    	do_js_alert('请先登录');
-    	do_js_link('index.php');
-    }*/
+	require 'includes/includes.inc.php';
+	echo '这里是第三步';
+    require 'includes/header.inc.php';
+	
+    //if(!isset($_COOKIE['srtp-username'])){
+    	//do_js_alert('请先登录');
+    	//do_js_link('index.php');
+    //}
 ?>
 </head>
 <body>

@@ -421,7 +421,7 @@ header('Content-Type:text/html; charset=utf-8');
 				<div id="tool-personalize">
 					<h4>个性化设置</h4>
 					<ul class="tool-personalize-list">
-					<form id="formPersonalize" name="formPersonalize" action="#" method='post'>
+					<form id="formPersonalize" name="formPersonalize" action="formdecoration.php" method='post' enctype="multipart/form-data">
 						<li class="tool-personalize-item">
 							<h6>
 								<b>1.</b>
@@ -431,7 +431,7 @@ header('Content-Type:text/html; charset=utf-8');
 								两者满足其一即下架。
 							</p>
 							<div class="personalize-main">
-								当时间到达<input id="form-expire-time" placeholder="默认不限期"></input>时，或者
+								当时间到达<input id="form-expire-time" name="form-expire-time" placeholder="默认不限期"></input>时，或者
 								当回收的份数达到<input id="form-number-limit" name="form-number-limit" placeholder="默认不限份数">时。
 							</div>
 						</li>
@@ -444,7 +444,7 @@ header('Content-Type:text/html; charset=utf-8');
 								分辨率为320*200px，格式为jpg。如果不上传，系统将随机分配默认图片。
 							</p>
 							<div class="personalize-main">
-								<input type="file"></input>
+								<input type="file" name="bg"></input>
 							</div>
 						</li>
 						<li class="tool-personalize-item">
@@ -456,9 +456,10 @@ header('Content-Type:text/html; charset=utf-8');
 								标签之间请用空格分隔
 							</p>
 							<div class="personalize-main">
-								<input id="form-tag"></input>
+								<input id="form-tag" name="form-tag"></input>
 							</div>
 						</li>
+						<input type="submit" value="提交相应要求"/>
 					</form>
 					</ul>
 			  

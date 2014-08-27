@@ -191,6 +191,34 @@ function getExt($name){
 	return strtolower(end($a));
 }
 
+function save_decoration_to_db($array,$files,$form_id=1){
+	print_r($array);
+	$save_array['form_id']=$form_id;
+	$save_array['form_expire_time'] =$array['form-expire-time'];
+	$save_array['form_number_limit'] = $array['form-number-limit'];
+	$save_array['form_tag']=$array['form-tag'];
+	if($files['bg']['name']!=''){
+		$name=$files['bg']['name'];
+		$type=$files['bg']['type'];
+		$tmp_name=$files['bg']['tmp_name'];
+		$error=$files['bg']['error'];
+		$size=$files['bg']['size'];
+		$ext=getExt($name);
+		$newname=getuniname().'.'.$ext;
+		$destination="uploads/".$newname;
+		if(is_uploaded_file($tmp_name)){
+			move_uploaded_file($tmp_name, $destination);
+		}
+		$save_array['bg']=$newname;
+	}else{
+		$save_array['bg']='';
+	}
+	connect();
+	if(insert('decoration', $save_array)){
+		do_js_alert('更改成功，请进入下一步');
+		do_js_link('create-3.php');
+	}
+}
 
 
 
