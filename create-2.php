@@ -18,8 +18,19 @@ header('Content-Type:text/html; charset=utf-8');
 <script type="text/javascript" src="js/simditor-all.js"></script>
 <script type="text/javascript" src="js/msg.js"></script>
 <style >
+	#form-construct-field {
+		overflow:auto;
+	}
 	#form-field {
-		width:100%;	
+		width:100%;
+		overflow-y:auto;	
+		overflow-x:hidden;
+	}
+	#next-step {
+		width:100%;
+	}
+	#submit {
+		margin:5px auto;
 	}
 	#tool-field {
 		width:300px;
@@ -507,7 +518,7 @@ header('Content-Type:text/html; charset=utf-8');
 							<label><input name="q3-body" value="发飞信" type="radio" />发飞信</label>
 							<label><input name="q3-body" value="手机发短信" type="radio" />手机发短信</label>
 							<label><input name="q3-body" value="电脑手机助手发短信" type="radio" />电脑手机助手发短信</label>
-							<span class="note-position"><label><input name="q3-body" value="其他方式" type="radio" class="note-title" />其他</label><input name="q3-body-note" class="note" type="text" value="请注明"/></span>
+							<span class="note-position"><label><!--<input name="q3-body" value="其他方式" type="radio" class="note-title" />其他</label><input name="q3-body-note" class="note" type="text" value="请注明"/>--></span>
 						</div>
 					</div>
 				</li>
@@ -629,8 +640,10 @@ header('Content-Type:text/html; charset=utf-8');
 				</li>
 			 </form>
 			</ul>
-			<input id="submit" class="btn blue" name="submit" type="submit" style="width:auto" value="保存并下一步" onClick="formPersonalize.submit(); document.location.href='create-3.php';"/>
 		</div>
+	        <div id="next-step">
+				<input id="submit" class="btn blue" name="submit" type="submit" style="width:auto" value="保存并下一步" onClick="formPersonalize.submit(); document.location.href='create-3.php';"/>
+            </div>
 		</div>
 	</div>
 </div>
@@ -640,12 +653,20 @@ header('Content-Type:text/html; charset=utf-8');
 </body>
 <script type="text/javascript" src="js/jquery.pin.min.js"></script>
 <script>
-var fieldWrapperWidth = $("#field-wrapper").width();
+	var fieldWrapperWidth = $("#field-wrapper").width();
 	var toolFieldWidth = $("#tool-field").width();
 	var formConstructFieldWidth = fieldWrapperWidth - toolFieldWidth - 230;
 	//alert (formConstructFieldWidth);
 	$("#form-construct-field").css("width",formConstructFieldWidth);
-
+	
+	var windowHeight = $(window).height();
+	var headerHeight = $("#header").height();
+	var createFormStepsHeight = $("#create-form-steps").height();
+	//alert(windowHeight);
+	var formConstructFieldHeight = windowHeight - headerHeight - createFormStepsHeight-200 ;
+	//alert(formConstructFieldHeight);
+	$("#form-field").css("height",formConstructFieldHeight);
+	
 $("#tool-field").pin({
       containerSelector: "#field-wrapper",
 });

@@ -18,11 +18,45 @@ header('Content-Type:text/html; charset=utf-8');
 <script type="text/javascript" src="js/simditor-all.js"></script>
 <script type="text/javascript" src="js/msg.js"></script>
 <style >
+	/* create-3 */
+	.form-release-status {
+		width:100%;
+		line-height:2em;
+		border-radius:5px;
+	}
+	.form-release-status.success {
+		border:solid 1px #a7ffab;
+		background:#e5ffe6;
+	}
 	#form-field {
 		width:100%;	
 	}
 	#tool-field {
 		width:300px;
+	}
+	.release-method {
+		margin-bottom:2em;
+	}
+	.release-method .link-select label {
+		margin-right:1em;
+	}
+	.release-method .method-tip {
+		font-size:14px;
+		color:#999;
+	}
+	.release-method.outer-link .link-container {
+		width:400px;
+	}
+	.release-method.QR-code .image-holder {
+		width:100px;
+		height:100px;
+	}
+	.release-method.QR-code input.QR-width-customize, .release-method.QR-code input.QR-height-customize {
+		text-align:center;
+		width:4em;
+		border:none;
+		outline:none;
+		border-bottom:solid 1px #ccc;
 	}
 	.tool-personalize-list #form-expire-time, .tool-personalize-list #form-number-limit {
 		text-align:center;
@@ -37,7 +71,7 @@ header('Content-Type:text/html; charset=utf-8');
 	
 	/* create-3 */
 	#tool-field .card {
-		margin:18px 20px 50px 29px;
+		margin:18px 20px 50px 49px;
 	}
 	
 .ui-datepicker {
@@ -423,8 +457,66 @@ header('Content-Type:text/html; charset=utf-8');
 				</a>
 			</div>
 		</div>
-		<div id="form-construct-field">
-			<div></div>
+		<div id="form-construct-field" unselectable="false" >
+        	<div class="form-release-status success">
+            	<span>&nbsp;&nbsp;</span>
+            	恭喜您，您的“xx社团报名表”创建成功！
+            </div>
+            <br />
+			<div id="form-release">
+            	<div class="release-method outer-link">
+                	<h3>1.
+                    	<b>外链</b>
+                    </h3>
+                    <div class="link-select">
+	                    <label  title="(推荐)经过百度短网址转码，链接短，可读性不佳"><input name="link-type" type="radio" checked="checked" value="短链接">短链接</input></label>
+    	                <label  title="(不推荐)未经过百度短网址转码，链接长，可读性好"><input name="link-type" type="radio" value="长链接">长链接</input></label>
+                    </div>
+                    <div class="link-holder">
+                    	<input type="text" class="link-container" value="http://127.0.0.1/formcloud/create-3.php" />
+                        <input type="button" class="btn green" value="复制" />
+                    </div>
+                </div>
+                <div class="release-method QR-code">
+                	<h3>2.
+                    	<b>二维码</b>
+                    </h3>
+                    <div class="link-select">
+	                    <label title="适用于移动端" ><input name="QR-type" type="radio" checked="checked" value="">200*200</input></label>
+    	                <label title="适用于传单" ><input name="QR-type" type="radio" value="">400*400</input></label>
+                        <label title="适用于海报" ><input name="QR-type" type="radio" value="">800*800</input></label>
+                        <label title="自定义（长宽须相等）" ><input name="QR-type" type="radio" value="">
+                        	<span>
+                            	<input class="QR-width-customize" onfocus="$(this).prev().attr('checked','checked');" type="text" />*<input class="QR-height-customize" type="text" />
+                            </span>自定义（长宽须相等）
+                        </input></label>
+                    </div>
+                    <div class="link-holder">
+                    	<!--<div class="image-holder">
+							<image type="text" class="link-container" value="http://127.0.0.1/formcloud/create-3.php" />
+						</div>-->
+                        <input type="button" class="btn green" value="下载" />
+                    </div>
+                </div>
+                <div class="release-method embed">
+                	<h3>3.
+                    	<b>嵌入式</b>
+                    </h3>
+                    <div class="method-tip">
+                    	请将代码粘贴到你想要出现的位置。
+                    </div>
+                    <div class="link-select">
+	                    <label  title=""><input name="embed-type" type="radio" checked="checked" value="卡片">卡片</input></label>
+    	                <label  title=""><input name="embed-type" type="radio" value="iframe窗口">iframe窗口</input></label>
+                    </div>
+                    <div class="link-holder">
+                    	<div class="link-container" value="http://127.0.0.1/formcloud/create-3.php">
+                        	<blockquote>http://127.0.0.1/formcloud/create-3.php</blockquote>
+                        </div>
+                        <input type="button" class="btn green" value="复制" />
+                    </div>
+                </div>
+            </div>
 		</div>
 	</div>
 </div>
