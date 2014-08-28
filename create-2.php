@@ -17,6 +17,7 @@ header('Content-Type:text/html; charset=utf-8');
 <script type="text/javascript" src="js/jquery-ui-1.10.4.js"></script>
 <script type="text/javascript" src="js/simditor-all.js"></script>
 <script type="text/javascript" src="js/msg.js"></script>
+<script type="text/javascript" src="js/form-fill.js"></script>
 <style >
 	#form-construct-field {
 		overflow:auto;
@@ -45,341 +46,6 @@ header('Content-Type:text/html; charset=utf-8');
 	.tool-personalize-list #form-number-limit {
 		width:8.5em;
 	}
-.ui-datepicker {
-	padding: .2em .2em 0;
-	display: none;
-	font-size:12px;
-}
-.ui-datepicker .ui-datepicker-header {
-	position: relative;
-	padding: .2em 0;
-}
-.ui-datepicker .ui-datepicker-prev,
-.ui-datepicker .ui-datepicker-next {
-	position: absolute;
-	top: 2px;
-	width: 1.8em;
-	height: 1.8em;
-}
-.ui-datepicker .ui-datepicker-prev-hover,
-.ui-datepicker .ui-datepicker-next-hover {
-	top: 1px;
-}
-.ui-datepicker .ui-datepicker-prev {
-	left: 2px;
-}
-.ui-datepicker .ui-datepicker-next {
-	right: 2px;
-}
-.ui-datepicker .ui-datepicker-prev-hover {
-	left: 1px;
-}
-.ui-datepicker .ui-datepicker-next-hover {
-	right: 1px;
-}
-.ui-datepicker .ui-datepicker-prev span,
-.ui-datepicker .ui-datepicker-next span {
-	display: block;
-	position: absolute;
-	left: 50%;
-	margin-left: -8px;
-	top: 50%;
-	margin-top: -8px;
-}
-.ui-datepicker .ui-datepicker-title {
-	margin: 0 2.3em;
-	line-height: 1.8em;
-	text-align: center;
-}
-.ui-datepicker .ui-datepicker-title .ui-datepicker-year, .ui-datepicker .ui-datepicker-title .ui-datepicker-month {
-	font-weight:bold;
-	color:#000;
-}
-.ui-datepicker .ui-datepicker-title select {
-	font-size: 1em;
-	margin: 1px 0;
-}
-.ui-datepicker select.ui-datepicker-month,
-.ui-datepicker select.ui-datepicker-year {
-	width: 45%;
-}
-.ui-datepicker table {
-	width: 100%;
-	font-size: .9em;
-	border-collapse: collapse;
-	margin: 0 0 .4em;
-}
-.ui-datepicker th {
-	padding: .7em .3em;
-	text-align: center;
-	font-weight: bold;
-	border: 0;
-}
-.ui-datepicker td {
-	border: 0;
-	padding: 1px;
-	text-align:center;
-	valign:middle;	
-}
-.ui-datepicker td span,
-.ui-datepicker td a {
-	display: block;
-	padding: .2em;
-	text-align: center;
-	text-decoration: none;
-	width: 24px; height:24px; line-height:24px;
-}
-.ui-datepicker .ui-datepicker-buttonpane {
-	background-image: none;
-	margin: .7em 0 0 0;
-	padding: 0 .2em;
-	border-left: 0;
-	border-right: 0;
-	border-bottom: 0;
-}
-.ui-datepicker .ui-datepicker-buttonpane button {
-	float: right;
-	margin: .5em .2em .4em;
-	cursor: pointer;
-	padding: .2em .6em .3em .6em;
-	width: auto;
-	overflow: visible;
-}
-.ui-datepicker .ui-datepicker-buttonpane button.ui-datepicker-current {
-	float: left;
-}
-
-/* with multiple calendars */
-.ui-datepicker.ui-datepicker-multi {
-	width: auto;
-}
-.ui-datepicker-multi .ui-datepicker-group {
-	float: left;
-}
-.ui-datepicker-multi .ui-datepicker-group table {
-	width: 95%;
-	margin: 0 auto .4em;
-}
-.ui-datepicker-multi-2 .ui-datepicker-group {
-	width: 50%;
-}
-.ui-datepicker-multi-3 .ui-datepicker-group {
-	width: 33.3%;
-}
-.ui-datepicker-multi-4 .ui-datepicker-group {
-	width: 25%;
-}
-.ui-datepicker-multi .ui-datepicker-group-last .ui-datepicker-header,
-.ui-datepicker-multi .ui-datepicker-group-middle .ui-datepicker-header {
-	border-left-width: 0;
-}
-.ui-datepicker-multi .ui-datepicker-buttonpane {
-	clear: left;
-}
-.ui-datepicker-row-break {
-	clear: both;
-	width: 100%;
-	font-size: 0;
-}
-
-/* RTL support */
-.ui-datepicker-rtl {
-	direction: rtl;
-}
-.ui-datepicker-rtl .ui-datepicker-prev {
-	right: 2px;
-	left: auto;
-}
-.ui-datepicker-rtl .ui-datepicker-next {
-	left: 2px;
-	right: auto;
-}
-.ui-datepicker-rtl .ui-datepicker-prev:hover {
-	right: 1px;
-	left: auto;
-}
-.ui-datepicker-rtl .ui-datepicker-next:hover {
-	left: 1px;
-	right: auto;
-}
-.ui-datepicker-rtl .ui-datepicker-buttonpane {
-	clear: right;
-}
-.ui-datepicker-rtl .ui-datepicker-buttonpane button {
-	float: left;
-}
-.ui-datepicker-rtl .ui-datepicker-buttonpane button.ui-datepicker-current,
-.ui-datepicker-rtl .ui-datepicker-group {
-	float: right;
-}
-.ui-datepicker-rtl .ui-datepicker-group-last .ui-datepicker-header,
-.ui-datepicker-rtl .ui-datepicker-group-middle .ui-datepicker-header {
-	border-right-width: 0;
-	border-left-width: 1px;
-}
-.ui-helper-clearfix:before,
-.ui-helper-clearfix:after {
-	content: "";
-	display: table;
-	border-collapse: collapse;
-}
-.ui-helper-clearfix:after {
-	clear: both;
-}
-.ui-helper-clearfix {
-	min-height: 0; /* support: IE7 */
-}
-.ui-widget-content {
-	border: 1px solid #aaaaaa;
-	background: #fff ;
-	color: #222222;
-}
-.ui-widget-content a {
-	color: #222222;
-}
-/* Corner radius 
-.ui-corner-all,
-.ui-corner-top,
-.ui-corner-left,
-.ui-corner-tl {
-	border-top-left-radius: 4px;
-}
-.ui-corner-all,
-.ui-corner-top,
-.ui-corner-right,
-.ui-corner-tr {
-	border-top-right-radius: 4px;
-}
-.ui-corner-all,
-.ui-corner-bottom,
-.ui-corner-left,
-.ui-corner-bl {
-	border-bottom-left-radius: 4px;
-}
-.ui-corner-all,
-.ui-corner-bottom,
-.ui-corner-right,
-.ui-corner-br {
-	border-bottom-right-radius: 4px;
-}
-*/
-.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
-    font-weight: normal;
-    color: #555;
-}
-.ui-state-highlight, .ui-widget-content .ui-state-highlight, .ui-widget-header .ui-state-highlight {
-	border-radius:24px;
-    background: #E1331C;
-    color: #fff;
-}
-.ui-state-hover,
-.ui-widget-content .ui-state-hover,
-.ui-widget-header .ui-state-hover,
-.ui-state-focus,
-.ui-widget-content .ui-state-focus,
-.ui-widget-header .ui-state-focus {
-	font-weight: normal;
-	color: #DE473A;
-}
-.ui-state-hover a,
-.ui-state-hover a:hover,
-.ui-state-hover a:link,
-.ui-state-hover a:visited,
-.ui-state-focus a,
-.ui-state-focus a:hover,
-.ui-state-focus a:link,
-.ui-state-focus a:visited {
-	color: #DE473A;
-	text-decoration: none;
-}
-.ui-datepicker .ui-state-active,
-.ui-datepicker .ui-widget-content .ui-state-active,
-.ui-datepicker .ui-widget-header .ui-state-active {
-	border: 1px solid #E1331C;
-	border-radius:24px;
-    background: #fff;
-    color: #E1331C;
-}
-.ui-datepicker .ui-state-active a,
-.ui-datepicker .ui-state-active a:link,
-.ui-datepicker .ui-state-active a:visited {
-	color: #E1331C;
-	text-decoration: none;
-}
-	
-.ui-datepicker-prev, .ui-datepicker-next {
-	cursor:pointer;
-}
-.ui-datepicker-prev span, .ui-datepicker-next span {
-	font-weight:900;
-}
-
-.ui-spinner {
-	position: relative;
-	display: inline-block;
-	overflow: hidden;
-	padding: 0;
-	vertical-align: middle;
-	border:none;
-}
-.ui-spinner-input {
-	border: none;
-	background: none;
-	color: inherit;
-	padding: 0;
-	margin: 0;
-	vertical-align: middle;
-}
-.ui-spinner-button {
-	width: 16px;
-	height: 50%;
-	font-size: .5em;
-	padding: 0;
-	margin: 0;
-	text-align: center;
-	position: absolute;
-	cursor: default;
-	display: block;
-	overflow: hidden;
-	right: 0;
-}
-/* more specificity required here to override default borders */
-.ui-spinner a.ui-spinner-button {
-	border-top: none;
-	border-bottom: none;
-	border-right: none;
-}
-/* vertically center icon */
-.ui-spinner .ui-icon {
-	position: absolute;
-	margin-top: -8px;
-	top: 50%;
-	left: 0;
-	line-height:100%;
-	text-align:center;
-	vertical-align:central;
-}
-.ui-spinner-up {
-	top: 0;
-}
-.ui-spinner-down {
-	bottom: 0;
-}
-/* TR overrides */
-.ui-spinner .ui-icon-triangle-1-s {
-	/* need to fix icons sprite */
-	background-position: -65px -16px;
-}
-
-
-
-
-
-
-
-
-
-
 </style>
 
 <?php
@@ -654,51 +320,37 @@ header('Content-Type:text/html; charset=utf-8');
 </body>
 <script type="text/javascript" src="js/jquery.pin.min.js"></script>
 <script>
-	var fieldWrapperWidth = $("#field-wrapper").width();
-	var toolFieldWidth = $("#tool-field").width();
-	var formConstructFieldWidth = fieldWrapperWidth - toolFieldWidth - 230;
-	//alert (formConstructFieldWidth);
-	$("#form-construct-field").css("width",formConstructFieldWidth);
-	
-	var windowHeight = $(window).height();
-	var headerHeight = $("#header").height();
-	var createFormStepsHeight = $("#create-form-steps").height();
-	//alert(windowHeight);
-	var formConstructFieldHeight = windowHeight - headerHeight - createFormStepsHeight-200 ;
-	//alert(formConstructFieldHeight);
-	$("#form-field").css("height",formConstructFieldHeight);
-	
-$("#tool-field").pin({
-      containerSelector: "#field-wrapper",
-});
-$(function() {
-	$( "#form-expire-time" ).datepicker();
-	$(".ui-datepicker").attr("unselectable","on").attr("onselectstart","return false;").css("-moz-user-select","none");
-	$( "#form-number-limit" ).spinner({
-		step:50,
+	initFormConstructFieldWidth();
+	initFormFieldHeight();
+	initPin ();
+	$(window).resize(function(){
+		initFormConstructFieldWidth();
+		initFormFieldHeight();
+		initPin ();
 	});
-});
-jQuery(function($){  
-	$.datepicker.regional['zh-CN'] = {  
-		closeText: '关闭',  
-		prevText: '<',  
-		nextText: '>',  
-		currentText: '今天',  
-		monthNames: ['一月','二月','三月','四月','五月','六月',  
-		'七月','八月','九月','十月','十一月','十二月'],  
-		monthNamesShort: ['一','二','三','四','五','六',  
-		'七','八','九','十','十一','十二'],  
-		dayNames: ['星期日','星期一','星期二','星期三','星期四','星期五','星期六'],  
-		dayNamesShort: ['周日','周一','周二','周三','周四','周五','周六'],  
-		dayNamesMin: ['日','一','二','三','四','五','六'],  
-		weekHeader: '周',  
-		dateFormat: 'yy-mm-dd',  
-		firstDay: 1,  
-		isRTL: false,  
-		showMonthAfterYear: true,  
-		yearSuffix: '年'};  
-	$.datepicker.setDefaults($.datepicker.regional['zh-CN']);  
-});
-$(".ui-datepicker").css("z-index","50");
+	function initFormConstructFieldWidth (){
+		var fieldWrapperWidth = $("#field-wrapper").width();
+		var toolFieldWidth = $("#tool-field").width();
+		var formConstructFieldWidth = fieldWrapperWidth - toolFieldWidth - 230;
+		//alert (formConstructFieldWidth);
+		$("#form-construct-field").css("width",formConstructFieldWidth);
+	}
+	
+	function initFormFieldHeight (){
+		var windowHeight = $(window).height();
+		var headerHeight = $("#header").height();
+		var createFormStepsHeight = $("#create-form-steps").height();
+		//alert(windowHeight);
+		var formFieldHeight = windowHeight - headerHeight - createFormStepsHeight-200 ;
+		//alert(formConstructFieldHeight);
+		$("#form-field").css("height",formFieldHeight);
+	}
+	
+	//初始化pin
+	function initPin (){
+		$("#tool-field").pin({
+		  containerSelector: "#field-wrapper",
+		});
+	}
 </script>
 </html>

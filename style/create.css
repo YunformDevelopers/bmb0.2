@@ -394,3 +394,59 @@ form-construct-field里面，分为form-title,form-intro，form-body，具体看
 	width:200px;
 	margin:0 auto;
 }
+
+/* create-3 */
+.form-release-status {
+	width:100%;
+	line-height:2em;
+	border-radius:5px;
+}
+.form-release-status.success {
+	border:solid 1px #a7ffab;
+	background:#e5ffe6;
+}
+#form-field {
+	width:100%;	
+}
+#tool-field {
+	width:300px;
+}
+.release-method {
+	margin-bottom:2em;
+}
+.release-method .link-select label {
+	margin-right:1em;
+}
+.release-method .method-tip {
+	font-size:14px;
+	color:#999;
+}
+.release-method.outer-link .link-container {
+	width:400px;
+}
+.release-method.QR-code .image-holder {
+	width:100px;
+	height:100px;
+}
+.release-method.QR-code input.QR-width-customize, .release-method.QR-code input.QR-height-customize {
+	text-align:center;
+	width:4em;
+	border:none;
+	outline:none;
+	border-bottom:solid 1px #ccc;
+}
+.tool-personalize-list #form-expire-time, .tool-personalize-list #form-number-limit {
+	text-align:center;
+	width:5.5em;
+	border:none;
+	outline:none;
+	border-bottom:solid 1px #ccc;
+}
+.tool-personalize-list #form-number-limit {
+	width:8.5em;
+}
+
+/* create-3 */
+#tool-field .card {
+	margin:18px 20px 50px 49px;
+}
