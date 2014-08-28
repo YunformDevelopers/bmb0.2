@@ -83,8 +83,8 @@ header('Content-Type:text/html; charset=utf-8');
                     </div>
                     <div class="link-holder">
                     	<!-- 长短链接放在这里 -->
-                    	<input type="hidden" id="php-short-link" value="<?php echo make_short_url("http://www.dmedia.zju.edu.cn/srtp/lzx/fillanswer.php?id=".$_GET['id']) ?>"/>
-                        <input type="hidden" id="php-long-link" value="<?php echo 'http://www.dmedia.zju.edu.cn/srtp/lzx/fillanswer.php?id='.$_GET['id']; ?>" />
+                    	<input type="hidden" id="php-short-link" value="<?php echo make_short_url("http://www.dmedia.zju.edu.cn/srtp/lzx/reform.php?id=".$_GET['id']) ?>"/>
+                        <input type="hidden" id="php-long-link" value="<?php echo 'http://www.dmedia.zju.edu.cn/srtp/lzx/reform.php?id='.$_GET['id']; ?>" />
                         <!-- 长短链接结束 -->
                     	<input type="text" class="link-container" value="http://127.0.0.1/formcloud/create-3.php" />
                         <input type="button" id="outer-link-copy" class="btn green" value="复制" />

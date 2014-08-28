@@ -17,9 +17,13 @@
 <body>
 
 		        	<?php 
-		        	if(isset($_GET['data']) && isset($_GET['id'])){
-                    	create_to_db($_GET['data'],$_GET['id']);}
-                    else{
+		        	if(isset($_GET['id'])){
+						connect();
+						$result=mysql_query("select * from question where form_id = '".$_GET['id']."'");
+						while($rows=mysql_fetch_assoc($result)){
+							create_to_db($rows);
+						}
+                    }else{
                     	do_js_alert('请从正确路径访问该页');
                     	do_js_link('index.php');
                     }
