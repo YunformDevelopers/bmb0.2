@@ -49,13 +49,11 @@ function fetchAll($sql){
 	}
 	return $rows;
 } 
-function create_to_db($data,$id){
-		$title_string=explode('ζ', $data);
-		$title=$title_string[0];
-		$string=explode('δ', $title_string[1]);
+function create_to_db($array){
+		$string=explode('δ', $array['question_string']);
 		echo '<div id="form-field">
 				<div id="form-title">
-					<h3>'.$title.'</h3>
+					<h3>'.$array['form_title'].'</h3>
 				</div>
 				<div id="form-intro" >
 	            	注：标 * 的题目为必填
@@ -191,7 +189,7 @@ function getExt($name){
 	return strtolower(end($a));
 }
 
-function save_decoration_to_db($array,$files,$form_id=1){
+function save_decoration_to_db($array,$files,$form_id){
 	print_r($array);
 	$save_array['form_id']=$form_id;
 	$save_array['form_expire_time'] =$array['form-expire-time'];
@@ -214,12 +212,26 @@ function save_decoration_to_db($array,$files,$form_id=1){
 		$save_array['bg']='';
 	}
 	connect();
-	if(insert('decoration', $save_array)){
-		do_js_alert('更改成功，请进入下一步');
-		do_js_link('create-3.php');
-	}
+	return insert('decoration', $save_array);
 }
 
+function make_short_url($url){
+	$ch=curl_init();
+	curl_setopt($ch,CURLOPT_URL,'http://dwz.cn/create.php');
+	curl_setopt($ch,CURLOPT_POST,true);
+	curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
+	$data=array('url'=>$url);
+	curl_setopt($ch,CURLOPT_POSTFIELDS,$data);
+	$strRes=curl_exec($ch);
+	curl_close($ch);
+	$arrResponse=json_decode($strRes,true);
+	if($arrResponse['status']!=0)
+	{
+		echo 'ErrorCode: ['.$arrResponse['status'].'] ErrorMsg: ['.iconv('UTF-8','GBK',$arrResponse['err_msg'])."]<br/>";
+		return 0;
+	}
+	echo $arrResponse['tinyurl'];
+}
 
 
 

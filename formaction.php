@@ -9,10 +9,9 @@ if(isset($_GET['action'])&&$_GET['action']=='save'){
 	$string_tip=explode('θ', $intro_string[1]);
 	$string=$string_tip[0];
 	$tip=$string_tip[1];
-	echo $title.'一'.$intro.'二'.$string.'三'.$tip;
 	$id=save_form_to_db($title, $intro, $string, $tip);
 	setcookie('qStore',"",time()-1);
- 	//do_js_link('reform.php?id='.$id.'&data='.$data);
+ 	do_js_link('create-2.php?id='.$id);
 }
 else if(isset($_POST['action'])&&$_POST['action']=='answer'){
 	save_answer_to_db($_COOKIE['answerStore'], $_POST['id']);

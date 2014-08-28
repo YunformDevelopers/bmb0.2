@@ -87,7 +87,7 @@ header('Content-Type:text/html; charset=utf-8');
 				<div id="tool-personalize">
 					<h4>个性化设置</h4>
 					<ul class="tool-personalize-list">
-					<form id="formPersonalize" name="formPersonalize" action="formdecoration.php" method='post' enctype="multipart/form-data">
+					<form id="formPersonalize" name="formPersonalize" action="formdecoration.php?<?php echo "id=".$_GET['id']?>" method='post' enctype="multipart/form-data">
 						<li class="tool-personalize-item">
 							<h6>
 								<b>1.</b>
@@ -136,6 +136,19 @@ header('Content-Type:text/html; charset=utf-8');
 			</div>
 		</div>
 		<div id="form-construct-field">
+		<?php
+		connect();
+		if(isset($_GET['id'])){
+			$result=mysql_query("select * from question where form_id ='".$_GET['id']."'");
+			while($rows=mysql_fetch_assoc($result)){
+				create_to_db($rows);
+			}
+		}else{
+			do_js_alert('请从正确路径访问该页');
+			do_js_link('index.php');
+		}
+		?>
+		<!--
 		<div id="form-field">
 			<div id="form-title">
 				<h3>社团需求调查表</h3>
@@ -185,7 +198,7 @@ header('Content-Type:text/html; charset=utf-8');
 							<label><input name="q3-body" value="发飞信" type="radio" />发飞信</label>
 							<label><input name="q3-body" value="手机发短信" type="radio" />手机发短信</label>
 							<label><input name="q3-body" value="电脑手机助手发短信" type="radio" />电脑手机助手发短信</label>
-							<span class="note-position"><label><!--<input name="q3-body" value="其他方式" type="radio" class="note-title" />其他</label><input name="q3-body-note" class="note" type="text" value="请注明"/>--></span>
+							<span class="note-position"><label><!--<input name="q3-body" value="其他方式" type="radio" class="note-title" />其他</label><input name="q3-body-note" class="note" type="text" value="请注明"/></span>
 						</div>
 					</div>
 				</li>
@@ -311,7 +324,7 @@ header('Content-Type:text/html; charset=utf-8');
 	        <div id="next-step">
 				<input id="submit" class="btn blue" name="submit" type="submit" style="width:auto" value="保存并下一步" onClick="formPersonalize.submit(); document.location.href='create-3.php';"/>
             </div>
-		</div>
+		</div>  -->
 	</div>
 </div>
 <?php
