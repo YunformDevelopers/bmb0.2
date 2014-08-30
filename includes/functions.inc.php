@@ -233,6 +233,11 @@ function make_short_url($url){
 	echo $arrResponse['tinyurl'];
 }
 
+function make_qrcode($url){
+	$errorCorrectionLevel = "L";
+	$matrixPointSize = "4";
+	QRcode::png($url, false, $errorCorrectionLevel, $matrixPointSize);
+}
 
 
 
