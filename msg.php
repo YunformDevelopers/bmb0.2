@@ -23,9 +23,9 @@
             </form>
      </div>
      <div class="right">
-         <div class="zju-passport">
+         <!--<div class="zju-passport">
             <a href="#">浙大通行证登录</a>
-         </div>
+         </div>-->
          <a href="#" id="login-msg" onclick="loginMsgPopOver()" >已有账号？快速登录</a>
      </div>
 </div>
@@ -43,9 +43,9 @@
             </form>
      </div>
      <div class="right">
-         <div class="zju-passport">
+         <!--<div class="zju-passport">
             <a href="#">浙大通行证登录</a>
-         </div>
+         </div>-->
          <a href="#" id="register-msg" onclick="registerMsgPopOver()" >还没有账号？10秒快速注册</a>
      </div>
 </div>

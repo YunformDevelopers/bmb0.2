@@ -23,6 +23,7 @@ header('Content-Type:text/html; charset=utf-8');
 <!--<script type="text/javascript" src="test for Liang/test.js"></script>
 --><script type="text/javascript" src="js/msg.js"></script>
 <script type="text/javascript" src="js/manage.js"></script>
+<script type="text/javascript" src="js/jquery.pin.min.js"></script>
 <script src='js/iscroll.js'></script>
 <!--<script type="text/javascript">
 var pre_scrollTop=0;//滚动条事件之前文档滚动高度

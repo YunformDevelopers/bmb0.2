@@ -41,4 +41,10 @@
 .msg a, .box a{
 	color:#F00;
 }
+#register-msg-content input, #login-msg-content input {
+	border:none;
+	border-bottom:solid 1px #aaa;
+	color:#aaa;
+	text-align:center;
+} 
 

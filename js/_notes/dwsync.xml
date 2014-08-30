@@ -19,7 +19,7 @@
 <file name="unslider.js" server="www.dmedia.zju.edu.cn" local="130500756000000000" remote="130500756000000000" Dst="0" />
 <file name="cookie.js" server="www.dmedia.zju.edu.cn" local="130531883052873135" remote="130536870600000000" Dst="0" />
 <file name="manage.js" server="www.dmedia.zju.edu.cn" local="130526279687029797" remote="130536870600000000" Dst="0" />
-<file name="answerCookie.js" server="www.dmedia.zju.edu.cn" local="130531826341314662" remote="130536870600000000" Dst="0" />
+<file name="answerCookie.js" server="www.dmedia.zju.edu.cn" local="130538438783894225" remote="130538453400000000" Dst="0" />
 <file name="swipe.js" server="www.dmedia.zju.edu.cn" local="130529126352786453" remote="130536870600000000" Dst="0" />
 <file name="common.js" server="www.dmedia.zju.edu.cn" local="130531967471759572" remote="130536870600000000" Dst="0" />
 <file name="iscroll.js" server="www.dmedia.zju.edu.cn" local="130529126352386430" remote="130536870600000000" Dst="0" />
@@ -29,4 +29,6 @@
 <file name="simditor-all.js" server="www.dmedia.zju.edu.cn" local="130529173210000000" remote="130536870600000000" Dst="0" />
 <file name="simditor-all.min.js" server="www.dmedia.zju.edu.cn" local="130526279687049798" remote="130536870600000000" Dst="0" />
 <file name="ZeroClipboard.swf" server="www.dmedia.zju.edu.cn" local="130536362327747235" remote="130536870600000000" Dst="0" />
+<file name="jquery.validationEngine-zh_CN.js" server="www.dmedia.zju.edu.cn" local="130520803720000000" remote="130538453400000000" Dst="0" />
+<file name="jquery.validationEngine.js" server="www.dmedia.zju.edu.cn" local="130538374934335824" remote="130538453400000000" Dst="0" />
 </dwsync>

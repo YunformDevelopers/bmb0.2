@@ -9,6 +9,7 @@ header('Content-Type:text/html; charset=utf-8');
 <title>创建</title>
 <link rel="stylesheet" href="style/index.css"></link>
 <link rel="stylesheet" href="style/create.css"></link>
+<link rel="stylesheet" href="style/msg.css"></link>
 <link rel="stylesheet" type="text/css" href="style/font-awesome.css" />
 <link rel="stylesheet" type="text/css" href="style/simditor.css" />
 <script type="text/javascript" src="js/jQuery.js"></script>
@@ -30,7 +31,8 @@ header('Content-Type:text/html; charset=utf-8');
     require 'includes/header.inc.php';
     if(!isset($_COOKIE['srtp-username'])){
     	do_js_alert('请先登录');
-    	do_js_link('index.php');
+    	//do_js_link('index.php');
+		echo "<script>loginMsgPopOver();</script>";
     }
 ?>
 </head>
@@ -171,6 +173,13 @@ header('Content-Type:text/html; charset=utf-8');
 
 		</div>
 	</div>
+</div>
+<div class='msg'>
+    <div class='msg-border'>
+        <div class='msg-content'>
+        <!--内容是动态获得的-->			
+        </div>
+    </div>
 </div>
 <?php
      include 'includes/footer.inc.php'

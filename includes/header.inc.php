@@ -33,11 +33,15 @@ if(isset($_POST['username'])&&isset($_POST['password'])){
 			<div class="reddot"></div>
         </li>
         <li class="head-item nav personal right">
-        	<a class="head-link" href='personal.php' >
-				<?php if(!(isset($_COOKIE['srtp-username']))) 
-				echo "<span class=\"head-name\">我的</span>";
-            	else
-				echo "<span class=\"head-name\">".$_COOKIE['srtp-username']."</span>";?><!-- 这里将用户名打印出来，退出放在下方的“more”里面 -->
+        	<?php if(!(isset($_COOKIE['srtp-username']))){
+					echo "<a class=\"head-link\" id=\"register-msg\" onClick='registerMsgPopOver();'>";
+					echo "<span class=\"head-name\">注册</span>";
+					}
+            	else {
+					echo "<a class=\"head-link\" href='personal.php' >";
+					echo "<span class=\"head-name\">".$_COOKIE['srtp-username']."</span>";
+				}	
+			?><!-- 这里将用户名打印出来，退出放在下方的“more”里面 -->
             </a>
 			<div class="reddot"></div>
         </li>

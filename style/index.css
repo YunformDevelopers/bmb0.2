@@ -318,6 +318,7 @@ div{
 	height:50px;
 	background:#FFF;
 	border-bottom:solid #ccc 2px;
+	z-index:4;
 }
 #tab-container ul.tab-list {
 	height:52px;
@@ -599,10 +600,15 @@ div{
 	margin-top:3em;
 	line-height:2em;
 	width:90%;
-	padding:1em 5%;
-	background:#ddd url(../images/footer-bg.png) repeat-x;
+	padding:0.5em 5% 2em 5%;
+	border-top:solid 2px #ddd;
+	background:#eee; /* background:#ddd url(../images/footer-bg.png) repeat-x; */
 	text-align:center;
 	text-align:justify;
+	color:#aaa;
+}
+#footer-logo {
+	text-align:center;
 }
 #footer-logo,#footer-info,#footer-contact{
 	display:inline-block;

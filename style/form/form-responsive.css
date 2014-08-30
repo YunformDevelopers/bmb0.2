@@ -61,7 +61,7 @@ MEDIA QUERIES
 .q7 .q-body label {
 	width:96%;
 }
-
+/* 为这张表单独创建的部分end */
 #form-field {
 	width:90%;
 }
@@ -71,5 +71,4 @@ MEDIA QUERIES
 #form-body .q-whole {
 	padding:5px 0 5px 38px;
 }
-/* 为这张表单独创建的部分end */
 }

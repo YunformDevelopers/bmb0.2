@@ -160,7 +160,7 @@ div{
 .q-body .note:hover {
 	color:#000;
 }
-/* 涓鸿繖寮犺〃鍗曠嫭鍒涘缓鐨勯儴鍒唖tart */
+/* 涓鸿繖寮犺〃鍗曠嫭鍒涘缓鐨勯儴鍒唖tart 
 .q1 .q-body label,
 .q2 .q-body label,
 .q3 .q-body label {
@@ -178,6 +178,7 @@ div{
 .q9 .q-body label {
 	width:30%;
 }
+*/
 /* 涓鸿繖寮犺〃鍗曠嫭鍒涘缓鐨勯儴鍒唀nd */
 .free-multiline .q-body textarea {
 	width:100%;

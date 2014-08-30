@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>社团需求调查表</title>
 <link rel="stylesheet" href="style/form/paper.css" />
-<link rel="stylesheet" href="style/form/form-responsive.css"/>
+<!--<link rel="stylesheet" href="style/form/form-responsive.css"/>-->
 <link rel="stylesheet" href="style/form/validationEngine.jquery.css"/>
 <script src="js/jquery-2.1.1.min.js"></script>
 <script src="js/jquery.validationEngine-zh_CN.js" type="text/javascript" charset="utf-8"></script>
@@ -20,7 +20,24 @@
         }
    })
 })*/
+$(document).ready(function() {
+    
+});
 </script>
+<style>
+@media screen and (max-width: 500px) {
+#form-field {
+	width:90%;
+}
+#form-body .q-number {
+	width:2em;
+}
+#form-body .q-whole {
+	padding:5px 0 5px 38px;
+}
+}
+
+</style>
 <?php 
         require 'includes/functions.inc.php';
         	//else {

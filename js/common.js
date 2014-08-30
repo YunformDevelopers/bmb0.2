@@ -11,6 +11,7 @@ $(document).ready(function(){
 	initSlideshow ();
 	initDropDown ();
 	loaded();
+	pinTabContainer();
 });
 
 
@@ -228,7 +229,9 @@ $('#tab-container .tab-link, #header .head-link').click(function(){
 	$(this).parent("li").addClass("active");//被点击的父级元素添加active class
 		
 });
-	
+function pinTabContainer (){
+	$("#tab-container").pin();
+}
 
 /* 去除触摸300ms延迟的对象 *//*
 function NoClickDelay(el) {

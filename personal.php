@@ -16,7 +16,7 @@ header('Content-Type:text/html; charset=utf-8');
 <!--下面这个js文件是为了兼容IE的媒体查询而准备的-->
 <script src="js/css3-mediaqueries.js"></script>
 <script type="text/javascript" src="js/jQuery.js"></script>
-
+<script type="text/javascript" src="js/jquery.pin.min.js"></script>
 <script>
 $(".msg").hide();
 $(document).ready(function(){	
