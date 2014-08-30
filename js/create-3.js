@@ -12,7 +12,15 @@ $(window).resize(function(){
 });
 
 
-
+function fillLink(linkType){
+	if(linkType =='short'){
+		$('.link-container').val($('#php-short-link').val());
+	}
+	else if(linkType =='long'){
+		$('.link-container').val($('#php-long-link').val());
+	}
+	
+}
 function zclip (){
 	$("#outer-link-copy").zclip({
 		path:'js/ZeroClipboard.swf',

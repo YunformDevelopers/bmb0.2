@@ -64,7 +64,6 @@ function SetAnswerCookie () {
 	
 	}
 	document.cookie = cookieString;
-
 }
 function validateForm(){
 	/*  1.获取每道题的q-alternative状态  */
@@ -127,3 +126,26 @@ function getCookie(objName){//获取指定名称的cookie的值
 		if(temp[0] == objName) return unescape(temp[1]);
 	}
 } 
+$(document).ready(function() {
+	initValidationEngine();
+	ReFill();
+});
+function initValidationEngine (){
+     $("#formID").validationEngine({promptPosition : 'bottomLeft',});
+	var qTotalNumber = $("#form-body li").length;//这是获得form-body里面li的数量，也就是题目的总数
+	var formBody = $("#form-body");//获取到form-body元素
+	for(var i=0;i<qTotalNumber;i++){//这个循环遍历所有题目，并将答案存放到cookie里面
+		var qFieldIth= $("#form-body form ").children().eq(i);//获取到#form-body form下的第i个li
+		var qAlternative = qFieldIth.find(".q-alternative").attr('name');//获取到#form-body元素里的第i道题的q-alternative 的a里的name
+		if (qAlternative == 'required'){
+			if (qFieldIth.hasClass("free-multichoice")){
+				qFieldIth.find('.q-body input').addClass("validate[minCheckbox[1]]");
+				qFieldIth.find('.q-body input').attr('name','q' + i + '-body');
+			}
+			else {
+				qFieldIth.find('.q-body input,.q-body textarea').addClass("validate[required]");
+			}
+		}
+		else ;
+	}
+}

@@ -414,6 +414,10 @@ form-construct-field里面，分为form-title,form-intro，form-body，具体看
 .release-method {
 	margin-bottom:2em;
 }
+.release-method h3 {
+	font-size:16px;
+	font-weight:bold;
+}
 .release-method .link-select label {
 	margin-right:1em;
 }

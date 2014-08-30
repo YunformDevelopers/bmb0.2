@@ -169,7 +169,7 @@ div{
 
 /* 给每种item加背景图片 */
 #header li.logo a {
-	background-image:url(../images/header-icon/logo.png);
+	background-image:url(../images/header-icon/logo-beta.png);
 }
 #header li.index a {
 	background-image:url(../images/header-icon/index.png);
@@ -212,6 +212,11 @@ div{
 }
 #header li.personal a:active, #header li.personal.active a {
 	background-image:url(../images/header-icon/personal-active.png);
+}
+#header li.personal .head-link span.head-name {
+	display:inline-block;
+	width:3em;
+	overflow:hidden;
 }
 #header li.head-item {
 	position:relative;

@@ -7,7 +7,10 @@
 <title>社团需求调查表</title>
 <link rel="stylesheet" href="style/form/paper.css" />
 <link rel="stylesheet" href="style/form/form-responsive.css"/>
+<link rel="stylesheet" href="style/form/validationEngine.jquery.css"/>
 <script src="js/jquery-2.1.1.min.js"></script>
+<script src="js/jquery.validationEngine-zh_CN.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/jquery.validationEngine.js" type="text/javascript" charset="utf-8"></script>
 <script src="js/answerCookie.js"></script>
 <script>
 /*$(function(){
@@ -69,10 +72,11 @@
             <h3>社团需求调查表</h3>
         </div>
         <div id="form-intro" >
+        加入我们，让创业成为你的生活方式！加入我们，让创业成为你的生活方式！加入我们，让创业成为你的生活方式！加入我们，让创业成为你的生活方式！加入我们，让创业成为你的生活方式！加入我们，让创业成为你的生活方式！加入我们，让创业成为你的生活方式！加入我们，让创业成为你的生活方式！加入我们，让创业成为你的生活方式！
             注：标 * 的题目为必填
         </div>
         <ul id="form-body">
-        	<form method="post" action="#">
+        	<form id="formID" method="post" action="#">
             <li id="" class="q1 q-field free-multichoice">
                 <div class="q-number"><span>1</span></div>
                 <div class="q-whole">
@@ -197,7 +201,7 @@
                 <div class="q-number"><span>10</span></div>
                 <div class="q-whole">
                     <div class="q-title">你对报名吧网站还有什么建议或意见？</div>
-                    <div class="q-alternative" style="display:none" name="alternative" >*</div>
+                    <div class="q-alternative" name="required" >*</div>
                     <div class="q-body">
                         <textarea name="q10-body" class="body edit" ></textarea>
                     </div>
@@ -207,7 +211,7 @@
                 <div class="q-number"><span>11</span></div>
                 <div class="q-whole">
                     <div class="q-title">你的姓名是？</div>
-                    <div class="q-alternative" style="display:none" name="alternative" >*</div>
+                    <div class="q-alternative" name="required" >*</div>
                     <div class="q-body">
                         <input type="text" name="q11-body" class="body edit" ></input>
                     </div>
@@ -217,7 +221,7 @@
                 <div class="q-number"><span>12</span></div>
                 <div class="q-whole">
                     <div class="q-title">请上传相应文件</div>
-                    <div class="q-alternative" style="display:none" name="alternative" >*</div>
+                    <div class="q-alternative" name="required" >*</div>
                     <div class="q-body">
                         <input type="file" name="q12-body" class="body edit" ></input>
                     </div>
@@ -227,7 +231,7 @@
                 <div class="q-number"><span>13</span></div>
                 <div class="q-whole">
                     <div class="q-title">请上传您的个人照片</div>
-                    <div class="q-alternative" style="display:none" name="alternative" >*</div>
+                    <div class="q-alternative" name="required" >*</div>
                     <div class="q-body">
                         <input type="file" name="q13-body" class="body edit" ></input>
                     </div>
@@ -238,6 +242,29 @@
          </form>
         </ul>
 	</div>
+    
+    <div id="fill-tool">
+    	<div class="login/reg box " title="注册/登录后可享受一键填表、保存填表进度等福利！">
+        	<a class="tool">
+            	<span class="tool-name">注册 登录</span>
+            </a>
+        </div>
+        <div class="quick-fill box " title="根据表格内容智能填入个人信息">
+        	<a class="tool">
+            	<span class="tool-name">一键 填表</span>
+            </a>
+        </div>
+        <div class="save box " title="保存进度，表格可在 我的 中找到">
+        	<a class="tool">
+            	<span class="tool-name">保存 进度</span>
+            </a>
+        </div>    
+    </div>
+    <div id="back-tool">
+    	<a class="tool">
+        	<span class="tool-name">返回</span>
+        </a>
+    </div>
 	<div id="footer" class="form-footer">
 		<p>Powered by 报名吧</p>
 		<p>由于网站还在开发，不能提供最佳的用户体验，希望您能理解！</p>

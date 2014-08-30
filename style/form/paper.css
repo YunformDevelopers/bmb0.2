@@ -205,6 +205,45 @@ div{
 	border-top:solid 1px rgb(217, 207, 191);
 	color:#d9cfbf;
 }
+#fill-tool {
+	position:fixed;
+	bottom:20px;
+	right:5%;
+}
+#fill-tool .box {
+	margin-bottom:10px;
+}
+#fill-tool .tool, #back-tool .tool {
+	display:block;
+	cursor:pointer;
+	width:50px; height:50px;
+	border:solid 1px #000;
+	border-radius:5px;
+	background:rgba(255,255,255,0.5);
+	text-align:center;
+	position:relative;
+	transition:all ease-out 0.2s;
+}
+#fill-tool .tool:hover, #back-tool .tool:hover {
+	background:#000;
+	color:#fff;
+}
+#fill-tool .tool-name {
+	width:100%;
+	font-size:16px;
+	margin:0 auto;
+	position:absolute;
+	bottom:2px; left:0;
+}
+#back-tool .tool {
+	border-radius:25px;
+	line-height:50px;
+}
+#back-tool {
+	position:fixed;
+	top:20px;
+	left:5%;
+}
 
 
 /* 以下是jQuery ui部分的样式 */

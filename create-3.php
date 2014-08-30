@@ -6,16 +6,11 @@ header('Content-Type:text/html; charset=utf-8');
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>创建</title>
+<title>发布</title>
 <link rel="stylesheet" href="style/index.css"></link>
 <link rel="stylesheet" href="style/create.css"></link>
-<link rel="stylesheet" href="style/form/paper.css"></link>
-<link rel="stylesheet" href="style/form/form-responsive.css"></link>
-<link rel="stylesheet" type="text/css" href="style/font-awesome.css" />
-<link rel="stylesheet" type="text/css" href="style/simditor.css" />
 <script type="text/javascript" src="js/jQuery.js"></script>
 <script type="text/javascript" src="js/jquery.zclip.min.js"></script>
-<script type="text/javascript" src="js/jquery-ui-1.10.4.js"></script>
 <script type="text/javascript" src="js/msg.js"></script>
 <script type="text/javascript" src="js/create-3.js"></script>
 
@@ -74,26 +69,30 @@ header('Content-Type:text/html; charset=utf-8');
             <br />
 			<div id="form-release">
             	<div class="release-method outer-link">
-                	<h3>1.
-                    	<b>外链</b>
-                    </h3>
+                    <div class="section-header">
+                        <h2>外链</h2>
+                        <div class="h2-line">
+                        </div>
+					</div>
                     <div class="link-select">
-	                    <label  title="(推荐)经过百度短网址转码，链接短，可读性不佳"><input id="short-outer-link" name="link-type" type="radio" checked="checked" value="短链接">短链接</input></label>
-    	                <label  title="(不推荐)未经过百度短网址转码，链接长，可读性好"><input id="long-outer-link" name="link-type" type="radio" value="长链接">长链接</input></label>
+	                    <label  title="(推荐)经过百度短网址转码，链接短，可读性不佳"><input id="short-outer-link" name="link-type" type="radio" checked="checked" value="短链接" onfocus="fillLink('short');">短链接</input></label>
+    	                <label  title="(不推荐)未经过百度短网址转码，链接长，可读性好"><input id="long-outer-link" name="link-type" type="radio" value="长链接" onfocus="fillLink('long');">长链接</input></label>
                     </div>
                     <div class="link-holder">
                     	<!-- 长短链接放在这里 -->
                     	<input type="hidden" id="php-short-link" value="<?php echo make_short_url("http://www.dmedia.zju.edu.cn/srtp/lzx/reform.php?id=".$_GET['id']) ?>"/>
                         <input type="hidden" id="php-long-link" value="<?php echo 'http://www.dmedia.zju.edu.cn/srtp/lzx/reform.php?id='.$_GET['id']; ?>" />
                         <!-- 长短链接结束 -->
-                    	<input type="text" class="link-container" value="http://127.0.0.1/formcloud/create-3.php" />
+                    	<input type="text" class="link-container" value="<?php echo make_short_url("http://www.dmedia.zju.edu.cn/srtp/lzx/reform.php?id=".$_GET['id']) ?>" />
                         <input type="button" id="outer-link-copy" class="btn green" value="复制" />
                     </div>
                 </div>
                 <div class="release-method QR-code">
-                	<h3>2.
-                    	<b>二维码</b>
-                    </h3>
+                	<div class="section-header">
+                        <h2>二维码</h2>
+                        <div class="h2-line">
+                        </div>
+					</div>
                     <div class="link-select">
 	                    <label title="适用于移动端" ><input name="QR-type" type="radio" checked="checked" value="">200*200</input></label>
     	                <label title="适用于传单" ><input name="QR-type" type="radio" value="">400*400</input></label>
@@ -113,7 +112,7 @@ header('Content-Type:text/html; charset=utf-8');
                 </div>
 <!--                <div class="release-method embed">
                 	<h3>3.
-                    	<b>嵌入式</b>
+                    	嵌入式
                     </h3>
                     <div class="method-tip">
                     	请将代码粘贴到你想要出现的位置。
