@@ -56,7 +56,7 @@ function create_to_db($array){
 					<h3>'.$array['form_title'].'</h3>
 				</div>
 				<div id="form-intro" >
-	            	注：标 * 的题目为必填
+	            	'.$array['form_intro'].'
 	        	</div>
 	        	<ul id="form-body">
 	        		<form enctype="multipart/form-data" method="post" action="formaction.php?action=answer&id='.$_GET['id'].'">';
@@ -66,6 +66,12 @@ function create_to_db($array){
 						$explode2 = explode('β', $explode1[1]);
 						$type=$explode2[0];
 						$choice=explode('γ', $explode2[1]);
+						$re=end($choice);
+						if($re=='required'){
+							$re='required="required"';
+						}else{
+							$re='';
+						}
 				echo '<li class="q'.($i+1).' q-field '.$type.'">
 						<div class="q-number"><span>'.($i+1).'</span></div>
 						<div class="q-whole">';
@@ -75,34 +81,61 @@ function create_to_db($array){
 				else {
 					echo '<div class="q-title">'.$question.'</div>';
 				}
-					echo '<div class="q-alternative">*</div>';
+					if($re){
+						echo '<div class="q-alternative">*</div>';
+					}
 // 					if($type=="free-multichoice"){
 // 						echo '<div class="q-alternative">*</div>';
 // 					}
 				echo '<div class="q-body">';
 				if($type=="free-multichoice")
 					for($j=0;$j<count($choice)-1;$j++){
-						echo '<label><input name="q'.($i+1).'-'.$choice[$j].'" type="checkbox" value="'.$choice[$j].'"/>'.$choice[$j].'</label>';
+						echo '<label><input name="q'.($i+1).'-'.$choice[$j].'" type="checkbox" '.$re.' value="'.$choice[$j].'"/>'.$choice[$j].'</label>';
 					}
 				if($type=="free-singlechoice")
 					for($j=0;$j<count($choice)-1;$j++){
-						echo '<label><input name="q'.($i+1).'-body" type="radio" value="'.$choice[$j].'"/>'.$choice[$j].'</label>';
+						echo '<label><input name="q'.($i+1).'-body" type="radio" '.$re.' value="'.$choice[$j].'"/>'.$choice[$j].'</label>';
+					}
+				if($type=="logic-sex")
+					for($j=0;$j<count($choice)-1;$j++){
+						echo '<label><input name="q'.($i+1).'-body" type="radio" '.$re.' value="'.$choice[$j].'"/>'.$choice[$j].'</label>';
 					}
 				if($type=="free-multiline"){
-					echo '<textarea name="q'.($i+1).'-body" class="body edit" ></textarea>';
+					echo '<textarea name="q'.($i+1).'-body" class="body edit" '.$re.' ></textarea>';
 				}
 				if($type=="free-singleline"){
-					echo '<input type="text" name="q'.($i+1).'-body" class="body edit" />';
+					echo '<input type="text" name="q'.($i+1).'-body" class="body edit" '.$re.' />';
+				}
+				if($type=="logic-name"){
+					echo '<input type="text" name="q'.($i+1).'-body" class="body edit" '.$re.' />';
+				}
+				if($type=="logic-studentID"){
+					echo '<input type="text" name="q'.($i+1).'-body" class="body edit" '.$re.' />';
+				}
+				if($type=="logic-address"){
+					echo '<input type="text" name="q'.($i+1).'-body" class="body edit" '.$re.' />';
+				}
+				if($type=="logic-tel"){
+					echo '<input type="text" name="q'.($i+1).'-body" class="body edit" '.$re.' />';
+				}
+				if($type=="logic-email"){
+					echo '<input type="text" name="q'.($i+1).'-body" class="body edit" '.$re.' />';
+				}
+				if($type=="logic-class"){
+					echo '<input type="text" name="q'.($i+1).'-body" class="body edit" '.$re.' />';
 				}
 				if($type=="free-file"){
-					echo '<input type="file" name="user" class="body edit" ></input>';
+					echo '<input type="file" name="user" class="body edit" '.$re.' ></input>';
 					//echo '<input type="file" name="q'.($i+1).'-body" class="body edit" ></input>';
 				}
 				echo '</div>';
 				echo '</div>';
 			echo '</li>';
 			}
-			echo '<input id="submit" class="btn red" name="submit" type="submit" value="提交" onClick="SetFillCookie(); SetAnswerCookie();"/>
+			echo '<div id="form-tip">
+						<textarea class="title edit raw" contentEditable="true" rows="1">'.$array['form_tip'].'</textarea>
+				</div>
+					<input id="submit" class="btn red" name="submit" type="submit" value="提交" onClick="SetFillCookie(); SetAnswerCookie();"/>
 					</form>
 				</ul>
 			</div>';
