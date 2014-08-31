@@ -5,7 +5,7 @@
 	</div>
 	<div id='footer-contact'>
 		<ul>
-			<li>建议反馈</li>
+			<li><a id="feedback-msg" >建议反馈</a></li>
 <!--			<li><a id="work-msg">任务流程</li>
 -->			<li><a href="./intro.html">产品介绍</a></li>
             <!-- 注意这里面放链接的时候，由于是被其他页面PHP引用，所以路径容易出问题，最好用绝对路径 -->

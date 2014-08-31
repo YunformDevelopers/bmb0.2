@@ -22,20 +22,41 @@
    })
 })*/
 $(document).ready(function() {
-    
+	//获取浏览器的信息
+	var browser = {
+		versions : function() {
+				var u = navigator.userAgent, app = navigator.appVersion;
+				return {//移动终端浏览器版本信息   
+				mobile : !!u.match(/AppleWebKit.*Mobile.*/)
+						|| !!u.match(/AppleWebKit/), //是否为移动终端  
+				
+				};
+		}(),
+		language : (navigator.browserLanguage || navigator.language).toLowerCase()
+	}
+	//为移动端做设置
+	if (true){//是否为移动终端browser.versions.mobile .parent().css("background","#36F")
+		alert($(".q-body input").html());
+	
+	}
 });
 </script>
 <style>
 @media screen and (max-width: 500px) {
-#form-field {
-	width:90%;
-}
-#form-body .q-number {
-	width:2em;
-}
-#form-body .q-whole {
-	padding:5px 0 5px 38px;
-}
+	#form-field {
+		width:90%;
+	}
+	#form-body .q-number {
+		width:2em;
+	}
+	#form-body .q-whole {
+		padding:5px 0 5px 38px;
+	}
+	.q-body label {
+		width:99%;
+		border-bottom:solid 1px #ccc;
+		border-radius:0px 0px;
+	}
 }
 
 </style>

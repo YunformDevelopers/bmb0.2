@@ -6,7 +6,7 @@
 <file name="abandon.js" server="www.dmedia.zju.edu.cn" local="130500756000000000" remote="130500756000000000" Dst="0" />
 <file name="create.js" server="www.dmedia.zju.edu.cn" local="130529303258512388" remote="130536870600000000" Dst="0" />
 <file name="showtips.js" server="www.dmedia.zju.edu.cn" local="130500756000000000" remote="130500756000000000" Dst="0" />
-<file name="msg.js" server="www.dmedia.zju.edu.cn" local="130529126352406431" remote="130536870600000000" Dst="0" />
+<file name="msg.js" server="www.dmedia.zju.edu.cn" local="130539713472447566" remote="130539744600000000" Dst="0" />
 <file name="jquery-2.1.1.min.js" server="www.dmedia.zju.edu.cn" local="130500756000000000" remote="130500756000000000" Dst="0" />
 <file name="elo.js" server="www.dmedia.zju.edu.cn" local="130500756000000000" remote="130500756000000000" Dst="0" />
 <file name="bootstrap.min.js" server="www.dmedia.zju.edu.cn" local="130500756000000000" remote="130537627800000000" Dst="0" />
@@ -21,7 +21,7 @@
 <file name="manage.js" server="www.dmedia.zju.edu.cn" local="130526279687029797" remote="130536870600000000" Dst="0" />
 <file name="answerCookie.js" server="www.dmedia.zju.edu.cn" local="130538438783894225" remote="130538453400000000" Dst="0" />
 <file name="swipe.js" server="www.dmedia.zju.edu.cn" local="130529126352786453" remote="130536870600000000" Dst="0" />
-<file name="common.js" server="www.dmedia.zju.edu.cn" local="130531967471759572" remote="130536870600000000" Dst="0" />
+<file name="common.js" server="www.dmedia.zju.edu.cn" local="130539634818208801" remote="130539678600000000" Dst="0" />
 <file name="iscroll.js" server="www.dmedia.zju.edu.cn" local="130529126352386430" remote="130536870600000000" Dst="0" />
 <file name="create-3.js" server="www.dmedia.zju.edu.cn" local="130537592681445190" remote="130537627800000000" Dst="0" />
 <file name="form-fill.js" server="www.dmedia.zju.edu.cn" local="130536268070352866" remote="130536870600000000" Dst="0" />

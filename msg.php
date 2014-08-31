@@ -21,7 +21,7 @@
                     <li class="body"><input type="password" name="password" class="text" /></li>
                     <li class="title">确认密码<span class="tip">(*必填，至少六位)</span></li>
                     <li class="body"><input type="password" name="password" class="text" /></li>
-                    <li class=""><input type="submit"  class="submit btn red" value="登录" /></li>
+                    <li class=""><input type="submit"  class="submit btn red" value="注册" /></li>
                 </ul>
             </form>
      </div>
@@ -53,6 +53,21 @@
          <a href="#" id="register-msg" onclick="registerMsgPopOver()" >还没有账号？10秒快速注册</a>
      </div>
 </div>
+<div id="feedback-msg-content">
+	<div class="left">
+        <h3>建议反馈</h3>
+            <form name="" method="post">
+                <ul>
+                    <li class="title">问题 * </li>
+                    <li class="body"><textarea style=' width:360px; resize:vertical; height:100px; ' required="required" ></textarea></li>
+                    <li class="title">QQ</li>
+                    <li class="body"><input type="text" class="text"/></li>
+                    <li class="remember-me"><input type="submit"  class="submit btn red" value="提交" /></li>
+                </ul>
+            </form>
+     </div>
+</div>
+
 <div id="a-all-msg-content">
 	<div class="a-all-msg">
         <h3>某位同学的答案</h3>
