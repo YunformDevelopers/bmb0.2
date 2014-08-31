@@ -9,6 +9,7 @@ header('Content-Type:text/html; charset=utf-8');
 <!--下面这meta意思是告知浏览器的宽度是设备的宽度，缩放值为1.0-->
 <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
 <title>我的</title>
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
 <link rel="stylesheet" href="style/index.css"></link>
 <link rel="stylesheet" href="style/msg.css"></link>
 <link rel="stylesheet" href="style/personal.css"></link>

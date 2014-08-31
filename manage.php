@@ -9,6 +9,7 @@ header('Content-Type:text/html; charset=utf-8');
 <!--下面这meta意思是告知浏览器的宽度是设备的宽度，缩放值为1.0-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>管理——某次活动报名表</title>
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
 <link rel="stylesheet" href="style/index.css"></link>
 <link rel="stylesheet" href="style/msg.css"></link>
 <link rel="stylesheet" href="style/manage.css"></link>

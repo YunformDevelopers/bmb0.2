@@ -5,6 +5,7 @@
 <!--下面这meta意思是告知浏览器的宽度是设备的宽度，缩放值为1.0-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>社团需求调查表</title>
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
 <link rel="stylesheet" href="style/form/paper.css" />
 <!--<link rel="stylesheet" href="style/form/form-responsive.css"/>-->
 <link rel="stylesheet" href="style/form/validationEngine.jquery.css"/>

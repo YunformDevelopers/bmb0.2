@@ -47,7 +47,12 @@ function loaded () {//在body load完之后执行
 		language : (navigator.browserLanguage || navigator.language).toLowerCase()
 	}
 	//为移动端做设置
-	if (browser.versions.mobile){//是否为移动终端  
+	if (browser.versions.mobile){//是否为移动终端
+	
+		$("body").css("overflow","hidden");
+		$("#slideshow").css("display","none");
+		$("#footer").css("display","none");
+		
 		$("#scroller li").css("overflow","hidden");
 		//为优化性能，去除盒子的阴影
 		$(".card .img-holder").css("box-shadow","none");

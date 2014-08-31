@@ -50,7 +50,6 @@ form-construct-field里面，分为form-title,form-intro，form-body，具体看
 }
 #step-status-set .step-status1 {
 	width:32.1%;
-	background:none;
 }
 #step-status-set .step-status2 {
 	width:34%;
@@ -237,7 +236,7 @@ form-construct-field里面，分为form-title,form-intro，form-body，具体看
 	background:url(../images/tool/radar.png) no-repeat center;
 }
 #tool-construct-container .tool-float-left {
-	float:left;
+	float:left !important;
 }
 /* 这里用了几个层级，因为这个区域里面input和textarea很多。
 1.能够编辑的给.edit的class，可编辑的就有一个hover然后背景变黄的效果，没有这个class的是不可编辑的！

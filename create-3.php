@@ -7,13 +7,18 @@ header('Content-Type:text/html; charset=utf-8');
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>发布</title>
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
 <link rel="stylesheet" href="style/index.css"></link>
 <link rel="stylesheet" href="style/create.css"></link>
 <script type="text/javascript" src="js/jQuery.js"></script>
 <script type="text/javascript" src="js/jquery.zclip.min.js"></script>
 <script type="text/javascript" src="js/msg.js"></script>
 <script type="text/javascript" src="js/create-3.js"></script>
-
+<style>
+#step-status-set .step-status3 {
+	background:none;
+}
+</style>
 <?php
     require 'includes/header.inc.php';
 	

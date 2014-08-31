@@ -41,10 +41,23 @@
 .msg a, .box a{
 	color:#F00;
 }
-#register-msg-content input, #login-msg-content input {
-	border:none;
+#register-msg-content .title, #login-msg-content .title {
+/*	border:none;
 	border-bottom:solid 1px #aaa;
-	color:#aaa;
+*/	color:#333;
+}
+#register-msg-content .title .tip {
+	color:#999;
+}
+#register-msg-content .body input, #login-msg-content .body input {
+	width:250px;
+}
+#register-msg-content .left, #login-msg-content .left {
+	width:260px;
+	margin:0 auto;
+}
+#register-msg-content .right, #login-msg-content .right {
 	text-align:center;
-} 
-
+}
+#login-msg-content .remember-me {
+}

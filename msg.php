@@ -12,14 +12,17 @@
 
 <div id="register-msg-content">
 	<div class="left">
-        <h3>10秒快速注册</h3>
+        <h3>注册</h3>
             <form name="" method="post" action="register.php">
-                <dl>
-                    <dd>邮　　箱：<input type="text" name="username" class="text" /> (*必填，至少两位)</dd>
-                    <dd>密　　码：<input type="password" name="password" class="text" /> (*必填，至少六位)</dd>
-                    <dd>确认密码：<input type="password" name="notpassword" class="text" /> (*必填，至少六位)</dd>
-                    <dd><input type="submit" class="submit btn red" value="注册" /></dd>
-                </dl>
+                <ul>
+                    <li class="title">邮箱<span class="tip">(*必填，至少两位)</span></li>
+                    <li class="body"><input type="text" name="username" class="text" /></li>
+                    <li class="title">密码<span class="tip">(*必填，至少六位)</span></li>
+                    <li class="body"><input type="password" name="password" class="text" /></li>
+                    <li class="title">确认密码<span class="tip">(*必填，至少六位)</span></li>
+                    <li class="body"><input type="password" name="password" class="text" /></li>
+                    <li class=""><input type="submit"  class="submit btn red" value="登录" /></li>
+                </ul>
             </form>
      </div>
      <div class="right">
@@ -34,12 +37,13 @@
 	<div class="left">
         <h3>登录</h3>
             <form name="" method="post" action="index.php">
-                <dl>
-                    <dd>邮　　箱：<input type="text" name="username" class="text" /></dd>
-                    <dd>密　　码：<input type="password" name="password" class="text" /></dd>
-                    <dd><input type="checkbox" />记住我（在公共计算机上请勿勾选）</dd>
-                    <dd><input type="submit"  class="submit btn red" value="登录" /></dd>
-                </dl>
+                <ul>
+                    <li class="title">邮箱</li>
+                    <li class="body"><input type="text" name="username" class="text" /></li>
+                    <li class="title">密码</li>
+                    <li class="body"><input type="password" name="password" class="text" /></li>
+                    <li class="remember-me"><label><input checked="checked" type="checkbox" />记住我</label><input type="submit"  class="submit btn red" value="登录" /></li>
+                </ul>
             </form>
      </div>
      <div class="right">

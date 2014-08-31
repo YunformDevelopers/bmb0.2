@@ -7,6 +7,7 @@ header('Content-Type:text/html; charset=utf-8');
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>创建</title>
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
 <link rel="stylesheet" href="style/index.css"></link>
 <link rel="stylesheet" href="style/create.css"></link>
 <link rel="stylesheet" href="style/msg.css"></link>
@@ -27,6 +28,18 @@ header('Content-Type:text/html; charset=utf-8');
 <script src="js/quill.min.js"></script>
 <link rel="stylesheet" href="style/quill.snow.css" />
 -->
+<style >
+	#step-status-set .step-status1 {
+		background:none;
+	}
+	#tool-field {
+		width:160px;
+	}
+/*	#tool-construct-container {
+		width:160px;
+	}
+*/</style>
+
 <?php
     require 'includes/header.inc.php';
     if(!isset($_COOKIE['srtp-username'])){

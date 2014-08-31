@@ -7,6 +7,7 @@ header('Content-Type:text/html; charset=utf-8');
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>创建</title>
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
 <link rel="stylesheet" href="style/index.css"></link>
 <link rel="stylesheet" href="style/create.css"></link>
 <link rel="stylesheet" href="style/form/paper.css"></link>
@@ -19,6 +20,9 @@ header('Content-Type:text/html; charset=utf-8');
 <script type="text/javascript" src="js/msg.js"></script>
 <script type="text/javascript" src="js/form-fill.js"></script>
 <style >
+	#step-status-set .step-status2 {
+		background:none;
+	}
 	#form-construct-field {
 		overflow:auto;
 	}
@@ -31,7 +35,7 @@ header('Content-Type:text/html; charset=utf-8');
 		width:100%;
 	}
 	#submit {
-		margin:5px auto;
+		margin:5px auto;	
 	}
 	#tool-field {
 		width:300px;
@@ -46,6 +50,7 @@ header('Content-Type:text/html; charset=utf-8');
 	.tool-personalize-list #form-number-limit {
 		width:8.5em;
 	}
+	
 </style>
 
 <?php
