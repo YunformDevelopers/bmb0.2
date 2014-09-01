@@ -104,6 +104,7 @@ window.onresize=function(){
 	initHeader();
 	initSlideshow ();
 	initDropDown ();
+	pinTabContainer ();
 }
 /* 初始化head里面的部分class */
 function initHeader () {
@@ -236,6 +237,18 @@ $('#tab-container .tab-link, #header .head-link').click(function(){
 });
 function pinTabContainer (){
 	$("#tab-container").pin();
+	$("#tab-container").css("width",$(window).width());//确保宽度为100%
+}
+//QR-code的滑上滑下函数
+function toggleWechatQRcode (id , command){
+	$id = $(id);
+	if (command == "show"){
+		$id.parent().find('.wechat-QR-code').slideDown();//应用在与QRcode同一级的元素中
+	}
+	else if (command == "hide"){
+		$id.parent().find('.wechat-QR-code').slideUp();	
+	}
+	else;
 }
 
 /* 去除触摸300ms延迟的对象 *//*

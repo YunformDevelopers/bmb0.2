@@ -371,7 +371,7 @@ function rawEditor (command){
 //滚动到页面底部
 function scrollBottom (){
 	$body = (window.opera) ? (document.compatMode == "CSS1Compat" ? $('html') : $('body')) : $('html,body');// 这行是 Opera 的补丁, 少了它 Opera 是直接用跳的而且画面闪烁 by willin
-	$body.animate({scrollTop: $(document).height()}, 1000);
+	$body.animate({scrollTop: ($(document).height() - $("#footer").height() )}, 1000);//TEST $body.animate({scrollTop: $(document).height()}, 1000);
 }
 //当toolsave被点击后执行的函数
 function toolSaveAct (id){

@@ -613,5 +613,13 @@ div{
 #footer-logo,#footer-info,#footer-contact{
 	display:inline-block;
 }
+#footer .wechat-QR-code {
+	position:absolute; 
+	bottom:73px; left:-150px; 
+	padding:10px; 
+	background:#fff; 
+	border:solid 1px #999; 
+	display:none;
+}
 
 

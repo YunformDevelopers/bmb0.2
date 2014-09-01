@@ -21,6 +21,7 @@
         }
    })
 })*/
+	initFillTool();	
 $(document).ready(function() {
 	//获取浏览器的信息
 	var browser = {
@@ -39,7 +40,15 @@ $(document).ready(function() {
 		alert($(".q-body input").html());
 	
 	}
+	
 });
+function initFillTool() {
+	var leftOffset = $(window).width() - 120 ;
+	$("#fill-tool").css("left" , leftOffset + "px");
+}
+window.onresize = function() {
+	initFillTool();
+}
 </script>
 <style>
 @media screen and (max-width: 500px) {
@@ -282,27 +291,29 @@ $(document).ready(function() {
         </ul>
 	</div>
     
-    <div id="fill-tool">
-    	<div class="login/reg box " title="注册/登录后可享受一键填表、保存填表进度等福利！">
+    <div id="fill-tool" onload="initFillTool();">
+    	<div class="login-reg box " title="注册/登录后可享受一键填表、保存填表进度等福利！">
         	<a class="tool">
-            	<span class="tool-name">注册 登录</span>
+            	<span class="tool-name" title="注册 登录">注册 登录</span>
             </a>
         </div>
         <div class="quick-fill box " title="根据表格内容智能填入个人信息">
         	<a class="tool">
-            	<span class="tool-name">一键 填表</span>
+            	<span class="tool-name" title="一键 填表">一键 填表</span>
             </a>
         </div>
         <div class="save box " title="保存进度，表格可在 我的 中找到">
         	<a class="tool">
-            	<span class="tool-name">保存 进度</span>
+            	<span class="tool-name" title="保存">保存 进度</span>
             </a>
         </div>    
     </div>
     <div id="back-tool">
-    	<a class="tool">
-        	<span class="tool-name">返回</span>
-        </a>
+    	<div class="circle">
+            <a class="tool" onclick="javascript:window.history.back();" >
+                <span class="tool-name" title="返回">返回</span>
+            </a>
+        </div>
     </div>
 	<div id="footer" class="form-footer">
 		<p>Powered by 报名吧</p>

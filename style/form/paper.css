@@ -209,25 +209,39 @@ div{
 #fill-tool {
 	position:fixed;
 	bottom:20px;
+	left:85%;
 	right:5%;
 }
 #fill-tool .box {
 	margin-bottom:10px;
 }
-#fill-tool .tool, #back-tool .tool {
+#fill-tool div .tool, #back-tool .tool {
 	display:block;
+	position:relative;
 	cursor:pointer;
 	width:50px; height:50px;
-	border:solid 1px #000;
 	border-radius:5px;
-	background:rgba(255,255,255,0.5);
-	text-align:center;
+	border:solid 1px #999;
+	background-color:rgba(255,255,255,0.5);
 	position:relative;
 	transition:all ease-out 0.2s;
+	color:rgba(255,255,255,0);
 }
-#fill-tool .tool:hover, #back-tool .tool:hover {
-	background:#000;
+#fill-tool div .tool:hover, #back-tool .tool:hover { /* , #back-tool .tool:hover */
+	background-color:#999 !important;
+	width:100px;
 	color:#fff;
+}
+#fill-tool div .tool span, #back-tool .tool span {
+	position:absolute;
+	left:50px;
+	text-align:center;
+/*	position:relative;
+	left:50px;	
+*/	width:50px;	
+}
+#back-tool .tool span {
+	left:41px;
 }
 #fill-tool .tool-name {
 	width:100%;
@@ -235,6 +249,18 @@ div{
 	margin:0 auto;
 	position:absolute;
 	bottom:2px; left:0;
+}
+#fill-tool .login-reg a.tool {
+	background:url(../../images/fill-tool/login-reg.png) no-repeat 9px center;
+}
+#fill-tool .quick-fill a.tool {
+	background:url(../../images/fill-tool/quick-fill.png) no-repeat 9px center;
+}
+#fill-tool .save a.tool {
+	background:url(../../images/fill-tool/save.png) no-repeat 9px center;
+}
+#back-tool a.tool {
+	background:url(../../images/fill-tool/return.png) no-repeat 9px center;
 }
 #back-tool .tool {
 	border-radius:25px;
