@@ -150,6 +150,8 @@ function save_form_to_db($title,$intro,$string,$tip){
 	$array['Date'] = date("Y-m-d h:i:s");
 	$array['form_intro']=$intro;
 	$array['form_tip']=$tip;
+	$array['click_times']=0;
+	$array['answer_times']=0;
 	insert('question', $array);
 	$sql="select * from question where Date ='{$array['Date']}'";
 	$result=fetchOne($sql);

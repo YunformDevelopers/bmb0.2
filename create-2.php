@@ -102,8 +102,8 @@ header('Content-Type:text/html; charset=utf-8');
 								两者满足其一即下架。
 							</p>
 							<div class="personalize-main">
-								当时间到达<input id="form-expire-time" name="form-expire-time" placeholder="默认不限期"></input>时，或者
-								当回收的份数达到<input id="form-number-limit" name="form-number-limit" placeholder="默认不限份数">时。
+								当时间到达<input id="form-expire-time" name="form-expire-time" placeholder="默认不限期" required="required"></input>时，或者
+								当回收的份数达到<input id="form-number-limit" name="form-number-limit" placeholder="默认不限份数" required="required">时。
 							</div>
 						</li>
 						<li class="tool-personalize-item">

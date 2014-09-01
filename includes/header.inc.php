@@ -46,13 +46,7 @@ if(isset($_POST['username'])&&isset($_POST['password'])){
 			<div class="reddot"></div>
         </li>
         <li class="head-item nav create right">
-            <?php if(!(isset($_COOKIE['srtp-username']))){
-					echo "<a class=\"head-link\" id=\"register-msg\" onClick='registerMsgPopOver();'>";
-					}
-            	else {
-					echo "<a class=\"head-link\" href='create.php' >";
-				}	
-			?>
+        	<a class="head-link" href='create.php' >
             	<span class="head-name">创建</span>
             </a>
 			<div class="reddot"></div>
