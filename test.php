@@ -18,6 +18,7 @@
 <script type="text/javascript" src="js/msg.js"></script>
 <?php
     require 'includes/header.inc.php';
+    
 ?>
 </head>
 <body>
