@@ -121,6 +121,7 @@
 					<div class='card left-fix'>&nbsp;</div>
 					<div class='card left-fix'>&nbsp;</div>
 					<div class='card left-fix'>&nbsp;</div>
+					<div class='card left-fix'>&nbsp;</div>
 				</div>
 				<div id='content-footer'>
 					<a class = "load-more btn white">点击加载更多</a>

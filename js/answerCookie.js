@@ -12,7 +12,7 @@ function SetAnswerCookie () {
 		
 		/*  获取每道题的qType */	
 		var qType;
-		var typeList = new Array("free-singleline","free-multiline","free-file","free-personalphoto","free-singlechoice","free-multichoice");
+		var typeList = new Array("free-singleline","free-multiline","free-file","free-personalphoto","free-singlechoice","free-multichoice","logic-name","logic-sex","logic-studentID","logic-address","logic-tel","logic-email","logic-class");
 		var t;
 		for (t in typeList){
 			if (qFieldIth.hasClass(typeList[t])) { //判断li是否包含相应的class
@@ -55,7 +55,13 @@ function SetAnswerCookie () {
 		}
 		else if(qType == "free-personalphoto"){//照片题
 		}
+		else if(qType == "logic-tel"){//长短号待完成
+			var answer = qBody.find("input.body").val();
+			cookieString += answer+ "γ"//向cookieString添加答案，末尾加分隔符γ
+		}
 		else {
+			var answer = qBody.find("input.body").val();
+			cookieString += answer+ "γ"//向cookieString添加答案，末尾加分隔符γ
 		}
 		
 		cookieString += "δ"//向cookieString一道题结束的分隔符δ

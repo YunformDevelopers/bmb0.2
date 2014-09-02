@@ -78,18 +78,21 @@ function loaded () {//在body load完之后执行
 			scrollY: true,
 			mouseWheel: true,
 			mouseWheelSpeed: 3000000,//测试中
+			preventDefaultException: { className: /(^|\s)formfield(\s|$)/ },
 		});
 		innerScroll2 = new IScroll('.innerWrapper2',{
 			scrollX: false,
 			scrollY: true,
 			mouseWheel: true,
 			bounce:false,//测试中
+			preventDefaultException: { className: /(^|\s)formfield(\s|$)/ },
 		});
 		innerScroll3 = new IScroll('.innerWrapper3',{
 			scrollX: false,
 			scrollY: true,
 			mouseWheel: true,
 			bounce:false,//测试中
+			preventDefaultException: { tagName: /^(INPUT|TEXTAREA|BUTTON|SELECT)$/ },
 		});
 		
 	}

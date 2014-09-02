@@ -369,8 +369,11 @@ window.onscroll = function(){
 							+
 						</a>
 					</div>
-
 						<!-- 这里是用来使元素左端对齐的 -->
+					<div class='tool left-fix'>&nbsp;</div>
+					<div class='tool left-fix'>&nbsp;</div>
+					<div class='tool left-fix'>&nbsp;</div>
+					<div class='tool left-fix'>&nbsp;</div>
 					<div class='tool left-fix'>&nbsp;</div>
 					<div class='tool left-fix'>&nbsp;</div>
 					<div class='tool left-fix'>&nbsp;</div>
