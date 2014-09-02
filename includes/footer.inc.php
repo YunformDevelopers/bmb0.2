@@ -11,8 +11,9 @@
             <!-- 注意这里面放链接的时候，由于是被其他页面PHP引用，所以路径容易出问题，最好用绝对路径 -->
 		</ul>
 	</div>
-    <div id='footer-logo'>
-		<img src="./images/header-icon/index@2x.png" />
+    <div id='footer-logo' style="position:relative;">
+		<a onMouseOver="toggleWechatQRcode(this,'show');" onMouseOut="toggleWechatQRcode(this,'hide');"><img src="./images/header-icon/index@2x.png" /></a>
+        <div class="wechat-QR-code"><img src="./images/header-icon/wechat-QR-code.gif" /></div>
         <p>报名吧</p>
 	</div>
 	<div class='justify-helper'></div>
