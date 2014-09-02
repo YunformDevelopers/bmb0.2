@@ -13,21 +13,18 @@ if(isset($_GET['action'])&&$_GET['action']=='save'){
 	setcookie('qStore',"",time()-1);
  	do_js_link('create-2.php?id='.$id);
 }
-else if(isset($_POST['action'])&&$_POST['action']=='answer'){
-	save_answer_to_db($_COOKIE['answerStore'], $_POST['id']);
- 	do_js_alert("感谢您的回答");
- 	setcookie('answerStore','',time()-1);
- 	//do_js_link('index.php');
-}
 else if(isset($_GET['action'])&&$_GET['action']=='answer'){
-	print_r($_COOKIE);
 	save_answer_to_db($_COOKIE['answerStore'], $_GET['id']);
+	$result=mysql_query("select * from question where form_id='".$_GET['id']."'");
+	$rows=mysql_fetch_assoc($result);
+	$array=$rows;
+	$array['answer_times']=intval($array['answer_times'])+1;
+	update('question', $array); 
 	do_js_alert("感谢您的回答");
 	setcookie('answerStore','',time()-1);
 	do_js_link('index.php');
 }
 else if(isset($_GET['action'])&&$_GET['action']=='update'){
-	echo $_COOKIE['answerStore'];
 	$newanswerStore='';
 	$answer_array=explode('δ', $_COOKIE['answerStore']);
 	print_r($answer_array);
@@ -37,12 +34,10 @@ else if(isset($_GET['action'])&&$_GET['action']=='update'){
 			$newanswerStore.='$_FILES-'.$newname.'δ';
 		}
 		else{
-			$newanswerStore.=$answer_array[$i];
+			$newanswerStore.=$answer_array[$i].'δ';
 		}
 	}
-	echo $newanswerStore;
-	exit();
-	update_answer_to_db($_COOKIE['answerStore'],$_GET['id']);
+	update_answer_to_db($newanswerStore,$_GET['id']);
 	do_js_alert('相关信息已进行更改');
 	setcookie('answerStore','',time()-1);
 	do_js_link('personal.php');

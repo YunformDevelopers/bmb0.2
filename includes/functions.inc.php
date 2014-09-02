@@ -26,8 +26,8 @@ function update($table,$array,$where=null){
 		}
 		$str.=$sep.$key."='".$value."'";
 	}
-	$query="update {$table} set {$str} ".($where==null?null:"where".$where);
-	mysql_query($query) or die(mysql_error());
+	$query="update {$table} set {$str} ".($where==null?null:"where ".$where);
+	mysql_query($query);
 	return mysql_affected_rows();
 }
 function delete($table,$where=null){
@@ -84,9 +84,6 @@ function create_to_db($array){
 					if($re){
 						echo '<div class="q-alternative">*</div>';
 					}
-// 					if($type=="free-multichoice"){
-// 						echo '<div class="q-alternative">*</div>';
-// 					}
 				echo '<div class="q-body">';
 				if($type=="free-multichoice")
 					for($j=0;$j<count($choice)-1;$j++){
@@ -133,7 +130,7 @@ function create_to_db($array){
 			echo '</li>';
 			}
 			echo '<div id="form-tip">
-						<textarea class="title edit raw" contentEditable="true" rows="1">'.$array['form_tip'].'</textarea>
+						<p class="title edit raw" contentEditable="true" rows="1">'.$array['form_tip'].'</p>
 				</div>
 					<input id="submit" class="btn red" name="submit" type="submit" value="提交" onClick="SetFillCookie(); SetAnswerCookie();"/>
 					</form>
@@ -159,6 +156,7 @@ function save_form_to_db($title,$intro,$string,$tip){
 }
 
 function save_answer_to_db($string,$id){
+	echo $string;
 	connect();
 	$array['form_id']=$id;
 	$array['answer_string'] = $string;
@@ -272,6 +270,10 @@ function make_qrcode($url){
 	$errorCorrectionLevel = "L";
 	$matrixPointSize = "4";
 	QRcode::png($url, false, $errorCorrectionLevel, $matrixPointSize);
+}
+
+function time_to_int(){
+	
 }
 
 

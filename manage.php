@@ -125,9 +125,8 @@ window.onscroll = function(){
 													connect();
 													$result = mysql_query("select * from question where form_id='".$_GET['id']."'");
 													$row = mysql_fetch_array($result);
-													$title_string=explode('ζ', $row['question_string']);
-													$title=$title_string[0];
-													$string=explode('δ', $title_string[1]);
+													$title=$row['form_title'];
+													$string=explode('δ', $row['question_string']);
 													for($i=0;$i<count($string)-1;$i++){
 														$explode1 = explode('α', $string[$i]);
 														$question = $explode1[0];

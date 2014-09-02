@@ -62,7 +62,38 @@
 					</div>
 				</div>
 				<div class="section-body">
-					<?php /*?><?php */?>
+					<?php 
+						connect();
+						$result=mysql_query("select * from question order by Date desc limit 4") or die(mysql_error());
+						while($row=mysql_fetch_assoc($result)){
+							$result2=mysql_query("select * from decoration where form_id ='".$row['form_id']."'");
+							while ($row2=mysql_fetch_assoc($result2)){
+								if($row2['bg']==''){
+									$bg='image/5.jpg';
+								}else{
+									$bg='uploads/'.$row2['bg'];
+								}
+								echo '<div class="card newest" >';
+								echo '<a href="reform.php?id='.$row['form_id'].'&data='.$row['question_string'].'">';
+								echo '<div class="img-holder">
+									<div class="fader">
+										<img src="'.$bg.'" alt="" />
+									</div>
+									<div class="form-name">
+										'.$row['form_title'].'
+									</div>
+									<div class="img-counter">
+										<div class="counter">
+											<span class="time-left">还有两天</span>
+											<span class="written">'.$row['click_times'].'</span>
+										</div>
+									</div>
+								</div>
+								</a>
+								</div>';
+							}
+						}	
+					?>
 				<!-- 这里是用来使元素左端对齐的 -->
 					<div class='card left-fix'>&nbsp;</div>
 					<div class='card left-fix'>&nbsp;</div>
@@ -85,30 +116,6 @@
 					</div>
 				</div>
 				<div class="section-body">
-					<?php 
-						connect();
-						$result=mysql_query("select * from question order by Date desc limit 4") or die(mysql_error());
-						while($row=mysql_fetch_assoc($result)){
-							echo '<div class="card newest" >';
-							echo '<a href="reform.php?id='.$row['form_id'].'&data='.$row['question_string'].'">';
-							echo '<div class="img-holder">
-									<div class="fader">
-										<img src="images/5.jpg" alt="" />
-									</div>
-									<div class="form-name">
-										'.$row['form_title'].'
-									</div>
-									<div class="img-counter">
-										<div class="counter">
-											<span class="time-left">还有两天</span>
-											<span class="written">14次</span>
-										</div>
-									</div>
-								</div>
-								</a>
-								</div>';
-						}	
-					?>
 				<!-- 这里是用来使元素左端对齐的 -->
 					<div class='card left-fix'>&nbsp;</div>
 					<div class='card left-fix'>&nbsp;</div>

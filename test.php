@@ -24,11 +24,12 @@
 <body>
     <form action="test2.php" method="post">
         <?php 
-        $test='1q2q3qw41231w';
-        $string=explode('w', $test);
-        print_r($string);
-        $string1=explode('q', $string[0]);
-        print_r($string1)?>
+        connect();
+        $result=mysql_query("select * from question");
+        while($rows=mysql_fetch_assoc($result)){
+        	echo $rows['Date'];
+        }
+        ?>
     </form>
 <?php
      include 'includes/footer.inc.php';
