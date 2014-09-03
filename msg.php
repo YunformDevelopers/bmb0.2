@@ -16,11 +16,11 @@
             <form name="" method="post" action="register.php">
                 <ul>
                     <li class="title">邮箱<span class="tip">(*必填，至少两位)</span></li>
-                    <li class="body"><input type="text" name="username" class="text" /></li>
+                    <li class="body"><input type="text" required="required" name="username" class="text" /></li>
                     <li class="title">密码<span class="tip">(*必填，至少六位)</span></li>
-                    <li class="body"><input type="password" name="password" class="text" /></li>
+                    <li class="body"><input type="password" required="required" name="password" class="text" /></li>
                     <li class="title">确认密码<span class="tip">(*必填，至少六位)</span></li>
-                    <li class="body"><input type="password" name="password" class="text" /></li>
+                    <li class="body"><input type="password" required="required" name="password" class="text" /></li>
                     <li class=""><input type="submit"  class="submit btn red" value="登录" /></li>
                 </ul>
             </form>
@@ -32,16 +32,15 @@
          <a href="#" id="login-msg" onclick="loginMsgPopOver()" >已有账号？快速登录</a>
      </div>
 </div>
-
 <div id="login-msg-content">
 	<div class="left">
         <h3>登录</h3>
             <form name="" method="post" action="index.php">
                 <ul>
                     <li class="title">邮箱</li>
-                    <li class="body"><input type="text" name="username" class="text" /></li>
+                    <li class="body"><input type="text" required="required" name="username" class="text" /></li>
                     <li class="title">密码</li>
-                    <li class="body"><input type="password" name="password" class="text" /></li>
+                    <li class="body"><input type="password" required="required" name="password" class="text" /></li>
                     <li class="remember-me"><label><input checked="checked" type="checkbox" />记住我</label><input type="submit"  class="submit btn red" value="登录" /></li>
                 </ul>
             </form>
@@ -51,6 +50,51 @@
             <a href="#">浙大通行证登录</a>
          </div>-->
          <a href="#" id="register-msg" onclick="registerMsgPopOver()" >还没有账号？10秒快速注册</a>
+     </div>
+</div>
+
+<div id="after-fill-register-msg-content">
+	<div class="left">
+        <h3>注册</h3>
+            <form name="" method="post" action="register.php"><!-- action注意更改 -->
+            	<!-- 在这里放hidden字段 -->
+                <ul>
+                    <li class="title">邮箱<span class="tip">(*必填，至少两位)</span></li>
+                    <li class="body"><input type="text" required="required" name="username" class="text" /></li>
+                    <li class="title">密码<span class="tip">(*必填，至少六位)</span></li>
+                    <li class="body"><input type="password" required="required" name="password" class="text" /></li>
+                    <li class="title">确认密码<span class="tip">(*必填，至少六位)</span></li>
+                    <li class="body"><input type="password" required="required" name="password" class="text" /></li>
+                    <li class=""><input type="submit"  class="submit btn red" value="登录" /></li>
+                </ul>
+            </form>
+     </div>
+     <div class="right">
+         <!--<div class="zju-passport">
+            <a href="#">浙大通行证登录</a>
+         </div>-->
+         <a href="#" id="after-fill-login-msg" onclick="afterFillLoginMsgPopOver()" >已有账号？快速登录</a>
+     </div>
+</div>
+<div id="after-fill-login-msg-content">
+	<div class="left">
+        <h3>登录</h3>
+            <form name="" method="post" action="index.php"><!-- action注意更改 -->
+            	<!-- 在这里放hidden字段 -->
+                <ul>
+                    <li class="title">邮箱</li>
+                    <li class="body"><input type="text" required="required" name="username" class="text" /></li>
+                    <li class="title">密码</li>
+                    <li class="body"><input type="password" required="required" name="password" class="text" /></li>
+                    <li class="remember-me"><label><input checked="checked" type="checkbox" />记住我</label><input type="submit"  class="submit btn red" value="登录" /></li>
+                </ul>
+            </form>
+     </div>
+     <div class="right">
+         <!--<div class="zju-passport">
+            <a href="#">浙大通行证登录</a>
+         </div>-->
+         <a href="#" id="after-fill-register-msg" onclick="afterFillRegisterMsgPopOver()" >还没有账号？10秒快速注册</a>
      </div>
 </div>
 <div id="a-all-msg-content">
