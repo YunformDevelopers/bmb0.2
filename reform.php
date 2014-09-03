@@ -168,7 +168,7 @@ window.onresize = function() {
             </div>
         </div>
     </div>
-    <script> afterFillRegisterMsgPopOver(); </script><!-- 这行供测试，可以删去 -->
+    <!-- <script> afterFillRegisterMsgPopOver(); </script>这行供测试，可以删去 -->
 	<div id="footer" class="form-footer">
 		<p>Powered by 报名吧</p>
 		<p>由于网站还在开发，不能提供最佳的用户体验，希望您能理解！</p>

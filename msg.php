@@ -32,6 +32,28 @@
          <a href="#" id="login-msg" onclick="loginMsgPopOver()" >已有账号？快速登录</a>
      </div>
 </div>
+<div id="register-msg-content">
+	<div class="left">
+        <h3>注册</h3>
+            <form name="" method="post" action="register.php">
+                <ul>
+                    <li class="title">邮箱<span class="tip">(*必填，至少两位)</span></li>
+                    <li class="body"><input type="text" required="required" name="username" class="text" /></li>
+                    <li class="title">密码<span class="tip">(*必填，至少六位)</span></li>
+                    <li class="body"><input type="password" required="required" name="password" class="text" /></li>
+                    <li class="title">确认密码<span class="tip">(*必填，至少六位)</span></li>
+                    <li class="body"><input type="password" required="required" name="password" class="text" /></li>
+                    <li class=""><input type="submit"  class="submit btn red" value="登录" /></li>
+                </ul>
+            </form>
+     </div>
+     <div class="right">
+         <!--<div class="zju-passport">
+            <a href="#">浙大通行证登录</a>
+         </div>-->
+         <a href="#" id="login-msg" onclick="loginMsgPopOver()" >已有账号？快速登录</a>
+     </div>
+</div>
 <div id="login-msg-content">
 	<div class="left">
         <h3>登录</h3>
@@ -58,7 +80,7 @@
         <h3>注册</h3>
         	<p><b>恭喜您，报名表填写成功！</b></p>
             <p><i>现在注册您可以保存您这次填写的报名表信息，同时拥有快速填表、保存进度等功能！</i></p>
-            <form name="" method="post" action="register.php"><!-- action注意更改 -->
+            <form name="" method="post" action="formaction.php?action=register_answer&id="<?php echo $_COOKIE['form_id']?>><!-- action注意更改 -->
             	<!-- 在这里放hidden字段 -->
                 <ul>
                     <li class="title">邮箱<span class="tip">(*必填，至少两位)</span></li>
@@ -66,8 +88,8 @@
                     <li class="title">密码<span class="tip">(*必填，至少六位)</span></li>
                     <li class="body"><input type="password" required="required" name="password" class="text" /></li>
                     <li class="title">确认密码<span class="tip">(*必填，至少六位)</span></li>
-                    <li class="body"><input type="password" required="required" name="password" class="text" /></li>
-                    <li class=""><input type="submit"  class="submit btn red" value="登录" /></li>
+                    <li class="body"><input type="password" required="required" name="notpassword" class="text" /></li>
+                    <li class=""><input type="submit"  class="submit btn red" value="注册并登录" /></li>
                 </ul>
             </form>
      </div>
