@@ -107,16 +107,16 @@ function create_to_db($array){
 					echo '<input type="text" name="q'.($i+1).'-body" class="body edit" '.$re.' />';
 				}
 				if($type=="logic-studentID"){
-					echo '<input type="text" name="q'.($i+1).'-body" class="body edit" '.$re.' />';
+					echo '<input type="number" name="q'.($i+1).'-body" class="body edit" '.$re.' />';
 				}
 				if($type=="logic-address"){
 					echo '<input type="text" name="q'.($i+1).'-body" class="body edit" '.$re.' />';
 				}
 				if($type=="logic-tel"){
-					echo '<input type="text" name="q'.($i+1).'-body" class="body edit" '.$re.' />';
+					echo '<input type="tel" name="q'.($i+1).'-body" class="body edit" '.$re.' />';
 				}
 				if($type=="logic-email"){
-					echo '<input type="text" name="q'.($i+1).'-body" class="body edit" '.$re.' />';
+					echo '<input type="email" name="q'.($i+1).'-body" class="body edit" '.$re.' />';
 				}
 				if($type=="logic-class"){
 					echo '<input type="text" name="q'.($i+1).'-body" class="body edit" '.$re.' />';
@@ -272,8 +272,40 @@ function make_qrcode($url){
 	QRcode::png($url, false, $errorCorrectionLevel, $matrixPointSize);
 }
 
-function time_to_int(){
-	
+function make_form_card($row,$row2){
+	if($row2['bg']==''){
+		$bg='images/5.jpg';
+	}else{
+		$bg='uploads/'.$row2['bg'];
+	}
+	$old=strtotime($row2['form_expire_time']);
+	date_default_timezone_set("Asia/Shanghai");
+	$now=strtotime(date("Y-m-d h:i:s"));
+	$seconds=$old-$now;
+	$days=$seconds/(24*60*60);
+	$day=intval($days);
+	$hours=($days-$day)*24;
+	$hour=intval($hours);
+	$minutes=($hours-$hour)*24;
+	$minute=intval($minutes);
+	echo '<div class="card newest" >';
+	echo '<a href="reform.php?id='.$row['form_id'].'&data='.$row['question_string'].'">';
+	echo '<div class="img-holder">
+									<div class="fader">
+										<img src="'.$bg.'" alt="" />
+									</div>
+									<div class="form-name">
+										'.$row['form_title'].'
+									</div>
+									<div class="img-counter">
+										<div class="counter">
+											<span class="time-left">还有'.$day.'天'.$hour.'小时'.$minute.'分钟</span>
+											<span class="written">'.$row['click_times'].'</span>
+										</div>
+									</div>
+								</div>
+								</a>
+								</div>';
 }
 
 

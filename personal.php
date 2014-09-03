@@ -142,34 +142,12 @@ $(document).ready(function(){
 					<?php 
 						connect();
 						$result = mysql_query("select * from question where username='".$_COOKIE['srtp-username']."' order by Date desc") or die(mysql_error());
-						while($rows=mysql_fetch_assoc($result)){
-							echo '<div class="card my-release" > 
-									<a href="#">
-										<div class="form-op">
-											<a href="#"><input class="btn red" type="button" value="编辑"/></a>
-											<a href="manage.php?id='.$rows['form_id'].'"><input class="btn blue" type="button" value="管理"/></a>
-											<a href="#"><input class="btn green" type="button" value="查看"/></a>
-										</div>
-										<div class="form-status">
-											<img src="images/form-status-on.png" alt="已下架" />
-										</div>
-										<div class="img-holder">
-											<div class="fader">
-												<img src="images/2.jpg" alt="" />
-											</div>
-											<div class="form-name">
-												'.$rows['form_title'].'
-											</div>
-											<div class="img-counter">
-												<div class="counter">
-													<span class="time-left">还有两天</span>
-													<span class="written">14次</span>
-												</div>
-											</div>
-										</div>
-									</a>
-								</div>';
-						}
+						while($row=mysql_fetch_assoc($result)){
+							$result2=mysql_query("select * from decoration where form_id ='".$row['form_id']."'");
+							while ($row2=mysql_fetch_assoc($result2)){
+								make_form_card($row, $row2);
+							}
+						}	
 					?>
 					
 					<div class="card my-release create-new" > 
@@ -198,28 +176,15 @@ $(document).ready(function(){
 				<div class="section-body">
 					<?php 
 					connect();
-					$result=mysql_query("select * from answer where username='".$_COOKIE['srtp-username']."'") or die(mysql_error());
-					while($rows=mysql_fetch_assoc($result)){
-						echo '<div class="card my-fill" > 
-								<a href="fillanswer.php?id='.$rows['form_id'].'">
-									<div class="img-holder">
-										<div class="fader">
-											<img src="images/1.jpg" alt="" />
-										</div>';
-						$result2=mysql_query("select * from question where form_id='".$rows['form_id']."'");
-						$rows2=mysql_fetch_assoc($result2);
-						echo '<div class="form-name">
-											'.$rows2['form_title'].'
-										</div>
-										<div class="img-counter">
-											<div class="counter">
-												<span class="time-left">还有两天</span>
-												<span class="written">14次</span>
-											</div>
-										</div>
-									</div>
-								</a>
-							</div>';	
+					$result3=mysql_query("select * from answer where username='".$_COOKIE['srtp-username']."'") or die(mysql_error());
+					while($rows3=mysql_fetch_assoc($result3)){
+						$result=mysql_query("select * from question where form_id='".$rows3['form_id']."'");
+						while($row=mysql_fetch_assoc($result)){
+							$result2=mysql_query("select * from decoration where form_id ='".$row['form_id']."'");
+							while ($row2=mysql_fetch_assoc($result2)){
+								make_form_card($row, $row2);
+							}
+						}
 					}
 					?>
 				<!-- 这里是用来使元素左端对齐的 -->

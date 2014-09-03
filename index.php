@@ -68,29 +68,7 @@
 						while($row=mysql_fetch_assoc($result)){
 							$result2=mysql_query("select * from decoration where form_id ='".$row['form_id']."'");
 							while ($row2=mysql_fetch_assoc($result2)){
-								if($row2['bg']==''){
-									$bg='image/5.jpg';
-								}else{
-									$bg='uploads/'.$row2['bg'];
-								}
-								echo '<div class="card newest" >';
-								echo '<a href="reform.php?id='.$row['form_id'].'&data='.$row['question_string'].'">';
-								echo '<div class="img-holder">
-									<div class="fader">
-										<img src="'.$bg.'" alt="" />
-									</div>
-									<div class="form-name">
-										'.$row['form_title'].'
-									</div>
-									<div class="img-counter">
-										<div class="counter">
-											<span class="time-left">还有两天</span>
-											<span class="written">'.$row['click_times'].'</span>
-										</div>
-									</div>
-								</div>
-								</a>
-								</div>';
+								make_form_card($row, $row2);
 							}
 						}	
 					?>

@@ -26,6 +26,7 @@ else if(isset($_GET['action'])&&$_GET['action']=='answer'){
 }
 else if(isset($_GET['action'])&&$_GET['action']=='update'){
 	$newanswerStore='';
+	echo $_COOKIE['answerStore'];
 	$answer_array=explode('δ', $_COOKIE['answerStore']);
 	print_r($answer_array);
 	for($i=0;$i<count($answer_array);$i++){
