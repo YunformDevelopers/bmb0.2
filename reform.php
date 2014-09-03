@@ -92,8 +92,8 @@ window.onresize = function() {
 									$rows1=mysql_fetch_assoc($result1);
 									$old=strtotime($rows1['form_expire_time']);
 									date_default_timezone_set("Asia/Shanghai");
-									$new=strtotime(date("Y-m-d h:i:s"));
-									if($new>$old){
+									$now=strtotime(date("Y-m-d h:i:s"));
+									if($now>$old){
 										do_js_alert("该表已超过建表者规定的填表时间！");
 										do_js_link('index.php');
 									}else if($rows['answer_times']>=$rows1['form_number_limit']){

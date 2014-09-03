@@ -65,12 +65,13 @@
 								echo '<div class="q-alternative">*</div>';
 							}
 							echo '<div class="q-body">';
-							if($type=="logic-sex")
-							for($j=0;$j<count($choice)-1;$j++){
-								if(in_array($choice[$j], $answer_array[$i])){
-									echo '<label><input name="q'.($i+1).'-body" type="radio" '.$re.' value="'.$choice[$j].'" checked="checked"/>'.$choice[$j].'</label>';
-								}else{
-									echo '<label><input name="q'.($i+1).'-body" type="radio" '.$re.' value="'.$choice[$j].'"/>'.$choice[$j].'</label>';
+							if($type=="logic-sex"){
+								for($j=0;$j<count($choice)-1;$j++){
+									if(in_array($choice[$j], $answer_array[$i])){
+										echo '<label><input name="q'.($i+1).'-body" type="radio" '.$re.' value="'.$choice[$j].'" checked="checked"/>'.$choice[$j].'</label>';
+									}else{
+										echo '<label><input name="q'.($i+1).'-body" type="radio" '.$re.' value="'.$choice[$j].'"/>'.$choice[$j].'</label>';
+									}
 								}
 							}
 							if($type=="free-multichoice")
@@ -96,16 +97,16 @@
 								echo '<input type="text" name="q'.($i+1).'-body" class="body edit" '.$re.' value="'.$answer_array[$i][0].'"/>';
 							}
 							if($type=="logic-studentID"){
-								echo '<input type="text" name="q'.($i+1).'-body" class="body edit" '.$re.' value="'.$answer_array[$i][0].'"/>';
+								echo '<input type="number" name="q'.($i+1).'-body" class="body edit" '.$re.' value="'.$answer_array[$i][0].'"/>';
 							}
 							if($type=="logic-address"){
 								echo '<input type="text" name="q'.($i+1).'-body" class="body edit" '.$re.' value="'.$answer_array[$i][0].'"/>';
 							}
 							if($type=="logic-tel"){
-								echo '<input type="text" name="q'.($i+1).'-body" class="body edit" '.$re.' value="'.$answer_array[$i][0].'"/>';
+								echo '<input type="tel" name="q'.($i+1).'-body" class="body edit" '.$re.' value="'.$answer_array[$i][0].'"/>';
 							}
 							if($type=="logic-email"){
-								echo '<input type="text" name="q'.($i+1).'-body" class="body edit" '.$re.' value="'.$answer_array[$i][0].'"/>';
+								echo '<input type="email" name="q'.($i+1).'-body" class="body edit" '.$re.' value="'.$answer_array[$i][0].'"/>';
 							}
 							if($type=="logic-class"){
 								echo '<input type="text" name="q'.($i+1).'-body" class="body edit" '.$re.' value="'.$answer_array[$i][0].'"/>';

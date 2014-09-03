@@ -51,7 +51,16 @@ header('Content-Type:text/html; charset=utf-8');
 				<a href='#'>
 					<div class="img-holder">
 						<div class="fader">
-							<img src="images/1.jpg" alt="" />
+							<?php
+							connect();
+							$result=mysql_query("select * from decoration where form_id=".$_GET['id']);
+							$rows=mysql_fetch_assoc($result);
+							if($rows['bg']){
+								echo '<img src="uploads/'.$rows['bg'].'" alt="" />';
+							}else{
+								echo '<img src="images/1.jpg" alt="" />';
+							}
+							?>
 						</div>
 						<div class="form-name">
 							刚刚创建的纳新报名表

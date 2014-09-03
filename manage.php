@@ -138,6 +138,7 @@ window.onscroll = function(){
 												}
 										?>
 										</select>
+										
 									</span>
 								
 								</th>
@@ -155,6 +156,33 @@ window.onscroll = function(){
 					
 					<div id="answer-field">
 						<table class="list-table" cellpadding="0" cellspacing="0" >
+							<?php 
+							connect();
+							$question_num=1;
+							$id=$_GET['id'];
+							$result=mysql_query("select * from answer where form_id='".$id."'");
+							$j=1;
+							while($rows=mysql_fetch_assoc($result)){
+								$string="";
+								$answer_array=explode('δ',$rows['answer_string']);
+								$answer=explode('γ',$answer_array[intval($question_num)-1]);
+								echo '<tr class="a-all-msg">
+	 									<td class="col-1 a-order">
+	 									'.($j++).'
+	 								</td>
+	 								<td class="col-2 a-content">';
+								for($i=0;$i<count($answer)-1;$i++){
+									$string.=$answer[$i].";";
+								}
+								echo $string.'</td>
+							 		<td class="col-3 q-number">
+							 		</td>
+							 		<td class="col-4 a-time">
+							 		'.$rows['date'].'
+							 		</td>
+							 		</tr>';
+							}
+							?>
 							<!-- <tr class="a-all-msg">
 								<td class="col-1 a-order">
 								1
@@ -167,102 +195,7 @@ window.onscroll = function(){
 								2014-6-17
 								</td>
 							</tr>
-							<tr class="a-all-msg">
-								<td class="col-1 a-order">
-								2
-								</td>
-								<td class="col-2 a-content">请问你的梦想是什么呢？你是怎么走到这个舞台上的？能和我们说说吗？我培养过一个冠军。欢迎
-								</td>
-								<td class="col-3 q-number">
-								</td>
-								<td class="col-4 a-time">
-								2014-09-27
-								</td>
-							</tr>
-							<tr class="a-all-msg">
-								<td class="col-1 a-order">
-								3
-								</td>
-								<td class="col-2 a-content">请问你的梦想是什么呢？你是怎么走到这个舞台上的？能和我们说说吗？我培养过一个冠军。欢迎
-								</td>
-								<td class="col-3 q-number">
-								</td>
-								<td class="col-4 a-time">
-								2014-6-17
-								</td>
-							</tr>
-							<tr class="a-all-msg">
-								<td class="col-1 a-order">
-								4
-								</td>
-								<td class="col-2 a-content">请问你的梦想是什么呢？你是怎么走到这个舞台上的？能和我们说说吗？我培养过一个冠军。欢迎
-								</td>
-								<td class="col-3 q-number">
-								</td>
-								<td class="col-4 a-time">
-								2014-09-27
-								</td>
-							</tr>
-							<tr class="a-all-msg">
-								<td class="col-1 a-order">
-								5
-								</td>
-								<td class="col-2 a-content">请问你的梦想是什么呢？你是怎么走到这个舞台上的？能和我们说说吗？我培养过一个冠军。欢迎
-								</td>
-								<td class="col-3 q-number">
-								</td>
-								<td class="col-4 a-time">
-								2014-09-27
-								</td>
-							</tr>
-							<tr class="a-all-msg">
-								<td class="col-1 a-order">
-								6
-								</td>
-								<td class="col-2 a-content">请问你的梦想是什么呢？你是怎么走到这个舞台上的？能和我们说说吗？我培养过一个冠军。欢迎
-								</td>
-								<td class="col-3 q-number">
-								</td>
-								<td class="col-4 a-time">
-								2014-09-27
-								</td>
-							</tr>
-							<tr class="a-all-msg">
-								<td class="col-1 a-order">
-								7
-								</td>
-								<td class="col-2 a-content">请问你的梦想是什么呢？你是怎么走到这个舞台上的？能和我们说说吗？我培养过一个冠军。欢迎
-								</td>
-								<td class="col-3 q-number">
-								</td>
-								<td class="col-4 a-time">
-								2014-09-27
-								</td>
-							</tr>
-							<tr>
-								<td class="col-1 a-order">
-								8
-								</td>
-								<td class="col-2 a-content">请问你的梦想是什么呢？你是怎么走到这个舞台上的？能和我们说说吗？我培养过一个冠军。欢迎
-								</td>
-								<td class="col-3 q-number">
-								</td>
-								<td class="col-4 a-time">
-								2014-09-27
-								</td>
-							</tr>
-							<tr>
-								<td class="col-1 a-order">
-								9
-								</td>
-								<td class="col-2 a-content">请问你的梦想是什么呢？你是怎么走到这个舞台上的？能和我们说说吗？我培养过一个冠军。欢迎
-								</td>
-								<td class="col-3 q-number">
-								</td>
-								<td class="col-4 a-time">
-								2014-09-27
-								</td>
-							</tr> -->
+							 -->
 
 						</table>
 						<table class="matrix-table" cellpadding="0" cellspacing="0" >
