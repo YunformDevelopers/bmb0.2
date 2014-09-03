@@ -56,6 +56,8 @@
 <div id="after-fill-register-msg-content">
 	<div class="left">
         <h3>注册</h3>
+        	<p><b>恭喜您，报名表填写成功！</b></p>
+            <p><i>现在注册您可以保存您这次填写的报名表信息，同时拥有快速填表、保存进度等功能！</i></p>
             <form name="" method="post" action="register.php"><!-- action注意更改 -->
             	<!-- 在这里放hidden字段 -->
                 <ul>
@@ -79,6 +81,8 @@
 <div id="after-fill-login-msg-content">
 	<div class="left">
         <h3>登录</h3>
+        	<p><b>恭喜您，报名表填写成功！</b></p>
+            <p><i>现在登录您可以保存您这次填写的报名表信息，同时拥有快速填表、保存进度等功能！</i></p>
             <form name="" method="post" action="index.php"><!-- action注意更改 -->
             	<!-- 在这里放hidden字段 -->
                 <ul>
