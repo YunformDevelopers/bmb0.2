@@ -80,10 +80,10 @@ window.onresize = function() {
 <body>
 
 		        	<?php 
-		        	if(isset($_COOKIE['srtp-username'])){
-		        		if(isset($_GET['id'])){
-							connect();
-							$result3=mysql_query("select * from answer where form_id = '".$_GET['id']."'");
+	        		if(isset($_GET['id'])){
+						connect();
+						if(isset($_COOKIE['srtp-username'])){
+							$result3=mysql_query("select * from answer where form_id = '".$_GET['id']."' and username='".$_COOKIE['srtp-username']."'");
 							if(mysql_affected_rows()){
 								do_js_alert("您填写过该表，转向您之前填写的表格进行修改");
 								do_js_link('fillanswer.php?id='.$_GET['id']);
@@ -109,15 +109,33 @@ window.onresize = function() {
 									}
 								}
 							}
-						}else{
-						do_js_alert('请从正确路径访问该页');
-						do_js_link('index.php');
+						}
+						else{
+							$result=mysql_query("select * from question where form_id = '".$_GET['id']."'");
+							$result1=mysql_query("select * from decoration where form_id = '".$_GET['id']."'");
+							while($rows=mysql_fetch_assoc($result)){
+								$rows1=mysql_fetch_assoc($result1);
+								$old=strtotime($rows1['form_expire_time']);
+								date_default_timezone_set("Asia/Shanghai");
+								$now=strtotime(date("Y-m-d h:i:s"));
+								if($now>$old){
+									do_js_alert("该表已超过建表者规定的填表时间！");
+									do_js_link('index.php');
+								}else if($rows['answer_times']>=$rows1['form_number_limit']){
+									do_js_alert("该表的填写人数已超过限制");
+									do_js_link('index.php');
+								}else{
+									create_to_db($rows);
+									$array=$rows;
+									$array['click_times']=intval($array['click_times'])+1;
+									update('question', $array,"form_id='".$_GET['id']."'");
+								}
+							}
 						}
 					}else{
-						do_js_alert("请先登录");
-						do_js_link('index.php');	
-					}
-							        	
+						do_js_alert('请从正确路径访问该页');
+						do_js_link('index.php');
+					}			        	
 		        	?>
     <div id="fill-tool" onload="initFillTool();">
     	<div class="login-reg square " title="注册/登录后可享受一键填表、保存填表进度等福利！">
@@ -162,7 +180,7 @@ window.onresize = function() {
             </div>
         </div>
     </div>
-    <script> afterFillRegisterMsgPopOver(); </script><!-- 这行供测试，可以删去 -->
+    <!-- <script> afterFillRegisterMsgPopOver(); </script>这行供测试，可以删去 -->
 	<div id="footer" class="form-footer">
 		<p>Powered by 报名吧</p>
 		<p>由于网站还在开发，不能提供最佳的用户体验，希望您能理解！</p>
