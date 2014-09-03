@@ -41,23 +41,23 @@
 .msg a, .box a{
 	color:#F00;
 }
-#register-msg-content .title, #login-msg-content .title {
+#register-msg-content .title, #login-msg-content .title, #after-fill-register-msg-content .title, #after-fill-login-msg-content .title {
 /*	border:none;
 	border-bottom:solid 1px #aaa;
 */	color:#333;
 }
-#register-msg-content .title .tip {
+#register-msg-content .title .tip, #after-fill-register-msg-content .title .tip {
 	color:#999;
 }
-#register-msg-content .body input, #login-msg-content .body input {
+#register-msg-content .body input, #login-msg-content .body input, #after-fill-register-msg-content .body input, #after-fill-login-msg-content .body input {
 	width:250px;
 }
-#register-msg-content .left, #login-msg-content .left {
+#register-msg-content .left, #login-msg-content .left, #after-fill-register-msg-content .left, #after-fill-login-msg-content .left {
 	width:260px;
 	margin:0 auto;
 }
-#register-msg-content .right, #login-msg-content .right {
+#register-msg-content .right, #login-msg-content .right, #after-fill-register-msg-content .right, #after-fill-login-msg-content .right {
 	text-align:center;
 }
-#login-msg-content .remember-me {
+#login-msg-content .remember-me, #after-fill-login-msg-content .remember-me {
 }

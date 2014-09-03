@@ -7,6 +7,7 @@
 <title>表格填写</title>
 <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
 <link rel="stylesheet" href="style/form/paper.css" />
+<link rel="stylesheet" href="style/msg.css" />
 <!--<link rel="stylesheet" href="style/form/form-responsive.css"/>
 -->
 <!--<link rel="stylesheet" href="style/index.css"></link>
@@ -17,6 +18,7 @@
 <script src="js/jquery-2.1.1.min.js"></script>
 <script src="js/jquery.validationEngine-zh_CN.js" type="text/javascript" charset="utf-8"></script>
 <script src="js/jquery.validationEngine.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/msg.js" type="text/javascript" charset="utf-8"></script>
 <script src="js/answerCookie.js"></script>
 <script>
 /*$(function(){
@@ -141,9 +143,18 @@ window.onresize = function() {
             </a>
         </div>
     </div>
+    <div class='msg'>
+        <div class='msg-border'>
+            <div class='msg-content'>
+            <!--内容是动态获得的-->			
+            </div>
+        </div>
+    </div>
+    <script> afterFillRegisterMsgPopOver(); </script><!-- 这行供测试，可以删去 -->
 	<div id="footer" class="form-footer">
 		<p>Powered by 报名吧</p>
 		<p>由于网站还在开发，不能提供最佳的用户体验，希望您能理解！</p>
 	</div>
+    
 </body>
 </html>
