@@ -89,18 +89,19 @@ div{
             filter: blur(20px);    
 }
 #form-field {
-	width:80%;
-	margin:1em auto;
-	background:#FFF;
+	width:100%;
+	margin:0 auto;
+	background:#020318;
 	/* Prevent native touch events on Windows */
 	-ms-touch-action: none;
 
-	/* Prevent the callout on tap-hold and text selection */
+	/* Prevent the callout on tap-hold and text selection 
 	-webkit-touch-callout: none;
 	-webkit-user-select: none;
 	-moz-user-select: none;
 	-ms-user-select: none;
-	user-select: none;
+	user-select: none;*/
+	-webkit-touch-callout: none;
 
 	/* Prevent text resize on orientation change, useful for web-apps */
 	-webkit-text-size-adjust: none;
@@ -111,21 +112,42 @@ div{
 	/* Prevent elements to be highlighted on tap */
 	-webkit-tap-highlight-color: rgba(0,0,0,0);
 }
+#form-title-wrapper, #form-wrapper {
+	box-shadow:0px 5px 5px 3px rgba(0,0,0,0.5);
+}
+#form-title-wrapper {
+	height:200px;
+	padding-top:2em;
+	background:#d2ffff;
+	box-shadow:0px 0px 5px 3px rgba(0,0,0,0.5);
+	color:#000;
+	position:relative;
+}
 #form-title {
 	margin:0 auto;
 	margin-bottom:1em;
 	text-align:center;
 }
+#form-wrapper {
+	position:relative;
+	top:-120px;
+	background:#cf8b3f;
+	width:800px;
+	padding:1em;
+	margin:0 auto;
+}
 #form-title h3 {
 	font-size:30px;
+	margin:0;
 }
 #form-intro {
 	padding:10px 0;
-	border-bottom:#de473a solid 2px;
-	margin-bottom:30px;
+	color:#fff;
 }
 #form-body {
-	
+	background:#fff;
+	padding:1em 0;
+	border-radius:5px 5px;
 }
 #form-body .q-field {
 	margin:1.5em 0;
@@ -158,8 +180,22 @@ div{
 	margin-top:10px;
 	font-size:14px;
 }
-#form-body .q-body input, #form-body .q-body textarea {
+#form-body .q-body input[type="text"],
+#form-body .q-body input[type="password"],
+#form-body .q-body input[type="email"],
+#form-body .q-body input[type="url"],
+#form-body .q-body input[type="date"],
+#form-body .q-body input[type="month"],
+#form-body .q-body input[type="time"],
+#form-body .q-body input[type="datetime"],
+#form-body .q-body input[type="datetime-local"],
+#form-body .q-body input[type="week"],
+#form-body .q-body input[type="number"],
+#form-body .q-body input[type="tel"],
+#form-body .q-body input[type="search"],
+#form-body .q-body input[type="color"]{
 	padding: 0.5em 0.6em;
+	width:300px;
 	border:solid 1px #ccc;
 }
 #form-body .q-body input:hover , #form-body .q-body textarea:hover, #form-body .q-body input[type="text"]:focus , #form-body .q-body textarea:focus {
@@ -206,7 +242,7 @@ div{
 */
 /* 涓鸿繖寮犺〃鍗曠嫭鍒涘缓鐨勯儴鍒唀nd */
 .free-multiline .q-body textarea {
-	width:100%;
+	width:90%;
 	height:200px;
 	font-size:16px;
 	resize:none;
@@ -216,14 +252,14 @@ div{
 	display:block;
 	font-size:16px;
 	margin:5px auto;
-	margin-bottom:30px;
 	text-align:center;
 	border:none;
 	outline:none;
 }
 #form-tip {
-	border-top:solid 2px #06F;
 	text-align:center;
+	margin-top:1em;
+	color:#fff;
 }
 .form-footer {
 	width:100%;
