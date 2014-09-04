@@ -308,6 +308,32 @@ function make_form_card($row,$row2){
 								</div>';
 }
 
+function getMajorColor($url){
+	$i = imagecreatefromjpeg($url);
+	$rTotal=0;
+	$gTotal=0;
+	$bTotal=0;
+	$total=0;
+	for ($x=0;$x<imagesx($i);$x++) {
+		for ($y=0;$y<imagesy($i);$y++) {
+			$rgb = imagecolorat($i,$x,$y);
+			$r   = ($rgb >> 16) & 0xFF;
+			$g   = ($rgb >> 8)  & 0xFF;
+			$b   = $rgb & 0xFF;
+
+			$rTotal += $r;
+			$gTotal += $g;
+			$bTotal += $b;
+			$total++;
+		}
+	}
+
+	$rAverage = dechex(round($rTotal/$total));
+	$gAverage = dechex(round($gTotal/$total));
+	$bAverage = dechex(round($bTotal/$total));
+	$color='0x'.$rAverage.$gAverage.$bAverage;
+}
+
 
 
 
