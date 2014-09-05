@@ -267,8 +267,6 @@ div{
 	padding:2em 0 ; 
 	text-align:center;
 	font-size:12px;
-	background:rgb(250, 248, 245);
-	border-top:solid 1px rgb(217, 207, 191);
 	color:#d9cfbf;
 }
 #fill-tool {
@@ -665,3 +663,9 @@ div{
 	background-position: -65px -16px;
 }
 
+
+@media screen and (max-width: 900px) {
+	#form-wrapper {
+		width:88.888%;
+	}
+}

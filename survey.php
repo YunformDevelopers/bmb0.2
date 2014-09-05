@@ -52,9 +52,6 @@ window.onresize = function() {
 </script>
 <style>
 @media screen and (max-width: 500px) {
-	#form-wrapper {
-		width:80%;
-	}
 	#form-body .q-body input[type="text"],
 	#form-body .q-body input[type="password"],
 	#form-body .q-body input[type="email"],
@@ -218,8 +215,7 @@ window.onresize = function() {
         </div>
     </div>
 	<div id="footer" class="form-footer">
-		<p>Powered by 报名吧</p>
-		<p>由于网站还在开发，不能提供最佳的用户体验，希望您能理解！</p>
+		<p>Powered by <a href="index.php">报名吧</a></p>
 	</div>
 </body>
 </html>
