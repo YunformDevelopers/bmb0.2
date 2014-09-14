@@ -140,14 +140,50 @@ $(document).ready(function(){
 				</div>
 				<div class="section-body">
 					<?php 
-						connect();
-						$result = mysql_query("select * from question where username='".$_COOKIE['srtp-username']."' order by Date desc") or die(mysql_error());
-						while($row=mysql_fetch_assoc($result)){
-							$result2=mysql_query("select * from decoration where form_id ='".$row['form_id']."'");
-							while ($row2=mysql_fetch_assoc($result2)){
-								make_form_card($row, $row2);
-							}
-						}	
+			connect();
+    		$result = mysql_query("select * from question where username='".$_COOKIE['srtp-username']."'") or die(mysql_error());
+			while($rows=mysql_fetch_assoc($result)){
+			$result1=mysql_query("select * from decoration where form_id='".$rows['form_id']."'");
+			$rows1=mysql_fetch_assoc($result1);
+			$old=strtotime($rows1['form_expire_time']);
+			date_default_timezone_set("Asia/Shanghai");
+			$now=strtotime(date("Y-m-d h:i:s"));
+			$seconds=$old-$now;
+			$days=$seconds/(24*60*60);
+			$day=intval($days);
+			$hours=($days-$day)*24;
+			$hour=intval($hours);
+			$minutes=($hours-$hour)*24;
+			$minute=intval($minutes);
+    		echo '<div class="card my-release" > 
+            			<a href="#">
+	                		<div class="form-op">
+		                    	<a href="#"><input class="btn red" type="button" value="编辑"/></a>
+		                    	<a href="manage.php?id='.$rows['form_id'].'"><input class="btn blue" type="button" value="管理"/></a>
+	                    		<a href="#"><input class="btn green" type="button" value="查看"/></a>
+	                		</div>
+	                		<div class="form-status">
+	                   			<img src="images/form-status-on.png" alt="已下架" />
+	                		</div>
+	                		<div class="img-holder">
+	                    		<div class="fader">';
+	                        		if(!$rows1['bg'])echo '<img src="images/2.jpg" alt="" />';
+	                        		else echo '<img src="uploads/'.$rows1['bg'].'.jpg" alt="" />';
+	                    		echo '</div>
+	                    		<div class="form-name">
+	                        		'.$rows['form_title'].'
+	                    		</div>
+	                    		<div class="img-counter">
+	                        		<div class="counter">';
+	                            		if($day>=0) echo '<span class="time-left">还有'.$day.'天'.$hour.'小时'.$minute.'分钟</span>';
+	                            		else echo '<span class="time-left">已到期</span>';
+										echo '<span class="written">'.$rows['click_times'].'</span>
+	                        		</div>
+	                    		</div>
+	                		</div>
+            			</a>
+        			</div>';
+    		}
 					?>
 					
 					<div class="card my-release create-new" > 

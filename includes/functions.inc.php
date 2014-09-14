@@ -298,9 +298,10 @@ function make_form_card($row,$row2){
 										'.$row['form_title'].'
 									</div>
 									<div class="img-counter">
-										<div class="counter">
-											<span class="time-left">还有'.$day.'天'.$hour.'小时'.$minute.'分钟</span>
-											<span class="written">'.$row['click_times'].'</span>
+										<div class="counter">';
+											if($day>=0) echo '<span class="time-left">还有'.$day.'天'.$hour.'小时'.$minute.'分钟</span>';
+	                            			else echo '<span class="time-left">已到期</span>';
+											echo '<span class="written">'.$row['click_times'].'</span>
 										</div>
 									</div>
 								</div>
@@ -332,8 +333,29 @@ function getMajorColor($url){
 	$gAverage = dechex(round($gTotal/$total));
 	$bAverage = dechex(round($bTotal/$total));
 	$color='0x'.$rAverage.$gAverage.$bAverage;
+	return $color;
 }
 
+function getContrastColor($color){
+	$red=hexdec(substr($color, 2,2));
+	$green=hexdec(substr($color,4,2));
+	$blue=hexdec(substr($color,6,2));
+	$red=255-$red;
+	$green=255-$green;
+	$blue=255-$blue;
+	$red=to_twobit(dechex($red));
+	$green=to_twobit(dechex($green));
+	$blue=to_twobit(dechex($blue));
+	$co='0x'.$red.$green.$blue;
+	return $co;
+}
+
+function to_twobit($string){
+	if(strlen($string)==1){
+		return '0'.$string;
+	}
+	return $string;
+}
 
 
 
