@@ -20,7 +20,7 @@
                     <li class="title">密码<span class="tip">(*必填，至少六位)</span></li>
                     <li class="body"><input type="password" required="required" name="password" class="text" /></li>
                     <li class="title">确认密码<span class="tip">(*必填，至少六位)</span></li>
-                    <li class="body"><input type="password" required="required" name="password" class="text" /></li>
+                    <li class="body"><input type="password" required="required" name="notpassword" class="text" /></li>
                     <li class=""><input type="submit"  class="submit btn red" value="登录" /></li>
                 </ul>
             </form>

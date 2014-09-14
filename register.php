@@ -14,8 +14,7 @@
 						 if(mysql_num_rows($result)==0){
 						 $sql = "INSERT INTO _user (username,password) VALUES ('{$_clean['username']}','{$_clean['password']}')";
                          mysql_query($sql) or die(mysql_error());
-						 setcookie('srtp-username',$_clean['username']);
-						 setcookie('srtp-password',$_clean['password']);}
+						 setcookie('srtp-username',$_clean['username']);}
 						 else
 						 echo "<script>alert('该用户名已被注册'); window.location='index.php'; </script>";
 						 ?>
