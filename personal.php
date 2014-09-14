@@ -203,6 +203,17 @@ $(document).ready(function(){
 			</div>
 		</li>
 		<li class="innerWrapper2">
+        <br />
+        	<div id='my-info' class="section">
+				<div class="section-header">
+					<h2>我的信息</h2>
+					<div class="h2-line">
+					</div>
+				</div>
+				<div class="section-body">
+                	<a href="survey.php"> 点击这里完善个人信息 </a>
+                </div>
+            </div>
 			<div id='my-fill' class="section">
 				<div class="section-header">
 					<h2>我填写的</h2>
