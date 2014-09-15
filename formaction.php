@@ -4,6 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>表单提交</title>
 <link rel="stylesheet" href="style/msg.css" />
+<link rel="stylesheet" href="style/index.css" />
 <script src="js/msg.js" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript" src="js/jQuery.js"></script>
 </head>
