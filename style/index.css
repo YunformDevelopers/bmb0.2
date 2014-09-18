@@ -74,24 +74,6 @@ div{
     margin:0;
 	padding:0;
 }
-input[type="text"],
-input[type="password"],
-input[type="email"],
-input[type="url"],
-input[type="date"],
-input[type="month"],
-input[type="time"],
-input[type="datetime"],
-input[type="datetime-local"],
-input[type="week"],
-input[type="number"],
-input[type="tel"],
-input[type="search"],
-input[type="color"]{
-	padding: 0.5em 0.6em;
-	border:solid 1px #ccc;
-}
-
 /* 清除浮动 */
 .clear-float {
 	overflow:auto;
@@ -105,6 +87,7 @@ input[type="color"]{
 	-webkit-tap-highlight-color:rgba(0,0,0,0); /* 去掉点击链接和文本框对象的半透明覆盖层(iOS)或者虚框(Android) */
 	-webkit-touch-callout:none; /* 禁用长按页面时的弹出菜单(iOS下有效) */
 	-webkit-text-size-adjust: none; /* 禁止文字自动调整大小(默认情况下旋转设备的时候文字大小会发生变化) */
+	-webkit-user-select: none; /* 禁止页面文字选择 */
 	-webkit-overflow-scrolling:touch;/* 局部滚动(仅iOS 5以上支持) */
 }
 /*因为justify一定要超过一行，所以这个放在最后用来撑宽度*/
@@ -175,7 +158,6 @@ input[type="color"]{
 	font-size:18px;
 	border:none;
 	border-bottom:solid 1px #ccc;
-	padding:0;
 	color:#000;
 	height:18px;
 	width:6.5em;
@@ -322,12 +304,10 @@ input[type="color"]{
 }
 #header .search-mobile .search-text {
 	margin:0 auto;
-	border-radius: 2em;
+	border-radius: 1em;
 	width:15em;
-	height:2em;
-	line-height:2em;
 	border:none;
-	border: solid 1px #ccc;
+	border: solid 1px #333;
 	padding:0 1em;
 	text-align:center;
 }
@@ -337,7 +317,7 @@ input[type="color"]{
 	width:100%;
 	height:50px;
 	background:#FFF;
-	border-bottom:solid #eee 2px;
+	border-bottom:solid #ccc 2px;
 	z-index:4;
 }
 #tab-container ul.tab-list {

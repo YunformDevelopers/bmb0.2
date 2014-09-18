@@ -138,30 +138,18 @@ window.onresize = function() {
 					}			        	
 		        	?>
     <div id="fill-tool" onload="initFillTool();">
-    	<div class="login-reg square " title="注册/登录后可享受一键填表、保存填表进度等福利！">
+    	<div class="login-reg box " title="注册/登录后可享受一键填表、保存填表进度等福利！">
         	<a class="tool">
             	<span class="tool-name" title="注册 登录">注册 登录</span>
             </a>
         </div>
-        <div class="quick-fill square " title="根据表格内容智能填入个人信息">
-            <?php if(isset($_COOKIE['srtp-username'])) {
-					echo '<a class="tool">';
-				}
-				else {
-					echo '<a class="tool" onclick="registerMsgPopOver();">';	
-				}
-			 ?>
+        <div class="quick-fill box " title="根据表格内容智能填入个人信息">
+        	<a class="tool">
             	<span class="tool-name" title="一键 填表">一键 填表</span>
             </a>
         </div>
-        <div class="save square " title="保存进度，表格可在 我的 中找到">
-            <?php if(isset($_COOKIE['srtp-username'])) {
-					echo '<a class="tool">';
-				}
-				else {
-					echo '<a class="tool" onclick="registerMsgPopOver();">';	
-				}
-			 ?>
+        <div class="save box " title="保存进度，表格可在 我的 中找到">
+        	<a class="tool">
             	<span class="tool-name" title="保存">保存 进度</span>
             </a>
         </div>    

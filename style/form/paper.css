@@ -92,24 +92,6 @@ div{
 	width:80%;
 	margin:1em auto;
 	background:#FFF;
-	/* Prevent native touch events on Windows */
-	-ms-touch-action: none;
-
-	/* Prevent the callout on tap-hold and text selection */
-	-webkit-touch-callout: none;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-
-	/* Prevent text resize on orientation change, useful for web-apps */
-	-webkit-text-size-adjust: none;
-	-moz-text-size-adjust: none;
-	-ms-text-size-adjust: none;
-	-o-text-size-adjust: none;
-	text-size-adjust: none;
-	/* Prevent elements to be highlighted on tap */
-	-webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 #form-title {
 	margin:0 auto;
@@ -158,17 +140,10 @@ div{
 	margin-top:10px;
 	font-size:14px;
 }
-#form-body .q-body input, #form-body .q-body textarea {
-	padding: 0.5em 0.6em;
-	border:solid 1px #ccc;
-}
-#form-body .q-body input:hover , #form-body .q-body textarea:hover, #form-body .q-body input[type="text"]:focus , #form-body .q-body textarea:focus {
-	border:solid 1px #3399ff;
-}
 .q-body label {
 	display:inline-block;
 	border-radius:4px 4px;
-	padding:8px 5px 8px 0;
+	padding:8px 0;
 }
 .q-body label:hover {
 	background:#3399ff;	
@@ -221,10 +196,6 @@ div{
 	border:none;
 	outline:none;
 }
-#form-tip {
-	border-top:solid 2px #06F;
-	text-align:center;
-}
 .form-footer {
 	width:100%;
 	margin:0 auto;
@@ -241,7 +212,7 @@ div{
 	left:85%;
 	right:5%;
 }
-#fill-tool .square {
+#fill-tool .box {
 	margin-bottom:10px;
 }
 #fill-tool div .tool, #back-tool .tool {
