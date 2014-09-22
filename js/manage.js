@@ -61,6 +61,17 @@ $(document).ready(function(){
 			}
 		})
 	})
+	$("#select").change(function(){
+		$.ajax({
+			type:'GET',
+			url:'manageajax1.php?data='+$(this).val(),
+			data:$(this).val(),
+			success:function(response){
+				$(".matrix-td").remove();
+				$(".a-all-msg1").append(response);
+			}
+		})
+	})
 
 });
 function trBackgroundColor(){

@@ -53,7 +53,12 @@ window.onscroll = function(){
 -->
 </head>
 <body>
-<?php include 'includes/header.inc.php';?>
+<?php include 'includes/header.inc.php';
+if(!isset($_COOKIE['srtp-username']))
+	{
+		do_js_alert("请先登录再访问该页");
+		do_js_link(index.php);
+	}?>
 <div id="tab-container">
 	<ul class="tab-list clear-float">
     	<li class="tab-item left active">
@@ -199,8 +204,34 @@ window.onscroll = function(){
 
 						</table>
 						<table class="matrix-table" cellpadding="0" cellspacing="0" >
-							<tr>
-								<td class="answer-container a-all-msg">
+							<tr class="a-all-msg1">
+								<?php 
+								connect();
+								$question_num=1;
+								$id=$_GET['id'];
+								$result=mysql_query("select * from answer where form_id='".$id."'");
+								$j=1;
+								while($rows=mysql_fetch_assoc($result)){
+									$string="";
+									$answer_array=explode('δ',$rows['answer_string']);
+									$answer=explode('γ',$answer_array[intval($question_num)-1]);
+									for($i=0;$i<count($answer)-1;$i++){
+										$string.=$answer[$i].";";
+									}
+									echo '<td class="answer-container matrix-td">
+		 									<p class="a-content">
+												<a href="#" title="" id="">';
+													echo $string.'
+												</a>
+								 			</p>
+								 			<p class="a-time">
+								 				'.$rows["date"].'
+								 			</p>
+								 		</td>';
+										} 
+								
+								?>
+								<!--<td class="answer-container a-all-msg">
 									<p class="a-content">
 										<a href="#" title="" id="">
 											请问你的梦想是什。欢迎
@@ -239,25 +270,7 @@ window.onscroll = function(){
 										</a>
 									</p>
 									<p class="a-time">2014-6-17 18:45 填写</p>
-								</td>
-							</tr>
-							<tr>
-								<td class="answer-container a-all-msg">
-									<p class="a-content">
-										<a href="#" title="" id="">
-											请问你的梦想是什么呢？你是怎么走到这个舞台上的？能和我们说说吗？我培养过一个冠军。欢迎
-										</a>
-									</p>
-									<p class="a-time">2014-6-17 18:45 填写</p>
-								</td>
-								<td class="answer-container a-all-msg">
-									<p class="a-content">
-										<a href="#" title="" id="">
-											请问你的梦想是什么呢？你是怎么走到这个舞台上的？能和我们说说吗？我培养过一个冠军。欢迎
-										</a>
-									</p>
-									<p class="a-time">2014-6-17 18:45 填写</p>
-								</td>
+								</td>  -->
 							</tr>
 						 </table>
 					</div>
