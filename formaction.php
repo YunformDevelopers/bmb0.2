@@ -33,6 +33,17 @@ if(isset($_GET['action'])&&$_GET['action']=='save'){
 }
 else if(isset($_GET['action'])&&$_GET['action']=='answer'){
 	if(isset($_COOKIE['srtp-username'])){
+		$answer_array=explode('δ', $_COOKIE['answerStore']);
+		for($i=0;$i<count($answer_array);$i++){
+			if(strstr($answer_array[$i],'$_FILES')){
+				$newname=move_file($i+1);
+				$newanswerStore.='$_FILES-'.$newname.'δ';
+			}
+			else{
+				$newanswerStore.=$answer_array[$i].'δ';
+			}
+		}
+		$_COOKIE['answerStore']=$newanswerStore;
 		save_answer_to_db($_COOKIE['answerStore'], $_GET['id']);
 		$result=mysql_query("select * from question where form_id='".$_GET['id']."'");
 		$rows=mysql_fetch_assoc($result);
@@ -75,7 +86,6 @@ else if(isset($_GET['action'])&&$_GET['action']=='update'){
 	$newanswerStore='';
 	echo $_COOKIE['answerStore'];
 	$answer_array=explode('δ', $_COOKIE['answerStore']);
-	print_r($answer_array);
 	for($i=0;$i<count($answer_array);$i++){
 		if(strstr($answer_array[$i],'$_FILES')){
 			$newname=move_file($i+1);
