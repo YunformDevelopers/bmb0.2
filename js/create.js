@@ -142,6 +142,7 @@ function qDel(id){
 	var $id = $(id);
 	$id.parent().parent().slideUp(500, function(){
 	qNumberRefresh ();//删除完了记得改变Q-number的值
+	slideMsgAct('<p>已删除</p><a>撤销</a><a class="slide-msg-close" onclick="slideMsgAct(\'\', \'close\', \'blue\', \'save\', false)" >X</a>', 'open', 'green', 'success', false );
 	});
 }
 //q-title部分对于raw class的题目是否更改的判断等操作
@@ -371,14 +372,74 @@ function rawEditor (command){
 //滚动到页面底部
 function scrollBottom (){
 	$body = (window.opera) ? (document.compatMode == "CSS1Compat" ? $('html') : $('body')) : $('html,body');// 这行是 Opera 的补丁, 少了它 Opera 是直接用跳的而且画面闪烁 by willin
-	$body.animate({scrollTop: ($(document).height() - $("#footer").height() )}, 1000);//TEST $body.animate({scrollTop: $(document).height()}, 1000);
+	$body.animate({scrollTop: ($(document).height()- $(window).height() - $("#footer").height() )}, 800);//TEST $body.animate({scrollTop: $(document).height()}, 1000);}
 }
 //当toolsave被点击后执行的函数
 function toolSaveAct (id){
 	$id = $(id);
-	SetCookie();//设置cookie
 	$id.parent().parent().find(".loading-64").show();
 	$id.removeClass("save").addClass("uploading");
+	SetCookie();//设置cookie
+	slideMsgAct( '<p>保存成功！</p><a>撤销</a><a class="slide-msg-close" onclick="slideMsgAct(\'\', \'close\', \'blue\', \'save\', false)" >X</a>', 'open', 'green', 'success', false, 2000000 );
+}
+//#tool-save-container 里的slide-msg的弹出等
+/*
+* string content : html语句
+* string action : 'close' 'open'
+* string bg : 'red' 'blue' 'green' 'unchange'
+* string tool : 'save' 'uploading' 'success' 'failure' 'unchange'
+* boolean loading : true false
+*/
+function slideMsgAct ( content, action, bg, tool, loading, expireTime) {
+	//slide出msg
+	if (action == 'open') {
+		//先将msg收回
+		/*if($('#tool-save-container .slide-msg').css(display)!='none'){
+			$('#tool-save-container .slide-msg').animate({
+				width:"0px",
+			},function(){$(this).html('').hide();});
+		}
+		else;*/
+		//再将msgslide出来
+		$('#tool-save-container .slide-msg').html(content).show().animate({
+			width:"100px",
+		});
+		//msg expire的时间
+		/*var expireInterval;
+		expireInterval = setInterval($('#tool-save-container .slide-msg').animate({
+				width:"0px",
+			},function(){$(this).html('').hide();}) , expireTime);*/
+		
+	}//收回msg
+	else if (action == 'close') {
+		$('#tool-save-container .slide-msg').animate({
+			width:"0px",
+		},function(){$(this).html('').hide();});
+	}
+	else;
+	//切换背景
+	if ((bg =='red')||(bg =='blue')||(bg =='green')) {
+		$('#tool-save-container .bg').removeClass('red').removeClass('green').removeClass('blue');
+		$('#tool-save-container .bg').addClass(bg);
+	}//保持原来背景
+	else if (bg == 'unchange'){		
+	}
+	else;
+	//切换tool
+	if((tool == 'save')||( tool == 'uploading')||(tool == 'success')||(tool == 'failure') ){
+		$('#tool-save-container .tool').removeClass('save').removeClass('uploading').removeClass('success').removeClass('failure');
+		$('#tool-save-container .tool').addClass(tool);
+	}//保持原来tool
+	else if (tool = 'unchange') {
+	}
+	else;
+	//改为loading
+	if(loading){
+		$('#tool-save-container .loading-64').show();
+	}//loading 隐藏
+	else {
+		$('#tool-save-container .loading-64').hide();
+	};
 	
 }
 //自动保存，参数time单位为毫秒

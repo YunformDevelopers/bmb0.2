@@ -39,16 +39,13 @@ function loaded () {//在body load完之后执行
 		versions : function() {
 				var u = navigator.userAgent, app = navigator.appVersion;
 				return {//移动终端浏览器版本信息   
-				mobile : !!u.match(/AppleWebKit.*Mobile.*/)
-						|| !!u.match(/AppleWebKit/), //是否为移动终端  
-				
+				mobile : !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端  
 				};
 		}(),
 		language : (navigator.browserLanguage || navigator.language).toLowerCase()
 	}
 	//为移动端做设置
 	if (browser.versions.mobile){//是否为移动终端
-	
 		$("body").css("overflow","hidden");
 		$("#slideshow").css("display","none");
 		$("#footer").css("display","none");
@@ -96,7 +93,7 @@ function loaded () {//在body load完之后执行
 		});
 		
 	}
-	
+	$('.section-body').css("text-align","justify");
 }
 document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);//iscroll的设置
 

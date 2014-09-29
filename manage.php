@@ -57,7 +57,7 @@ window.onscroll = function(){
 if(!isset($_COOKIE['srtp-username']))
 	{
 		do_js_alert("请先登录再访问该页");
-		do_js_link(index.php);
+		do_js_link('index.php');
 	}?>
 <div id="tab-container">
 	<ul class="tab-list clear-float">
@@ -171,7 +171,7 @@ if(!isset($_COOKIE['srtp-username']))
 								$string="";
 								$answer_array=explode('δ',$rows['answer_string']);
 								$answer=explode('γ',$answer_array[intval($question_num)-1]);
-								echo '<tr class="a-all-msg">
+								echo '<tr class="a-all-msg" onclick="aAllMsgPopOver ();">
 	 									<td class="col-1 a-order">
 	 									'.($j++).'
 	 								</td>
@@ -218,7 +218,7 @@ if(!isset($_COOKIE['srtp-username']))
 									for($i=0;$i<count($answer)-1;$i++){
 										$string.=$answer[$i].";";
 									}
-									echo '<td class="answer-container matrix-td">
+									echo '<td class="answer-container matrix-td"  onclick="aAllMsgPopOver ();">
 		 									<p class="a-content">
 												<a href="#" title="" id="">';
 													echo $string.'

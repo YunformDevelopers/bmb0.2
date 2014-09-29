@@ -119,6 +119,27 @@ form-construct-field里面，分为form-title,form-intro，form-body，具体看
 #tool-save-container .tool.failure {
 	background:url(../images/tool-save/failure.png) no-repeat;
 }
+#tool-save-container .slide-msg {
+	position:absolute;
+	top:0;
+	left:0;
+	height:44px;
+	width:0px;
+	display:none;
+	padding:9.5px 32px 9.5px 68px;
+	border:solid 1px #cac8c6;
+	border-left:none;
+	border-radius:32px;
+	background:#fff;
+	color:#333;
+	overflow:hidden;
+}
+#tool-save-container .slide-msg-close {
+	color:#999;
+	position:absolute;
+	right:18px; top:22px;
+	width:16px; height:16px;
+}
 #tool-construct-container {
 	text-align:center;
 	position:relative;
