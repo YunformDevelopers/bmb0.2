@@ -34,8 +34,8 @@ if(isset($_POST['username'])&&isset($_POST['password'])){
         </li>
         <li class="head-item nav personal right">
         	<?php if(!(isset($_COOKIE['srtp-username']))){
-					echo "<a class=\"head-link\" id=\"register-msg\" onClick='registerMsgPopOver();'>";
-					echo "<span class=\"head-name\">注册</span>";
+					echo "<a class=\"head-link\" id=\"login-msg\" onClick='loginMsgPopOver();'>";
+					echo "<span class=\"head-name\">登录</span>";
 					}
             	else {
 					echo "<a class=\"head-link\" href='personal.php' >";
@@ -100,7 +100,7 @@ if(isset($_POST['username'])&&isset($_POST['password'])){
 					<?php if(!(isset($_COOKIE['srtp-username']))) 
 					echo "<a class=\"loginExit\" href='#' id=\"login-msg\"><span>请先登录</span></a>";
 					else
-					echo "<a class=\"loginExit\" href='logout.php'><span>退出当前账号</span></a>";?><!-- 这里有退出或登录 -->
+					echo "<a class=\"loginExit\" href='logout.php'><span>退出此账号</span></a>";?><!-- 这里有退出或登录 -->
 				</li>
 			</ul>
 		</div>

@@ -301,7 +301,7 @@ function make_form_card($row,$row2){
 										<div class="counter">';
 											if($day>=0) echo '<span class="time-left">还有'.$day.'天'.$hour.'小时'.$minute.'分钟</span>';
 	                            			else echo '<span class="time-left">已到期</span>';
-											echo '<span class="written">'.$row['click_times'].'</span>
+											echo '<span class="written">'.$row['click_times'].'次</span>
 										</div>
 									</div>
 								</div>

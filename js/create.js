@@ -81,7 +81,7 @@ $(document).ready(function(){
 			initPin ();
 		},
 		containment: "#tool-construct-container",
-		
+		scroll:true,
     });
 	
 	
@@ -139,10 +139,12 @@ function showoff(id){
 	$id.find("#q-del").hide();
 }
 function qDel(id){
+	//首先把隐藏的题目li（可能是上一次删除掉的题目，其实就是隐藏了）彻底删除
+	delInvisible();
 	var $id = $(id);
 	$id.parent().parent().slideUp(500, function(){
-	qNumberRefresh ();//删除完了记得改变Q-number的值
-	slideMsgAct('<p>已删除</p><a>撤销</a><a class="slide-msg-close" onclick="slideMsgAct(\'\', \'close\', \'blue\', \'save\', false)" >X</a>', 'open', 'green', 'success', false );
+		qNumberRefresh ();//删除完了记得改变Q-number的值
+		slideMsgAct('<p>已删除</p><a onclick="restoreInvisible();">撤销</a><a class="slide-msg-close" onclick="slideMsgAct(\'\', \'close\', \'blue\', \'save\', false)" >X</a>', 'open', 'green', 'success', false );
 	});
 }
 //q-title部分对于raw class的题目是否更改的判断等操作
@@ -204,11 +206,7 @@ function delOption (id) {
 		$id.parent("span").fadeOut(500,function(){//先fadeOut，然后删除
 			$id.parent("span").remove();
 		})
-
 	}
-
-	
-
 }
 //以下是为了使q-alternative点击之后改变状态
 function changeState(id){
@@ -225,6 +223,18 @@ function changeState(id){
 //删除不可见的form-body下面的li元素
 function delInvisible (){
 	$("#form-body").children("li:hidden").remove();
+}
+//恢复不可见的form-body下面的li元素
+function restoreInvisible (){
+	$("#form-body").children("li:hidden").slideDown();
+	qNumberRefresh();
+	//关掉slideMsg
+	slideMsgAct('', 'close', 'blue', 'save', false);
+}
+//****恢复不可见的选项
+//（此函数暂时不使用，保留以待后续）
+function restoreInvisibleOption(){
+	$("#form-body li .q-body").children("span:hidden").fadeIn(500);
 }
 //初始化form-construct-field的宽度
 function initFormConstructField (){
@@ -380,7 +390,7 @@ function toolSaveAct (id){
 	$id.parent().parent().find(".loading-64").show();
 	$id.removeClass("save").addClass("uploading");
 	SetCookie();//设置cookie
-	slideMsgAct( '<p>保存成功！</p><a>撤销</a><a class="slide-msg-close" onclick="slideMsgAct(\'\', \'close\', \'blue\', \'save\', false)" >X</a>', 'open', 'green', 'success', false, 2000000 );
+	slideMsgAct( '<p>保存成功！</p><a class="slide-msg-close" onclick="slideMsgAct(\'\', \'close\', \'blue\', \'save\', false)" >X</a>', 'open', 'green', 'success', false, 5000 );
 }
 //#tool-save-container 里的slide-msg的弹出等
 /*
@@ -390,25 +400,43 @@ function toolSaveAct (id){
 * string tool : 'save' 'uploading' 'success' 'failure' 'unchange'
 * boolean loading : true false
 */
+		var expireTimeOut;
 function slideMsgAct ( content, action, bg, tool, loading, expireTime) {
 	//slide出msg
 	if (action == 'open') {
 		//先将msg收回
-		/*if($('#tool-save-container .slide-msg').css(display)!='none'){
+		if($('#tool-save-container .slide-msg').css("display")!='none'){
 			$('#tool-save-container .slide-msg').animate({
 				width:"0px",
-			},function(){$(this).html('').hide();});
+			},function(){
+				$(this).html('').hide();
+				$('#tool-save-container .slide-msg').html(content).show().animate({
+					width:"100px",
+				});
+			});
 		}
-		else;*/
-		//再将msgslide出来
-		$('#tool-save-container .slide-msg').html(content).show().animate({
-			width:"100px",
-		});
+		else
+			//再将msgslide出来
+			$('#tool-save-container .slide-msg').html(content).show().animate({
+				width:"100px",
+			});
+			
 		//msg expire的时间
-		/*var expireInterval;
-		expireInterval = setInterval($('#tool-save-container .slide-msg').animate({
+		if(expireTime == null){
+			expireTime = 20000;
+		}
+		clearTimeout(expireTimeOut);
+
+		expireTimeOut = setTimeout(function(){
+			
+			$('#tool-save-container .slide-msg').animate({
 				width:"0px",
-			},function(){$(this).html('').hide();}) , expireTime);*/
+			},function(){$(this).html('').hide();}) 
+			//时间结束后，回归到原来的蓝色保存按钮状态
+			switchToolSaveContainerBg ('blue');
+			switchToolSaveContainerTool ('save');
+			switchToolSaveContainerLoading (false);
+		}, expireTime);
 		
 	}//收回msg
 	else if (action == 'close') {
@@ -417,22 +445,40 @@ function slideMsgAct ( content, action, bg, tool, loading, expireTime) {
 		},function(){$(this).html('').hide();});
 	}
 	else;
+	switchToolSaveContainerBg (bg);
+	switchToolSaveContainerTool (tool);
+	switchToolSaveContainerLoading (loading);
+}
+//切换tool-save-container 的bg
+function switchToolSaveContainerBg (bg) {
 	//切换背景
 	if ((bg =='red')||(bg =='blue')||(bg =='green')) {
-		$('#tool-save-container .bg').removeClass('red').removeClass('green').removeClass('blue');
+		$('#tool-save-container .bg').removeClass('red').removeClass('green').removeClass('blue');//清除原来的bg
 		$('#tool-save-container .bg').addClass(bg);
 	}//保持原来背景
 	else if (bg == 'unchange'){		
 	}
 	else;
+}
+//切换tool-save-container 的tool
+function switchToolSaveContainerTool (tool){
 	//切换tool
 	if((tool == 'save')||( tool == 'uploading')||(tool == 'success')||(tool == 'failure') ){
-		$('#tool-save-container .tool').removeClass('save').removeClass('uploading').removeClass('success').removeClass('failure');
+		$('#tool-save-container .tool').removeClass('save').removeClass('uploading').removeClass('success').removeClass('failure');//清除原来的tool
 		$('#tool-save-container .tool').addClass(tool);
+		//如果tool不是save的话，暂时取消onclick事件
+		if(tool!='save'){
+			$('#tool-save-container .tool').attr('onclick','');
+		}
+		else {
+			$('#tool-save-container .tool').attr('onclick','toolSaveAct();');
+		}
 	}//保持原来tool
-	else if (tool = 'unchange') {
+	else if (tool == 'unchange') {
 	}
 	else;
+}
+function switchToolSaveContainerLoading (loading){
 	//改为loading
 	if(loading){
 		$('#tool-save-container .loading-64').show();
@@ -440,7 +486,6 @@ function slideMsgAct ( content, action, bg, tool, loading, expireTime) {
 	else {
 		$('#tool-save-container .loading-64').hide();
 	};
-	
 }
 //自动保存，参数time单位为毫秒
 function autoSave (time){
