@@ -490,8 +490,8 @@ function switchToolSaveContainerLoading (loading){
 //自动保存，参数time单位为毫秒
 function autoSave (time){
 	var saveInterval; //调度器对象。
-	saveInterval = setInterval("SetCookie()",time);
-
+	saveInterval = setInterval("SetCookie(); toolSaveAct('#tool-save-container a.tool.save');",time);
+	//保存cookie，同时toolSaveAct弹出slidemsg
 }
 	
 

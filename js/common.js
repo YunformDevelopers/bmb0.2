@@ -34,12 +34,22 @@ function loaded () {//在body load完之后执行
 		$("#tab-container ul.tab-list").children().removeClass("active");//移除已经存在的active的class
 		$("#tab-container ul.tab-list").children().eq(currentPos).addClass("active");//被点击的父级元素添加active class
 	});
+	//为低版本IE进行优化
+	var isIE = function(ver){
+   		var b = document.createElement('b')
+		b.innerHTML = '<!--[if IE ' + ver + ']><i></i><![endif]-->'
+		return b.getElementsByTagName('i').length === 1//只有IE会读取此类注释里面的内容，导致i的length改变
+	}
+	if(isIE(6)||isIE(7)||isIE(8)||isIE(9)){
+		alert('ciwei IE!!');
+		myScroll.options.useTransform = false;
+	}
 	//获取浏览器的信息
 	var browser = {
 		versions : function() {
 				var u = navigator.userAgent, app = navigator.appVersion;
 				return {//移动终端浏览器版本信息   
-				mobile : !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端  
+					mobile : !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端  
 				};
 		}(),
 		language : (navigator.browserLanguage || navigator.language).toLowerCase()

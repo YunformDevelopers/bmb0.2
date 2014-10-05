@@ -136,7 +136,8 @@
 	</ul>
 </div>
 
-			
+<div id="whole-msg-bg" onclick="msgSlideDn();">
+</div>		
 <div class='msg'>
     <div class='msg-border'>
         <div class='msg-content'>
