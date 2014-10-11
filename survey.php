@@ -13,6 +13,7 @@
 <script src="js/jquery.validationEngine-zh_CN.js" type="text/javascript" charset="utf-8"></script>
 <script src="js/jquery.validationEngine.js" type="text/javascript" charset="utf-8"></script>
 <script src="js/answerCookie.js"></script>
+<script src="js/msg.js" type="text/javascript" charset="utf-8"></script>
 <script>
 /*$(function(){
 	$('input[value=请注明]').focus(function(){
@@ -120,111 +121,34 @@ window.onresize = function() {
         </div>
         <ul id="form-body">
         	<form id="formID" method="post" action="#">
-            <li id="" class="q1 q-field free-multichoice">
-                <div class="q-number"><span>1</span></div>
-                <div class="q-whole">
-                    <div class="q-title">贵社团在纳新宣传时会使用下列哪些宣传方式？(多选)</div>
-                    <div class="q-alternative" name="required" >*</div>
-                    <div class="q-body">
-                        <label><input name="q1-98专楼" type="checkbox" value="98专楼" />98专楼</label>
-                        <label><input name="q1-人人日志" type="checkbox" value="人人日志" />人人日志</label>
-                        <label><input name="q1-人人相册" type="checkbox" value="人人相册" />人人相册</label>
-                        <label><input name="q1-文广摆摊" type="checkbox" value="文广摆摊" />文广摆摊</label>
-                        <label><input name="q1-纸质宣传单（背面无报名表）" type="checkbox" value="纸质宣传单（背面无报名表）" />纸质宣传单（背面无报名表）</label>
-                        <label><input name="q1-纸质宣传单（背面有报名表）" type="checkbox" value="纸质宣传单（背面有报名表）" />纸质宣传单（背面有报名表）</label>
-                        <label><input name="q1-寝室楼道海报" type="checkbox" value="寝室楼道海报" />寝室楼道海报</label>
-                        <label><input name="q1-青年通" type="checkbox" value="青年通" />青年通</label>
-                        <label><input name="q1-横幅" type="checkbox" value="横幅" />横幅</label>
+            	<li class="q1 q-field logic-name">
+                    <div class="q-number">
+                        <span>1</span>
                     </div>
-                </div>
-            </li>
-            <li id="" class="q2 q-field free-singlechoice">
-                <div class="q-number"><span>2</span></div>
-                <div class="q-whole">
-                    <div class="q-title">贵社团是否有开通微信公众号？</div>
-                    <div class="q-alternative" name="required" >*</div>
-                    <div class="q-body">
-                        <label><input name="q2-body" value="是，并且在纳新过程中使用" type="radio" />是，并且在纳新过程中使用</label>
-                        <label><input name="q2-body" value="是，但纳新时不怎么用" type="radio" />是，但纳新时不怎么用</label>
-                        <label><input name="q2-body" value="否，但之后可能会开通" type="radio" />否，但之后可能会开通</label>
-                        <label><input name="q2-body" value="否，暂无此类打算" type="radio" />否，暂无此类打算</label>
+                    <div class="q-whole">
+                        <div class="q-title">姓名</div>
+                        <div class="q-alternative">*</div>
+                        <div class="q-body">
+                            <input type="text" name="q1-body" class="body edit" required="required" />
+                        </div>
                     </div>
-                </div>
-            </li>
-            <li id="" class="q3 q-field free-singlechoice">
-                <div class="q-number"><span>3</span></div>
-                <div class="q-whole">
-                    <div class="q-title">贵社团在通知人员参与活动时，是采取下列哪种方式？</div>
-                    <div class="q-alternative" name="required" >*</div>
-                    <div class="q-body">
-                        <label><input name="q3-body" value="发飞信" type="radio" />发飞信</label>
-                        <label><input name="q3-body" value="手机发短信" type="radio" />手机发短信</label>
-                        <label><input name="q3-body" value="电脑手机助手发短信" type="radio" />电脑手机助手发短信</label>
-                        <span class="note-position"><label><input name="q3-body" value="其他方式" type="radio" class="note-title" />其他</label><input name="q3-body-note" class="note" type="text" value="请注明"/></span>
-                    </div>
-                </div>
-            </li>
-            <li id="" class="q4 q-field free-singlechoice">
-                <div class="q-number"><span>4</span></div>
-                <div class="q-whole">
-                    <div class="q-title">你认为创建线上报名表需要为问题添加备注吗？</div>
-                    <div class="q-alternative" name="required" >*</div>
-                    <div class="q-body">
-                        <label><input name="q4-body" value="很需要" type="radio" />很需要</label>
-                        <label><input name="q4-body" value="可有可无" type="radio" />可有可无</label>
-                        <label><input name="q4-body" value="不需要" type="radio" />不需要</label>
-                    </div>
-                </div>
-            </li>
-            <li id="" class="q5 q-field free-singlechoice">
-                <div class="q-number"><span>5</span></div>
-                <div class="q-whole">
-                    <div class="q-title">你认为线上报名表里的社团说明部分是否需要添加图片？</div>
-                    <div class="q-alternative" name="required" >*</div>
-                    <div class="q-body">
-                        <label><input name="q5-body" value="很需要" type="radio" />很需要</label>
-                        <label><input name="q5-body" value="可有可无" type="radio" />可有可无</label>
-                        <label><input name="q5-body" value="不需要" type="radio" />不需要</label>
-                    </div>
-                </div>
-            </li>
-            <li id="" class="q6 q-field free-singlechoice">
-                <div class="q-number"><span>6</span></div>
-                <div class="q-whole">
-                    <div class="q-title">你需要在线发送通知短信功能（该功能需要网站支付通信费）吗？</div>
-                    <div class="q-alternative" name="required" >*</div>
-                    <div class="q-body">
-                        <label><input name="q6-body" value="收费（一条九分钱或包年）也愿意使用" type="radio" />收费（一条九分钱或包年）也愿意使用</label>
-                        <label><input name="q6-body" value="免费才愿意用" type="radio" />免费才愿意用</label>
-                        <label><input name="q6-body" value="我不想用" type="radio" />我不想用</label>
-                    </div>
-                </div>
-            </li>
-            <li id="" class="q7 q-field free-singlechoice">
-                <div class="q-number"><span>7</span></div>
-                <div class="q-whole">
-                    <div class="q-title">如果创建的线上报名表需要贵社团专门为其设计一种尺寸的宣传图，您————？</div>
-                    <div class="q-alternative" name="required" >*</div>
-                    <div class="q-body">
-                        <label><input name="q7-body" value="会设计" type="radio" />会设计</label>
-                        <label><input name="q7-body" value="会考虑" type="radio" />会考虑</label>
-                        <label><input name="q7-body" value="不感兴趣" type="radio" />不感兴趣</label>
-                    </div>
-                </div>
-            </li>
-            <li id="" class="q8 q-field free-multichoice">
-                <div class="q-number"><span>8</span></div>
-                <div class="q-whole">
-                    <div class="q-title">信息统计中，除基本统计外，您还需要其他什么功能？(多选)</div>
-                    <div class="q-alternative" name="required" >*</div>
-                    <div class="q-body">
-                        <label><input name="q8-趋势图" type="checkbox" value="趋势图" />趋势图</label>
-                        <label><input name="q8-参加人员比例分析" type="checkbox" value="参加人员比例分析" />参加人员比例分析</label>
-                        <label><input name="q8-标记参加人员不同状态（晋级与未晋级）" type="checkbox" value="标记参加人员不同状态（晋级与未晋级）" />标记参加人员不同状态（晋级与未晋级）</label>
-                        <span class="note-position"><label><input name="q8-mul4" type="checkbox" class="note-title" value="其他" />其他</label><input name="q8-body-note" class="note" type="text" value="请注明"/></span>
-                    </div>
-                </div>
-            </li>
+                </li>
+                <li class="q2 q-field logic-sex">
+						<div class="q-number"><span>2</span></div>
+						<div class="q-whole"><div class="q-title">性别</div><div class="q-alternative">*</div><div class="q-body"><label><input name="q2-body" type="radio" required="required" value="男"/>男</label><label><input name="q2-body" type="radio" required="required" value="女"/>女</label></div></div></li><li class="q3 q-field logic-studentID">
+						<div class="q-number"><span>3</span></div>
+						<div class="q-whole"><div class="q-title">学号</div><div class="q-alternative">*</div><div class="q-body"><input type="number" name="q3-body" class="body edit" required="required" /></div></div></li><li class="q4 q-field logic-address">
+						<div class="q-number"><span>4</span></div>
+						<div class="q-whole"><div class="q-title">住址</div><div class="q-alternative">*</div><div class="q-body"><input type="text" name="q4-body" class="body edit" required="required" /></div></div></li><li class="q5 q-field logic-tel">
+						<div class="q-number"><span>5</span></div>
+						<div class="q-whole"><div class="q-title">电话长短号</div><div class="q-alternative">*</div><div class="q-body"><input type="tel" name="q5-body" class="body edit" required="required" /></div></div></li><li class="q6 q-field logic-email">
+						<div class="q-number"><span>6</span></div>
+						<div class="q-whole"><div class="q-title">邮箱</div><div class="q-alternative">*</div><div class="q-body"><input type="email" name="q6-body" class="body edit" required="required" /></div></div></li><li class="q7 q-field logic-class">
+						<div class="q-number"><span>7</span></div>
+						<div class="q-whole"><div class="q-title">专业班级</div><div class="q-alternative">*</div><div class="q-body"><input type="text" name="q7-body" class="body edit" required="required" /></div></div></li><li class="q8 q-field free-file">
+						<div class="q-number"><span>8</span></div>
+						<div class="q-whole"><div class="q-title">fe</div><div class="q-alternative">*</div><div class="q-body"><input type="file" name="user" class="body edit" required="required" ></input></div></div></li><div id="form-tip">
+
             <li id="" class="q9 q-field free-multichoice">
                 <div class="q-number"><span>9</span></div>
                 <div class="q-whole">
@@ -289,17 +213,17 @@ window.onresize = function() {
     <div id="fill-tool" onload="initFillTool();">
     	<div class="login-reg box " title="注册/登录后可享受一键填表、保存填表进度等福利！">
         	<a class="tool">
-            	<span class="tool-name" title="注册 登录">注册 登录</span>
+            	<span class="tool-name" title="注册 登录" onclick="msgPopOver('msg.php #login-msg-content')">注册 登录</span>
             </a>
         </div>
         <div class="quick-fill box " title="根据表格内容智能填入个人信息">
         	<a class="tool">
-            	<span class="tool-name" title="一键 填表">一键 填表</span>
+            	<span class="tool-name" title="一键 填表" onclick="autoFill();">一键 填表</span>
             </a>
         </div>
         <div class="save box " title="保存进度，表格可在 我的 中找到">
         	<a class="tool">
-            	<span class="tool-name" title="保存">保存 进度</span>
+            	<span class="tool-name" title="保存" onclick="SetFillCookie();">保存 进度</span>
             </a>
         </div>    
     </div>
@@ -314,8 +238,14 @@ window.onresize = function() {
 		<p>Powered by 报名吧</p>
 		<p>由于网站还在开发，不能提供最佳的用户体验，希望您能理解！</p>
 	</div>
-	
-		
-
+    <div id="whole-msg-bg" onclick="msgSlideDn();">
+    </div>
+    <div class='msg'>
+        <div class='msg-border'>
+            <div class='msg-content'>
+            <!--内容是动态获得的-->			
+            </div>
+        </div>
+    </div>
 </body>
 </html>

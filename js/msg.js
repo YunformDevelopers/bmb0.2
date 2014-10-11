@@ -56,11 +56,13 @@ function aAllMsgPopOver (){
 			$(".box").hide();//隐藏box
 			$(".box").css({ //将box移到屏幕中央
 				"top":topoff
-			});				
+			});
+			$("#whole-msg-bg").fadeIn(600);				
 			$(".box").slideDown();//通知框框弹出的动画
 			
 			$("#msg-ok-btn").click(function(){
 				$(".box").slideUp();
+				$("#whole-msg-bg").fadeOut(500);
 			}) 
 			
 			
