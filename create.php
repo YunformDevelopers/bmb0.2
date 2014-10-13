@@ -68,12 +68,18 @@ header('Content-Type:text/html; charset=utf-8');
 	<div id="field-wrapper">
 		<div id="tool-field" unselectable="on" onselectstart="return false;" style="-moz-user-select:none;">
 			<div id="tool-save-container">
+            	<div class="slide-msg">
+                	<p>保存成功！</p>
+                    <a>撤销</a>
+                    <a class="slide-msg-close">X</a>
+                </div>
 				<div class="loading-64" style="display:none">
 				</div>
 				<div class="bg blue">
 					<a class="tool save" onclick="toolSaveAct(this);" >
 					</a>
 				</div>
+          
 			</div>
 			<div id="tool-construct-container">
 				<div id="tool-construct-perserved">

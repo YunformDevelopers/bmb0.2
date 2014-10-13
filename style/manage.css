@@ -166,13 +166,11 @@
 	display:block; _display:inline-block;
 	width:100%;
 	height:100%;
+	padding-left:1.2em;
 	background:url(../images/tool/search.png) left center no-repeat;
 }
 #table-menu #table-tool .quick-search input.search {
-	border-left: 0;
-   border-right: 0;
-   border-top: 0;
-   border-bottom:1px solid #000000;
+	border:none;
 	outline:none;
 	height:28px;
 	width:4.2em;

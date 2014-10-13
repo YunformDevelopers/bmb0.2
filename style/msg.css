@@ -1,4 +1,16 @@
 /* CSS Document */
+#whole-msg-bg {
+	display:none;
+	position: fixed;
+	left: 0px;
+	top: 0px;
+	z-index: 95;
+	min-height: 100% !important;
+	width: 100% !important;
+	height: 100% !important;
+	overflow: visible;
+	background:rgba(51,51,51,0.5);	
+}
 .msg, .box {
 	position:fixed;
 	width:25em;

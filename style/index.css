@@ -216,6 +216,7 @@ div{
 #header li.personal .head-link span.head-name {
 	display:inline-block;
 	width:3em;
+	height:1em;
 	overflow:hidden;
 }
 #header li.head-item {
@@ -468,18 +469,24 @@ div{
 }
 
 /* 这个其他section也可以重用  */
-.reminder,#footer {
+/*.reminder,#footer {
 	width:90%;
 	padding:0 5%;
 	text-align:justify;
 }
-.section {
-	text-align:justify;
-	text-justify:distribute-all-lines;
+*/.section-body {
+	text-align:justify !important;
+      text-justify:distribute-all-lines;/*ie6-8*/
 }
+.section-body:after {
+	content: "";
+  display: inline-block;
+  width: 100%;
+}
+
 /* 使justify的元素左端对齐 */
 .left-fix {
-	display:inline-block;
+	display:inline-block !important;
 	height:0;
 	padding:0; 
 	 /* margin:0; */
@@ -562,7 +569,6 @@ div{
 	font-weight:bold;
 }
 
-
 #content-footer {
 
 }
@@ -616,7 +622,7 @@ div{
 }
 #footer .wechat-QR-code {
 	position:absolute; 
-	bottom:73px; left:-150px; 
+	bottom:101px; left:-150px; 
 	padding:10px; 
 	background:#fff; 
 	border:solid 1px #999; 
