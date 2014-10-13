@@ -19,38 +19,13 @@ header('Content-Type:text/html; charset=utf-8');
 <!--下面这个js文件是为了兼容IE的媒体查询而准备的-->
 <script src="js/css3-mediaqueries.js"></script>
 <script type="text/javascript" src="js/jQuery.js"></script>
-<script type="text/javascript" src="js/jquery-ui-1.10.4.js"></script>
-<script type="text/javascript" src="js/showtips.js"></script>
+<script type="text/javascript" src="js/jquery.flot.min.js"></script>
+<!--<script type="text/javascript" src="js/jquery-ui-1.10.4.js"></script>-->
 <!--<script type="text/javascript" src="test for Liang/test.js"></script>
 --><script type="text/javascript" src="js/msg.js"></script>
 <script type="text/javascript" src="js/manage.js"></script>
 <script type="text/javascript" src="js/jquery.pin.min.js"></script>
 <script src='js/iscroll.js'></script>
-<!--<script type="text/javascript">
-var pre_scrollTop=0;//滚动条事件之前文档滚动高度
-var pre_scrollLeft=0;//滚动条事件之前文档滚动宽度
-var obj_th;
- 
-window.onload =function () {
-    pre_scrollTop=(document.documentElement.scrollTop || document.body.scrollTop);
-    pre_scrollLeft=(document.documentElement.scrollLeft || document.body.scrollTop);
-    obj_th=document.getElementById("th");
-};
-window.onscroll = function(){
-    if(pre_scrollTop != (document.documentElement.scrollTop || document.body.scrollTop)){
-        //滚动了竖直滚动条
-        pre_scrollTop=(document.documentElement.scrollTop || document.body.scrollTop);
-        if(obj_th){
-            obj_th.style.top=(document.documentElement.scrollTop || document.body.scrollTop)+"px";
-        }
-    }
-    else if(pre_scrollLeft != (document.documentElement.scrollLeft || document.body.scrollLeft)){
-        //滚动了水平滚动条
-        pre_scrollLeft=(document.documentElement.scrollLeft || document.body.scrollLeft);
-    }
-};
-</script>
--->
 </head>
 <body>
 <?php include 'includes/header.inc.php';
@@ -87,8 +62,65 @@ if(!isset($_COOKIE['srtp-username']))
 					<div class="h2-line">
 					</div>
 				</div>
-				<div class="section-body" unselectable="on" onselectstart="return false;" style="-moz-user-select:none;">
-					
+				<div class="section-body">
+					<div id="graph-card-container">
+                    	<div class="graph-card now">
+                            <div class="card-content">
+                            	<ul class="now-kpi-list">
+                                	<li>
+                                    	<p class="column-head">当前填写总人数</p>
+                                        <h3>1718</h3>
+                                    </li>
+                                    <li>
+                                    	<span class="column-head">今日新增填写人数</span>
+                                        <span>18</span>
+                                    </li>
+                                </ul>
+                            </div>
+                    	</div>
+                        <div class="graph-card yesterday">
+                            <div class="card-header">
+                            	<h4>昨日关键指标</h4>
+                            </div>
+                            <div class="card-control"></div>
+                            <div class="card-content">
+                            	<ul class="yesterday-kpi-list">
+                                	<li>
+                                    	<span class="column-head">填写人数</span>
+                                        <span>718</span>
+                                    </li>
+                                    <li>
+                                    	<span class="column-head">浏览人数</span>
+                                        <span>78</span>
+                                    </li>
+                                    <li>
+                                    	<span class="column-head">收藏人数</span>
+                                        <span>18</span>
+                                    </li>
+                                </ul>
+                            </div>
+                    	</div>
+                        <div class="graph-card source">
+                            <div class="card-header">
+                            	<h4>流量来源分布</h4>
+                            </div>
+                            <div class="card-control"></div>
+                            <div class="card-content">
+                            	<div class="graph-container">
+                                </div>
+                            </div>
+                    	</div>
+                        <div class="graph-card trend">
+                            <div class="card-header">
+                            	<h4>总趋势折线图</h4>
+                            </div>
+                            <div class="card-control"></div>
+                            <div class="card-content">
+                            	<div class="graph-container" id="trend-graph">
+                                </div>
+                            </div>
+                    	</div>
+                    </div>
 				</div>
 			</div>
 		</li>
@@ -139,7 +171,7 @@ if(!isset($_COOKIE['srtp-username']))
 													}
 												}
 												else{
-													do_js_alert('请从正确路径访问该页');
+													//do_js_alert('请从正确路径访问该页');
 												}
 										?>
 										</select>
