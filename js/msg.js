@@ -91,12 +91,16 @@ function initMsg (){
 	*.a-all-msg出现在manage.php表格中
 	*弹出内容为所有答案的详细内容
 	*/
-	 $(".a-all-msg").click(function(){
-		//load一个从别的地方拿到的数据
-		$(".box-content").load("msg.php #a-all-msg-content",
+	 /*$(".a-all-msg").click(function(){
+		 var id=$(this).find(".col-3").html();
 			//做一个box移到屏幕中央的动画效果
-			function(){
-				
+				 $.ajax({
+						type:'GET',
+						url:'manageboxajax.php?id='+id,
+						success:function(response){
+							$(".msg-content").append(response);
+						}
+				});
 				//由于这个box比较特殊，所以先重新给box样式
 				var leftoff = (-0.4*$(window).width() + "px");
 				var maxHeight = $(window).height()*0.8;
@@ -119,12 +123,8 @@ function initMsg (){
 				$("#msg-ok-btn").click(function(){
 					$(".box").slideUp();
 	 			}) 
-				
-				
-				
-			});
 	 })
-	 
+	 */
 	 
 	
 }

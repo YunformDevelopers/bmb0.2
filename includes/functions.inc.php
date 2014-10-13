@@ -122,7 +122,7 @@ function create_to_db($array){
 					echo '<input type="text" name="q'.($i+1).'-body" class="body edit" '.$re.' />';
 				}
 				if($type=="free-file"){
-					echo '<input type="file" name="user" class="body edit" '.$re.' ></input>';
+					echo '<input type="file" name="q'.($i+1).'-body" class="body edit" '.$re.' ></input>';
 					//echo '<input type="file" name="q'.($i+1).'-body" class="body edit" ></input>';
 				}
 				echo '</div>';

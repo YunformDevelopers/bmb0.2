@@ -33,7 +33,10 @@ if(isset($_GET['action'])&&$_GET['action']=='save'){
 }
 else if(isset($_GET['action'])&&$_GET['action']=='answer'){
 	if(isset($_COOKIE['srtp-username'])){
+		$newanswerStore='';
 		$answer_array=explode('δ', $_COOKIE['answerStore']);
+		echo $_COOKIE['answerStore'];
+		print_r($_FILES);
 		for($i=0;$i<count($answer_array);$i++){
 			if(strstr($answer_array[$i],'$_FILES')){
 				$newname=move_file($i+1);
@@ -55,7 +58,7 @@ else if(isset($_GET['action'])&&$_GET['action']=='answer'){
 		setcookie('form_id','',time()-1);
 		do_js_link('index.php');
 	}else{
-		echo '	
+		/* echo '	
 				<script>
 					function get_get(url){
 						querystr = url.split("?");
@@ -78,7 +81,7 @@ else if(isset($_GET['action'])&&$_GET['action']=='answer'){
 				}else{
 					alert("不注册");
 				}
-			</script>';
+			</script>'; */
 	}
 	
 }
