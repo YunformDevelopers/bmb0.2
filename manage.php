@@ -218,6 +218,7 @@ if(!isset($_COOKIE['srtp-username']))
 										echo '<a href="uploads/'.$filename[1].'">'.'点击我查看文件'.'</a>
 										</td>
 							 			<td class="col-3 q-number">
+										'.$rows['id'].'
 							 			</td>
 							 			<td class="col-4 a-time">
 							 			'.$rows['date'].'
@@ -238,6 +239,7 @@ if(!isset($_COOKIE['srtp-username']))
 										}
 										echo $string.'</td>
 							 			<td class="col-3 q-number">
+										'.$rows['id'].'
 							 			</td>
 							 			<td class="col-4 a-time">
 							 			'.$rows['date'].'
@@ -395,8 +397,7 @@ if(!isset($_COOKIE['srtp-username']))
 <div class='box'>
 	<div class='box-border'>
 		<div class='box-content'>
-    
-    
+    		
     	</div>
     </div>
 </div>
