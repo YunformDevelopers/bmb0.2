@@ -53,7 +53,7 @@ MEDIA QUERIES
 	#header li.personal a:active, #header li.personal.active a {
 		background-image:url(../images/header-icon/personal-active@2x.png);
 	}
-
+	
 }
 
 /* for 900px or less */

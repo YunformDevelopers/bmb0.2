@@ -61,41 +61,6 @@ $(document).ready(function(){
 			}
 		})
 	})
-	$(".a-all-msg").click(function(){
-		 var id=$(this).find(".col-3").html();
-			//做一个box移到屏幕中央的动画效果
-				 $.ajax({
-						type:'GET',
-						url:'manageboxajax.php?id='+id,
-						success:function(response){
-							$(".box-content").append(response);
-						}
-				});
-				//由于这个box比较特殊，所以先重新给box样式
-				var leftoff = (-0.4*$(window).width() + "px");
-				var maxHeight = $(window).height()*0.8;
-				$(".box").css({
-				   "width":"80%",
-				   "margin-left":leftoff,
-				 });
-				$(".box-content").css({
-				   "max-height":maxHeight	   
-				 });
-		
-				//定义topoff为屏幕高度减去通知框高度的一半，这是为了让通知框居中
-				//var topoff = ($(window).height()-$(".box").height())/ 2 + "px";
-				var topoff='10px';
-				$(".box").hide();//隐藏box
-				$(".box").css({ //将box移到屏幕中央
-					"top":topoff
-				});				
-				$(".box").slideDown();//通知框框弹出的动画
-				
-				$("#msg-ok-btn").click(function(){
-					$(".box").slideUp();
-	 			}) 
-	 })
-	 
 	$("#select").change(function(){
 		$.ajax({
 			type:'GET',
@@ -107,6 +72,47 @@ $(document).ready(function(){
 			}
 		})
 	})
+	//图标部分
+	//生成数据
+	var graphData = [{
+			// Visits
+			data: [ [6, 1300], [7, 1600], [8, 1900], [9, 2100], [10, 2500], [11, 2200], [12, 2000], [13, 1950], [14, 1900], [15, 2000] ],
+			color: '#71c73e'
+    	}, 
+		{
+			// Returning Visits
+			data: [ [6, 500], [7, 600], [8, 550], [9, 600], [10, 800], [11, 900], [12, 800], [13, 850], [14, 830], [15, 1000] ],
+			color: '#77b7c5',
+			points: { radius: 4, fillColor: '#77b7c5' }
+		}
+	];
+	// Lines
+	$.plot($('#trend-graph'), graphData, {
+		series: {
+			points: {
+				show: true,
+				radius: 5
+			},
+			lines: {
+				show: true
+			},
+			shadowSize: 0
+		},
+		grid: {
+			color: '#646464',
+			borderColor: 'transparent',
+			borderWidth: 20,
+			hoverable: true
+		},
+		xaxis: {
+			tickColor: 'transparent',
+			tickDecimals: 2
+		},
+		yaxis: {
+			tickSize: 1000
+		}
+	});
+	
 
 });
 function trBackgroundColor(){

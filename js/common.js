@@ -40,7 +40,7 @@ function loaded () {//在body load完之后执行
 		b.innerHTML = '<!--[if IE ' + ver + ']><i></i><![endif]-->'
 		return b.getElementsByTagName('i').length === 1//只有IE会读取此类注释里面的内容，导致i的length改变
 	}
-	if(isIE(6)||isIE(7)||isIE(8)||isIE(9)){
+	if(isIE(6)||isIE(7)||isIE(8)||isIE(9)||isIE(11)){
 		alert('ciwei IE!!');
 		myScroll.options.useTransform = false;
 	}

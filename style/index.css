@@ -553,15 +553,25 @@ div{
 .card .img-counter .counter .time-left, .card .img-counter .counter .written {
 	height:16px;
 	line-height:16px;
-	background:left no-repeat url(../images/clock.png);
+	background:left no-repeat url(../images/card-icon/clock.png);
 	background-size: 16px 16px;
 	opacity:0.6;
 	padding-left:1.5625em; /* 1.5625*12.8=20px */
 	margin-left:6px; /* 0.625*12.8=8px */
 }
 .card .img-counter .counter .written {
-	background:left no-repeat url(../images/pen.png);
+	background:left no-repeat url(../images/card-icon/pen.png);
 	background-size: 16px 16px;
+}
+/* 当设备像素比不小于1.5的时候... */
+@media only screen and (-Webkit-min-device-pixel-ratio: 1.5),  
+    only screen and (min-device-pixel-ratio : 1.5) {
+	.card .img-counter .counter .time-left, .card .img-counter .counter .written {
+		background:left no-repeat url(../images/card-icon/clock@2X.png);
+	}
+	.card .img-counter .counter .written {
+		background:left no-repeat url(../images/card-icon/pen@2X.png);
+	}
 }
 /* 注意这里要根据实际使用中的名称的长度来进行字体之类的调整 */
 .card .form-name {

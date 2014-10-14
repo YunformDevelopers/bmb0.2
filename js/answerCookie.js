@@ -1,4 +1,11 @@
 // JavaScript Document
+$(document).ready(function() {
+	initValidationEngine();
+	ReFill();
+});
+/*
+*	将答案分类型存入cookie中
+*/
 function SetAnswerCookie () {
 	var qTotalNumber = $("#form-body li").length;//这是获得form-body里面li的数量，也就是题目的总数
 	var formBody = $("#form-body");//获取到form-body元素
@@ -92,6 +99,9 @@ function validateForm(){
 
 
 }
+/*
+*	设定refill所用的cookie，不对类型进行判断
+*/
 function SetFillCookie() {
 	var inputNumber =$("#form-body input,#form-body textarea").length - 1;//获得form-body里面input和textarea的总数，去掉最后一个submit的input
 	var cookieString = "FillCookie=";
@@ -132,6 +142,9 @@ function ReFill() {
 		}
 	}
 }
+function autoFill() {
+	//TODO
+}
 function getCookie(objName){//获取指定名称的cookie的值
 	var arrStr = document.cookie.split("; ");
 	for(var i = 0;i < arrStr.length;i ++){
@@ -139,10 +152,6 @@ function getCookie(objName){//获取指定名称的cookie的值
 		if(temp[0] == objName) return unescape(temp[1]);
 	}
 } 
-$(document).ready(function() {
-	initValidationEngine();
-	ReFill();
-});
 function initValidationEngine (){
      $("#formID").validationEngine({promptPosition : 'bottomLeft',});
 	var qTotalNumber = $("#form-body li").length;//这是获得form-body里面li的数量，也就是题目的总数
