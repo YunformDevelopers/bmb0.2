@@ -18,7 +18,87 @@ header('Content-Type:text/html; charset=utf-8');
 <script src="js/css3-mediaqueries.js"></script>
 <script type="text/javascript" src="js/jQuery.js"></script>
 <script type="text/javascript" src="js/jquery.pin.min.js"></script>
-<script type="text/javascript" src="js/msg.js"></script>
+<script>
+$(".msg").hide();
+$(document).ready(function(){	
+  	//对每个需要调用message的链接应用下面的click函数
+  	$("#contact-msg").click(function(){
+		//load一个从别的地方拿到的数据
+		$(".msg-content").load("msg.php #contact-msg-content",
+			//做一个msg移到屏幕中央的动画效果
+			function(){
+				//定义topoff为屏幕高度减去通知框高度的一半，这是为了让通知框居中
+				var topoff = ($(window).height()-$(".msg").height())/ 2 + "px";
+				//通知框框弹出的动画
+				$(".msg").animate({
+					top:topoff		
+				},600)//这里的数字是时间
+				$("#msg-ok-btn").click(function(){
+					$(".msg").animate({
+						top:$(window).height()*1.1
+					},500)//这里的数字是时间
+	 			}) 
+			});
+	 })
+
+  	$("#work-msg").click(function(){
+		//load一个从别的地方拿到的数据
+		$(".msg-content").load("msg.php #work-msg-content",
+			//做一个msg移到屏幕中央的动画效果
+			function(){
+				//定义topoff为屏幕高度减去通知框高度的一半，这是为了让通知框居中
+				var topoff = ($(window).height()-$(".msg").height())/ 2 + "px";
+				//通知框框弹出的动画
+				$(".msg").animate({
+					top:topoff		
+				},600)//这里的数字是时间
+				$("#msg-ok-btn").click(function(){
+					$(".msg").animate({
+						top:$(window).height()*1.1
+					},500)//这里的数字是时间
+	 			}) 
+			});
+	 })
+	 
+  	$("#register-msg").click(function(){
+		//load一个从别的地方拿到的数据
+		$(".msg-content").load("msg.php #register-msg-content",
+			//做一个msg移到屏幕中央的动画效果
+			function(){
+				//定义topoff为屏幕高度减去通知框高度的一半，这是为了让通知框居中
+				var topoff = ($(window).height()-$(".msg").height())/ 2 + "px";
+				//通知框框弹出的动画
+				$(".msg").animate({
+					top:topoff		
+				},600)//这里的数字是时间
+				$("#msg-ok-btn").click(function(){
+					$(".msg").animate({
+						top:$(window).height()*1.1
+					},500)//这里的数字是时间
+	 			}) 
+			});
+	 })
+
+  	$("#login-msg").click(function(){
+		//load一个从别的地方拿到的数据
+		$(".msg-content").load("msg.php #login-msg-content",
+			//做一个msg移到屏幕中央的动画效果
+			function(){
+				//定义topoff为屏幕高度减去通知框高度的一半，这是为了让通知框居中
+				var topoff = ($(window).height()-$(".msg").height())/ 2 + "px";
+				//通知框框弹出的动画
+				$(".msg").animate({
+					top:topoff		
+				},600)//这里的数字是时间
+				$("#msg-ok-btn").click(function(){
+					$(".msg").animate({
+						top:$(window).height()*1.1
+					},500)//这里的数字是时间
+	 			}) 
+			});
+	 })
+})
+</script>
 
 </head>
 <body>
@@ -38,7 +118,7 @@ header('Content-Type:text/html; charset=utf-8');
         </li>
         <li class="tab-item left">
         	<a class="tab-link" onClick="slideTo(1);">
-        		<span class="tab-name">我填写的</span>
+        		<span class="tab-name">我收藏的</span>
             </a>
         </li>
         <li class="tab-item left">
@@ -82,8 +162,13 @@ header('Content-Type:text/html; charset=utf-8');
 		                    	<a href="manage.php?id='.$rows['form_id'].'"><input class="btn blue" type="button" value="管理"/></a>
 	                    		<a href="#"><input class="btn green" type="button" value="查看"/></a>
 	                		</div>
-	                		<div class="form-status">
-	                   			<img src="images/form-status-on.png" alt="已下架" />
+	                		<div class="form-status">';
+    		if($days>0){
+    			echo '<img src="images/form-status-on.png" alt="已上架" />';
+    		}else{
+    			echo '<img src="images/form-status-off.png" alt="已下架" />';
+    		}
+	        echo '
 	                		</div>
 	                		<div class="img-holder">
 	                    		<div class="fader">';
