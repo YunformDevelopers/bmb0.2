@@ -27,13 +27,25 @@ function msgPopOver(loadContent){
 			},600)//这里的数字是时间
 	});
 }
+/*
+*	msg向下滑出画面，whole-msg-bg渐隐
+*/
 function msgSlideDn(){
 	$(".msg").animate({
 		top:$(window).height()*1.1
 	},500);//这里的数字是时间
 	$("#whole-msg-bg").fadeOut(500);
 }
-
+/*
+*	box向上收起，whole-msg-bg渐隐
+*/
+function boxSlideUp(){
+	$(".box").slideUp();
+	$("#whole-msg-bg").fadeOut(500);
+}
+/*
+*	box的popOver调用函数
+*/
 function aAllMsgPopOver (){
 	//load一个从别的地方拿到的数据
 	$(".box-content").load("msg.php #a-all-msg-content",
@@ -60,10 +72,10 @@ function aAllMsgPopOver (){
 			$("#whole-msg-bg").fadeIn(600);				
 			$(".box").slideDown();//通知框框弹出的动画
 			
-			$("#msg-ok-btn").click(function(){
+			/*$("#msg-ok-btn").click(function(){
 				$(".box").slideUp();
 				$("#whole-msg-bg").fadeOut(500);
-			}) 
+			}) */
 			
 			
 			

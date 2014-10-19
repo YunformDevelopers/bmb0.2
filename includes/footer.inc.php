@@ -15,7 +15,10 @@
 	</div>
     <div id='footer-logo' style="position:relative;">
 		<a onMouseOver="toggleWechatQRcode(this,'show');" onMouseOut="toggleWechatQRcode(this,'hide');"><img src="./images/header-icon/index@2x.png" /></a>
-        <div class="wechat-QR-code"><img src="./images/header-icon/wechat-QR-code.gif" /></div>
+        <div class="wechat-QR-code">
+        	<img src="./images/header-icon/wechat-QR-code.gif" />
+            <p>微信公众号：<b>报名吧</b></p>
+        </div>
         <p>报名吧</p>
         <br />
 	</div>

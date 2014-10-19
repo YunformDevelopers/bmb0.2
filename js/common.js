@@ -1,6 +1,7 @@
 // JavaScript Document
 /* 初始化宽高 */
 $(document).ready(function(){
+	alert("fdsfsd");
 	var myScroll;//负责横向滑动的iscroll对象
 	var innerScroll;//负责移动端纵向滑动的iscroll对象
 	var innerScroll2;
@@ -13,11 +14,29 @@ $(document).ready(function(){
 	loaded();
 	pinTabContainer();
 });
-
-
+/* 改变窗口宽高时重新初始化宽高 */
+window.onresize=function(){
+	/*initSectionWidth ();
+	initContentHeight ();
+	initHeader();
+	initSlideshow ();
+	initDropDown ();
+	pinTabContainer ();*/
+	alert("fdsfsd");
+	var myScroll;//负责横向滑动的iscroll对象
+	var innerScroll;//负责移动端纵向滑动的iscroll对象
+	var innerScroll2;
+	var innerScroll3;//三个标签页意味着三个iscroll对象
+	initSectionWidth ();
+	initContentHeight ();
+	initHeader();
+	initSlideshow ();
+	initDropDown ();
+	loaded();
+	pinTabContainer();
+}
 function loaded () {//在body load完之后执行
 	/* 初始化iscroll对象 */
-	
 	myScroll = new IScroll('#wrapper', {
 		scrollX: true,
 		scrollY: false,
@@ -107,15 +126,6 @@ function loaded () {//在body load完之后执行
 }
 document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);//iscroll的设置
 
-/* 改变窗口宽高时重新初始化宽高 */
-window.onresize=function(){
-	initSectionWidth ();
-	initContentHeight ();
-	initHeader();
-	initSlideshow ();
-	initDropDown ();
-	pinTabContainer ();
-}
 /* 初始化head里面的部分class */
 function initHeader () {
 	/* 这段比较复杂 */
@@ -174,13 +184,13 @@ function initHeader () {
 function initSectionWidth () {
 	var sectionWidth = $(".content-container").css("width");//获得.swipe的宽
 	//$(".section").css("width",sectionWidth);//给section宽度
-	$(".content li").css("width",sectionWidth);
+	$(".content > li").css("width",sectionWidth);
 }
 /* 初始化content-container高度 */
 function initContentHeight () {
 	var contentHeight = ($(window).height()-$("#header").height()-$("#tab-container").height());//计算除去header和tab-container外的高度
 	$(".content-container").css("height",contentHeight);//给content-container高度
-	$(".content li").css("height",contentHeight);
+	$(".content > li").css("height",contentHeight);
 }
 /* 标签页的左右切换 */
 function slideTo (herePos){

@@ -63,7 +63,7 @@ if(!isset($_COOKIE['srtp-username']))
 					</div>
 				</div>
 				<div class="section-body">
-					<div id="graph-card-container">
+<!--					<div id="graph-card-container">
                     	<div class="graph-card now">
                             <div class="card-content">
                             	<ul class="now-kpi-list">
@@ -121,7 +121,7 @@ if(!isset($_COOKIE['srtp-username']))
                             </div>
                     	</div>
                     </div>
-				</div>
+-->				</div>
 			</div>
 		</li>
 		<li class="innerWrapper2">
@@ -206,7 +206,7 @@ if(!isset($_COOKIE['srtp-username']))
 									if(strpos($answer[0],'$_FILES-')===0){
 										$filename=explode('$_FILES-', $answer[0]);
 										echo '
-										<tr class="a-all-msg">
+										<tr class="a-all-msg" onClick="aAllMsgPopOver();">
 	 									<td class="col-1 a-order">
 	 									'.($j++).'
 	 									</td>
@@ -229,7 +229,7 @@ if(!isset($_COOKIE['srtp-username']))
 										$string="";
 										$answer_array=explode('δ',$rows['answer_string']);
 										$answer=explode('γ',$answer_array[intval($question_num)-1]);
-										echo '<tr class="a-all-msg">
+										echo '<tr class="a-all-msg" onClick="aAllMsgPopOver();">
 	 									<td class="col-1 a-order">
 	 									'.($j++).'
 	 									</td>
@@ -281,7 +281,7 @@ if(!isset($_COOKIE['srtp-username']))
 									for($i=0;$i<count($answer)-1;$i++){
 										$string.=$answer[$i].";";
 									}
-									echo '<td class="answer-container matrix-td"  onclick="aAllMsgPopOver ();">
+									echo '<td class="answer-container matrix-td"  onclick="aAllMsgPopOver();">
 		 									<p class="a-content">
 												<a href="#" title="" id="">';
 													echo $string.'
@@ -393,6 +393,8 @@ if(!isset($_COOKIE['srtp-username']))
 	</ul>
 </div>
 
+<div id="whole-msg-bg" onclick="msgSlideDn();boxSlideUp();"><!-- 这里boxSlideUp只在有box的页面调用 -->
+</div>
 <!--以下的bojs的弹出函数，但表现形式有所不同，在需要用到这个box的页面才需要，例如需要预览图片、表格等等-->
 <div class='box'>
 	<div class='box-border'>

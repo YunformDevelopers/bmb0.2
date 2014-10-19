@@ -4,6 +4,7 @@
 	height:300px;
 	background:#FFF;
 	border:solid 1px #999999;
+	display:inline-block;
 }
 #manage-tool,#manage-table, #manage-graph {
 	margin-top:1em;
