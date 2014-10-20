@@ -20,6 +20,7 @@ header('Content-Type:text/html; charset=utf-8');
 <script src="js/css3-mediaqueries.js"></script>
 <script type="text/javascript" src="js/jQuery.js"></script>
 <script type="text/javascript" src="js/jquery.flot.min.js"></script>
+<script type="text/javascript" src="js/jquery.flot.pie.min.js"></script>
 <!--<script type="text/javascript" src="js/jquery-ui-1.10.4.js"></script>-->
 <!--<script type="text/javascript" src="test for Liang/test.js"></script>
 --><script type="text/javascript" src="js/msg.js"></script>
@@ -63,65 +64,73 @@ if(!isset($_COOKIE['srtp-username']))
 					</div>
 				</div>
 				<div class="section-body">
-<!--					<div id="graph-card-container">
-                    	<div class="graph-card now">
-                            <div class="card-content">
-                            	<ul class="now-kpi-list">
-                                	<li>
-                                    	<p class="column-head">当前填写总人数</p>
-                                        <h3>1718</h3>
-                                    </li>
-                                    <li>
-                                    	<span class="column-head">今日新增填写人数</span>
-                                        <span>18</span>
-                                    </li>
-                                </ul>
-                            </div>
-                    	</div>
-                        <div class="graph-card yesterday">
-                            <div class="card-header">
-                            	<h4>昨日关键指标</h4>
-                            </div>
-                            <div class="card-control"></div>
-                            <div class="card-content">
-                            	<ul class="yesterday-kpi-list">
-                                	<li>
-                                    	<span class="column-head">填写人数</span>
-                                        <span>718</span>
-                                    </li>
-                                    <li>
-                                    	<span class="column-head">浏览人数</span>
-                                        <span>78</span>
-                                    </li>
-                                    <li>
-                                    	<span class="column-head">收藏人数</span>
-                                        <span>18</span>
-                                    </li>
-                                </ul>
-                            </div>
-                    	</div>
-                        <div class="graph-card source">
-                            <div class="card-header">
-                            	<h4>流量来源分布</h4>
-                            </div>
-                            <div class="card-control"></div>
-                            <div class="card-content">
-                            	<div class="graph-container">
+					<div id="graph-card-container" class="clear-float">
+						<div class="graph-col">
+                            <div class="graph-card now">
+                                <div class="card-content">
+                                    <ul class="now-kpi-list">
+                                        <li class="now-total-fill">
+                                            <p class="column-head">当前填写总人数</p>
+                                            <h3 class="column-body">1718</h3>
+                                        </li>
+                                        <li class="new-fill">
+                                            <span class="column-head">今日新增填写人数</span>
+                                            <span class="column-body">18</span>
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
-                    	</div>
-                        <div class="graph-card trend">
-                            <div class="card-header">
-                            	<h4>总趋势折线图</h4>
-                            </div>
-                            <div class="card-control"></div>
-                            <div class="card-content">
-                            	<div class="graph-container" id="trend-graph">
+                        </div>
+                        <div class="graph-col">
+                            <div class="graph-card yesterday">
+                                <div class="card-header">
+                                    <h4>昨日关键指标</h4>
+                                </div>
+                                <div class="card-control"></div>
+                                <div class="card-content">
+                                    <ul class="yesterday-kpi-list">
+                                        <li>
+                                            <span class="column-head">新增填写人数</span>
+                                            <span class="column-body">718</span>
+                                        </li>
+                                        <li>
+                                            <span class="column-head">新增浏览人数</span>
+                                            <span class="column-body">78</span>
+                                        </li>
+                                        <li>
+                                            <span class="column-head">新增收藏人数</span>
+                                            <span class="column-body">18</span>
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
-                    	</div>
+                        </div>
+                        <div class="graph-col">
+                            <div class="graph-card source">
+                                <div class="card-header">
+                                    <h4>流量来源分布</h4>
+                                </div>
+                                <div class="card-control"></div>
+                                <div class="card-content">
+                                    <div class="graph-container" id="source-graph" style="width:300px; height:130px;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="graph-col trend">
+                            <div class="graph-card trend">
+                                <div class="card-header">
+                                    <h4>总趋势折线图</h4>
+                                </div>
+                                <div class="card-control"></div>
+                                <div class="card-content">
+                                    <div class="graph-container" id="trend-graph" style="width:800px; height:250px; margin:0 auto;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
--->				</div>
+				</div>
 			</div>
 		</li>
 		<li class="innerWrapper2">

@@ -396,8 +396,9 @@ div{
 	-ms-transform: translateZ(0);
 	-o-transform: translateZ(0);
 	transform: translateZ(0);
+	overflow:auto;
 }
-#scroller li {
+#scroller > li {
 	float:left;
 	overflow:auto;
 }

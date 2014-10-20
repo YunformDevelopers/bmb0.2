@@ -45,6 +45,7 @@ function loaded () {//在body load完之后执行
 		snapSpeed: 400,
 		momentum: false,
 		freeScroll: false,
+		preventDefaultException: { className: /(^|\s)graph-card-container(\s|$)/ },
 	});
 	//滚动完之后执行的函数
 	myScroll.on('scrollEnd', function () {
@@ -121,7 +122,6 @@ function loaded () {//在body load完之后执行
 		});
 		
 	}
-	$('.section-body').css("text-align","justify");
 }
 document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);//iscroll的设置
 

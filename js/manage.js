@@ -74,20 +74,14 @@ $(document).ready(function(){
 	})
 	//图标部分
 	//生成数据
-	var graphData = [{
+	var trendGraphData = [{
 			// Visits
-			data: [ [6, 1300], [7, 1600], [8, 1900], [9, 2100], [10, 2500], [11, 2200], [12, 2000], [13, 1950], [14, 1900], [15, 2000] ],
+			data: [ [10.11, 13], [10.12, 16], [10.13, 19], [10.14, 21], [10.15, 25], [10.16, 22], [10.17, 200], [10.18, 19], [10.19, 19], [10.20, 20] ],
 			color: '#71c73e'
     	}, 
-		{
-			// Returning Visits
-			data: [ [6, 500], [7, 600], [8, 550], [9, 600], [10, 800], [11, 900], [12, 800], [13, 850], [14, 830], [15, 1000] ],
-			color: '#77b7c5',
-			points: { radius: 4, fillColor: '#77b7c5' }
-		}
 	];
 	// Lines
-	$.plot($('#trend-graph'), graphData, {
+	$.plot($('#trend-graph'), trendGraphData, {
 		series: {
 			points: {
 				show: true,
@@ -102,19 +96,83 @@ $(document).ready(function(){
 			color: '#646464',
 			borderColor: 'transparent',
 			borderWidth: 20,
-			hoverable: true
+			hoverable: true,
+			clickable: true
 		},
 		xaxis: {
 			tickColor: 'transparent',
 			tickDecimals: 2
 		},
 		yaxis: {
-			tickSize: 1000
+			//tickSize: 1000
 		}
 	});
+	//生成数据
+	var sourceGraphData = [
+		{ label: "cc98",  data: [[1,10]]},
+		{ label: "微信",  data: [[1,30]]},
+		{ label: "二维码200px",  data: [[1,90]]},
+		{ label: "二维码500px",  data: [[1,70]]},
+		{ label: "人人",  data: [[1,80]]},
+		{ label: "独立链接",  data: [[1,0]]}
+	];
+	// pie
+	$.plot($('#source-graph'), sourceGraphData, {
+		series: {
+			pie : {
+				//innerRadius: 0.5 ,
+				show : true
+			}
+		},
+		grid: {
+			hoverable: true,
+			clickable: true
+		},
+	});	
 	
+	
+	
+	function showTooltip(x, y, contents) {
+		$('<div id="tooltip">' + contents + '</div>').css({
+			top: y - 16,
+			left: x + 20
+		}).appendTo('body').fadeIn();
+	}
+	 
+	var previousPoint = null;
+	$('#trend-graph').bind('plothover', function (event, pos, item) {
+		if (item) {
+			if (previousPoint != item.dataIndex) {
+				previousPoint = item.dataIndex;
+				$('#tooltip').remove();
+				var x = item.datapoint[0],
+					y = item.datapoint[1];
+					showTooltip(item.pageX, item.pageY, '在<b>' + x + '</b>新增填写<b>' + y + '</b>人');
+			}
+		} else {
+			$('#tooltip').remove();
+			previousPoint = null;
+		}
+	});
+	var previousSector = null;
+	$('#source-graph').bind('plothover', function (event, pos, item) {
+		if (item) {
+			if (previousSector != item.seriesIndex) {
+				previousSector = item.seriesIndex;
+				$('#tooltip').remove();
+				var label = item.series.label,
+					number = item.datapoint[1][0][1];
+					percentage = Math.round(item.datapoint[0]);
+					showTooltip(pos.pageX, pos.pageY,  label + '<br />' + number + '个,占<b>' + percentage + '%</b>');
+			}
+		} else {
+			$('#tooltip').remove();
+			previousPoint = null;
+		}
+	});
 
 });
+
 function trBackgroundColor(){
 	var trTotalNumber = $("#answer-field table.list-table tr").length;
 	for(var i=1;i<trTotalNumber;i=i+2){
