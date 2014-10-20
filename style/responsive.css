@@ -72,10 +72,6 @@ MEDIA QUERIES
 		right:240px;
 	}
 	
-	.section-body {
-		padding:0 10% 0 10%;
-	}
-
 }
 
 /* for 750px or less 从这里开始算包括平板在内的触摸手持设备 */
@@ -89,12 +85,6 @@ MEDIA QUERIES
 	}
 	.card .img-holder:hover {
 	-moz-transform:none;-webkit-transform:none;
-	}
-	/* section-body宽度减小，居中 */
-	.section-body {
-		width:250px;
-		padding:0;		
-		margin:0 auto;
 	}
 	#header #search-dropDown {
 		top:121px;
@@ -144,11 +134,6 @@ MEDIA QUERIES
 		right:0;
 		width:100%;
 	}
-	.section-body {
-		width:250px;
-		padding:0;		
-		margin:0 auto;
-	}
 	/*#header {
 		position:fixed;
 		top:0; left:0;
@@ -192,22 +177,33 @@ MEDIA QUERIES
 	}
 }
 
-
-/* for 320px or less 
-@media screen and (max-width: 320px) {
-	.section-body {
-		width:250px;
-		padding:0;		
-		margin:0 auto;
+@media screen and (min-width: 1666px) {
+	.section-col {
+		width:16.6%;
 	}
-	body {
-	width:320px;
+}
+@media screen and (max-width: 1666px) {
+	.section-col {
+		width:20%;
 	}
-	#header {
-		position:fixed;
-		top:0; left:0;
-		z-index:99;
-		width:100%;
+}
+@media screen and (max-width: 1389px) {
+	.section-col {
+		width:25%;
 	}
-}*/
-
+}
+@media screen and (max-width: 1200px) {
+	.section-col {
+		width:33.3%;
+	}
+}
+@media screen and (max-width: 900px) {
+	.section-col {
+		width:50%;
+	}
+}
+@media screen and (max-width: 600px) {
+	.section-col {
+		width:99.9%;
+	}
+}

@@ -75,6 +75,7 @@ header('Content-Type:text/html; charset=utf-8');
 			$hour=intval($hours);
 			$minutes=($hours-$hour)*24;
 			$minute=intval($minutes);
+			echo '<div class="section-col" >';
     		echo '<div class="card my-release" > 
             			<a href="#">
 	                		<div class="form-op">
@@ -102,23 +103,20 @@ header('Content-Type:text/html; charset=utf-8');
 	                    		</div>
 	                		</div>
             			</a>
+					</div>
         			</div>';
     		}
 					?>
-					
-					<div class="card my-release create-new" > 
-						<a href="create.php">
-							<div class="img-holder">
-								<b>+</b>
-								<p>点此创建新表</p>
-							</div>
-						</a>	
-					</div>
-				<!-- 这里是用来使元素左端对齐的 -->
-					<div class='card left-fix'>&nbsp;</div>
-					<div class='card left-fix'>&nbsp;</div>
-					<div class='card left-fix'>&nbsp;</div>
-					<div class='card left-fix'>&nbsp;</div>
+					<div class="section-col">
+                        <div class="card my-release create-new" > 
+                            <a href="create.php">
+                                <div class="img-holder">
+                                    <b>+</b>
+                                    <p>点此创建新表</p>
+                                </div>
+                            </a>	
+                        </div>
+                    </div>
 				</div>
 			</div>
 		</li>
@@ -143,11 +141,6 @@ header('Content-Type:text/html; charset=utf-8');
 						}
 					}
 					?>
-				<!-- 这里是用来使元素左端对齐的 -->
-					<div class='card left-fix'>&nbsp;</div>
-					<div class='card left-fix'>&nbsp;</div>
-					<div class='card left-fix'>&nbsp;</div>
-					<div class='card left-fix'>&nbsp;</div>
 				</div>
 			</div>
 		</li>
@@ -159,29 +152,26 @@ header('Content-Type:text/html; charset=utf-8');
 					</div>
 				</div>
 				<div class="section-body">
-					<div class="card my-browse" > 
-						<a href='#'>
-							<div class="img-holder">
-								<div class="fader">
-									<img src="images/1.jpg" alt="" />
-								</div>
-								<div class="form-name">
-									浙大某个社团网站纳新报名表
-								</div>
-								<div class="img-counter">
-									<div class="counter">
-										<span class="time-left">还有两天</span>
-										<span class="written">14次</span>
-									</div>
-								</div>
-							</div>
-						</a>
-					</div>
-				<!-- 这里是用来使元素左端对齐的 -->
-					<div class='card left-fix'>&nbsp;</div>
-					<div class='card left-fix'>&nbsp;</div>
-					<div class='card left-fix'>&nbsp;</div>
-					<div class='card left-fix'>&nbsp;</div>
+                    <div class="section-col">
+                        <div class="card my-browse" > 
+                            <a href='#'>
+                                <div class="img-holder">
+                                    <div class="fader">
+                                        <img src="images/1.jpg" alt="" />
+                                    </div>
+                                    <div class="form-name">
+                                        浙大某个社团网站纳新报名表
+                                    </div>
+                                    <div class="img-counter">
+                                        <div class="counter">
+                                            <span class="time-left">还有两天</span>
+                                            <span class="written">14次</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
 				</div>
 			</div>
 		</li>

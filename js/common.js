@@ -22,7 +22,6 @@ window.onresize=function(){
 	initSlideshow ();
 	initDropDown ();
 	pinTabContainer ();*/
-	alert("fdsfsd");
 	var myScroll;//负责横向滑动的iscroll对象
 	var innerScroll;//负责移动端纵向滑动的iscroll对象
 	var innerScroll2;

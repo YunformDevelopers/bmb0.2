@@ -414,16 +414,6 @@ div{
 	padding-left:0.5em; 
 }
 
-.h2-line {
-	display:none;
-	z-index:-1;
-	position:absolute;
-	top:0.8em; left:0;
-	width:100%;
-	height:0;
-	border-bottom:#FFF solid 2px;
-	border-top:#d9cfbf solid 2px;
-}
 .section-body {
 	padding:0 5px;
 }
@@ -475,13 +465,8 @@ div{
 	text-align:justify;
 }
 */.section-body {
-	text-align:justify !important;
+	/*text-align:justify !important;
       text-justify:distribute-all-lines;/*ie6-8*/
-}
-.section-body:after {
-	content: "";
-  display: inline-block;
-  width: 100%;
 }
 
 /* 使justify的元素左端对齐 */
@@ -493,13 +478,17 @@ div{
 	overflow:hidden;
 }
 
+.section-col {
+	float:left;
+}
 
 /* 以下代码重用性高 */
 .card { 
-	display:inline-block; 
-	vertical-align:text-top;
 	width:15.125em;  /* 15.125*16=242px */
-	margin:1.8em 4px 0.2em 4px;
+	margin-top:1.8em;
+	margin-bottom:0.2em;
+	margin-left:auto;
+	margin-right:auto;
 }
 .card a:hover {
 	text-decoration:none;

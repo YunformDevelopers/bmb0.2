@@ -60,7 +60,7 @@
 					<div class="h2-line">
 					</div>
 				</div>
-				<div class="section-body">
+				<div class="section-body clear-float">
                 <!-- 我写的css对新生成的DOM元素不能起作用，很奇怪 -->
 					<?php 
 						connect();
@@ -72,23 +72,6 @@
 							}
 						}	
 					?>
-				<!-- 这里是用来使元素左端对齐的 -->
-					<div class='card left-fix'>&nbsp;</div>
-					<div class='card left-fix'>&nbsp;</div>
-					<div class='card left-fix'>&nbsp;</div>
-					<div class='card left-fix'>&nbsp;</div>
-                    <div class='card left-fix'>&nbsp;</div>
-					<div class='card left-fix'>&nbsp;</div>
-					<div class='card left-fix'>&nbsp;</div>
-					<div class='card left-fix'>&nbsp;</div>
-                    <div class='card left-fix'>&nbsp;</div>
-					<div class='card left-fix'>&nbsp;</div>
-					<div class='card left-fix'>&nbsp;</div>
-					<div class='card left-fix'>&nbsp;</div>
-                    <div class='card left-fix'>&nbsp;</div>
-					<div class='card left-fix'>&nbsp;</div>
-					<div class='card left-fix'>&nbsp;</div>
-					<div class='card left-fix'>&nbsp;</div>
 				</div>
 				<div id='content-footer'>
 					<a class = "load-more btn white">点击加载更多</a>
@@ -105,13 +88,7 @@
 					<div class="h2-line">
 					</div>
 				</div>
-				<div class="section-body">
-				<!-- 这里是用来使元素左端对齐的 -->
-					<div class='card left-fix'>&nbsp;</div>
-					<div class='card left-fix'>&nbsp;</div>
-					<div class='card left-fix'>&nbsp;</div>
-					<div class='card left-fix'>&nbsp;</div>
-					<div class='card left-fix'>&nbsp;</div>
+				<div class="section-body clear-float">
 				</div>
 				<div id='content-footer'>
 					<a class = "load-more btn white">点击加载更多</a>
