@@ -499,7 +499,7 @@ div{
 	display:inline-block; 
 	vertical-align:text-top;
 	width:15.125em;  /* 15.125*16=242px */
-	margin:1.8em 0.3em 0.2em 0.3em;
+	margin:1.8em 4px 0.2em 4px;
 }
 .card a:hover {
 	text-decoration:none;
