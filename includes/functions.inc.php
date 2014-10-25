@@ -163,6 +163,7 @@ function save_answer_to_db($string,$id){
 	$array['username']=$_COOKIE['srtp-username'];
 	date_default_timezone_set("Asia/Shanghai");
 	$array['date'] = date("Y-m-d h:i:s");
+	$array['from_where']=$_COOKIE['fromwhere'];
 	insert('answer', $array);
 }
 
@@ -358,8 +359,47 @@ function to_twobit($string){
 	}
 	return $string;
 }
-
-
+function getAllfill($id){
+	connect();
+	//拿到第一天的
+	$sql="select * from question where form_id=".$id;
+	$result=mysql_query($sql);
+	while ($row=mysql_fetch_array($result)){
+		$arg1=explode(' ', $row['Date']);
+	}
+	$date['first']=$arg1[0];
+	//拿到今天的
+	date_default_timezone_set("Asia/Shanghai");
+	$date['today']=date("Y-m-d");
+	//算出其中多少天
+	$date1 = strtotime($date['first']);
+	$date2 = strtotime($date['today']);
+	$days = ceil(abs($date1 - $date2)/86400);
+	//从第一天开始一直往后取
+	for($i=0;$i<=$days;$i++){
+		$date_number[$i]=0;
+	}
+	$sql="select * from answer where form_id=".$id;
+	$result=mysql_query($sql);
+	while($row=mysql_fetch_array($result)){
+		$date2=strtotime($row['date']);
+		$daynum = ceil(abs($date1 - $date2)/86400);
+		$date_number[$daynum-1]++;
+	}
+	$result=date("m-d",strtotime("-".$days." day")).'γ';
+	for($i=0;$i<=$days;$i++){
+		$result.=date("m-d",strtotime("-".($days-$i)." day")).'α'.$date_number[$i].'β';
+	}
+	setcookie('managenumber',$result);
+}
+function getFromall($id){
+	connect();
+	$sql="select * from question where form_id =".id;
+	$result=mysql_query($sql);
+	while($row=mysql_fetch_array($result)){
+		$row['from_where'];
+	}
+}
 
 
 

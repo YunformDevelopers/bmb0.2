@@ -56,6 +56,7 @@ else if(isset($_GET['action'])&&$_GET['action']=='answer'){
 		do_js_alert("感谢您的回答");
 		setcookie('answerStore','',time()-1);
 		setcookie('form_id','',time()-1);
+		setcookie('fromwhere','',time()-1);
 		do_js_link('index.php');
 	}else{
 		/* echo '	
