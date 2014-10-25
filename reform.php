@@ -88,6 +88,23 @@ window.onresize = function() {
 								do_js_alert("您填写过该表，转向您之前填写的表格进行修改");
 								do_js_link('fillanswer.php?id='.$_GET['id']);
 							}else{
+								if(isset($_GET['source'])){
+									$last_page=$_GET['source'];
+								}else{
+									if(isset($_SERVER['HTTP_REFERER'])){
+										$last_page=$_SERVER['HTTP_REFERER'];
+										if(preg_match("/renren/",$last_page)){
+											$last_page='renren';
+										}else if(preg_match("/cc98/",$last_page)){
+											$last_page='cc98';
+										}else{
+											$last_page='other';
+										}
+									}else{
+										$last_page='newpage';
+									}
+								}
+								setcookie('fromwhere',$last_page);
 								$result=mysql_query("select * from question where form_id = '".$_GET['id']."'");
 								$result1=mysql_query("select * from decoration where form_id = '".$_GET['id']."'");
 								while($rows=mysql_fetch_assoc($result)){

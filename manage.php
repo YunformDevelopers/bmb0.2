@@ -71,11 +71,31 @@ if(!isset($_COOKIE['srtp-username']))
                                     <ul class="now-kpi-list">
                                         <li class="now-total-fill">
                                             <p class="column-head">当前填写总人数</p>
-                                            <h3 class="column-body">1718</h3>
+                                            <h3 class="column-body"><?php connect();
+                                            $sql="select * from question where form_id=".$_GET['id'];
+                                            $result=mysql_query($sql);
+                                            while($row=mysql_fetch_array($result)){
+                                            	echo $row['answer_times'];
+                                            }?></h3>
                                         </li>
                                         <li class="new-fill">
                                             <span class="column-head">今日新增填写人数</span>
-                                            <span class="column-body">18</span>
+                                            <span class="column-body"><?php connect();
+                                            $sql="select * from answer where form_id=".$_GET['id'];
+                                            $result=mysql_query($sql);
+                                            date_default_timezone_set("Asia/Shanghai");
+                                            $date['today']=date("Y-m-d");
+                                            $date['yesterday']=date("Y-m-d",strtotime("-1 day"));
+                                            $number['today']=0;
+                                            $number['yesterday']=0;
+                                            while($row=mysql_fetch_array($result)){
+												if(preg_match($date['today'], $row['date'])){
+													$number['today']++;
+												}else if(preg_match($date['yesterday'], $row['date'])){
+													$number['yesterday']++;
+												}
+                                            }
+                                            echo $number['today']?></span>
                                         </li>
                                     </ul>
                                 </div>
@@ -91,7 +111,7 @@ if(!isset($_COOKIE['srtp-username']))
                                     <ul class="yesterday-kpi-list">
                                         <li>
                                             <span class="column-head">新增填写人数</span>
-                                            <span class="column-body">718</span>
+                                            <span class="column-body"><?php echo $number['yesterday'];getAllfill($_GET['id']);?></span>
                                         </li>
                                         <li>
                                             <span class="column-head">新增浏览人数</span>

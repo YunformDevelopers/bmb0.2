@@ -22,15 +22,7 @@
 ?>
 </head>
 <body>
-    <form action="test2.php" method="post">
-        <?php 
-        connect();
-        $result=mysql_query("select * from question");
-        while($rows=mysql_fetch_assoc($result)){
-        	echo $rows['Date'];
-        }
-        ?>
-    </form>
+    <a href="test2.php">跳转到我</a>
 <?php
      include 'includes/footer.inc.php';
 ?>
