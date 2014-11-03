@@ -381,25 +381,31 @@ function getAllfill($id){
 	}
 	$sql="select * from answer where form_id=".$id;
 	$result=mysql_query($sql);
+	$array['cc98']=0;
+	$array['renren']=0;
+	$array['other']=0;
+	$array['newpage']=0;
+	$array['bqr']=0;
+	$array['sqr']=0;
+	$string='';
 	while($row=mysql_fetch_array($result)){
 		$date2=strtotime($row['date']);
 		$daynum = ceil(abs($date1 - $date2)/86400);
 		$date_number[$daynum-1]++;
+		$array[$row['from_where']]++;
 	}
 	$result=date("m-d",strtotime("-".$days." day")).'γ';
 	for($i=0;$i<=$days;$i++){
 		$result.=date("m-d",strtotime("-".($days-$i)." day")).'α'.$date_number[$i].'β';
 	}
-	setcookie('managenumber',$result);
-}
-function getFromall($id){
-	connect();
-	$sql="select * from question where form_id =".id;
-	$result=mysql_query($sql);
-	while($row=mysql_fetch_array($result)){
-		$row['from_where'];
+	foreach($array as $key => $value){
+		$string.=$key.'='.$value.'&';
 	}
+	//得到来自哪里的信息
+	setcookie('managenumber',$result);
+	setcookie('fromwhereall',$string);
 }
+
 
 
 

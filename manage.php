@@ -111,11 +111,16 @@ if(!isset($_COOKIE['srtp-username']))
                                     <ul class="yesterday-kpi-list">
                                         <li>
                                             <span class="column-head">新增填写人数</span>
-                                            <span class="column-body"><?php echo $number['yesterday'];getAllfill($_GET['id']);?></span>
+                                            <span class="column-body"><?php echo $number['yesterday'];getAllfill($_GET['id'])?></span>
                                         </li>
                                         <li>
                                             <span class="column-head">新增浏览人数</span>
-                                            <span class="column-body">78</span>
+                                            <span class="column-body">
+                                            <?php $sql='select * from click where time="'.date("Y-m-d",strtotime("-1 day")).'"'; 
+                                            	$result=mysql_query($sql);
+                                            	echo mysql_affected_rows();
+                                            ?>
+                                            </span>
                                         </li>
                                         <li>
                                             <span class="column-head">新增收藏人数</span>
@@ -130,7 +135,9 @@ if(!isset($_COOKIE['srtp-username']))
                                 <div class="card-header">
                                     <h4>流量来源分布</h4>
                                 </div>
-                                <div class="card-control"></div>
+                                <div class="card-control">
+                                <?php 
+                                ?></div>
                                 <div class="card-content">
                                     <div class="graph-container" id="source-graph" style="width:300px; height:130px;">
                                     </div>

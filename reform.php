@@ -88,6 +88,11 @@ window.onresize = function() {
 								do_js_alert("您填写过该表，转向您之前填写的表格进行修改");
 								do_js_link('fillanswer.php?id='.$_GET['id']);
 							}else{
+								$array['id']=null;
+								date_default_timezone_set("Asia/Shanghai");
+								$array['time'] = date("Y-m-d");
+								$array['form_id']=$_GET['id'];
+								insert('click', $array);
 								if(isset($_GET['source'])){
 									$last_page=$_GET['source'];
 								}else{
@@ -97,7 +102,8 @@ window.onresize = function() {
 											$last_page='renren';
 										}else if(preg_match("/cc98/",$last_page)){
 											$last_page='cc98';
-										}else{
+										}
+										else{
 											$last_page='other';
 										}
 									}else{
