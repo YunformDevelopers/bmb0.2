@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: 2014-10-12 15:47:46
+-- Generation Time: 2014-10-25 17:01:43
 -- 服务器版本： 10.0.10-MariaDB
 -- PHP Version: 5.4.14
 
@@ -27,37 +27,39 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `answer` (
+  `id` int(10) NOT NULL AUTO_INCREMENT,
   `form_id` int(11) NOT NULL,
   `username` text CHARACTER SET utf8 NOT NULL,
   `answer_string` text CHARACTER SET utf8 NOT NULL,
-  `date` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=gbk;
+  `date` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=gbk AUTO_INCREMENT=21 ;
 
 --
 -- 转存表中的数据 `answer`
 --
 
-INSERT INTO `answer` (`form_id`, `username`, `answer_string`, `date`) VALUES
-(1, '', '', '2014-07-30 01:10:10'),
-(1, '', '', '2014-08-07 04:21:03'),
-(1, '', '', '2014-08-20 08:26:45'),
-(5, '', '', '2014-09-02 05:05:33'),
-(5, '', '', '2014-09-02 05:05:39'),
-(5, 'lzxto123-dnf@qq.com', 'fdsf γδundefinedγδfsdfsγδfsdfγδfsdfγδfdsfdsγδfsdfsdγδundefinedγδδ', '2014-09-02 08:41:18'),
-(5, '', '', '2014-09-02 07:00:57'),
-(4, 'lzxto123-dnf@qq.com', '佛挡杀佛γδundefinedγδ丰盛的γδ房顶上γδ发斯蒂芬γδ丰盛的γδ发斯蒂芬γδ', '2014-09-02 08:40:38'),
-(6, 'lzxto123-dnf@qq.com', '佛挡杀佛γδ$_FILES-01-1337934583-2117999.pngγδδ$_FILES-130646391411.jpgγδ', '2014-09-02 09:24:36'),
-(3, 'lzxto123-dnf@qq.com', '佛挡杀佛γδundefinedγδfds γδfdsfγδfsdfγδfsdfsdγδfrdgγδ', '2014-09-02 10:10:04'),
-(7, 'lzxto123-dnf@qq.com', '佛挡杀佛γδundefinedγδfds γδfdsfγδfsdfγδfsdfsdγδfrdgγδ', '2014-09-02 10:25:13'),
-(7, 'lzxto123-dnf@qq.com', '', '2014-09-02 10:25:34'),
-(8, '', '0Î²0Î²0Î²0Î²0Î²Î²0Î²0Î²0Î²0Î²0Î²0Î²0Î²0Î²0Î²0Î²0Î²0Î²0Î²1Î²1Î²0Î²Î²0Î²0Î²1Î²0Î²0Î²0Î²Î²Î²Î²Î²Î²Î²γδ女γδ3120103599γδγδ1888684057222γδlzxto123-dnf@qq.comγδγδγδγδundefinedγδ', '2014-09-04 08:33:44'),
-(10, 'lzxto123-dnf@qq.com', '房顶上γδ男γδ1γδ丰盛的γδ丰盛的γδlzxto1233-@fdwf.comγδ房顶上γδ', '2014-09-18 09:25:55'),
-(11, '404764607@qq.com', '$_FILES-8fe53ccfc93a825c007897750852ba65.δδ', '2014-10-03 03:35:26'),
-(11, '404764607@qq.com', '$_FILES-ceea9e02ca334d24eb1c43abc18afb59.δδ', '2014-10-03 03:40:19'),
-(11, '404764607@qq.com', '$_FILES-07dfb4b61aeb3068f4d4bcdf6145af3a.δδ', '2014-10-03 03:50:29'),
-(12, '404764607@qq.com', 'asdγδ男γδ3120102649γδasdγδasdγδasd@123.comγδqweγδ$_FILES-1d96ec416ff1b38a7da67046359b2f50.jpgδδ', '2014-10-10 01:34:06'),
-(14, '404764607@qq.com', '$_FILES-0f550627868cb1933c1698a6811f4a7d.docδ123γδ男γδ123γδ123γδ123γδ123@123.comγδ123γδδ', '2014-10-10 01:41:41'),
-(21, 'lzxto123-dnf@qq.com', 'fsdγδ男γδ9γδfdsfγδfsγδ12@123.comγδfsdγδ$_FILES-4948f017b68b326f536cb67cc00af6a8.jpgδδ', '2014-10-10 09:58:26');
+INSERT INTO `answer` (`id`, `form_id`, `username`, `answer_string`, `date`) VALUES
+(1, 1, '', '', '2014-07-30 01:10:10'),
+(2, 1, '', '', '2014-08-07 04:21:03'),
+(3, 1, '', '', '2014-08-20 08:26:45'),
+(4, 5, '', '', '2014-09-02 05:05:33'),
+(5, 5, '', '', '2014-09-02 05:05:39'),
+(6, 5, 'lzxto123-dnf@qq.com', 'fdsf γδundefinedγδfsdfsγδfsdfγδfsdfγδfdsfdsγδfsdfsdγδundefinedγδδ', '2014-09-02 08:41:18'),
+(7, 5, '', '', '2014-09-02 07:00:57'),
+(8, 4, 'lzxto123-dnf@qq.com', '佛挡杀佛γδundefinedγδ丰盛的γδ房顶上γδ发斯蒂芬γδ丰盛的γδ发斯蒂芬γδ', '2014-09-02 08:40:38'),
+(9, 6, 'lzxto123-dnf@qq.com', '佛挡杀佛γδ$_FILES-01-1337934583-2117999.pngγδδ$_FILES-130646391411.jpgγδ', '2014-09-02 09:24:36'),
+(10, 3, 'lzxto123-dnf@qq.com', '佛挡杀佛γδundefinedγδfds γδfdsfγδfsdfγδfsdfsdγδfrdgγδ', '2014-09-02 10:10:04'),
+(11, 7, 'lzxto123-dnf@qq.com', '佛挡杀佛γδundefinedγδfds γδfdsfγδfsdfγδfsdfsdγδfrdgγδ', '2014-09-02 10:25:13'),
+(12, 7, 'lzxto123-dnf@qq.com', '', '2014-09-02 10:25:34'),
+(13, 8, '', '0Î²0Î²0Î²0Î²0Î²Î²0Î²0Î²0Î²0Î²0Î²0Î²0Î²0Î²0Î²0Î²0Î²0Î²0Î²1Î²1Î²0Î²Î²0Î²0Î²1Î²0Î²0Î²0Î²Î²Î²Î²Î²Î²Î²γδ女γδ3120103599γδγδ1888684057222γδlzxto123-dnf@qq.comγδγδγδγδundefinedγδ', '2014-09-04 08:33:44'),
+(14, 10, 'lzxto123-dnf@qq.com', '房顶上γδ男γδ1γδ丰盛的γδ丰盛的γδlzxto1233-@fdwf.comγδ房顶上γδ', '2014-09-18 09:25:55'),
+(15, 11, '404764607@qq.com', '$_FILES-8fe53ccfc93a825c007897750852ba65.δδ', '2014-10-03 03:35:26'),
+(16, 11, '404764607@qq.com', '$_FILES-ceea9e02ca334d24eb1c43abc18afb59.δδ', '2014-10-03 03:40:19'),
+(17, 11, '404764607@qq.com', '$_FILES-07dfb4b61aeb3068f4d4bcdf6145af3a.δδ', '2014-10-03 03:50:29'),
+(18, 12, '404764607@qq.com', 'asdγδ男γδ3120102649γδasdγδasdγδasd@123.comγδqweγδ$_FILES-1d96ec416ff1b38a7da67046359b2f50.jpgδδ', '2014-10-10 01:34:06'),
+(19, 14, '404764607@qq.com', '$_FILES-0f550627868cb1933c1698a6811f4a7d.docδ123γδ男γδ123γδ123γδ123γδ123@123.comγδ123γδδ', '2014-10-10 01:41:41'),
+(20, 21, 'lzxto123-dnf@qq.com', 'fsdγδ男γδ9γδfdsfγδfsγδ12@123.comγδfsdγδ$_FILES-4948f017b68b326f536cb67cc00af6a8.jpgδδ', '2014-10-10 09:58:26');
 
 -- --------------------------------------------------------
 
@@ -95,7 +97,8 @@ INSERT INTO `decoration` (`form_id`, `form_expire_time`, `form_number_limit`, `b
 (13, '2014-10-03', 123, '830e4e576f7dfa697a39cf15eee1a347.jpg', '123'),
 (14, '2014-10-12', 200, 'a110d2a7be5eb27dea3f62a75851a3fb.jpg', '123'),
 (20, '2014-10-17', 20, 'a141f2c8e7b9dceca2d23fdfd9cf496f.png', '123'),
-(21, '2014-10-23', 350, '', '');
+(21, '2014-10-23', 350, '', ''),
+(22, '2014-10-14', 1, '', '');
 
 -- --------------------------------------------------------
 
@@ -114,7 +117,7 @@ CREATE TABLE IF NOT EXISTS `question` (
   `click_times` int(11) NOT NULL,
   `answer_times` int(11) NOT NULL,
   PRIMARY KEY (`form_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=gbk AUTO_INCREMENT=22 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=gbk AUTO_INCREMENT=23 ;
 
 --
 -- 转存表中的数据 `question`
@@ -141,7 +144,8 @@ INSERT INTO `question` (`form_id`, `username`, `form_title`, `form_intro`, `ques
 (18, '404764607@qq.com', '请在这里输入报名表的名字', '<p>请在这里输入报名表的说明</p>', '请在这里输入题干内容αfree-singlelineβγrequiredδ姓名αlogic-nameβγrequiredδ性别αlogic-sexβ男γ女γrequiredδ学号αlogic-studentIDβγrequiredδ住址αlogic-addressβγrequiredδ电话长短号αlogic-telβγrequiredδ邮箱αlogic-emailβγrequiredδ专业班级αlogic-classβγrequiredδ', '请在这里输入报名表的注意事项', '2014-10-10 01:56:09', 0, 0),
 (19, '404764607@qq.com', '请在这里输入报名表的名字', '<p>请在这里输入报名表的说明</p>', '请在这里输入题干内容αfree-singlelineβγrequiredδ姓名αlogic-nameβγrequiredδ性别αlogic-sexβ男γ女γrequiredδ学号αlogic-studentIDβγrequiredδ住址αlogic-addressβγrequiredδ电话长短号αlogic-telβγrequiredδ邮箱αlogic-emailβγrequiredδ专业班级αlogic-classβγrequiredδ', '请在这里输入报名表的注意事项', '2014-10-10 01:56:16', 0, 0),
 (20, '404764607@qq.com', '请在这里输入报名表的名字', '<p>请在这里输入报名表的说明</p>', '姓名αlogic-nameβγrequiredδ性别αlogic-sexβ男γ女γrequiredδ学号αlogic-studentIDβγrequiredδ住址αlogic-addressβγrequiredδ电话长短号αlogic-telβγrequiredδ邮箱αlogic-emailβγrequiredδ专业班级αlogic-classβγrequiredδ', '请在这里输入报名表的注意事项', '2014-10-10 01:56:34', 1, 0),
-(21, 'lzxto123-dnf@qq.com', 'fsdf', '<p>请在这里输入报名表的说明</p>', '姓名αlogic-nameβγrequiredδ性别αlogic-sexβ男γ女γrequiredδ学号αlogic-studentIDβγrequiredδ住址αlogic-addressβγrequiredδ电话长短号αlogic-telβγrequiredδ邮箱αlogic-emailβγrequiredδ专业班级αlogic-classβγrequiredδfeαfree-fileβγrequiredδ', '请在这里输入报名表的注意事项', '2014-10-10 09:56:58', 3, 0);
+(21, 'lzxto123-dnf@qq.com', 'fsdf', '<p>请在这里输入报名表的说明</p>', '姓名αlogic-nameβγrequiredδ性别αlogic-sexβ男γ女γrequiredδ学号αlogic-studentIDβγrequiredδ住址αlogic-addressβγrequiredδ电话长短号αlogic-telβγrequiredδ邮箱αlogic-emailβγrequiredδ专业班级αlogic-classβγrequiredδfeαfree-fileβγrequiredδ', '请在这里输入报名表的注意事项', '2014-10-10 09:56:58', 5, 0),
+(22, 'lzxto123-dnf@qq.com', '请在这里输入报名表的名字', '<p>请在这里输入报名表的说明</p>', '姓名αlogic-nameβγrequiredδ性别αlogic-sexβ男γ女γrequiredδ学号αlogic-studentIDβγrequiredδ住址αlogic-addressβγrequiredδ电话长短号αlogic-telβγrequiredδ邮箱αlogic-emailβγrequiredδ专业班级αlogic-classβγrequiredδ', '请在这里输入报名表的注意事项', '2014-10-14 10:14:37', 0, 0);
 
 -- --------------------------------------------------------
 

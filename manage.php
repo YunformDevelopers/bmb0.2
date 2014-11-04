@@ -108,18 +108,18 @@ if(!isset($_COOKIE['srtp-username']))
                                 </div>
                                 <div class="card-control"></div>
                                 <div class="card-content">
-                                    <ul class="yesterday-kpi-list">
-                                        <li>
-                                            <span class="column-head">新增填写人数</span>
-                                            <span class="column-body"><?php echo $number['yesterday'];getAllfill($_GET['id']);?></span>
+                                    <ul class="yesterday-kpi-list clear-float">
+                                        <li class="column">
+                                            <p class="column-head">新增填写人数</p>
+                                            <p class="column-body has-border"><?php echo $number['yesterday'];getAllfill($_GET['id']);?></p>
                                         </li>
-                                        <li>
-                                            <span class="column-head">新增浏览人数</span>
-                                            <span class="column-body">78</span>
+                                        <li class="column">
+                                            <p class="column-head">新增浏览人数</p>
+                                            <p class="column-body has-border">78</p>
                                         </li>
-                                        <li>
-                                            <span class="column-head">新增收藏人数</span>
-                                            <span class="column-body">18</span>
+                                        <li class="column">
+                                            <p class="column-head">新增收藏人数</p>
+                                            <p class="column-body">18</p>
                                         </li>
                                     </ul>
                                 </div>

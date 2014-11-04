@@ -1,7 +1,6 @@
 // JavaScript Document
 /* 初始化宽高 */
 $(document).ready(function(){
-	alert("fdsfsd");
 	var myScroll;//负责横向滑动的iscroll对象
 	var innerScroll;//负责移动端纵向滑动的iscroll对象
 	var innerScroll2;
@@ -16,23 +15,12 @@ $(document).ready(function(){
 });
 /* 改变窗口宽高时重新初始化宽高 */
 window.onresize=function(){
-	/*initSectionWidth ();
-	initContentHeight ();
-	initHeader();
-	initSlideshow ();
-	initDropDown ();
-	pinTabContainer ();*/
-	var myScroll;//负责横向滑动的iscroll对象
-	var innerScroll;//负责移动端纵向滑动的iscroll对象
-	var innerScroll2;
-	var innerScroll3;//三个标签页意味着三个iscroll对象
 	initSectionWidth ();
 	initContentHeight ();
 	initHeader();
 	initSlideshow ();
 	initDropDown ();
-	loaded();
-	pinTabContainer();
+	pinTabContainer ();
 }
 function loaded () {//在body load完之后执行
 	/* 初始化iscroll对象 */

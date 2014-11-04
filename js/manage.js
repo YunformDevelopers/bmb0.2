@@ -120,7 +120,7 @@ $(document).ready(function(){
 	$.plot($('#source-graph'), sourceGraphData, {
 		series: {
 			pie : {
-				//innerRadius: 0.5 ,
+				innerRadius: 0.5 ,
 				show : true
 			}
 		},
