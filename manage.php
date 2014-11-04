@@ -115,7 +115,12 @@ if(!isset($_COOKIE['srtp-username']))
                                         </li>
                                         <li class="column">
                                             <p class="column-head">新增浏览人数</p>
-                                            <p class="column-body has-border">78</p>
+                                            <p class="column-body has-border">
+                                            <?php $sql='select * from click where time="'.date("Y-m-d",strtotime("-1 day")).'"'; 
+                                            	$result=mysql_query($sql);
+                                            	echo mysql_affected_rows();
+                                            ?>
+                                            </p>
                                         </li>
                                         <li class="column">
                                             <p class="column-head">新增收藏人数</p>
@@ -130,7 +135,9 @@ if(!isset($_COOKIE['srtp-username']))
                                 <div class="card-header">
                                     <h4>流量来源分布</h4>
                                 </div>
-                                <div class="card-control"></div>
+                                <div class="card-control">
+                                <?php 
+                                ?></div>
                                 <div class="card-content">
                                     <div class="graph-container" id="source-graph" style="width:300px; height:130px;">
                                     </div>
