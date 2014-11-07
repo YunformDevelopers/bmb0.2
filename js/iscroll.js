@@ -38,15 +38,24 @@ var utils = (function () {
 			target[i] = obj[i];
 		}
 	};
-
+	/*卢智雄2014-11-7添加调整代码*/
+	function addEventFunction(obj,ev,fn,tf){
+		if(obj.attachEvent){
+			//针对IE浏览器
+			obj.attachEvent('on'+ev,fn)
+		}else{
+			//针对FF与chrome
+			obj.addEventListener(ev,fn,tf)
+		}
+	}
 	me.addEvent = function (el, type, fn, capture) {
-		el.addEventListener(type, fn, !!capture);
+		addEventFunction(el, type, fn, !!capture);
 	};
 
 	me.removeEvent = function (el, type, fn, capture) {
-		el.removeEventListener(type, fn, !!capture);
+		addEventFunction(el, type, fn, !!capture);
 	};
-
+	/*卢智雄2014-11-7添加调整代码*/
 	me.prefixPointerEvent = function (pointerEvent) {
 		return window.MSPointerEvent ? 
 			'MSPointer' + pointerEvent.charAt(9).toUpperCase() + pointerEvent.substr(10):

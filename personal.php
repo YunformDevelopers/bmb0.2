@@ -138,7 +138,7 @@ $(document).ready(function(){
 					<div class="h2-line">
 					</div>
 				</div>
-				<div class="section-body">
+				<div class="section-body clear-float">
 					<?php 
 			connect();
     		$result = mysql_query("select * from question where username='".$_COOKIE['srtp-username']."'") or die(mysql_error());
@@ -212,7 +212,7 @@ $(document).ready(function(){
 					<div class="h2-line">
 					</div>
 				</div>
-				<div class="section-body">
+				<div class="section-body clear-float">
 					<?php 
 					connect();
 					$result3=mysql_query("select * from answer where username='".$_COOKIE['srtp-username']."'") or die(mysql_error());
@@ -236,7 +236,7 @@ $(document).ready(function(){
 					<div class="h2-line">
 					</div>
 				</div>
-				<div class="section-body">
+				<div class="section-body clear-float">
                     <div class="section-col">
                         <div class="card my-browse" > 
                             <a href='#'>

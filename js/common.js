@@ -5,12 +5,13 @@ $(document).ready(function(){
 	var innerScroll;//负责移动端纵向滑动的iscroll对象
 	var innerScroll2;
 	var innerScroll3;//三个标签页意味着三个iscroll对象
+	getBrowserType();
 	initSectionWidth ();
 	initContentHeight ();
 	initHeader();
 	initSlideshow ();
 	initDropDown ();
-	loaded();
+	loaded();//初始化iscroll以及一系列为移动端、IE做的优化
 	pinTabContainer();
 });
 /* 改变窗口宽高时重新初始化宽高 */
@@ -22,97 +23,58 @@ window.onresize=function(){
 	initDropDown ();
 	pinTabContainer ();
 }
-function loaded () {//在body load完之后执行
-	/* 初始化iscroll对象 */
-	myScroll = new IScroll('#wrapper', {
-		scrollX: true,
-		scrollY: false,
-		mouseWheel: false,
-		keyBindings: true,
-		snap: 'li',
-		snapSpeed: 400,
-		momentum: false,
-		freeScroll: false,
-		preventDefaultException: { className: /(^|\s)graph-card-container(\s|$)/ },
-	});
-	//滚动完之后执行的函数
-	myScroll.on('scrollEnd', function () {
-		var currentPos = myScroll.currentPage['pageX'];
-		$("#tab-container ul.tab-list").children().removeClass("active");//移除已经存在的active的class
-		$("#tab-container ul.tab-list").children().eq(currentPos).addClass("active");//被点击的父级元素添加active class
-	});
-	//为低版本IE进行优化
-	var isIE = function(ver){
-   		var b = document.createElement('b')
-		b.innerHTML = '<!--[if IE ' + ver + ']><i></i><![endif]-->'
-		return b.getElementsByTagName('i').length === 1//只有IE会读取此类注释里面的内容，导致i的length改变
+/***************************** common.js的主要过程引用的函数 *****************************/
+/***************************** start here *****************************/
+/*检测浏览器版本*/
+function getBrowserType (getType) {
+	if(getType == "IEVersion"){
+		//获取有关IE的版本信息，通过IEVersion获取//返回值int，6-8左右
+		var browserIE=navigator.appName
+		var b_version=navigator.appVersion
+		var version=b_version.split(";");
+		if(browserIE=="Microsoft Internet Explorer"){
+			var trim_Version=version[1].replace(/[ ]/g,"");
+		}
+		if(browserIE=="Microsoft Internet Explorer" && trim_Version=="MSIE8.0"){
+			var IEVersion = 8;//检测IE8
+		}
+		else if(browserIE=="Microsoft Internet Explorer" && trim_Version=="MSIE6.0"){
+			var IEVersion = 6;//检测IE6
+		}
+		return IEVersion;//返回值int，6-8左右
 	}
-	if(isIE(6)||isIE(7)||isIE(8)||isIE(9)||isIE(11)){
-		alert('ciwei IE!!');
-		myScroll.options.useTransform = false;
-	}
-	//获取浏览器的信息
-	var browser = {
-		versions : function() {
-				var u = navigator.userAgent, app = navigator.appVersion;
-				return {//移动终端浏览器版本信息   
-					mobile : !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端  
-				};
-		}(),
-		language : (navigator.browserLanguage || navigator.language).toLowerCase()
-	}
-	//为移动端做设置
-	if (browser.versions.mobile){//是否为移动终端
-		$("body").css("overflow","hidden");
-		$("#slideshow").css("display","none");
-		$("#footer").css("display","none");
-		
-		$("#scroller li").css("overflow","hidden");
-		//为优化性能，去除盒子的阴影
-		$(".card .img-holder").css("box-shadow","none");
-		//为节省流量，去除图片
-		$(".card .img-holder .fader ").css("display","none");
-		$(".card").css("margin","0.5em 0.3em 0.2em 0.3em");
-		$("#my-release .form-op").css("height","52px");
-		$("#my-release .form-op .btn").css({
-			"float":"left",
-			"margin":"14px"
-		});
-		$("#my-release .form-status").css("height","52px");
-		$("#my-release .form-status img").css({
-			"width":"50px",
-			"height":"50px",
-			"margin":"-20px 210px"
-			});
-		/* 初始化content-container高度 */
-		var contentHeight = ($(window).height()-$("#header").height()-$("#tab-container").height());//计算除去header和tab-container外的高度
-		$(".content li").css("height",contentHeight);
-		innerScroll = new IScroll('.innerWrapper',{
-			scrollX: false,
-			scrollY: true,
-			mouseWheel: true,
-			mouseWheelSpeed: 3000000,//测试中
-			preventDefaultException: { className: /(^|\s)formfield(\s|$)/ },
-		});
-		innerScroll2 = new IScroll('.innerWrapper2',{
-			scrollX: false,
-			scrollY: true,
-			mouseWheel: true,
-			bounce:false,//测试中
-			preventDefaultException: { className: /(^|\s)formfield(\s|$)/ },
-		});
-		innerScroll3 = new IScroll('.innerWrapper3',{
-			scrollX: false,
-			scrollY: true,
-			mouseWheel: true,
-			bounce:false,//测试中
-			preventDefaultException: { tagName: /^(INPUT|TEXTAREA|BUTTON|SELECT)$/ },
-		});
-		
+	else if (getType == "isMobile"){
+		//获取浏览器是否为移动端，通过browser.versions.mobile获取//返回值为true或false
+		var browser = {
+			versions : function() {
+					var u = navigator.userAgent, app = navigator.appVersion;
+					return {//移动终端浏览器版本信息   
+						mobile : !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端  
+					};
+			}(),
+		}
+		var isMobile = browser.versions.mobile;
+		return isMobile;//返回值为true或false
 	}
 }
-document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);//iscroll的设置
-
+/* 初始化section宽度 */
+function initSectionWidth () {
+	var sectionWidth = $(".content-container").css("width");//获得.swipe的宽
+	//$(".section").css("width",sectionWidth);//给section宽度
+	$(".content > li").css("width",sectionWidth);
+}
+/* 初始化content-container高度 */
+function initContentHeight () {
+	if(getBrowserType("isMobile")){//是否为移动终端
+		var contentHeight = ($(window).height()-$("#header").height()-$("#tab-container").height());//计算除去header和tab-container外的高度
+	}
+	else {
+		var contentHeight = $(".content > li > .section").height() + 100;//计算内容的高度，并添加100的threshold
+	}
+	//alert(contentHeight);
+	$(".content-container").css("height",contentHeight);//给content-container高度
+	$(".content > li").css("height",contentHeight);
+}
 /* 初始化head里面的部分class */
 function initHeader () {
 	/* 这段比较复杂 */
@@ -144,44 +106,6 @@ function initHeader () {
 		$("#header .header-list").children().eq(4).removeClass("search");
 		$("#header .header-list").children().eq(4).addClass("search-input");	
 	};
-	/*var navNameArr = new Array( "index", "search", "create", "personal", "more") ;
-	for(var i=0;i<navNameArr.length;i++) {
-		var navIth = $("#header .header-list").find("." + navNameArr[i] + " a");
-		var navIthHover = $("#header .header-list").find("." + navNameArr[i] + " a:hover");
-		var navIthActive = $("#header .header-list").find("." + navNameArr[i] + " a:active");
-		var navIthActiveClass = $("#header .header-list").find("." + navNameArr[i] + ".active a");
-		navIth.css({
-			"background-image":"url(images/header-icon/" + navNameArr[i] + ".png)"
-		});
-		navIthHover.css({
-			"background-image":"url(images/header-icon/" + navNameArr[i] + "-hover.png)",
-			"background-color":"red"
-		});
-		navIthActive.css({
-			"background-image":"url(images/header-icon/" + navNameArr[i] + "-active.png)"
-		});
-		navIthActiveClass.css({
-			"background-image":"url(images/header-icon/" + navNameArr[i] + "-active.png)"
-		});
-	}
-	*/
-}
-
-/* 初始化section宽度 */
-function initSectionWidth () {
-	var sectionWidth = $(".content-container").css("width");//获得.swipe的宽
-	//$(".section").css("width",sectionWidth);//给section宽度
-	$(".content > li").css("width",sectionWidth);
-}
-/* 初始化content-container高度 */
-function initContentHeight () {
-	var contentHeight = ($(window).height()-$("#header").height()-$("#tab-container").height());//计算除去header和tab-container外的高度
-	$(".content-container").css("height",contentHeight);//给content-container高度
-	$(".content > li").css("height",contentHeight);
-}
-/* 标签页的左右切换 */
-function slideTo (herePos){
-	myScroll.goToPage(herePos, 0, 500);
 }
 //初始化slideshow高度
 function initSlideshow (){
@@ -236,16 +160,95 @@ function downDrop (id){
 function upDrop (id){
 	$("#" + id + "-dropDown").slideUp();
 }
+function pinTabContainer (){
+	$("#tab-container").pin();
+	$("#tab-container").css("width",$(window).width());//确保宽度为100%
+}
+function loaded () {//在body load完之后执行
+	/* 初始化iscroll对象 */
+	myScroll = new IScroll('#wrapper', {
+		scrollX: true,
+		scrollY: false,
+		mouseWheel: false,
+		keyBindings: true,
+		snap: 'li',
+		snapSpeed: 400,
+		momentum: false,
+		freeScroll: false,
+		preventDefaultException: { className: /(^|\s)graph-card-container(\s|$)/ },
+	});
+	//滚动完之后执行的函数
+	myScroll.on('scrollEnd', function () {
+		var currentPos = myScroll.currentPage['pageX'];
+		$("#tab-container ul.tab-list").children().removeClass("active");//移除已经存在的active的class
+		$("#tab-container ul.tab-list").children().eq(currentPos).addClass("active");//被点击的父级元素添加active class
+	});
+	//为移动端做设置
+	if (getBrowserType("isMobile")){//是否为移动终端
+		$("body").css("overflow","hidden");
+		$("#slideshow").css("display","none");
+		$("#footer").css("display","none");
+		
+		$("#scroller li").css("overflow","hidden");
+		//为优化性能，去除盒子的阴影
+		$(".card .img-holder").css("box-shadow","none");
+		//为节省流量，去除图片
+		$(".card .img-holder .fader ").css("display","none");
+		$(".card").css("margin","0.5em 0.3em 0.2em 0.3em");
+		$("#my-release .form-op").css("height","52px");
+		$("#my-release .form-op .btn").css({
+			"float":"left",
+			"margin":"14px"
+		});
+		$("#my-release .form-status").css("height","52px");
+		$("#my-release .form-status img").css({
+			"width":"50px",
+			"height":"50px",
+			"margin":"-20px 210px"
+			});
+		/* 初始化content-container高度 */
+		var contentHeight = ($(window).height()-$("#header").height()-$("#tab-container").height());//计算除去header和tab-container外的高度
+		$(".content li").css("height",contentHeight);
+		//以下三个为纵向滑动的IScroll对象
+		innerScroll = new IScroll('.innerWrapper',{
+			scrollX: false,
+			scrollY: true,
+			mouseWheel: true,
+			mouseWheelSpeed: 3000000,//测试中
+			preventDefaultException: { className: /(^|\s)formfield(\s|$)/ },
+		});
+		innerScroll2 = new IScroll('.innerWrapper2',{
+			scrollX: false,
+			scrollY: true,
+			mouseWheel: true,
+			bounce:false,//测试中
+			preventDefaultException: { className: /(^|\s)formfield(\s|$)/ },
+		});
+		innerScroll3 = new IScroll('.innerWrapper3',{
+			scrollX: false,
+			scrollY: true,
+			mouseWheel: true,
+			bounce:false,//测试中
+			preventDefaultException: { tagName: /^(INPUT|TEXTAREA|BUTTON|SELECT)$/ },
+		});
+		
+	}
+}
+//document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);//iscroll的设置
+/***************************** common.js的主要过程引用的函数 *****************************/
+/***************************** end here *****************************/
+
+
+/* 标签页的左右切换 */
+function slideTo (herePos){
+	myScroll.goToPage(herePos, 0, 500);
+}
 /* 点击后activate的函数 */
 $('#tab-container .tab-link, #header .head-link').click(function(){
 	$(this).parent("li").parent("ul").find(".active").removeClass("active");//移除已经存在的active的class
 	$(this).parent("li").addClass("active");//被点击的父级元素添加active class
 		
 });
-function pinTabContainer (){
-	$("#tab-container").pin();
-	$("#tab-container").css("width",$(window).width());//确保宽度为100%
-}
 //QR-code的滑上滑下函数
 function toggleWechatQRcode (id , command){
 	$id = $(id);

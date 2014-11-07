@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: 2014-10-25 17:01:43
+-- Generation Time: 2014-11-07 22:47:49
 -- 服务器版本： 10.0.10-MariaDB
 -- PHP Version: 5.4.14
 
@@ -32,6 +32,7 @@ CREATE TABLE IF NOT EXISTS `answer` (
   `username` text CHARACTER SET utf8 NOT NULL,
   `answer_string` text CHARACTER SET utf8 NOT NULL,
   `date` datetime NOT NULL,
+  `from_where` varchar(32) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=gbk AUTO_INCREMENT=21 ;
 
@@ -39,27 +40,40 @@ CREATE TABLE IF NOT EXISTS `answer` (
 -- 转存表中的数据 `answer`
 --
 
-INSERT INTO `answer` (`id`, `form_id`, `username`, `answer_string`, `date`) VALUES
-(1, 1, '', '', '2014-07-30 01:10:10'),
-(2, 1, '', '', '2014-08-07 04:21:03'),
-(3, 1, '', '', '2014-08-20 08:26:45'),
-(4, 5, '', '', '2014-09-02 05:05:33'),
-(5, 5, '', '', '2014-09-02 05:05:39'),
-(6, 5, 'lzxto123-dnf@qq.com', 'fdsf γδundefinedγδfsdfsγδfsdfγδfsdfγδfdsfdsγδfsdfsdγδundefinedγδδ', '2014-09-02 08:41:18'),
-(7, 5, '', '', '2014-09-02 07:00:57'),
-(8, 4, 'lzxto123-dnf@qq.com', '佛挡杀佛γδundefinedγδ丰盛的γδ房顶上γδ发斯蒂芬γδ丰盛的γδ发斯蒂芬γδ', '2014-09-02 08:40:38'),
-(9, 6, 'lzxto123-dnf@qq.com', '佛挡杀佛γδ$_FILES-01-1337934583-2117999.pngγδδ$_FILES-130646391411.jpgγδ', '2014-09-02 09:24:36'),
-(10, 3, 'lzxto123-dnf@qq.com', '佛挡杀佛γδundefinedγδfds γδfdsfγδfsdfγδfsdfsdγδfrdgγδ', '2014-09-02 10:10:04'),
-(11, 7, 'lzxto123-dnf@qq.com', '佛挡杀佛γδundefinedγδfds γδfdsfγδfsdfγδfsdfsdγδfrdgγδ', '2014-09-02 10:25:13'),
-(12, 7, 'lzxto123-dnf@qq.com', '', '2014-09-02 10:25:34'),
-(13, 8, '', '0Î²0Î²0Î²0Î²0Î²Î²0Î²0Î²0Î²0Î²0Î²0Î²0Î²0Î²0Î²0Î²0Î²0Î²0Î²1Î²1Î²0Î²Î²0Î²0Î²1Î²0Î²0Î²0Î²Î²Î²Î²Î²Î²Î²γδ女γδ3120103599γδγδ1888684057222γδlzxto123-dnf@qq.comγδγδγδγδundefinedγδ', '2014-09-04 08:33:44'),
-(14, 10, 'lzxto123-dnf@qq.com', '房顶上γδ男γδ1γδ丰盛的γδ丰盛的γδlzxto1233-@fdwf.comγδ房顶上γδ', '2014-09-18 09:25:55'),
-(15, 11, '404764607@qq.com', '$_FILES-8fe53ccfc93a825c007897750852ba65.δδ', '2014-10-03 03:35:26'),
-(16, 11, '404764607@qq.com', '$_FILES-ceea9e02ca334d24eb1c43abc18afb59.δδ', '2014-10-03 03:40:19'),
-(17, 11, '404764607@qq.com', '$_FILES-07dfb4b61aeb3068f4d4bcdf6145af3a.δδ', '2014-10-03 03:50:29'),
-(18, 12, '404764607@qq.com', 'asdγδ男γδ3120102649γδasdγδasdγδasd@123.comγδqweγδ$_FILES-1d96ec416ff1b38a7da67046359b2f50.jpgδδ', '2014-10-10 01:34:06'),
-(19, 14, '404764607@qq.com', '$_FILES-0f550627868cb1933c1698a6811f4a7d.docδ123γδ男γδ123γδ123γδ123γδ123@123.comγδ123γδδ', '2014-10-10 01:41:41'),
-(20, 21, 'lzxto123-dnf@qq.com', 'fsdγδ男γδ9γδfdsfγδfsγδ12@123.comγδfsdγδ$_FILES-4948f017b68b326f536cb67cc00af6a8.jpgδδ', '2014-10-10 09:58:26');
+INSERT INTO `answer` (`id`, `form_id`, `username`, `answer_string`, `date`, `from_where`) VALUES
+(1, 1, '', '', '2014-07-30 01:10:10', ''),
+(2, 1, '', '', '2014-08-07 04:21:03', ''),
+(3, 1, '', '', '2014-08-20 08:26:45', ''),
+(4, 5, '', '', '2014-09-02 05:05:33', ''),
+(5, 5, '', '', '2014-09-02 05:05:39', ''),
+(6, 5, 'lzxto123-dnf@qq.com', 'fdsf γδundefinedγδfsdfsγδfsdfγδfsdfγδfdsfdsγδfsdfsdγδundefinedγδδ', '2014-09-02 08:41:18', ''),
+(7, 5, '', '', '2014-09-02 07:00:57', ''),
+(8, 4, 'lzxto123-dnf@qq.com', '佛挡杀佛γδundefinedγδ丰盛的γδ房顶上γδ发斯蒂芬γδ丰盛的γδ发斯蒂芬γδ', '2014-09-02 08:40:38', ''),
+(9, 6, 'lzxto123-dnf@qq.com', '佛挡杀佛γδ$_FILES-01-1337934583-2117999.pngγδδ$_FILES-130646391411.jpgγδ', '2014-09-02 09:24:36', ''),
+(10, 3, 'lzxto123-dnf@qq.com', '佛挡杀佛γδundefinedγδfds γδfdsfγδfsdfγδfsdfsdγδfrdgγδ', '2014-09-02 10:10:04', ''),
+(11, 7, 'lzxto123-dnf@qq.com', '佛挡杀佛γδundefinedγδfds γδfdsfγδfsdfγδfsdfsdγδfrdgγδ', '2014-09-02 10:25:13', ''),
+(12, 7, 'lzxto123-dnf@qq.com', '', '2014-09-02 10:25:34', ''),
+(13, 8, '', '0Î²0Î²0Î²0Î²0Î²Î²0Î²0Î²0Î²0Î²0Î²0Î²0Î²0Î²0Î²0Î²0Î²0Î²0Î²1Î²1Î²0Î²Î²0Î²0Î²1Î²0Î²0Î²0Î²Î²Î²Î²Î²Î²Î²γδ女γδ3120103599γδγδ1888684057222γδlzxto123-dnf@qq.comγδγδγδγδundefinedγδ', '2014-09-04 08:33:44', ''),
+(14, 10, 'lzxto123-dnf@qq.com', '房顶上γδ男γδ1γδ丰盛的γδ丰盛的γδlzxto1233-@fdwf.comγδ房顶上γδ', '2014-09-18 09:25:55', ''),
+(15, 11, '404764607@qq.com', '$_FILES-8fe53ccfc93a825c007897750852ba65.δδ', '2014-10-03 03:35:26', ''),
+(16, 11, '404764607@qq.com', '$_FILES-ceea9e02ca334d24eb1c43abc18afb59.δδ', '2014-10-03 03:40:19', ''),
+(17, 11, '404764607@qq.com', '$_FILES-07dfb4b61aeb3068f4d4bcdf6145af3a.δδ', '2014-10-03 03:50:29', ''),
+(18, 12, '404764607@qq.com', 'asdγδ男γδ3120102649γδasdγδasdγδasd@123.comγδqweγδ$_FILES-1d96ec416ff1b38a7da67046359b2f50.jpgδδ', '2014-10-10 01:34:06', ''),
+(19, 14, '404764607@qq.com', '$_FILES-0f550627868cb1933c1698a6811f4a7d.docδ123γδ男γδ123γδ123γδ123γδ123@123.comγδ123γδδ', '2014-10-10 01:41:41', ''),
+(20, 21, 'lzxto123-dnf@qq.com', 'fsdγδ男γδ9γδfdsfγδfsγδ12@123.comγδfsdγδ$_FILES-4948f017b68b326f536cb67cc00af6a8.jpgδδ', '2014-10-10 09:58:26', '');
+
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `click`
+--
+
+CREATE TABLE IF NOT EXISTS `click` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `time` varchar(11) NOT NULL,
+  `form_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=gbk AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 

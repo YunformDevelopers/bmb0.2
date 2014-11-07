@@ -486,10 +486,7 @@ div{
 /* 以下代码重用性高 */
 .card { 
 	width:15.125em;  /* 15.125*16=242px */
-	margin-top:1.8em;
-	margin-bottom:0.2em;
-	margin-left:auto;
-	margin-right:auto;
+	margin: 1.2em auto 0.8em;
 }
 .card a:hover {
 	text-decoration:none;
@@ -536,7 +533,7 @@ div{
 	display:block;
 	color:#777;
 	font-size:0.8em;/*注意下面的em基准变为12.8px */
-	height:2em;
+	margin:0.2em 0 0.5em 0;
 	line-height:2em;
 	vertical-align:text-bottom;
 }
