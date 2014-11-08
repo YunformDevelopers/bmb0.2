@@ -165,13 +165,16 @@ function pinTabContainer (){
 	$("#tab-container").css("width",$(window).width());//确保宽度为100%
 }
 function loaded () {//在body load完之后执行
+	var wrapperClientWidth = 0.9 * $(window).width();
+	alert(wrapperClientWidth);
+	$("#wrapper").width(wrapperClientWidth);
 	/* 初始化iscroll对象 */
 	myScroll = new IScroll('#wrapper', {
 		scrollX: true,
 		scrollY: false,
 		mouseWheel: false,
 		keyBindings: true,
-		snap: 'li',
+		snap: true,//2014-11-08 将'li'改为true
 		snapSpeed: 400,
 		momentum: false,
 		freeScroll: false,
