@@ -165,16 +165,17 @@ function pinTabContainer (){
 	$("#tab-container").css("width",$(window).width());//确保宽度为100%
 }
 function loaded () {//在body load完之后执行
-	var wrapperClientWidth = 0.9 * $(window).width();
-	alert(wrapperClientWidth);
-	$("#wrapper").width(wrapperClientWidth);
+	if(getBrowserType("IEVersion")==8){//若为IE8，则需要为wrapper重新赋宽度，#wrapper是myScroll的一个对象
+		var wrapperClientWidth = 0.9 * $(window).width();
+		$("#wrapper").width(wrapperClientWidth);
+	}
 	/* 初始化iscroll对象 */
 	myScroll = new IScroll('#wrapper', {
 		scrollX: true,
 		scrollY: false,
 		mouseWheel: false,
 		keyBindings: true,
-		snap: true,//2014-11-08 将'li'改为true
+		snap: getBrowserType("IEVersion")==8 ? true : "li",//2014-11-08 将'li'改为true
 		snapSpeed: 400,
 		momentum: false,
 		freeScroll: false,
