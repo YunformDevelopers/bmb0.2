@@ -6,7 +6,7 @@
 	</div>
 	<div id='footer-contact'>
 		<ul>
-			<li>建议反馈</li>
+			<li><a onClick='msgPopOver("msg.php #feedback-msg-content");'>建议反馈</a></li>
 <!--			<li><a id="work-msg">任务流程</li>
 -->			<li><a href="./intro.html">产品介绍</a></li>
 			<li><a href="http://www.miitbeian.gov.cn/">浙ICP备14032397号</a></li>

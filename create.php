@@ -19,6 +19,7 @@ header('Content-Type:text/html; charset=utf-8');
 <script type="text/javascript" src="js/create.js"></script>
 <script type="text/javascript" src="js/cookie.js"></script>
 <script type="text/javascript" src="js/msg.js"></script>
+<script type="text/javascript" src="js/commonNoIscroll.js"></script>
 
 
 <!-- Include the Quill library 

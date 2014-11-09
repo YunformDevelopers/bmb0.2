@@ -14,10 +14,15 @@ header('Content-Type:text/html; charset=utf-8');
 <script type="text/javascript" src="js/jquery.zclip.min.js"></script>
 <script type="text/javascript" src="js/msg.js"></script>
 <script type="text/javascript" src="js/create-3.js"></script>
+<script type="text/javascript" src="js/commonNoIscroll.js"></script>
+
 <style>
 #step-status-set .step-status3 {
 	background:none;
 }
+/*#form-release .QR-code .link-select label {
+	width:50%;
+}*/
 </style>
 <?php
     require 'includes/header.inc.php';
@@ -84,7 +89,7 @@ header('Content-Type:text/html; charset=utf-8');
 			<div id="form-release">
             	<div class="release-method outer-link">
                     <div class="section-header">
-                        <h2>外链</h2>
+                        <h2><b>外链</b></h2>
                         <div class="h2-line">
                         </div>
 					</div>
@@ -103,19 +108,27 @@ header('Content-Type:text/html; charset=utf-8');
                 </div>
                 <div class="release-method QR-code">
                 	<div class="section-header">
-                        <h2>二维码</h2>
+                        <h2><b>二维码</b></h2>
                         <div class="h2-line">
                         </div>
 					</div>
                     <div class="link-select">
-	                    <label title="适用于移动端" ><input name="QR-type" type="radio" checked="checked" value="">200*200</input></label>
-    	                <label title="适用于传单" ><input name="QR-type" type="radio" value="">400*400</input></label>
-                        <label title="适用于海报" ><input name="QR-type" type="radio" value="">800*800</input></label>
-                        <label title="自定义（长宽须相等）" ><input name="QR-type" type="radio" value="">
+	                    <label title="适用于移动端" ><input name="QR-type" type="radio" checked="checked" value=""><b>200*200</b> (适用于移动端)</input></label>
+    	                <label title="适用于传单" ><input name="QR-type" type="radio" value=""><b>400*400</b> (适用于传单)</input></label>
+                        <label title="适用于海报" ><input name="QR-type" type="radio" value=""><b>800*800</b> (适用于海报)</input></label>
+                        <label title="自定义（长宽须相等）" style='margin:0;' ><input name="QR-type" type="radio" value=""></label>
                         	<span>
-                            	<input class="QR-width-customize" onfocus="$(this).prev().attr('checked','checked'); $(this).focus();" type="text" />*<input class="QR-height-customize" type="text" />
-                            </span>自定义（长宽须相等）
-                        </input></label>
+                            	<input class="QR-width-customize" onfocus="" type="text" />*<input class="QR-height-customize" type="text" />
+                                <script>
+                                	function checkNfocus (id) {
+										$id = $(id);
+										if (!($id.prev().attr('checked'))){
+											$id.prev().attr('checked','checked');
+										}
+									}
+                                </script>
+                            </span><b>自定义</b>(长宽须相等)
+                        </input>
                     </div>
                     <div class="link-holder">
                     	<!--<div class="image-holder">

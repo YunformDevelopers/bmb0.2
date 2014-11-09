@@ -388,31 +388,49 @@ if(!isset($_COOKIE['srtp-username']))
 						<a href="#" title="下载已填写的数据的表格">
 							XLS
 						</a>
+                        <p class="tool-info">
+                        下载已填写的数据的表格
+                        </p>
 					</div>
 					<div class="tool" id="manage-rar">
 						<a href="#" title="下载打包的Word文档">
 							RAR
 						</a>
+                        <p class="tool-info">
+                        下载打包的Word文档
+                        </p>
 					</div>
 					<div class="tool" id="manage-txt">
 						<a href="#" title="向联系人群发短信">
 							短信
 						</a>
+                        <p class="tool-info">
+                        向联系人群发短信
+                        </p>
 					</div>
 					<div class="tool" id="manage-zongsu">
 						<a href="#" title="发送申请综素表格">
 							综素
 						</a>
+                        <p class="tool-info">
+                        发送申请综素表格
+                        </p>
 					</div>
 					<div class="tool" id="manage-erke">
 						<a href="#" title="发送申请二课表格">
 							二课
 						</a>
+                        <p class="tool-info">
+                        发送申请二课表格
+                        </p>
 					</div>
 					<div class="tool" id="manage-add">
 						<a href="#" title="发送申请二课表格" id="manage-add-msg">
 							+
 						</a>
+                        <p class="tool-info">
+                        你还需要什么功能？点击这里告诉我们！
+                        </p>
 					</div>
 						<!-- 这里是用来使元素左端对齐的 -->
 					<div class='tool left-fix'>&nbsp;</div>

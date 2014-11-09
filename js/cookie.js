@@ -15,7 +15,9 @@ function SetCookie () {
 	cookieString += formTitle + "ζ";//向cookieString添加报名表的title，末尾加分隔符
 	
 	/*  2.获取formIntro并放到cookieString里   */
-    editor.sync();
+    if(editor){//如果editor有定义，则需要先将其中的值存入特性textarea里的value中
+		editor.sync();
+	}
 	var formIntro = $("#form-intro textarea.edit").val();
 	cookieString += formIntro + "η";//向cookieString添加报名表的intro，末尾加分隔符
 

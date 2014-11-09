@@ -241,6 +241,7 @@ div{
 	background:#fff;
 	top:80px;
 	box-shadow:0px 3px 5px 3px rgba(0,0,0,0.3);
+	border: 1px solid #E0E0E0;
 }
 #header #more-dropDown {
 	width:7em;
@@ -562,6 +563,7 @@ div{
 }
 /* 注意这里要根据实际使用中的名称的长度来进行字体之类的调整 */
 .card .form-name {
+	height: 22px;
 	padding:4px 0 0 6px ;
 	font-weight:bold;
 }

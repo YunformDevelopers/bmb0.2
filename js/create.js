@@ -1,7 +1,25 @@
 $(document).ready(function(){
-	
-
-	autoSave (50000);//每隔50s自动保存一次
+	autoSave (300000);//每隔300s自动保存一次
+	innitDragNSort();
+	initPin ();
+	initFormConstructField ();//注意要在生成了pin之后再执行该语句
+	initEditor ();
+});
+//窗口改变大小时执行的函数
+$(window).resize(function(){
+	initFormConstructField();
+	initEditor ();
+});
+/***************************** create.js的主要过程引用的函数 *****************************/
+/***************************** start here *****************************/
+//自动保存，参数time单位为毫秒
+function autoSave (time){
+	var saveInterval; //调度器对象。
+	saveInterval = setInterval("SetCookie(); toolSaveAct('#tool-save-container a.tool.save');",time);
+	//保存cookie，同时toolSaveAct弹出slidemsg
+}
+//初始化drag和sort部分
+function innitDragNSort (){
     $("#tool-construct-container li").draggable({
         appendTO: "parent",
         cancel: "a.ui-icon",
@@ -83,31 +101,68 @@ $(document).ready(function(){
 		containment: "#tool-construct-container",
 		scroll:true,
     });
-	
-	
-	
-	initPin ();
-	initFormConstructField ();//注意要在生成了pin之后再执行该语句
-	initEditor ();
-	/*var editor = new Quill('#quill-editor',{
-		modules: {
-			'authorship': { authorId: 'galadriel', enabled: true },
-			'multi-cursor': true,
-			'toolbar': { container: '#quill-toolbar' },
-			'link-tooltip': true
-		},
-		theme: 'snow'
-		
-		
+}
+//初始化pin
+function initPin (){
+	$("#tool-field").pin({
+      containerSelector: "#field-wrapper",
 	});
-	editor.addModule('toolbar', { container: '#quill-toolbar' });*/
-	
-});
-//窗口改变大小时执行的函数
-$(window).resize(function(){
-	initFormConstructField();
-	initEditor ();
-});
+}
+//初始化form-construct-field的宽度
+function initFormConstructField (){
+	var fieldWrapperWidth = $("#field-wrapper").width();
+	var toolFieldWidth = $("#tool-field").width();
+	var formConstructFieldWidth = fieldWrapperWidth - toolFieldWidth - 230;
+	//alert (formConstructFieldWidth);
+	$("#form-construct-field").css("width",formConstructFieldWidth);
+}
+//初始化editor
+var editor ;
+function initEditor (){
+	if(   !( (getBrowserType("IEVersion") && (getBrowserType("IEVersion")<=8)) || getBrowserType("isFF") )   ){//判断是否为IE8一下的浏览器
+		var toolbar;
+		toolbar = ['title', 'bold', 'italic', 'underline', 'strikethrough', 'color', '|', 'ol', 'ul', 'blockquote', 'code', 'table', '|', 'link', 'image', 'hr', '|', 'indent', 'outdent'];
+		
+		editor = new Simditor({
+			textarea: $('#simditor'),
+			placeholder: '',
+			tabIndent: false,
+			pasteImage: true,
+			toolbar: toolbar,
+		});
+		$(".simditor-toolbar").hide();
+		$(".simditor-body").addClass("raw");
+		$(".simditor-wrapper .simditor-popover input, .simditor-wrapper .simditor-popover select").attr("onfocus","rawEditor('down')");
+		editor.on('focus',function(e){
+			rawEditor("down");
+		})
+		editor.on('blur',function(e){
+			rawEditor("up");
+		})
+	}
+	//editor.focus(rawEditor());//添加onfocus事件，调用rawEditor函数
+	//editor.blur(rawEditor());
+	/*editor.sync();
+  	var formIntro = $("#form-intro textarea.edit").val();
+	alert(formIntro);*/
+}
+/***************************** common.js的主要过程引用的函数 *****************************/
+/***************************** end here *****************************/
+
+
+//对于editor focus和blur时高度不同
+function rawEditor (command){
+	if(command == "down"){
+		$(".simditor-toolbar").slideDown(300,function(){//隐藏toolbar
+			$(".simditor-body").animate({minHeight:"8em",height:"auto"},300);//增加高度，注意height改为auto
+		});
+	}
+	else if (command == "up"){
+		$(".simditor-toolbar").slideUp(300,function(){//显示toolbar
+			$(".simditor-body").animate({height:"2em",minHeight:"2em"},300);//减小高度
+		});
+	}
+}
 //改变Q-number的值
 function qNumberRefresh (){
 	$("#form-body").children("li:visible").each(function(index){
@@ -236,149 +291,6 @@ function restoreInvisible (){
 function restoreInvisibleOption(){
 	$("#form-body li .q-body").children("span:hidden").fadeIn(500);
 }
-//初始化form-construct-field的宽度
-function initFormConstructField (){
-	var fieldWrapperWidth = $("#field-wrapper").width();
-	var toolFieldWidth = $("#tool-field").width();
-	var formConstructFieldWidth = fieldWrapperWidth - toolFieldWidth - 230;
-	//alert (formConstructFieldWidth);
-	$("#form-construct-field").css("width",formConstructFieldWidth);
-}
-//初始化pin
-function initPin (){
-	$("#tool-field").pin({
-      containerSelector: "#field-wrapper",
-	});
-}
-//初始化editor
-/*function initEditor (){
-	KindEditor.ready(function(K) {
-		K.each({
-			'plug-align' : {
-				name : '对齐方式',
-				method : {
-					'justifyleft' : '左对齐',
-					'justifycenter' : '居中对齐',
-					'justifyright' : '右对齐'
-				}
-			},
-			'plug-order' : {
-				name : '编号',
-				method : {
-					'insertorderedlist' : '数字编号',
-					'insertunorderedlist' : '项目编号'
-				}
-			},
-			'plug-indent' : {
-				name : '缩进',
-				method : {
-					'indent' : '向右缩进',
-					'outdent' : '向左缩进'
-				}
-			}
-		},function( pluginName, pluginData ){
-			var lang = {};
-			lang[pluginName] = pluginData.name;
-			KindEditor.lang( lang );
-			KindEditor.plugin( pluginName, function(K) {
-				var self = this;
-				self.clickToolbar( pluginName, function() {
-					var menu = self.createMenu({
-							name : pluginName,
-							width : pluginData.width || 100
-						});
-					K.each( pluginData.method, function( i, v ){
-						menu.addItem({
-							title : v,
-							checked : false,
-							iconClass : pluginName+'-'+i,
-							click : function() {
-								self.exec(i).hideMenu();
-							}
-						});
-					})
-				});
-			});
-		});
-		K.create('#simditor', {
-			themeType : 'qq',
-			width : '100%',
-			minHeight : '2em',
-			items : [
-				'bold','italic','underline','fontname','fontsize','forecolor','hilitecolor','plug-align','plug-order','plug-indent','link'
-			],
-			afterCreate : function(){
-				$(".ke-toolbar").hide();
-				$(".ke-edit").addClass("raw").addClass("title").addClass("edit");
-				$(".ke-edit").attr("onfocus","rawChange(this)").css("overflow","hidden");
-				$("iframe.ke-edit-iframe").attr("name","ke-edit-iframe");
-			} ,
-			afterFocus : function(){
-				$(".ke-toolbar").slideDown(300,function(){//隐藏toolbar
-					$(".ke-edit-iframe").contents().find(".ke-content").css({
-						"min-height":"8em",
-						"height":"auto"
-						});//增加高度，注意height改为auto
-					$(".ke-edit-iframe ").css("min-height","8em").css("height","auto");
-					$(" .ke-edit").animate({minHeight:"8em",height:"8em"},500);
-					
-				});
-			} ,
-			afterBlur : function(){
-				$(".ke-toolbar").slideUp(300,function(){//隐藏toolbar
-					$(" .ke-edit").animate({minHeight:"2em",height:"2em"},500);
-					$(".ke-edit-iframe").contents().find(".ke-content").css({
-						"min-height":"2em",
-						"height":"2em"
-						});//增加高度，注意height改为auto
-					$(".ke-edit-iframe ").css("min-height","2em").css("height","2em");
-				});
-			},
-		});
-	});
-
-}*/
-//初始化editor
-var editor ;
-function initEditor (){
-	var toolbar;
-	toolbar = ['title', 'bold', 'italic', 'underline', 'strikethrough', 'color', '|', 'ol', 'ul', 'blockquote', 'code', 'table', '|', 'link', 'image', 'hr', '|', 'indent', 'outdent'];
-    
-	editor = new Simditor({
-		textarea: $('#simditor'),
-		placeholder: '',
-		tabIndent: false,
-		pasteImage: true,
-		toolbar: toolbar,
-	});
-	$(".simditor-toolbar").hide();
-	$(".simditor-body").addClass("raw");
-	$(".simditor-wrapper .simditor-popover input, .simditor-wrapper .simditor-popover select").attr("onfocus","rawEditor('down')");
-	editor.on('focus',function(e){
-		rawEditor("down");
-	})
-	editor.on('blur',function(e){
-		rawEditor("up");
-	})
-	//editor.focus(rawEditor());//添加onfocus事件，调用rawEditor函数
-	//editor.blur(rawEditor());
-	/*editor.sync();
-  	var formIntro = $("#form-intro textarea.edit").val();
-	alert(formIntro);*/
-}
-//对于editor focus和blur时高度不同
-function rawEditor (command){
-	if(command == "down"){
-		$(".simditor-toolbar").slideDown(300,function(){//隐藏toolbar
-			$(".simditor-body").animate({minHeight:"8em",height:"auto"},300);//增加高度，注意height改为auto
-		});
-	}
-	else if (command == "up"){
-		$(".simditor-toolbar").slideUp(300,function(){//显示toolbar
-			$(".simditor-body").animate({height:"2em",minHeight:"2em"},300);//减小高度
-		});
-	}
-}
 //滚动到页面底部
 function scrollBottom (){
 	$body = (window.opera) ? (document.compatMode == "CSS1Compat" ? $('html') : $('body')) : $('html,body');// 这行是 Opera 的补丁, 少了它 Opera 是直接用跳的而且画面闪烁 by willin
@@ -400,7 +312,7 @@ function toolSaveAct (id){
 * string tool : 'save' 'uploading' 'success' 'failure' 'unchange'
 * boolean loading : true false
 */
-		var expireTimeOut;
+var expireTimeOut;
 function slideMsgAct ( content, action, bg, tool, loading, expireTime) {
 	//slide出msg
 	if (action == 'open') {
@@ -487,11 +399,47 @@ function switchToolSaveContainerLoading (loading){
 		$('#tool-save-container .loading-64').hide();
 	};
 }
-//自动保存，参数time单位为毫秒
-function autoSave (time){
-	var saveInterval; //调度器对象。
-	saveInterval = setInterval("SetCookie(); toolSaveAct('#tool-save-container a.tool.save');",time);
-	//保存cookie，同时toolSaveAct弹出slidemsg
+/*检测浏览器版本*/
+function getBrowserType (getType) {
+	switch (getType)
+	{
+	case "IEVersion":
+		//获取有关IE的版本信息，通过IEVersion获取//返回值int，6-8左右
+		var browserIE=navigator.appName
+		var b_version=navigator.appVersion
+		var version=b_version.split(";");
+		if(browserIE=="Microsoft Internet Explorer"){
+			var trim_Version=version[1].replace(/[ ]/g,"");
+		}
+		if(browserIE=="Microsoft Internet Explorer" && trim_Version=="MSIE8.0"){
+			var IEVersion = 8;//检测IE8
+		}
+		else if(browserIE=="Microsoft Internet Explorer" && trim_Version=="MSIE7.0"){
+			var IEVersion = 7;//检测IE6
+		}
+		else if(browserIE=="Microsoft Internet Explorer" && trim_Version=="MSIE6.0"){
+			var IEVersion = 6;//检测IE6
+		}
+		return IEVersion;//返回值int，6-8左右
+	break;
+	case "isMobile":
+		//获取浏览器是否为移动端，通过browser.versions.mobile获取//返回值为true或false
+		var browser = {
+			versions : function() {
+					var u = navigator.userAgent, app = navigator.appVersion;
+					return {//移动终端浏览器版本信息   
+						mobile : !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端  
+					};
+			}(),
+		}
+		var isMobile = browser.versions.mobile;
+		return isMobile;//返回值为true或false
+	break;
+	case "isFF":
+		//获取是否为火狐浏览器/返回值为true或false
+		var isFF = navigator.userAgent.indexOf("Firefox") > -1;
+		return isFF;//返回值为true或false
+	break;
+	default:
+	}
 }
-	
-

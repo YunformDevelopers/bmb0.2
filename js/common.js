@@ -5,7 +5,6 @@ $(document).ready(function(){
 	var innerScroll;//负责移动端纵向滑动的iscroll对象
 	var innerScroll2;
 	var innerScroll3;//三个标签页意味着三个iscroll对象
-	getBrowserType();
 	initSectionWidth ();
 	initContentHeight ();
 	initHeader();
@@ -25,38 +24,6 @@ window.onresize=function(){
 }
 /***************************** common.js的主要过程引用的函数 *****************************/
 /***************************** start here *****************************/
-/*检测浏览器版本*/
-function getBrowserType (getType) {
-	if(getType == "IEVersion"){
-		//获取有关IE的版本信息，通过IEVersion获取//返回值int，6-8左右
-		var browserIE=navigator.appName
-		var b_version=navigator.appVersion
-		var version=b_version.split(";");
-		if(browserIE=="Microsoft Internet Explorer"){
-			var trim_Version=version[1].replace(/[ ]/g,"");
-		}
-		if(browserIE=="Microsoft Internet Explorer" && trim_Version=="MSIE8.0"){
-			var IEVersion = 8;//检测IE8
-		}
-		else if(browserIE=="Microsoft Internet Explorer" && trim_Version=="MSIE6.0"){
-			var IEVersion = 6;//检测IE6
-		}
-		return IEVersion;//返回值int，6-8左右
-	}
-	else if (getType == "isMobile"){
-		//获取浏览器是否为移动端，通过browser.versions.mobile获取//返回值为true或false
-		var browser = {
-			versions : function() {
-					var u = navigator.userAgent, app = navigator.appVersion;
-					return {//移动终端浏览器版本信息   
-						mobile : !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端  
-					};
-			}(),
-		}
-		var isMobile = browser.versions.mobile;
-		return isMobile;//返回值为true或false
-	}
-}
 /* 初始化section宽度 */
 function initSectionWidth () {
 	var sectionWidth = $(".content-container").css("width");//获得.swipe的宽
@@ -179,7 +146,7 @@ function loaded () {//在body load完之后执行
 		snapSpeed: 400,
 		momentum: false,
 		freeScroll: false,
-		preventDefaultException: { className: /(^|\s)graph-card-container(\s|$)/ },
+		preventDefaultException: { className: /(^|\s)header(\s|$)/ },//graph-card-container
 	});
 	//滚动完之后执行的函数
 	myScroll.on('scrollEnd', function () {
@@ -243,6 +210,41 @@ function loaded () {//在body load完之后执行
 /***************************** end here *****************************/
 
 
+/*检测浏览器版本*/
+function getBrowserType (getType) {
+	if(getType == "IEVersion"){
+		//获取有关IE的版本信息，通过IEVersion获取//返回值int，6-8左右
+		var browserIE=navigator.appName
+		var b_version=navigator.appVersion
+		var version=b_version.split(";");
+		if(browserIE=="Microsoft Internet Explorer"){
+			var trim_Version=version[1].replace(/[ ]/g,"");
+		}
+		if(browserIE=="Microsoft Internet Explorer" && trim_Version=="MSIE8.0"){
+			var IEVersion = 8;//检测IE8
+		}
+		else if(browserIE=="Microsoft Internet Explorer" && trim_Version=="MSIE7.0"){
+			var IEVersion = 7;//检测IE6
+		}
+		else if(browserIE=="Microsoft Internet Explorer" && trim_Version=="MSIE6.0"){
+			var IEVersion = 6;//检测IE6
+		}
+		return IEVersion;//返回值int，6-8左右
+	}
+	else if (getType == "isMobile"){
+		//获取浏览器是否为移动端，通过browser.versions.mobile获取//返回值为true或false
+		var browser = {
+			versions : function() {
+					var u = navigator.userAgent, app = navigator.appVersion;
+					return {//移动终端浏览器版本信息   
+						mobile : !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端  
+					};
+			}(),
+		}
+		var isMobile = browser.versions.mobile;
+		return isMobile;//返回值为true或false
+	}
+}
 /* 标签页的左右切换 */
 function slideTo (herePos){
 	myScroll.goToPage(herePos, 0, 500);

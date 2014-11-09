@@ -139,6 +139,7 @@ form-construct-field里面，分为form-title,form-intro，form-body，具体看
 	position:absolute;
 	right:18px; top:22px;
 	width:16px; height:16px;
+	text-decoration:none;
 }
 #tool-construct-container {
 	text-align:center;
@@ -147,22 +148,24 @@ form-construct-field里面，分为form-title,form-intro，form-body，具体看
 #tool-construct-container .ui-draggable {
 	border:solid 1px #CCC;
 }
-#tool-container-bg {
+#tool-container-bg, #tool-container-side {
 	position:absolute;
+	height:100%;
+	padding-bottom:10px;
+	top:0; left:2%;
+}
+#tool-container-bg {
 	background:#999 ;
 	width:96%;
-	height:110%;
-	top:0; left:2%;
 	z-index:-1;
+	border-radius: 0px 0px 3px 3px;
 }
 #tool-container-side {
-	position:absolute;
 	background:rgba(51,51,51,0.5);
 	width:20%;
-	height:110%;
-	top:0; left:2%;
 	border-right:#de473a solid 2px;
 	box-shadow:inset rgba(255,255,255,0.5) 0px 5px 5px;
+	border-radius: 0px 0px 0px 3px;
 	z-index:18;
 }
 #tool-construct-container h4{
@@ -198,7 +201,7 @@ form-construct-field里面，分为form-title,form-intro，form-body，具体看
 	background:#FFF;
 	margin:8px 0;
 	box-shadow: 0px 3px 3px #555;
-	border-radius:1px;
+	border-radius:2px;
 	cursor:move;
 	z-index:16;
 }
@@ -279,8 +282,8 @@ form-construct-field里面，分为form-title,form-intro，form-body，具体看
 	float:right;
 	margin:1em 2em 0 2em;
 	background:#fff;
-	border-radius:;
-	padding:3em;
+	border-radius:5px;
+	padding:54px;
 	overflow:visible;
 }
 #form-construct-field-test{
@@ -438,8 +441,11 @@ form-construct-field里面，分为form-title,form-intro，form-body，具体看
 	font-size:16px;
 	font-weight:bold;
 }
+.release-method .link-select {
+	margin:0.5em 0;
+}
 .release-method .link-select label {
-	margin-right:1em;
+	margin-right:1.75em;
 }
 .release-method .method-tip {
 	font-size:14px;

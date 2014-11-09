@@ -52,7 +52,30 @@
          <a href="#" id="register-msg" onClick="msgPopOver('msg.php #register-msg-content')" >还没有账号？10秒快速注册</a>
      </div>
 </div>
-
+<div id="feedback-msg-content">
+	<div class="left">
+        <h3>建议反馈</h3>
+            <form name="" method="post" action="index.php">
+                <ul>
+                    <li class="title">标题</li>
+                    <li class="body"><input type="text" style="width:96.5%" name="title" class="text" /></li>
+                    <li class="title">正文 *</li>
+                    <li class="body"><textarea style="width:97%;resize:vertical;" type="text" required="required" name="content" class="text" ></textarea></li>
+                    <li class="title">QQ 微信 邮箱等<span style="font-size:12px;">(我们会将您的建议的处理情况告诉您，除此之外不会以别的方式使用您的信息)</span></li>
+                    <li class="body"><input type="text" name="contact" class="text" /></li>
+                    <li class="submit"><input  type="submit" onclick="msgPopOver('msg.php #feedbackSuccess-msg-content')"  class="submit btn red" value="提交" /></li>
+                </ul>
+            </form>
+     </div>
+</div>
+<div id="feedbackSuccess-msg-content">
+	<div class="left">
+        <h3>多谢您的建议！</h3>
+            <ul>
+                <li class="submit"><input onclick="msgSlideDn();" type="submit"  class="submit btn red" value="好的" /></li>
+            </ul>
+     </div>
+</div>
 <div id="after-fill-register-msg-content">
 	<div class="left">
         <h3>注册</h3>
