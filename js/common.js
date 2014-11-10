@@ -12,6 +12,7 @@ $(document).ready(function(){
 	initDropDown ();
 	loaded();//初始化iscroll以及一系列为移动端、IE做的优化
 	pinTabContainer();
+	//document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
 });
 /* 改变窗口宽高时重新初始化宽高 */
 window.onresize=function(){
@@ -25,10 +26,12 @@ window.onresize=function(){
 /***************************** common.js的主要过程引用的函数 *****************************/
 /***************************** start here *****************************/
 /* 初始化section宽度 */
-function initSectionWidth () {
-	var sectionWidth = $(".content-container").css("width");//获得.swipe的宽
+function initSectionWidth () {//TO DO width remain to be figured out
+//	var sectionWidth = document.getElementById("wrapper").clientWidth;//获得.swipe的宽
+	var wrapperWidth = Math.round(0.9 * $(window).width());
+	$("#wrapper").width(wrapperWidth);
 	//$(".section").css("width",sectionWidth);//给section宽度
-	$(".content > li").css("width",sectionWidth);
+	$(".content > li").css("width",wrapperWidth);
 }
 /* 初始化content-container高度 */
 function initContentHeight () {
@@ -142,11 +145,11 @@ function loaded () {//在body load完之后执行
 		scrollY: false,
 		mouseWheel: false,
 		keyBindings: true,
-		snap: getBrowserType("IEVersion")==8 ? true : "li",//2014-11-08 将'li'改为true
+		snap: true,//2014-11-08 将'li'改为truegetBrowserType("IEVersion")==8 ? true : 
 		snapSpeed: 400,
 		momentum: false,
 		freeScroll: false,
-		preventDefaultException: { className: /(^|\s)header(\s|$)/ },//graph-card-container
+		//preventDefaultException: { className: /(^|\s)header(\s|$)/ },//graph-card-container
 	});
 	//滚动完之后执行的函数
 	myScroll.on('scrollEnd', function () {

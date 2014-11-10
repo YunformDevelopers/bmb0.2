@@ -1,8 +1,7 @@
 <?php
 include_once 'includes.inc.php';
 if(isset($_POST['username'])&&isset($_POST['password'])){
-     @mysql_connect('localhost','srtp-lzx','srtp-lzx');
-	 @mysql_select_db('srtp-lzx') or die(mysql_error());
+    connect();
      $result = fetchOne("select * from _user where username='".$_POST['username']."'");
 	 if(count($result)!=0){
 	     if($result['password']==$_POST['password']){

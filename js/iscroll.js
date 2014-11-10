@@ -48,14 +48,30 @@ var utils = (function () {
 			obj.addEventListener(ev,fn,tf)
 		}
 	}
+	function removeEventFunction(obj,ev,fn,tf){
+		if(obj.detachEvent){
+			//针对IE浏览器
+			obj.detachEvent('on'+ev,fn)
+		}else{
+			//针对FF与chrome
+			obj.removeEventListener(ev,fn,tf)
+		}
+	}
 	me.addEvent = function (el, type, fn, capture) {
 		addEventFunction(el, type, fn, !!capture);
 	};
 
 	me.removeEvent = function (el, type, fn, capture) {
-		addEventFunction(el, type, fn, !!capture);
+		removeEventFunction(el, type, fn, !!capture);
 	};
 	/*卢智雄2014-11-7添加调整代码*/
+	/*me.addEvent = function (el, type, fn, capture) {
+		el.addEventListener(type, fn, !!capture);
+	};
+
+	me.removeEvent = function (el, type, fn, capture) {
+		el.removeEventListener(type, fn, !!capture);
+	};*/
 	me.prefixPointerEvent = function (pointerEvent) {
 		return window.MSPointerEvent ? 
 			'MSPointer' + pointerEvent.charAt(9).toUpperCase() + pointerEvent.substr(10):

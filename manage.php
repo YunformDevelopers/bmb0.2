@@ -110,21 +110,21 @@ if(!isset($_COOKIE['srtp-username']))
                                 <div class="card-content">
                                     <ul class="yesterday-kpi-list clear-float">
                                         <li class="column">
-                                            <p class="column-head">新增填写人数</p>
                                             <p class="column-body has-border"><?php echo $number['yesterday'];getAllfill($_GET['id']);?></p>
+                                            <p class="column-head">新增填写人数</p>
                                         </li>
                                         <li class="column">
-                                            <p class="column-head">新增浏览人数</p>
                                             <p class="column-body has-border">
                                             <?php $sql='select * from click where time="'.date("Y-m-d",strtotime("-1 day")).'"'; 
                                             	$result=mysql_query($sql);
                                             	echo mysql_affected_rows();
                                             ?>
                                             </p>
+                                            <p class="column-head">新增浏览人数</p>
                                         </li>
                                         <li class="column">
+                                            <p class="column-body">0</p>
                                             <p class="column-head">新增收藏人数</p>
-                                            <p class="column-body">18</p>
                                         </li>
                                     </ul>
                                 </div>
@@ -133,7 +133,7 @@ if(!isset($_COOKIE['srtp-username']))
                         <div class="graph-col">
                             <div class="graph-card source">
                                 <div class="card-header">
-                                    <h4>流量来源分布</h4>
+                                    <h4>流量来源分布(<i>建设中</i>)</h4>
                                 </div>
                                 <div class="card-control">
                                 <?php 
@@ -147,7 +147,7 @@ if(!isset($_COOKIE['srtp-username']))
                         <div class="graph-col trend">
                             <div class="graph-card trend">
                                 <div class="card-header">
-                                    <h4>总趋势折线图</h4>
+                                    <h4>总趋势折线图(<i>建设中</i>)</h4>
                                 </div>
                                 <div class="card-control"></div>
                                 <div class="card-content">
@@ -385,51 +385,51 @@ if(!isset($_COOKIE['srtp-username']))
 				</div>
 				<div class="section-body" unselectable="on" onselectstart="return false;" style="-moz-user-select:none;">
 					<div class="tool" id="manage-xls">
-						<a href="#" title="下载已填写的数据的表格">
+						<a class="tool-btn" href="#" title="下载已填写的数据的表格">
 							XLS
 						</a>
                         <p class="tool-info">
-                        下载已填写的数据的表格
+                        下载已填写的数据的表格<br /><br />
                         </p>
 					</div>
 					<div class="tool" id="manage-rar">
-						<a href="#" title="下载打包的Word文档">
+						<a class="tool-btn" href="#" title="下载打包的Word文档">
 							RAR
 						</a>
                         <p class="tool-info">
-                        下载打包的Word文档
+                        下载打包的Word文档<br /><br />
                         </p>
 					</div>
 					<div class="tool" id="manage-txt">
-						<a href="#" title="向联系人群发短信">
+						<a class="tool-btn" href="#" title="向联系人群发短信">
 							短信
 						</a>
                         <p class="tool-info">
-                        向联系人群发短信
+                        向联系人群发短信<br /><a style="color:#F00;" href="fetion-tutorial.html" title="飞信批量加好友教程">飞信批量加好友教程</a><br />
                         </p>
 					</div>
 					<div class="tool" id="manage-zongsu">
-						<a href="#" title="发送申请综素表格">
+						<a class="tool-btn" href="#" title="发送申请综素表格">
 							综素
 						</a>
                         <p class="tool-info">
-                        发送申请综素表格
+                        发送申请综素表格<br /><br /><br />
                         </p>
 					</div>
 					<div class="tool" id="manage-erke">
-						<a href="#" title="发送申请二课表格">
+						<a class="tool-btn" href="#" title="发送申请二课表格">
 							二课
 						</a>
                         <p class="tool-info">
-                        发送申请二课表格
+                        发送申请二课表格<br /><br /><br />
                         </p>
 					</div>
 					<div class="tool" id="manage-add">
-						<a href="#" title="发送申请二课表格" id="manage-add-msg">
+						<a class="tool-btn" href="#" title="发送申请二课表格" id="manage-add-msg">
 							+
 						</a>
                         <p class="tool-info">
-                        你还需要什么功能？点击这里告诉我们！
+                        你还需要什么功能？<a style="color:#F00;" onclick='msgPopOver("msg.php #feedback-msg-content");'>点击这里</a>告诉我们！<br />
                         </p>
 					</div>
 						<!-- 这里是用来使元素左端对齐的 -->

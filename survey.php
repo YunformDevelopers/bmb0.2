@@ -235,8 +235,7 @@ window.onresize = function() {
         </div>
     </div>
 	<div id="footer" class="form-footer">
-		<p>Powered by 报名吧</p>
-		<p>由于网站还在开发，不能提供最佳的用户体验，希望您能理解！</p>
+		<p>Powered by <a href="index.php">报名吧</a></p>
 	</div>
     <div id="whole-msg-bg" onclick="msgSlideDn();">
     </div>

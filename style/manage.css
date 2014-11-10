@@ -10,7 +10,7 @@
 #manage-graph .graph-card {
 	width:90%;
 	margin:0 auto;
-	height:150px;
+	height:160px;
 	background:#FFF;
 	border: 2px solid #EEE;
 	border-radius:3px;
@@ -51,7 +51,7 @@
 #manage-graph .graph-card.yesterday .column {
 	text-align:center;
 	float:left;
-	margin-top:20px;
+	margin-top:30px;
 	width:33.3%;
 }
 #manage-graph .graph-card.yesterday .column-head {
@@ -60,7 +60,7 @@
 #manage-graph .graph-card.yesterday .column-body {
 	font-weight:bold;
 	font-size:30px;
-	margin:10px 0;
+	margin:0px 0px 20px 0;
 }
 #manage-graph .graph-card.yesterday .column-body.has-border {
 	border-right: solid 1px #eee;
@@ -72,11 +72,11 @@
 	padding-top:20px;
 }
 #manage-tool .tool {
-	margin:16px 48px 0 48px; /* 间距可调节 */
-	width:80px;
+	margin:16px 28px 0 28px; /* 间距可调节 */
+	width:120px;
 	display:inline-block;
 }
-#manage-tool .tool a {
+#manage-tool .tool .tool-btn {
 	font-size:20px;
 	line-height:80px;
 	text-align:center;
@@ -88,37 +88,43 @@
 	transition:all ease-out 0.5s;
 	border-radius:8px;
 }
-#manage-tool .tool a:hover {
+#manage-tool .tool .tool-btn:hover {
 	text-decoration:none;
 }
-#manage-xls a {
+#manage-tool .tool-info {
+	text-align: center;
+	height: 80px;
+	font-size: 14px;
+	margin-top: 1em;
+}
+#manage-xls .tool-btn {
 	background:#278651;
 }
-#manage-xls a:hover {
+#manage-xls .tool-btn:hover {
 	background:#185433;
 }
-#manage-rar a {
+#manage-rar .tool-btn {
 	background:#0477ad;
 }
-#manage-rar a:hover {
+#manage-rar .tool-btn:hover {
 	background:#0c5276;
 }
-#manage-txt a {
+#manage-txt .tool-btn {
 	background:#f39c12;
 }
-#manage-txt a:hover {
+#manage-txt .tool-btn:hover {
 	background:#d38811;
 }
-#manage-zongsu a {
+#manage-zongsu .tool-btn {
 	background:#e74c3c;
 }
-#manage-zongsu a:hover {
+#manage-zongsu .tool-btn:hover {
 	background:#c24134;
 }
-#manage-erke a {
+#manage-erke .tool-btn {
 	background:#9b59b6;
 }
-#manage-erke a:hover {
+#manage-erke .tool-btn:hover {
 	background:#6f4083;
 }
 #manage-add #manage-add-msg {
