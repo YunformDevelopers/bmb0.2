@@ -46,7 +46,9 @@ a:hover {
 }
 /* 清除btn的样式 */
 .btn {
-	width:50px;
+	/*width:50px;*/
+	width:auto;
+	padding:0px 5px;
 	height:25px;
 	cursor:pointer;
 	color:#fff;

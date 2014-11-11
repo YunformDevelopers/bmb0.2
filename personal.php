@@ -118,7 +118,7 @@ $(document).ready(function(){
         </li>
         <li class="tab-item left">
         	<a class="tab-link" onClick="slideTo(1);">
-        		<span class="tab-name">我收藏的</span>
+        		<span class="tab-name">我填写的</span>
             </a>
         </li>
         <li class="tab-item left">

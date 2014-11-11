@@ -76,6 +76,32 @@
             </ul>
      </div>
 </div>
+<div id="after-fill-login-msg-content">
+	<div class="left">
+        <h3>登录</h3>
+            <p><b>恭喜您，报名表填写成功！</b></p>
+            <p><i>现在登录您可以保存您这次填写的报名表信息！</i></p>
+            <?php 
+            if(isset($_COOKIE['form_id']))echo '<form name="" method="post" action="formaction.php?action=register_answer&id="'.$_COOKIE['form_id'].'>';
+            else exit();?><!-- action注意更改 -->
+            	<!-- 在这里放hidden字段 -->
+                <ul>
+                    <li class="title">邮箱</li>
+                    <li class="body"><input type="text" required="required" name="username" class="text" /></li>
+                    <li class="title">密码</li>
+                    <li class="body"><input type="password" required="required" name="password" class="text" /></li>
+                    <li class="remember-me"><label><input checked="checked" type="checkbox" />记住我</label><input type="submit"  class="submit btn red" value="登录" /></li>
+                </ul>
+            </form>
+     </div>
+     <div class="right">
+         <!--<div class="zju-passport">
+            <a href="#">浙大通行证登录</a>
+         </div>-->
+         <a href="#" id="after-fill-register-msg" onClick="msgPopOver('msg.php #after-fill-register-msg-content')" >还没有账号？10秒快速注册</a>
+     </div>
+</div>
+
 <div id="after-fill-register-msg-content">
 	<div class="left">
         <h3>注册</h3>
@@ -100,7 +126,7 @@
          <!--<div class="zju-passport">
             <a href="#">浙大通行证登录</a>
          </div>-->
-         <a href="#" id="after-fill-login-msg" onClick="afterFillLoginMsgPopOver()" >已有账号？快速登录</a>
+         <!--<a href="#" id="after-fill-login-msg" onClick="msgPopOver('msg.php #after-fill-login-msg-content')" >已有账号？快速登录</a>-->
      </div>
 </div>
 <div id="a-all-msg-content">
