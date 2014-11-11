@@ -27,10 +27,10 @@ header('Content-Type:text/html; charset=utf-8');
 <?php
     require 'includes/header.inc.php';
 	
-    //if(!isset($_COOKIE['srtp-username'])){
-    	//do_js_alert('请先登录');
-    	//do_js_link('index.php');
-    //}
+    if(!isset($_COOKIE['srtp-username'])){
+    	do_js_alert('请先登录');
+    	do_js_link('index.php');
+    }
 ?>
 </head>
 <body>
@@ -53,7 +53,7 @@ header('Content-Type:text/html; charset=utf-8');
 	<div id="field-wrapper">
 		<div id="tool-field" unselectable="on" onselectstart="return false;" style="-moz-user-select:none;">
 			<div class="card" > 
-				<a href='#'>
+				<a target="new" href="<?php echo 'http://www.123bmb.com/reform.php?id='.$_GET['id']; ?>">
 					<div class="img-holder">
 						<div class="fader">
 							<?php
@@ -99,26 +99,27 @@ header('Content-Type:text/html; charset=utf-8');
                     </div>
                     <div class="link-holder">
                     	<!-- 长短链接放在这里 -->
-                    	<input type="hidden" id="php-short-link" value="<?php //echo make_short_url("http://www.dmedia.zju.edu.cn/srtp/lzx/reform.php?id=".$_GET['id']); ?>"/>
-                        <input type="hidden" id="php-long-link" value="<?php echo 'http://www.dmedia.zju.edu.cn/srtp/lzx/reform.php?id='.$_GET['id']; ?>" />
+                    	<input type="hidden" id="php-short-link" value="<?php //echo make_short_url("http://www.123bmb.com/reform.php?id=".$_GET['id']); ?>"/>
+                        <input type="hidden" id="php-long-link" value="<?php echo 'http://www.123bmb.com/reform.php?id='.$_GET['id']; ?>" />
                         <!-- 长短链接结束 -->
-                    	<input type="text" class="link-container" value="<?php //echo make_short_url("http://www.dmedia.zju.edu.cn/srtp/lzx/reform.php?id=".$_GET['id']); ?>" />
+                    	<input type="text" class="link-container" value="<?php //echo make_short_url("http://www.123bmb.com/reform.php?id=".$_GET['id']); ?>" />
                         <input type="button" id="outer-link-copy" class="btn green" value="复制" />
                     </div>
                 </div>
                 <div class="release-method QR-code">
                 	<div class="section-header">
-                        <h2><b>二维码</b></h2>
+                        <h2><b>二维码</b><i>右键->图像另存为</i></h2>
                         <div class="h2-line">
                         </div>
 					</div>
                     <div class="link-select">
-	                    <label title="适用于移动端" ><input name="QR-type" type="radio" checked="checked" value=""><b>200*200</b> (适用于移动端)</input></label>
-    	                <label title="适用于传单" ><input name="QR-type" type="radio" value=""><b>400*400</b> (适用于传单)</input></label>
-                        <label title="适用于海报" ><input name="QR-type" type="radio" value=""><b>800*800</b> (适用于海报)</input></label>
+	                    <label title="适用于移动端" ><input name="QR-type" type="radio" checked="checked" onfocus="fillQR(200);" value="200"><b>200*200</b> (适用于移动端)</input></label>
+    	                <label title="适用于传单" ><input name="QR-type" type="radio" onfocus="fillQR(400);" value="400"><b>400*400</b> (适用于传单)</input></label>
+                        <label title="适用于海报" ><input name="QR-type" type="radio" onfocus="fillQR(800);" value="800"><b>800*800</b> (适用于海报)</input></label>
                         <label title="自定义（长宽须相等）" style='margin:0;' ><input name="QR-type" type="radio" value=""></label>
                         	<span>
                             	<input class="QR-width-customize" onfocus="" type="text" />*<input class="QR-height-customize" type="text" />
+                                <input type="hidden" id="formIdContainer" value="<?php echo $_GET['id'];?>" />
                                 <script>
                                 	function checkNfocus (id) {
 										$id = $(id);
@@ -131,10 +132,11 @@ header('Content-Type:text/html; charset=utf-8');
                         </input>
                     </div>
                     <div class="link-holder">
-                    	<!--<div class="image-holder">
-							<image type="text" class="link-container" value="http://127.0.0.1/formcloud/create-3.php" />
-						</div>-->
-                        <input type="button" class="btn green" value="下载" />
+                    	<div class="image-holder">
+							<a id="QRlink" target="new" >
+                            <image id="QRimg" type="text" class="link-container" /></a>
+						</div>
+                        <!--<input type="button" class="btn green" value="下载" />-->
                     </div>
                 </div>
 <!--                <div class="release-method embed">

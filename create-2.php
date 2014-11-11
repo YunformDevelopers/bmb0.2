@@ -55,11 +55,11 @@ header('Content-Type:text/html; charset=utf-8');
 </style>
 
 <?php
-    require 'includes/header.inc.php';/*
+    require 'includes/header.inc.php';
     if(!isset($_COOKIE['srtp-username'])){
     	do_js_alert('请先登录');
     	do_js_link('index.php');
-    }*/
+    }
 ?>
 </head>
 <body>
@@ -122,7 +122,7 @@ header('Content-Type:text/html; charset=utf-8');
 						<li class="tool-personalize-item">
 							<h6>
 								<b>3.</b>
-								请为报名表添加标签
+								请为报名表添加标签<i>建设中</i>
 							</h6>
 							<p class="personalize-tip" >
 								标签之间请用空格分隔
@@ -131,7 +131,7 @@ header('Content-Type:text/html; charset=utf-8');
 								<input id="form-tag" name="form-tag"></input>
 							</div>
 						</li>
-						<input type="submit" value="提交相应要求"/>
+						<input class="btn blue" style="width:auto; padding:0 5px;" type="submit" value="提交相应要求"/>
 					</form>
 					</ul>
 			  

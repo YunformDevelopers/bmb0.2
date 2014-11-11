@@ -74,7 +74,7 @@ div{
     margin:0;
 	padding:0;
 }
-input[type="text"],
+/*input[type="text"],
 input[type="password"],
 input[type="email"],
 input[type="url"],
@@ -91,6 +91,7 @@ input[type="color"]{
 	padding: 0.5em 0.6em;
 	border:solid 1px #ccc;
  }
+*/
 /* 清除浮动 */
 .clear-float {
 	overflow:auto;
@@ -322,11 +323,11 @@ input[type="color"]{
 }
 #header .search-mobile .search-text {
 	margin:0 auto;
-	border-radius: 2em;
-	width:15em;
-	height:2em;
+/*	border-radius: 2em;
+*/	width:15em;
+/*	height:2em;
 	line-height:2em;
-	border:none;
+*/	border:none;
 	border: solid 1px #CCC;
 	padding:0 1em;
 	text-align:center;

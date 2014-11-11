@@ -164,7 +164,7 @@ $(document).ready(function(){
 	                    		<a href="#"><input class="btn green" type="button" value="查看"/></a>
 	                		</div>
 	                		<div class="form-status">';
-    		if($days>0){
+    		if($days>=0){
     			echo '<img src="images/form-status-on.png" alt="已上架" />';
     		}else{
     			echo '<img src="images/form-status-off.png" alt="已下架" />';

@@ -455,9 +455,9 @@ form-construct-field里面，分为form-title,form-intro，form-body，具体看
 	width:400px;
 }
 .release-method.QR-code .image-holder {
-	width:100px;
-	height:100px;
-}
+/*	width:300px;
+	height:300px;
+*/}
 .release-method.QR-code input.QR-width-customize, .release-method.QR-code input.QR-height-customize {
 	text-align:center;
 	width:4em;

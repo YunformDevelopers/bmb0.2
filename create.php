@@ -16,10 +16,10 @@ header('Content-Type:text/html; charset=utf-8');
 <script type="text/javascript" src="js/jQuery.js"></script>
 <script type="text/javascript" src="js/jquery-ui-1.10.4.js"></script>
 <script type="text/javascript" src="js/simditor-all.js"></script>
+<script type="text/javascript" src="js/commonNoIscroll.js"></script>
 <script type="text/javascript" src="js/create.js"></script>
 <script type="text/javascript" src="js/cookie.js"></script>
 <script type="text/javascript" src="js/msg.js"></script>
-<script type="text/javascript" src="js/commonNoIscroll.js"></script>
 
 
 <!-- Include the Quill library 
@@ -133,11 +133,11 @@ header('Content-Type:text/html; charset=utf-8');
 								<span class="tool-float-left"></span>评级<span class="tool-construct-icon-rate"></span>
 							</a>
 						</li>
-						<li id="rader">
+						<!--<li id="rader">
 							<a href="javascript:;">
 								<span class="tool-float-left"></span>雷达图<span class="tool-construct-icon-radar"></span>
 							</a>
-						</li>
+						</li>-->
 					</ul>
 				</div>
 				<div id="tool-container-bg">

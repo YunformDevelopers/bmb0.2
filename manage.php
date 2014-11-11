@@ -385,7 +385,7 @@ if(!isset($_COOKIE['srtp-username']))
 				</div>
 				<div class="section-body" unselectable="on" onselectstart="return false;" style="-moz-user-select:none;">
 					<div class="tool" id="manage-xls">
-						<a class="tool-btn" href="#" title="下载已填写的数据的表格">
+						<a onclick="makeCsv();" class="tool-btn" href="#" title="下载已填写的数据的表格">
 							XLS
 						</a>
                         <p class="tool-info">
