@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>表格填写</title>
 <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
-<link rel="stylesheet" href="style/form/paper.css" />
+<link rel="stylesheet" href="style/form/material.css" />
 <link rel="stylesheet" href="style/msg.css" />
 <!--<link rel="stylesheet" href="style/form/form-responsive.css"/>
 -->
@@ -59,15 +59,36 @@ window.onresize = function() {
 </script>
 <style>
 @media screen and (max-width: 500px) {
-#form-field {
-	width:90%;
-}
-#form-body .q-number {
-	width:2em;
-}
-#form-body .q-whole {
-	padding:5px 0 5px 38px;
-}
+	#form-body .q-body input[type="text"],
+	#form-body .q-body input[type="password"],
+	#form-body .q-body input[type="email"],
+	#form-body .q-body input[type="url"],
+	#form-body .q-body input[type="date"],
+	#form-body .q-body input[type="month"],
+	#form-body .q-body input[type="time"],
+	#form-body .q-body input[type="datetime"],
+	#form-body .q-body input[type="datetime-local"],
+	#form-body .q-body input[type="week"],
+	#form-body .q-body input[type="number"],
+	#form-body .q-body input[type="tel"],
+	#form-body .q-body input[type="search"],
+	#form-body .q-body input[type="color"]{
+		width:80%;
+	}
+	.free-multiline .q-body textarea {
+		width:90%;
+	}
+	#form-body .q-number {
+		width:2em;
+	}
+	#form-body .q-whole {
+		padding:5px 0 5px 38px;
+	}
+	.q-body label {
+		width:95%;
+		border-bottom:solid 1px #ccc;
+		border-radius:0px 0px;
+	}
 }
 
 </style>
@@ -163,17 +184,17 @@ window.onresize = function() {
     <div id="fill-tool" onload="initFillTool();">
     	<div class="login-reg box " title="注册/登录后可享受一键填表、保存填表进度等福利！">
         	<a class="tool">
-            	<span class="tool-name" title="注册 登录">注册 登录</span>
+            	<span class="tool-name" title="注册 登录" onclick="msgPopOver('msg.php #login-msg-content')">注册 登录</span>
             </a>
         </div>
         <div class="quick-fill box " title="根据表格内容智能填入个人信息">
         	<a class="tool">
-            	<span class="tool-name" title="一键 填表">一键 填表</span>
+            	<span class="tool-name" title="一键 填表" onclick="autoFill();">一键 填表</span>
             </a>
         </div>
         <div class="save box " title="保存进度，表格可在 我的 中找到">
         	<a class="tool">
-            	<span class="tool-name" title="保存">保存 进度</span>
+            	<span class="tool-name" title="保存" onclick="SetFillCookie();">保存 进度</span>
             </a>
         </div>    
     </div>
@@ -184,6 +205,11 @@ window.onresize = function() {
             </a>
         </div>
     </div>
+	<div id="footer" class="form-footer">
+		<p>Powered by <a href="index.php">报名吧</a></p>
+	</div>
+    <div id="whole-msg-bg" onclick="msgSlideDn();">
+    </div>
     <div class='msg'>
         <div class='msg-border'>
             <div class='msg-content'>
@@ -191,11 +217,5 @@ window.onresize = function() {
             </div>
         </div>
     </div>
-    <!-- <script> afterFillRegisterMsgPopOver(); </script>这行供测试，可以删去 -->
-	<div id="footer" class="form-footer">
-		<p>Powered by 报名吧</p>
-		<p>由于网站还在开发，不能提供最佳的用户体验，希望您能理解！</p>
-	</div>
-    
 </body>
 </html>

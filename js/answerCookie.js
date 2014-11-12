@@ -1,7 +1,7 @@
 // JavaScript Document
 $(document).ready(function() {
 	initValidationEngine();
-	ReFill();
+	//ReFill();
 });
 /*
 *	将答案分类型存入cookie中
@@ -157,7 +157,7 @@ function initValidationEngine (){
 	var qTotalNumber = $("#form-body li").length;//这是获得form-body里面li的数量，也就是题目的总数
 	var formBody = $("#form-body");//获取到form-body元素
 	for(var i=0;i<qTotalNumber;i++){//这个循环遍历所有题目，并将答案存放到cookie里面
-		var qFieldIth= $("#form-body form ").children().eq(i);//获取到#form-body form下的第i个li
+		var qFieldIth= $("#form-body").children().eq(i);//获取到#form-body 下的第i个li
 		var qAlternative = qFieldIth.find(".q-alternative").attr('name');//获取到#form-body元素里的第i道题的q-alternative 的a里的name
 		if (qAlternative == 'required'){
 			if (qFieldIth.hasClass("free-multichoice")){
@@ -170,4 +170,5 @@ function initValidationEngine (){
 		}
 		else ;
 	}
+	alert("fdsf");
 }

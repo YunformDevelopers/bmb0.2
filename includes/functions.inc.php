@@ -52,14 +52,17 @@ function fetchAll($sql){
 function create_to_db($array){
 		$string=explode('δ', $array['question_string']);
 		echo '<div id="form-field">
+			<div id="form-title-wrapper">
 				<div id="form-title">
 					<h3>'.$array['form_title'].'</h3>
 				</div>
+			</div>
+        <div id="form-wrapper">
 				<div id="form-intro" >
 	            	'.$array['form_intro'].'
 	        	</div>
-	        	<ul id="form-body">
-	        		<form enctype="multipart/form-data" method="post" action="formaction.php?action=answer&id='.$_GET['id'].'">';
+	        		<form enctype="multipart/form-data" method="post" action="formaction.php?action=answer&id='.$_GET['id'].'">
+					<ul id="form-body">';
 	    				for($i=0;$i<count($string)-1;$i++){
 					    $explode1 = explode('α', $string[$i]);
 						$question = $explode1[0];
@@ -82,7 +85,10 @@ function create_to_db($array){
 					echo '<div class="q-title">'.$question.'</div>';
 				}
 					if($re){
-						echo '<div class="q-alternative">*</div>';
+						echo '<div name="required" class="q-alternative">*</div>';
+					}
+					else {
+						echo '<div style="display:none;" name="alternative" class="q-alternative"></div>';
 					}
 				echo '<div class="q-body">';
 				if($type=="free-multichoice")
@@ -130,11 +136,11 @@ function create_to_db($array){
 			echo '</li>';
 			}
 			echo '<div id="form-tip">
-						<p class="title edit raw" contentEditable="true" rows="1">'.$array['form_tip'].'</p>
+						<p class="title edit raw" rows="1">'.$array['form_tip'].'</p>
 				</div>
 					<input id="submit" class="btn red" name="submit" type="submit" value="提交" onClick="SetFillCookie(); SetAnswerCookie();"/>
-					</form>
 				</ul>
+				</form>
 			</div>';
     }
 
