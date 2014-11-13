@@ -91,6 +91,41 @@ MEDIA QUERIES
 		right:0;
 		width:100%;
 	}
+	.msg input[type="text"],
+	.msg input[type="password"],
+	.msg input[type="email"],
+	.msg input[type="url"],
+	.msg input[type="date"],
+	.msg input[type="month"],
+	.msg input[type="time"],
+	.msg input[type="datetime"],
+	.msg input[type="datetime-local"],
+	.msg input[type="week"],
+	.msg input[type="number"],
+	.msg input[type="tel"],
+	.msg input[type="search"],
+	.msg input[type="color"],
+	.msg textarea{
+		padding: 0.5em 0.6em;
+	}
+	.msg input[type="text"]:hover,
+	.msg input[type="password"]:hover,
+	.msg input[type="email"]:hover,
+	.msg input[type="url"]:hover,
+	.msg input[type="date"]:hover,
+	.msg input[type="month"]:hover,
+	.msg input[type="time"]:hover,
+	.msg input[type="datetime"]:hover,
+	.msg input[type="datetime-local"]:hover,
+	.msg input[type="week"]:hover,
+	.msg input[type="number"]:hover,
+	.msg input[type="tel"]:hover,
+	.msg input[type="search"]:hover,
+	.msg input[type="color"]:hover,
+	.msg textarea:hover{
+		padding: 0.5em 0.6em;
+	}
+
 }
 /* for 500px or less   这里开始算作手机 */
 @media screen and (max-width: 500px) {

@@ -3,7 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <!--下面这meta意思是告知浏览器的宽度是设备的宽度，缩放值为1.0-->
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
 <title>表格填写</title>
 <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
 <link rel="stylesheet" href="style/form/material.css" />
@@ -72,7 +72,8 @@ window.onresize = function() {
 	#form-body .q-body input[type="number"],
 	#form-body .q-body input[type="tel"],
 	#form-body .q-body input[type="search"],
-	#form-body .q-body input[type="color"]{
+	#form-body .q-body input[type="color"],
+	#form-body .q-body textarea{
 		width:80%;
 	}
 	.free-multiline .q-body textarea {
