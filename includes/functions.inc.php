@@ -61,7 +61,7 @@ function create_to_db($array){
 				<div id="form-intro" >
 	            	'.$array['form_intro'].'
 	        	</div>
-	        		<form enctype="multipart/form-data" method="post" action="formaction.php?action=answer&id='.$_GET['id'].'">
+	        		<form enctype="multipart/form-data" novalidate="novalidate" id="formID" method="post" action="formaction.php?action=answer&id='.$_GET['id'].'">
 					<ul id="form-body">';
 	    				for($i=0;$i<count($string)-1;$i++){
 					    $explode1 = explode('α', $string[$i]);

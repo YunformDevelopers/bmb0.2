@@ -147,7 +147,7 @@ window.onresize = function() {
             <ul id="form-body">
             		<li class="q1 q-field logic-name">
                             <div class="q-number"><span>1</span></div>
-                            <div class="q-whole"><div class="q-title">姓名</div><div class="q-alternative">*</div><div class="q-body"><input type="text" name="q1-body" class="body edit" required="required" /></div></div></li><li class="q2 q-field logic-sex">
+                            <div class="q-whole"><div class="q-title">姓名</div><div class="q-alternative">*</div><div class="q-body"><input type="text" name="q1-body" class="body edit validate[required]" required="required" /></div></div></li><li class="q2 q-field logic-sex">
                             <div class="q-number"><span>2</span></div>
                             <div class="q-whole"><div class="q-title">性别</div><div class="q-alternative">*</div><div class="q-body"><label><input name="q2-body" type="radio" required="required" value="男"/>男</label><label><input name="q2-body" type="radio" required="required" value="女"/>女</label></div></div></li><li class="q3 q-field logic-studentID">
                             <div class="q-number"><span>3</span></div>

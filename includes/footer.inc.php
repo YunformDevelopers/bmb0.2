@@ -19,7 +19,7 @@
         	<img src="./images/header-icon/wechat-QR-code.gif" />
             <p>微信公众号：<b>报名吧</b></p>
         </div>
-        <p>报名吧</p>
+        <p>报名吧@ZJU</p>
         <br />
 	</div>
 	<div class='justify-helper'></div>

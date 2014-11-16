@@ -15,7 +15,7 @@
 <link rel="stylesheet" href="style/responsive.css"></link>
 -->
 <link rel="stylesheet" href="style/form/validationEngine.jquery.css"/>
-<script src="js/jquery-2.1.1.min.js"></script>
+<script src="js/jQuery.js"></script>
 <script src="js/jquery.validationEngine-zh_CN.js" type="text/javascript" charset="utf-8"></script>
 <script src="js/jquery.validationEngine.js" type="text/javascript" charset="utf-8"></script>
 <script src="js/msg.js" type="text/javascript" charset="utf-8"></script>
@@ -207,7 +207,7 @@ window.onresize = function() {
         </div>
     </div>
 	<div id="footer" class="form-footer">
-		<p>Powered by <a href="index.php">报名吧</a></p>
+		<p>Powered by <a href="index.php">报名吧@ZJU</a></p>
 	</div>
     <div id="whole-msg-bg" onclick="msgSlideDn();">
     </div>

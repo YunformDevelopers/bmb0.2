@@ -4,6 +4,7 @@ $(document).ready(function(){
 	initPin ();
 	initFormConstructField ();//注意要在生成了pin之后再执行该语句
 	initEditor ();
+	$("#whole-msg-bg").fadeIn(500);
 });
 //窗口改变大小时执行的函数
 $(window).resize(function(){
@@ -442,4 +443,9 @@ function getBrowserType (getType) {
 	break;
 	default:
 	}
+}
+function tipDisappear(id){
+	$id = $(id);
+	$id.parent(".create-tip").slideUp();
+	$("#whole-msg-bg").fadeOut(500);
 }
