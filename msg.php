@@ -105,18 +105,7 @@
 </div>
 <div id="a-all-msg-content">
 	<div class="a-all-msg">
-        <h3>某位同学的答案</h3>
-        <p class="a-time">填写于2014/06/08</p>
-        <table cellpadding="0" cellspacing="0" class="list-table">
-        	<tr>
-            	<td class="q-content">1.问你的梦想是什么呢？你是怎么走到这个舞台上的？能和我们说说吗？我培养过一个冠军。欢迎</td>
-                <td class="a-content">你的梦想是什么呢？你是怎么走到这个舞台上的？能和我们说说吗？我培养过一个冠军</td>
-            </tr>
-        	<tr>
-            	<td class="q-content">2.问你的梦想是什么呢？你是怎么走到这个舞台上的？能和我们说说吗？我培养过一个冠军。欢迎</td>
-                <td class="a-content">你的梦想是什么呢？你是怎么走到这个舞台上的？能和我们说说吗？我培养过一个冠军</td>
-            </tr>
-        </table>
+        
      </div>
      <input id="msg-ok-btn" class='btn red' type="button" value='关闭' />
 </div>

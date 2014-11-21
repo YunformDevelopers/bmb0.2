@@ -1,7 +1,7 @@
 <?php
 require 'includes/includes.inc.php';
 connect();
-$result2=mysql_query("select * from answer where id='".$_GET['id']."'");
+$result2=mysql_query("select * from answer where id='".$_GET['id']."'") or die(mysql_error());
 $rows2=mysql_fetch_assoc($result2);
 $result1=mysql_query("select * from question where form_id='".$rows2['form_id']."'");
 					$rows1=mysql_fetch_assoc($result1);
@@ -49,57 +49,57 @@ $result1=mysql_query("select * from question where form_id='".$rows2['form_id'].
 					if($type=="logic-sex"){
 						for($j=0;$j<count($choice)-1;$j++){
 							if(in_array($choice[$j], $answer_array[$i])){
-								echo '<label><input name="q'.($i+1).'-body" type="radio" '.$re.' value="'.$choice[$j].'" checked="checked"/>'.$choice[$j].'</label>';
+								echo '<label><input disabled="disabled" name="q'.($i+1).'-body" type="radio" '.$re.' value="'.$choice[$j].'" checked="checked"/>'.$choice[$j].'</label>';
 							}else{
-								echo '<label><input name="q'.($i+1).'-body" type="radio" '.$re.' value="'.$choice[$j].'"/>'.$choice[$j].'</label>';
+								echo '<label><input disabled="disabled" name="q'.($i+1).'-body" type="radio" '.$re.' value="'.$choice[$j].'"/>'.$choice[$j].'</label>';
 							}
 						}
 					}
 					if($type=="free-multichoice")
 					for($j=0;$j<count($choice)-1;$j++){
-						echo '<label><input name="q'.($i+1).'-'.$choice[$j].'" type="checkbox" '.$re.' value="'.$choice[$j].'"/>'.$choice[$j].'</label>';
+						echo '<label><input disabled="disabled" name="q'.($i+1).'-'.$choice[$j].'" type="checkbox" '.$re.' value="'.$choice[$j].'"/>'.$choice[$j].'</label>';
 					}
 					if($type=="free-singlechoice")
 					for($j=0;$j<count($choice)-1;$j++){
 						if(in_array($choice[$j], $answer_array[$i])){
-							echo '<label><input name="q'.($i+1).'-body" type="radio" '.$re.' value="'.$choice[$j].'" checked="checked"/>'.$choice[$j].'</label>';
+							echo '<label><input disabled="disabled" name="q'.($i+1).'-body" type="radio" '.$re.' value="'.$choice[$j].'" checked="checked"/>'.$choice[$j].'</label>';
 						}
 						else{
-							echo '<label><input name="q'.($i+1).'-body" type="radio" '.$re.' value="'.$choice[$j].'"/>'.$choice[$j].'</label>';
+							echo '<label><input disabled="disabled" name="q'.($i+1).'-body" type="radio" '.$re.' value="'.$choice[$j].'"/>'.$choice[$j].'</label>';
 						}
 					}
 					if($type=="free-multiline"){
-						echo '<textarea name="q'.($i+1).'-body" class="body edit">'.$answer_array[$i][0].'</textarea>';
+						echo '<textarea disabled="disabled" name="q'.($i+1).'-body" class="body edit">'.$answer_array[$i][0].'</textarea>';
 					}
 					if($type=="free-singleline"){
-						echo '<input type="text" name="q'.($i+1).'-body" class="body edit" '.$re.' value="'.$answer_array[$i][0].'">';
+						echo '<input disabled="disabled" type="text" name="q'.($i+1).'-body" class="body edit" '.$re.' value="'.$answer_array[$i][0].'">';
 					}
 					if($type=="logic-name"){
-						echo '<input type="text" name="q'.($i+1).'-body" class="body edit" '.$re.' value="'.$answer_array[$i][0].'"/>';
+						echo '<input disabled="disabled" type="text" name="q'.($i+1).'-body" class="body edit" '.$re.' value="'.$answer_array[$i][0].'"/>';
 					}
 					if($type=="logic-studentID"){
-						echo '<input type="number" name="q'.($i+1).'-body" class="body edit" '.$re.' value="'.$answer_array[$i][0].'"/>';
+						echo '<input disabled="disabled" type="number" name="q'.($i+1).'-body" class="body edit" '.$re.' value="'.$answer_array[$i][0].'"/>';
 					}
 					if($type=="logic-address"){
-						echo '<input type="text" name="q'.($i+1).'-body" class="body edit" '.$re.' value="'.$answer_array[$i][0].'"/>';
+						echo '<input disabled="disabled" type="text" name="q'.($i+1).'-body" class="body edit" '.$re.' value="'.$answer_array[$i][0].'"/>';
 					}
 					if($type=="logic-tel"){
-						echo '<input type="tel" name="q'.($i+1).'-body" class="body edit" '.$re.' value="'.$answer_array[$i][0].'"/>';
+						echo '<input disabled="disabled" type="tel" name="q'.($i+1).'-body" class="body edit" '.$re.' value="'.$answer_array[$i][0].'"/>';
 					}
 					if($type=="logic-email"){
-						echo '<input type="email" name="q'.($i+1).'-body" class="body edit" '.$re.' value="'.$answer_array[$i][0].'"/>';
+						echo '<input disabled="disabled" type="email" name="q'.($i+1).'-body" class="body edit" '.$re.' value="'.$answer_array[$i][0].'"/>';
 					}
 					if($type=="logic-class"){
-						echo '<input type="text" name="q'.($i+1).'-body" class="body edit" '.$re.' value="'.$answer_array[$i][0].'"/>';
+						echo '<input disabled="disabled" type="text" name="q'.($i+1).'-body" class="body edit" '.$re.' value="'.$answer_array[$i][0].'"/>';
 					}
 					if($type=="free-file"){
-						echo '<input type="file" name="q'.($i+1).'-body" class="body edit" '.$re.' ></input>';
+						echo '<input disabled="disabled" type="file" name="q'.($i+1).'-body" class="body edit" '.$re.' ></input>';
 					}
 					echo '</div>';
 					echo '</div>';
 					echo '</li>';
 				}
-				echo '<input id="submit" class="btn red" type="submit" value="提交" onClick="SetAnswerCookie();"/>
+				echo '
 					</form>
 					</ul>';
 
