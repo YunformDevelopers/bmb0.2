@@ -25,6 +25,7 @@ function fillLink(linkType){
 function fillQR(size){
 	var m = Math.round(size/10);
 	var formId = $("#formIdContainer").val();
+	$("#QR-loading").show();
 	$("#QRlink").attr('href','http://qr.liantu.com/api.php?w='+size+'&m='+m+'&text=http://www.123bmb.com/reform.php?id='+formId);
 	$("#QRimg").attr('src','http://qr.liantu.com/api.php?w='+size+'&m='+m+'&text=http://www.123bmb.com/reform.php?id='+formId);
 }

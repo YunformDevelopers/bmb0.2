@@ -32,6 +32,7 @@ header('Content-Type:text/html; charset=utf-8');
     	do_js_link('index.php');
     }
 ?>
+
 </head>
 <body>
 <div id="wrapper">
@@ -86,10 +87,29 @@ header('Content-Type:text/html; charset=utf-8');
             	恭喜您，您的“xx社团报名表”创建成功！
             </div>
             <br />
+			<h3>三种推广方式</h3>
+			<br />
 			<div id="form-release">
-            	<div class="release-method outer-link">
+            	<div class="release-method share-link">
+					<div class="section-header">
+                        <h2><b>一键分享</b>&nbsp;&nbsp;<i class="method-intro">点击图标将活动一键发布到社交平台上</i></h2>
+                        <div class="h2-line">
+                        </div>
+					</div>
+                    <div class="bdsharebuttonbox" style="color:#00f">
+                        <a title="分享到一键分享" href="#" class="bds_mshare" data-cmd="mshare">多个平台</a>
+                        <a title="分享到人人网" href="#" class="bds_renren" data-cmd="renren">人人</a>
+                        <a title="分享到微信" href="#" class="bds_weixin" data-cmd="weixin">微信</a>
+                        <a title="分享到新浪微博" href="#" class="bds_tsina" data-cmd="tsina">微博</a>
+                        <a title="分享到QQ好友" href="#" class="bds_sqq" data-cmd="sqq">QQ好友</a>
+                        <a title="分享到邮件分享" href="#" class="bds_mail" data-cmd="mail">邮件</a>
+                    	<a href="#" class="bds_more" data-cmd="more">更多</a>
+                        <span id="bdshare-loading"><b>加载中……</b></span>
+                     </div>
+                </div>
+				<div class="release-method outer-link">
                     <div class="section-header">
-                        <h2><b>外链</b></h2>
+                        <h2><b>发布链接</b>&nbsp;&nbsp;<i class="method-intro">将链接编辑到人人日志、98专楼、微信消息里</i></h2>
                         <div class="h2-line">
                         </div>
 					</div>
@@ -108,7 +128,7 @@ header('Content-Type:text/html; charset=utf-8');
                 </div>
                 <div class="release-method QR-code">
                 	<div class="section-header">
-                        <h2><b>二维码</b><i>右键->图像另存为</i></h2>
+                        <h2><b>二维码</b>&nbsp;&nbsp;<i class="method-intro">将二维码放到横幅、海报上</i></h2>
                         <div class="h2-line">
                         </div>
 					</div>
@@ -116,7 +136,7 @@ header('Content-Type:text/html; charset=utf-8');
 	                    <label title="适用于移动端" ><input name="QR-type" type="radio" checked="checked" onfocus="fillQR(200);" value="200"><b>200*200</b> (适用于移动端)</input></label>
     	                <label title="适用于传单" ><input name="QR-type" type="radio" onfocus="fillQR(400);" value="400"><b>400*400</b> (适用于传单)</input></label>
                         <label title="适用于海报" ><input name="QR-type" type="radio" onfocus="fillQR(800);" value="800"><b>800*800</b> (适用于海报)</input></label>
-                        <label title="自定义（长宽须相等）" style='margin:0;' ><input name="QR-type" type="radio" value=""></label>
+                        <!--<label title="自定义（长宽须相等）" style='margin:0;' ><input name="QR-type" type="radio" value=""></label>
                         	<span>
                             	<input class="QR-width-customize" onfocus="" type="text" />*<input class="QR-height-customize" type="text" />
                                 <input type="hidden" id="formIdContainer" value="<?php echo $_GET['id'];?>" />
@@ -129,12 +149,13 @@ header('Content-Type:text/html; charset=utf-8');
 									}
                                 </script>
                             </span><b>自定义</b>(长宽须相等)
-                        </input>
+                        </input>-->
                     </div>
                     <div class="link-holder">
+                        <span id="QR-loading"><b>加载中……</b></span>
                     	<div class="image-holder">
 							<a id="QRlink" target="new" >
-                            <image id="QRimg" type="text" class="link-container" /></a>
+                            <image onload="$('#QR-loading').hide();" id="QRimg" type="text" class="link-container" /></a>
 						</div>
                         <!--<input type="button" class="btn green" value="下载" />-->
                     </div>
@@ -166,4 +187,19 @@ header('Content-Type:text/html; charset=utf-8');
 ?>
 </body>
 <script type="text/javascript" src="js/jquery.pin.min.js"></script>
+<script>
+//一键分享部分
+var shareUrl = $("#php-long-link").val();
+var shareText = "";
+var shareDesc = "测试";
+var shareComment = "这个活动超级赞，小伙伴们快来报名吧!";
+window._bd_share_config={"common":{"bdSnsKey":{},"bdText":shareText,"bdUrl":shareUrl,"bdDes":shareDesc,"bdComment":shareComment,"bdMini":"1","bdMiniList":["qzone","tieba","copy","tqq","douban","fx","linkedin"],"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+//加载完成后将一键分享部分的loading隐藏
+document.onreadystatechange = subSomething;//当页面加载状态改变的时候执行这个方法.
+function subSomething()
+{
+if(document.readyState == "complete") //当页面加载状态
+$("#bdshare-loading").hide();
+} 
+</script>
 </html>
