@@ -34,12 +34,13 @@
 						echo '<div id="form-field">';
 						echo '<div id="form-title">';
 						echo '<h3>'.$title.'</h3>';
-						echo '</div>';
+						echo '</div>
+						<div id="form-wrapper">';
 						echo '<div id="form-intro" >
-	           '.$rows1['form_intro'].'
-	        </div>
-	        <ul id="form-body">
-	        	<form method="post" enctype="multipart/form-data" action="formaction.php?action=update&id='.$_GET['id'].'&amount='.($question_amount-1).'">';
+						   '.$rows1['form_intro'].'
+						</div>
+						<form method="post" enctype="multipart/form-data" action="formaction.php?action=update&id='.$_GET['id'].'&amount='.($question_amount-1).'">
+	        			<ul id="form-body">';
 						for($i=0;$i<count($string)-1;$i++){
 							$explode1 = explode('α', $string[$i]);
 							$question = $explode1[0];
@@ -128,8 +129,9 @@
 							<p class="title edit raw" contentEditable="true" rows="1">'.$result1['form_tip'].'</p>
 							</div>';?>
 		        	<input id="submit" class="btn red" type="submit" value="提交" onClick="SetAnswerCookie();"/>
-                </form>   
-            </ul>
+                </ul>   
+            </form>
+        </div>
 	</div>
 </body>
 </html>
