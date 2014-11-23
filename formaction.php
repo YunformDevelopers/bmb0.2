@@ -2,6 +2,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
 <title>表单提交</title>
 <link rel="stylesheet" href="style/msg.css" />
 <link rel="stylesheet" href="style/index.css" />
@@ -9,6 +10,8 @@
 <script type="text/javascript" src="js/jQuery.js"></script>
 </head>
 <body>
+<div id="whole-msg-bg" onclick="msgSlideDn();">
+</div>		
 <div class='msg'>
         <div class='msg-border'>
             <div class='msg-content'>
@@ -59,7 +62,7 @@ else if(isset($_GET['action'])&&$_GET['action']=='answer'){
 		setcookie('fromwhere','',time()-1);
 		do_js_link('index.php');
 	}else{
-		/* echo '	
+		echo '	
 				<script>
 					function get_get(url){
 						querystr = url.split("?");
@@ -74,15 +77,15 @@ else if(isset($_GET['action'])&&$_GET['action']=='answer'){
 						}
 						return GET["id"];
 					}; 
-				var r = confirm("是否要注册后再提交回答，不注册提交将不能再修改你的回答。");
-				if(r==true){
+				/*var r = confirm("是否要注册后再提交回答，不注册提交将不能再修改你的回答。");
+				if(r==true){*/
 					var id = get_get(window.location.href);
 					document.cookie="form_id="+id+"";
-					afterFillRegisterMsgPopOver();
-				}else{
+					msgPopOver("msg.php #after-fill-register-msg-content");
+				/*}else{
 					alert("不注册");
-				}
-			</script>'; */
+				}*/
+			</script>';
 	}
 	
 }

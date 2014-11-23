@@ -178,6 +178,18 @@ form-construct-field里面，分为form-title,form-intro，form-body，具体看
 	z-index:40;
 	position:relative;
 }
+#tool-construct-perserved #personality {
+	position:relative;
+}
+#tool-construct-perserved .create-tip {
+	position:absolute;
+	top:2em;
+	left:0px;
+	z-index:10000;
+	background:rgba(255,255,255,0.9);
+	border:solid 1px #666;
+	padding:2px;
+}
 #tool-construct-container .tool-construct-list a {
 	text-decoration:none;
 	display:block;
@@ -455,9 +467,9 @@ form-construct-field里面，分为form-title,form-intro，form-body，具体看
 	width:400px;
 }
 .release-method.QR-code .image-holder {
-	width:100px;
-	height:100px;
-}
+/*	width:300px;
+	height:300px;
+*/}
 .release-method.QR-code input.QR-width-customize, .release-method.QR-code input.QR-height-customize {
 	text-align:center;
 	width:4em;

@@ -16,10 +16,10 @@ header('Content-Type:text/html; charset=utf-8');
 <script type="text/javascript" src="js/jQuery.js"></script>
 <script type="text/javascript" src="js/jquery-ui-1.10.4.js"></script>
 <script type="text/javascript" src="js/simditor-all.js"></script>
+<script type="text/javascript" src="js/commonNoIscroll.js"></script>
 <script type="text/javascript" src="js/create.js"></script>
 <script type="text/javascript" src="js/cookie.js"></script>
 <script type="text/javascript" src="js/msg.js"></script>
-<script type="text/javascript" src="js/commonNoIscroll.js"></script>
 
 
 <!-- Include the Quill library 
@@ -91,6 +91,10 @@ header('Content-Type:text/html; charset=utf-8');
 								<span class="tool-float-left"></span>个人信息组<span class="tool-construct-icon-name"></span>
 							</a>
 						</li>
+                        <div id="personality-tip" class="create-tip">
+                        	<p><b>↑↑↑注意↑↑↑</b><br />只有<b>个人信息组</b>里的“姓名”“电话”等信息才能被程序识别以生成<b>批量添加飞信好友</b>的文件！如果个人信息组里有你不需要的信息，可以删除，不影响程序识别联系信息。</p>
+                            <input onclick="tipDisappear(this);" type="submit" class="btn green" value="知道了" style="text-align:center;" />
+                        </div>
 					</ul>
 					
 			  
@@ -133,11 +137,11 @@ header('Content-Type:text/html; charset=utf-8');
 								<span class="tool-float-left"></span>评级<span class="tool-construct-icon-rate"></span>
 							</a>
 						</li>
-						<li id="rader">
+						<!--<li id="rader">
 							<a href="javascript:;">
 								<span class="tool-float-left"></span>雷达图<span class="tool-construct-icon-radar"></span>
 							</a>
-						</li>
+						</li>-->
 					</ul>
 				</div>
 				<div id="tool-container-bg">
@@ -192,6 +196,8 @@ header('Content-Type:text/html; charset=utf-8');
 
 		</div>
 	</div>
+</div>
+<div id="whole-msg-bg" onclick="msgSlideDn();">
 </div>
 <div class='msg'>
     <div class='msg-border'>

@@ -63,7 +63,7 @@ if(isset($_POST['username'])&&isset($_POST['password'])){
     <div class='search-mobile search'>
         <form id="search" action="search.php" method="post">
             <input class="search-text" type="text"  placeholder="搜索组织/活动" name="q"></input>
-            <input type="submit" value="搜索"  />
+            <input class="btn red" type="submit" value="搜索"  />
         </form>
     </div>
 		<div id="more-dropDown" class="dropDown" >

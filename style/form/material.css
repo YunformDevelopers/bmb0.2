@@ -91,7 +91,7 @@ div{
 #form-field {
 	width:100%;
 	margin:0 auto;
-	background:#020318;
+	background:#020210;
 	/* Prevent native touch events on Windows */
 	-ms-touch-action: none;
 
@@ -116,9 +116,8 @@ div{
 	box-shadow:0px 5px 5px 3px rgba(0,0,0,0.5);
 }
 #form-title-wrapper {
-	height:200px;
-	padding-top:2em;
-	background:#d2ffff;
+	padding:2em 0px 120px 0px;
+	background:#cffaff;
 	box-shadow:0px 0px 5px 3px rgba(0,0,0,0.5);
 	color:#000;
 	position:relative;
@@ -131,7 +130,7 @@ div{
 #form-wrapper {
 	position:relative;
 	top:-120px;
-	background:#cf8b3f;
+	background:#65AADD;
 	width:800px;
 	padding:1em;
 	margin:0 auto;
@@ -193,7 +192,8 @@ div{
 #form-body .q-body input[type="number"],
 #form-body .q-body input[type="tel"],
 #form-body .q-body input[type="search"],
-#form-body .q-body input[type="color"]{
+#form-body .q-body input[type="color"],
+#form-body .q-body textarea{
 	padding: 0.5em 0.6em;
 	width:300px;
 	border:solid 1px #ccc;

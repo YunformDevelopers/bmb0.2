@@ -3,10 +3,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <!--下面这meta意思是告知浏览器的宽度是设备的宽度，缩放值为1.0-->
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
 <title>表格填写</title>
 <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
-<link rel="stylesheet" href="style/form/paper.css" />
+<link rel="stylesheet" href="style/form/material.css" />
 <link rel="stylesheet" href="style/msg.css" />
 <!--<link rel="stylesheet" href="style/form/form-responsive.css"/>
 -->
@@ -15,7 +15,7 @@
 <link rel="stylesheet" href="style/responsive.css"></link>
 -->
 <link rel="stylesheet" href="style/form/validationEngine.jquery.css"/>
-<script src="js/jquery-2.1.1.min.js"></script>
+<script src="js/jQuery.js"></script>
 <script src="js/jquery.validationEngine-zh_CN.js" type="text/javascript" charset="utf-8"></script>
 <script src="js/jquery.validationEngine.js" type="text/javascript" charset="utf-8"></script>
 <script src="js/msg.js" type="text/javascript" charset="utf-8"></script>
@@ -59,15 +59,37 @@ window.onresize = function() {
 </script>
 <style>
 @media screen and (max-width: 500px) {
-#form-field {
-	width:90%;
-}
-#form-body .q-number {
-	width:2em;
-}
-#form-body .q-whole {
-	padding:5px 0 5px 38px;
-}
+	#form-body .q-body input[type="text"],
+	#form-body .q-body input[type="password"],
+	#form-body .q-body input[type="email"],
+	#form-body .q-body input[type="url"],
+	#form-body .q-body input[type="date"],
+	#form-body .q-body input[type="month"],
+	#form-body .q-body input[type="time"],
+	#form-body .q-body input[type="datetime"],
+	#form-body .q-body input[type="datetime-local"],
+	#form-body .q-body input[type="week"],
+	#form-body .q-body input[type="number"],
+	#form-body .q-body input[type="tel"],
+	#form-body .q-body input[type="search"],
+	#form-body .q-body input[type="color"],
+	#form-body .q-body textarea{
+		width:80%;
+	}
+	.free-multiline .q-body textarea {
+		width:90%;
+	}
+	#form-body .q-number {
+		width:2em;
+	}
+	#form-body .q-whole {
+		padding:5px 0 5px 38px;
+	}
+	.q-body label {
+		width:95%;
+		border-bottom:solid 1px #ccc;
+		border-radius:0px 0px;
+	}
 }
 
 </style>
@@ -134,8 +156,26 @@ window.onresize = function() {
 							}
 						}
 						else{
-							do_js_alert("请先登录后再填表");
-							do_js_link("index.php");
+							$result=mysql_query("select * from question where form_id = '".$_GET['id']."'");
+							$result1=mysql_query("select * from decoration where form_id = '".$_GET['id']."'");
+							while($rows=mysql_fetch_assoc($result)){
+								$rows1=mysql_fetch_assoc($result1);
+								$old=strtotime($rows1['form_expire_time']);
+								date_default_timezone_set("Asia/Shanghai");
+								$now=strtotime(date("Y-m-d h:i:s"));
+								if($now>$old){
+									do_js_alert("该表已超过建表者规定的填表时间！");
+									do_js_link('index.php');
+								}else if($rows['answer_times']>=$rows1['form_number_limit']){
+									do_js_alert("该表的填写人数已超过限制");
+									do_js_link('index.php');
+								}else{
+									create_to_db($rows);
+									$array=$rows;
+									$array['click_times']=intval($array['click_times'])+1;
+									update('question', $array,"form_id='".$_GET['id']."'");
+								}
+							}
 						}
 					}else{
 						do_js_alert('请从正确路径访问该页');
@@ -145,17 +185,17 @@ window.onresize = function() {
     <div id="fill-tool" onload="initFillTool();">
     	<div class="login-reg box " title="注册/登录后可享受一键填表、保存填表进度等福利！">
         	<a class="tool">
-            	<span class="tool-name" title="注册 登录">注册 登录</span>
+            	<span class="tool-name" title="注册 登录" onclick="msgPopOver('msg.php #login-msg-content')">注册 登录</span>
             </a>
         </div>
         <div class="quick-fill box " title="根据表格内容智能填入个人信息">
         	<a class="tool">
-            	<span class="tool-name" title="一键 填表">一键 填表</span>
+            	<span class="tool-name" title="一键 填表" onclick="autoFill();">一键 填表</span>
             </a>
         </div>
         <div class="save box " title="保存进度，表格可在 我的 中找到">
         	<a class="tool">
-            	<span class="tool-name" title="保存">保存 进度</span>
+            	<span class="tool-name" title="保存" onclick="SetFillCookie();">保存 进度</span>
             </a>
         </div>    
     </div>
@@ -166,6 +206,11 @@ window.onresize = function() {
             </a>
         </div>
     </div>
+	<div id="footer" class="form-footer">
+		<p>Powered by <a href="index.php">报名吧@ZJU</a></p>
+	</div>
+    <div id="whole-msg-bg" onclick="msgSlideDn();">
+    </div>
     <div class='msg'>
         <div class='msg-border'>
             <div class='msg-content'>
@@ -173,11 +218,5 @@ window.onresize = function() {
             </div>
         </div>
     </div>
-    <!-- <script> afterFillRegisterMsgPopOver(); </script>这行供测试，可以删去 -->
-	<div id="footer" class="form-footer">
-		<p>Powered by 报名吧</p>
-		<p>由于网站还在开发，不能提供最佳的用户体验，希望您能理解！</p>
-	</div>
-    
 </body>
 </html>

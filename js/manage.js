@@ -178,7 +178,12 @@ $(document).ready(function(){
 	});
 
 });
-
+//卢智雄2014-11-11添加
+function makeCsv() {
+	var param = window.location.search;
+	var type = param.split('=')[1];
+	window.open('makecsv.php?id='+type);
+}
 function trBackgroundColor(){
 	var trTotalNumber = $("#answer-field table.list-table tr").length;
 	for(var i=1;i<trTotalNumber;i=i+2){
