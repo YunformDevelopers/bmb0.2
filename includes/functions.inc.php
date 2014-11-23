@@ -297,7 +297,7 @@ function make_form_card($row,$row2){
 	$minute=intval($minutes);
 	echo '<div class="section-col" >';
 	echo '<div class="card newest" >';
-	echo '<a href="reform.php?id='.$row['form_id'].'&data='.$row['question_string'].'">';
+	echo '<a href="reform.php?id='.$row['form_id'].'">';
 	echo '<div class="img-holder">
 									<div class="fader">
 										<img src="'.$bg.'" alt="" />
