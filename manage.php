@@ -89,9 +89,11 @@ if(!isset($_COOKIE['srtp-username']))
                                             $number['today']=0;
                                             $number['yesterday']=0;
                                             while($row=mysql_fetch_array($result)){
-												if(preg_match($date['today'], $row['date'])){
+												$pattern='/'.$date['today'].'/';
+												$pattern2='/'.$date['yesterday'].'/';
+												if(preg_match($pattern, $row['date'])){
 													$number['today']++;
-												}else if(preg_match($date['yesterday'], $row['date'])){
+												}else if(preg_match($pattern2, $row['date'])){
 													$number['yesterday']++;
 												}
                                             }
@@ -242,7 +244,7 @@ if(!isset($_COOKIE['srtp-username']))
 									if(strpos($answer[0],'$_FILES-')===0){
 										$filename=explode('$_FILES-', $answer[0]);
 										echo '
-										<tr class="a-all-msg" onClick="aAllMsgPopOver();">
+										<tr class="a-all-msg" id="'.$rows['id'].'" onClick="aAllMsgPopOver();">
 	 									<td class="col-1 a-order">
 	 									'.($j++).'
 	 									</td>
@@ -265,7 +267,7 @@ if(!isset($_COOKIE['srtp-username']))
 										$string="";
 										$answer_array=explode('δ',$rows['answer_string']);
 										$answer=explode('γ',$answer_array[intval($question_num)-1]);
-										echo '<tr class="a-all-msg" onClick="aAllMsgPopOver();">
+										echo '<tr class="a-all-msg" id="'.$rows['id'].'" onClick="aAllMsgPopOver();">
 	 									<td class="col-1 a-order">
 	 									'.($j++).'
 	 									</td>
@@ -385,6 +387,7 @@ if(!isset($_COOKIE['srtp-username']))
 				</div>
 				<div class="section-body" unselectable="on" onselectstart="return false;" style="-moz-user-select:none;">
 					<div class="tool" id="manage-xls">
+						<!--<a target="_blank" class="tool-btn" <?php echo 'href="makecsv.php?id='.$_GET['id'].'"'; ?> title="下载已填写的数据的表格">-->
 						<a onclick="makeCsv();" class="tool-btn" href="#" title="下载已填写的数据的表格">
 							XLS
 						</a>
@@ -401,7 +404,7 @@ if(!isset($_COOKIE['srtp-username']))
                         </p>
 					</div>
 					<div class="tool" id="manage-txt">
-						<a class="tool-btn" href="#" title="向联系人群发短信">
+						<a class="tool-btn" <?php echo 'href="makefetioncsv.php?id='.$_GET['id'].'"'; ?> title="向联系人群发短信">
 							短信
 						</a>
                         <p class="tool-info">
@@ -453,7 +456,6 @@ if(!isset($_COOKIE['srtp-username']))
 <div class='box'>
 	<div class='box-border'>
 		<div class='box-content'>
-    		
     	</div>
     </div>
 </div>
@@ -461,7 +463,8 @@ if(!isset($_COOKIE['srtp-username']))
 <div class='msg'>
     <div class='msg-border'>
         <div class='msg-content'>
-        <!--内容是动态获得的-->			
+        <!--内容是动态获得的-->
+		
         </div>
     </div>
 </div>

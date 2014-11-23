@@ -27,7 +27,7 @@ function update($table,$array,$where=null){
 		$str.=$sep.$key."='".$value."'";
 	}
 	$query="update {$table} set {$str} ".($where==null?null:"where ".$where);
-	mysql_query($query);
+	mysql_query($query) or die(mysql_error());
 	return mysql_affected_rows();
 }
 function delete($table,$where=null){
@@ -297,7 +297,7 @@ function make_form_card($row,$row2){
 	$minute=intval($minutes);
 	echo '<div class="section-col" >';
 	echo '<div class="card newest" >';
-	echo '<a href="reform.php?id='.$row['form_id'].'&data='.$row['question_string'].'">';
+	echo '<a href="reform.php?id='.$row['form_id'].'">';
 	echo '<div class="img-holder">
 									<div class="fader">
 										<img src="'.$bg.'" alt="" />
@@ -398,7 +398,7 @@ function getAllfill($id){
 		$date2=strtotime($row['date']);
 		$daynum = ceil(abs($date1 - $date2)/86400);
 		$date_number[$daynum-1]++;
-		$array[$row['from_where']]++;
+		$array[$row['from_where']==''?'other':$row['from_where']]++;
 	}
 	$result=date("m-d",strtotime("-".$days." day")).'γ';
 	for($i=0;$i<=$days;$i++){

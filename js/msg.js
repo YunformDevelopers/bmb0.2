@@ -46,7 +46,7 @@ function boxSlideUp(){
 /*
 *	box的popOver调用函数
 */
-function aAllMsgPopOver (){
+/*function aAllMsgPopOver (){
 	//load一个从别的地方拿到的数据
 	$(".box-content").load("msg.php #a-all-msg-content",
 		//做一个box移到屏幕中央的动画效果
@@ -72,12 +72,36 @@ function aAllMsgPopOver (){
 			$("#whole-msg-bg").fadeIn(600);				
 			$(".box").slideDown();//通知框框弹出的动画
 			
-			/*$("#msg-ok-btn").click(function(){
+			$("#msg-ok-btn").click(function(){
 				$(".box").slideUp();
 				$("#whole-msg-bg").fadeOut(500);
-			}) */
+			}) 
 			
 			
 			
 		});
+}*/
+function aAllMsgPopOver (){
+		var leftoff = (-0.4*$(window).width() + "px");
+		var maxHeight = $(window).height()*0.8;
+		$(".box").css({
+		   "width":"80%",
+		   "margin-left":leftoff,
+		 });
+		$(".box-content").css({
+		   "max-height":maxHeight	   
+		 });
+		//定义topoff为屏幕高度减去通知框高度的一半，这是为了让通知框居中
+		var topoff = ($(window).height()-$(".box").height())/ 2 + "px";
+		$(".box").hide();//隐藏box
+		$(".box").css({ //将box移到屏幕中央
+			"top":topoff
+		});
+		$("#whole-msg-bg").fadeIn(600);				
+		$(".box").slideDown();//通知框框弹出的动画
+		
+		$("#msg-ok-btn").click(function(){
+			$(".box").slideUp();
+			$("#whole-msg-bg").fadeOut(500);
+		}) 	
 }

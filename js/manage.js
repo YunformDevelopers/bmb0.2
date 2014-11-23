@@ -49,12 +49,10 @@ $(document).ready(function(){
 		}
 	
 	})
-	
 	$("#select").change(function(){
 		$.ajax({
 			type:'GET',
 			url:'manageajax.php?data='+$(this).val(),
-			data:$(this).val(),
 			success:function(response){
 				$(".a-all-msg").remove();
 				$(".list-table").append(response);
@@ -65,10 +63,18 @@ $(document).ready(function(){
 		$.ajax({
 			type:'GET',
 			url:'manageajax1.php?data='+$(this).val(),
-			data:$(this).val(),
 			success:function(response){
 				$(".matrix-td").remove();
 				$(".a-all-msg1").append(response);
+			}
+		})
+	})
+	$('body').on('click','.a-all-msg',function(){
+		$.ajax({
+			type:'GET',
+			url:'manageboxajax.php?id='+$(this).attr('id'),
+			success:function(response){
+				$('.box-content').html(response);
 			}
 		})
 	})

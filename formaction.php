@@ -55,7 +55,7 @@ else if(isset($_GET['action'])&&$_GET['action']=='answer'){
 		$rows=mysql_fetch_assoc($result);
 		$array=$rows;
 		$array['answer_times']=intval($array['answer_times'])+1;
-		update('question', $array);
+		update('question', $array,"form_id='".$_GET['id']."'");
 		do_js_alert("感谢您的回答");
 		setcookie('answerStore','',time()-1);
 		setcookie('form_id','',time()-1);

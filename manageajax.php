@@ -13,7 +13,7 @@ while($rows=mysql_fetch_assoc($result)){
 									if(strpos($answer[0],'$_FILES-')===0){
 										$filename=explode('$_FILES-', $answer[0]);
 										echo '
-										<tr class="a-all-msg">
+										<tr class="a-all-msg" id="'.$rows['id'].'" onClick="aAllMsgPopOver();">
 	 									<td class="col-1 a-order">
 	 									'.($j++).'
 	 									</td>
@@ -32,7 +32,7 @@ while($rows=mysql_fetch_assoc($result)){
 										$string="";
 										$answer_array=explode('δ',$rows['answer_string']);
 										$answer=explode('γ',$answer_array[intval($question_num)-1]);
-										echo '<tr class="a-all-msg">
+										echo '<tr class="a-all-msg" id="'.$rows['id'].'" onClick="aAllMsgPopOver();">
 	 									<td class="col-1 a-order">
 	 									'.($j++).'
 	 									</td>
