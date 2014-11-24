@@ -87,7 +87,6 @@ else if(isset($_GET['action'])&&$_GET['action']=='answer'){
 				}*/
 			</script>';
 	}
-	
 }
 else if(isset($_GET['action'])&&$_GET['action']=='update'){
 	$newanswerStore='';
@@ -136,6 +135,16 @@ else if(isset($_GET['action'])&&$_GET['action']=='update'){
 	else{
 	 echo "<script>alert('请输入正确的邮箱地址'); window.location='formaction.php?action=answer&id=".$_GET['id']."';</script>";
  	}
+}else if (isset($_GET['action'])&&$_GET['action']=='feedback'){
+	connect();
+	$array['title']=$_POST['title'];
+	$array['content']=$_POST['content'];
+	$array['contact']=$_POST['contact'];
+	date_default_timezone_set("Asia/Shanghai");
+	$array['date'] = date("Y-m-d h:i:s");
+	insert('feedback', $array);
+	//do_js_alert('感谢您的建议，我们会尽快给您回复！');
+	do_js_link('index.php');
 }
 ?>
 </body>

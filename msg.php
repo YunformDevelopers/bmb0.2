@@ -55,7 +55,7 @@
 <div id="feedback-msg-content">
 	<div class="left">
         <h3>建议反馈</h3>
-            <form name="" method="post" action="index.php">
+            <form method="post" action="formaction.php?action=feedback">
                 <ul>
                     <li class="title">标题</li>
                     <li class="body"><input type="text" style="width:96.5%" name="title" class="text" /></li>

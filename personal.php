@@ -40,7 +40,6 @@ $(document).ready(function(){
 	 			}) 
 			});
 	 })
-
   	$("#work-msg").click(function(){
 		//load一个从别的地方拿到的数据
 		$(".msg-content").load("msg.php #work-msg-content",
@@ -59,7 +58,6 @@ $(document).ready(function(){
 	 			}) 
 			});
 	 })
-	 
   	$("#register-msg").click(function(){
 		//load一个从别的地方拿到的数据
 		$(".msg-content").load("msg.php #register-msg-content",
@@ -78,7 +76,6 @@ $(document).ready(function(){
 	 			}) 
 			});
 	 })
-
   	$("#login-msg").click(function(){
 		//load一个从别的地方拿到的数据
 		$(".msg-content").load("msg.php #login-msg-content",
@@ -159,7 +156,7 @@ $(document).ready(function(){
     		echo '<div class="card my-release" > 
             			<a href="#">
 	                		<div class="form-op">
-		                    	<a href="#"><input class="btn red" type="button" value="编辑"/></a>
+		                    	<a href="edit.php?id='.$rows['form_id'].'"><input class="btn red" type="button" value="编辑"/></a>
 		                    	<a href="manage.php?id='.$rows['form_id'].'"><input class="btn blue" type="button" value="管理"/></a>
 	                    		<a href="#"><input class="btn green" type="button" value="查看"/></a>
 	                		</div>
@@ -174,7 +171,7 @@ $(document).ready(function(){
 	                		<div class="img-holder">
 	                    		<div class="fader">';
 	                        		if(!$rows1['bg'])echo '<img src="images/2.jpg" alt="" />';
-	                        		else echo '<img src="uploads/'.$rows1['bg'].'.jpg" alt="" />';
+	                        		else echo '<img src="uploads/'.$rows1['bg'].'"'.'alt="" />';
 	                    		echo '</div>
 	                    		<div class="form-name">
 	                        		'.$rows['form_title'].'
@@ -183,7 +180,7 @@ $(document).ready(function(){
 	                        		<div class="counter">';
 	                            		if($day>=0) echo '<span class="time-left">还有'.$day.'天'.$hour.'小时'.$minute.'分钟</span>';
 	                            		else echo '<span class="time-left">已到期</span>';
-										echo '<span class="written">'.$rows['click_times'].'</span>
+										echo '<span class="written">'.$rows['answer_times'].'</span>
 	                        		</div>
 	                    		</div>
 	                		</div>

@@ -230,7 +230,6 @@ function getExt($name){
 }
 
 function save_decoration_to_db($array,$files,$form_id){
-	print_r($array);
 	$save_array['form_id']=$form_id;
 	$save_array['form_expire_time'] =$array['form-expire-time'];
 	$save_array['form_number_limit'] = $array['form-number-limit'];
@@ -242,7 +241,7 @@ function save_decoration_to_db($array,$files,$form_id){
 		$error=$files['bg']['error'];
 		$size=$files['bg']['size'];
 		$ext=getExt($name);
-		$newname=getuniname().'.'.$ext;
+		$newname=$save_array['form_id'].'-decoration.'.$ext;
 		$destination="uploads/".$newname;
 		if(is_uploaded_file($tmp_name)){
 			move_uploaded_file($tmp_name, $destination);
@@ -257,6 +256,23 @@ function save_decoration_to_db($array,$files,$form_id){
 
 function make_short_url($url){
 	$ch=curl_init();
+	curl_setopt($ch,CURLOPT_URL,"http://dwz.cn/create.php");
+	curl_setopt($ch,CURLOPT_POST,true);
+	curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
+	$data=array('url'=>$url);
+	curl_setopt($ch,CURLOPT_POSTFIELDS,$data);
+	$strRes=curl_exec($ch);
+	curl_close($ch);
+	$arrResponse=json_decode($strRes,true);
+	if($arrResponse['status']==0)
+	{
+		/**错误处理*/
+		echo iconv('UTF-8','GBK',$arrResponse['err_msg'])."\n";
+	}
+	/** tinyurl */
+	print_r($arrResponse);
+	//echo $arrResponse['tinyurl']."\n";
+	/* $ch=curl_init();
 	curl_setopt($ch,CURLOPT_URL,'http://dwz.cn/create.php');
 	curl_setopt($ch,CURLOPT_POST,true);
 	curl_setopt($ch,CURLOPT_RETURNTRANSFER,true);
@@ -270,7 +286,7 @@ function make_short_url($url){
 		echo 'ErrorCode: ['.$arrResponse['status'].'] ErrorMsg: ['.iconv('UTF-8','GBK',$arrResponse['err_msg'])."]<br/>";
 		return 0;
 	}
-	echo $arrResponse['tinyurl'];
+	echo $arrResponse['tinyurl']; */
 }
 
 function make_qrcode($url){
@@ -307,8 +323,12 @@ function make_form_card($row,$row2){
 									</div>
 									<div class="img-counter">
 										<div class="counter">';
-											if($day>=0) echo '<span class="time-left">还有'.$day.'天'.$hour.'小时'.$minute.'分钟</span>';
-	                            			else echo '<span class="time-left">已到期</span>';
+											if(strtotime($old)==''){
+												echo '<span class="time-left">无限期</span>';
+											}else{
+												if($day>=0) echo '<span class="time-left">还有'.$day.'天'.$hour.'小时'.$minute.'分钟</span>';
+												else echo '<span class="time-left">已到期</span>';
+											}
 											echo '<span class="written">'.$row['click_times'].'次</span>
 										</div>
 									</div>

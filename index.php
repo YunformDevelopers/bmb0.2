@@ -64,7 +64,7 @@
                 <!-- 我写的css对新生成的DOM元素不能起作用，很奇怪 -->
 					<?php 
 						connect();
-						$result=mysql_query("select * from question order by Date desc limit 5") or die(mysql_error());
+						$result=mysql_query("select * from question order by form_id desc limit 4") or die(mysql_error());
 						while($row=mysql_fetch_assoc($result)){
 							$result2=mysql_query("select * from decoration where form_id ='".$row['form_id']."'");
 							while ($row2=mysql_fetch_assoc($result2)){
