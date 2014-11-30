@@ -1,4 +1,5 @@
 ﻿<?php
+		include 'includes/includes.inc.php';
 	     $_clean=array();
 		 $_tmp_username = trim($_POST['username']);
 		     if(preg_match('/^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$/',$_tmp_username)){
