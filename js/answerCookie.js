@@ -7,23 +7,24 @@ $(document).ready(function() {
 *	将答案分类型存入cookie中
 */
 function SetAnswerCookie () {
-	var qTotalNumber = $("#form-body li").length;//这是获得form-body里面li的数量，也就是题目的总数
+	var qTotalNumber = $("#form-body .q-field").length;//这是获得form-body里面li的数量，也就是题目的总数
 	var formBody = $("#form-body");//获取到form-body元素
 	var cookieString = "answerStore=";//先把准备存进cookie里的字符串放在cookieString里,名为answerStore
 
 	for(var i=0;i<qTotalNumber;i++){//这个循环遍历所有题目，并将答案存放到cookie里面
-		var qFieldIth= $("#form-body form ").children().eq(i);//获取到#form-body form下的第i个li
+		var qFieldIth= $("#form-body .q-field").eq(i);//获取到#form-body form下的第i个li
 	
 	
 	/*  分情况获取每道题的answer放到CookieString里   */
 		
 		/*  获取每道题的qType */	
 		var qType;
-		var typeList = new Array("free-singleline","free-multiline","free-file","free-personalphoto","free-singlechoice","free-multichoice","logic-name","logic-sex","logic-studentID","logic-address","logic-tel","logic-email","logic-class");
+		var typeList = new Array("logic-name","logic-sex","logic-studentID","logic-address","logic-tel","logic-email","logic-class","free-singleline","free-multiline","free-file","free-personalphoto","free-singlechoice","free-multichoice");
 		var t;
 		for (t in typeList){
 			if (qFieldIth.hasClass(typeList[t])) { //判断li是否包含相应的class
 				qType = typeList[t];
+				break;
 			}
 		}
 		/*  针对不同题目的qType采取不同的获取手段 */
@@ -33,8 +34,9 @@ function SetAnswerCookie () {
 			var answer = qBody.find("input:radio:checked").val();
 			if (qBody.find("input:radio:checked").hasClass("note-title")){
 				answer += "λ" + qBody.find("input:radio:checked").closest(".note-position").find("input.note").val();//这里是先向上遍历到span.note-position，然后再向下找到input.note的部分，获得其中的值之后合并到answer里面，用λ分隔
-				alert(answer);
+				//alert(answer);
 			}
+			answer = detectUndefined(answer);
 			cookieString += answer+ "γ"//向cookieString添加答案，末尾加分隔符γ
 		}
 		else if(qType == "free-multichoice"){//多选题
@@ -45,25 +47,30 @@ function SetAnswerCookie () {
 				if ($(this).hasClass("note-title")) {
 					answer += "λ" + $(this).closest(".note-position").find("input.note").val();//这里是先向上遍历到span.note-position，然后再向下找到input.note的部分，获得其中的值之后合并到answer里面，用λ分隔
 				}
+				answer = detectUndefined(answer);
 				cookieString += answer+ "γ"//向cookieString添加答案，末尾加分隔符γ
 			})				
 		}
 		else if(qType == "free-singleline"){//单行文本题
 			var answer = qBody.find("input.body").val();
+			answer = detectUndefined(answer);
 			cookieString += answer+ "γ"//向cookieString添加答案，末尾加分隔符γ
 		}
 		else if(qType == "free-multiline"){//多行文本题
 			var answer = qBody.find("textarea.body").val();
+			answer = detectUndefined(answer);
 			cookieString += answer+ "γ"//向cookieString添加答案，末尾加分隔符γ
 		}
 		else if(qType == "free-file"){//文件题
 			var answer = qBody.find("input.body").val();
+			answer = detectUndefined(answer);
 			cookieString += "$_FILES-"+answer+ "γ"//向cookieString添加答案，末尾加分隔符γ
 		}
 		else if(qType == "free-personalphoto"){//照片题
 		}
 		else if(qType == "logic-tel"){//长短号待完成
 			var answer = qBody.find("input.body").val();
+			answer = detectUndefined(answer);
 			cookieString += answer+ "γ"//向cookieString添加答案，末尾加分隔符γ
 		}else if(qType == "logic-sex"){
 			var answer = qBody.find("input:radio:checked").val();
@@ -71,10 +78,12 @@ function SetAnswerCookie () {
 				answer += "λ" + qBody.find("input:radio:checked").closest(".note-position").find("input.note").val();//这里是先向上遍历到span.note-position，然后再向下找到input.note的部分，获得其中的值之后合并到answer里面，用λ分隔
 				alert(answer);
 			}
+			answer = detectUndefined(answer);
 			cookieString += answer+ "γ"//向cookieString添加答案，末尾加分隔符γ
 		}
 		else {
 			var answer = qBody.find("input.body").val();
+			answer = detectUndefined(answer);
 			cookieString += answer+ "γ"//向cookieString添加答案，末尾加分隔符γ
 		}
 		
@@ -170,4 +179,11 @@ function initValidationEngine (){
 		}
 		else ;
 	}
+}
+function detectUndefined (id) {
+	if(id === undefined){
+		id = "<i>此空未填写</i>";
+		return id;
+	}
+	else return id;
 }
