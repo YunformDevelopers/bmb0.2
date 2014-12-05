@@ -102,7 +102,7 @@ function initFormConstructField (){
 //初始化editor
 var editor ;
 function initEditor (){
-	if(   !( (getBrowserType("IEVersion") && (getBrowserType("IEVersion")<=8)) || getBrowserType("isFF") )   ){//判断是否为IE8一下的浏览器
+	if(   !( (getBrowserType("IEVersion") && (getBrowserType("IEVersion")<=8)) || getBrowserType("isFF") || getBrowserType("isSafari") )   ){//判断是否为IE8一下的浏览器
 		var toolbar;
 		toolbar = ['title', 'bold', 'italic', 'underline', 'strikethrough', 'color', '|', 'ol', 'ul', 'blockquote', 'code', 'table', '|', 'link', 'image', 'hr', '|', 'indent', 'outdent'];
 		
@@ -422,6 +422,11 @@ function getBrowserType (getType) {
 		//获取是否为火狐浏览器/返回值为true或false
 		var isFF = navigator.userAgent.indexOf("Firefox") > -1;
 		return isFF;//返回值为true或false
+	break;
+	case "isSafari":
+		//获取是否为Safari浏览器/返回值为true或false
+		var isSafari = navigator.userAgent.indexOf("Safari") > -1;
+		return isSafari;//返回值为true或false
 	break;
 	default:
 	}
