@@ -9,6 +9,11 @@ function connect(){
 	return $link;
 }
 function insert($table,$array){
+	if(!get_magic_quotes_gpc()){
+		foreach($array as $key =>$value){
+			$array[$key]=addslashes($value);
+		}
+	}
 	$keys = join(",", array_keys($array));
 	$values ="'".join("','",array_values($array))."'";
 	$string="insert into {$table} ($keys) values ({$values})";

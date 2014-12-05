@@ -162,7 +162,7 @@ window.onresize = function() {
 						}
 						else{
 							echo '<script>var con=confirm("不注册提交报名表您的报名信息将无法再被找回，确认要继续填写吗？");
-							if(!con){window.location.href="index.html"}</script>';
+							if(!con){window.location.href="index.php"}</script>';
 							$result=mysql_query("select * from question where form_id = '".$_GET['id']."'");
 							$result1=mysql_query("select * from decoration where form_id = '".$_GET['id']."'");
 							while($rows=mysql_fetch_assoc($result)){

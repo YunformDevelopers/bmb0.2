@@ -19,6 +19,17 @@ header('Content-Type:text/html; charset=utf-8');
 <script type="text/javascript" src="js/jQuery.js"></script>
 <script type="text/javascript" src="js/jquery.pin.min.js"></script>
 <script type="text/javascript" src="js/msg.js"></script>
+<script>
+	$(document).ready(function(){
+		$('.delete-button').click(function(){
+			var con = confirm('确定要删除吗？');
+			if(con){
+				var idarray=$(this).attr('id').split('-');
+				window.location.href="delete.php?id="+idarray[1];
+			}
+		})
+	})
+</script>
 </head>
 <body>
 <?php
@@ -114,7 +125,7 @@ header('Content-Type:text/html; charset=utf-8');
 		                    	<a href="edit.php?id='.$rows['form_id'].'"><input class="btn red" type="button" value="编辑"/></a>
 		                    	<a href="manage.php?id='.$rows['form_id'].'"><input class="btn blue" type="button" value="管理"/></a>
 	                    		<a href="#"><input class="btn green" type="button" value="查看"/></a>
-  								<a href="delete.php?id='.$rows['form_id'].'"><input type="button" value="删除"/></a>
+  								<a href="#"><input class="delete-button" id="delete-'.$rows['form_id'].'" type="button" value="删除"/></a>
 	                		</div>
 	                		<div class="form-status">';
     		if($days>=0){
