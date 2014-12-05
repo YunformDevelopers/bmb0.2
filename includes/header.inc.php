@@ -2,20 +2,18 @@
 include_once 'includes.inc.php';
 if(isset($_POST['username'])&&isset($_POST['password'])){
     connect();
-     $result = mysql_query("select * from _user where username='".$_POST['username']."'");
-	 if($row=mysql_fetch_array($result)){
-	     if($row['password']==$_POST['password']){
+     $result = fetchOne("select * from _user where username='".$_POST['username']."'");
+	 if(count($result)!=0){
+	     if($result['password']==$_POST['password']){
              setcookie('srtp-username',$_POST['username'],0);
              header("location:index.php");
 	     }
 		 else{
 		     do_js_alert('密码错误');
-		     do_js_link('index.php');
 		 }
     }
 	 else{
 	     do_js_alert('不存在该用户名');
-	     do_js_link('index.php');
 	 }
 }
 ?>
