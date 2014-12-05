@@ -162,6 +162,7 @@ function save_form_to_db($title,$intro,$string,$tip){
 }
 
 function save_answer_to_db($string,$id){
+<<<<<<< HEAD
 	if(isset($_COOKIE['srtp-username'])){
 		$username=$_COOKIE['srtp-username'];
 	}else{
