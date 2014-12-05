@@ -1,6 +1,8 @@
 $(document).ready(function(){
 	autoSave (300000);//每隔300s自动保存一次
+	innitDOMstringArray();
 	innitDragNSort();
+	innitClick2Add();
 	initPin ();
 	initFormConstructField ();//注意要在生成了pin之后再执行该语句
 	initEditor ();
@@ -19,6 +21,18 @@ function autoSave (time){
 	saveInterval = setInterval("SetCookie(); toolSaveAct('#tool-save-container a.tool.save');",time);
 	//保存cookie，同时toolSaveAct弹出slidemsg
 }
+//创建包含DOM的字符串数组，
+function innitDOMstringArray(){
+	//增加全局变量，因为这个变量经常需要用到
+	DOMstringArray = new Array();
+	DOMstringArray["personality"] = "<li><div id='q' class='q1 q-field-before preserved-personality logic-name' onMouseOver='showon(this)' onMouseOut='showoff(this)'><div class='q-number'><span>Q</span></div><div class='q-whole'>          <div class='q-title'><textarea type='text' name='q1-title' rows='1' class='title edit changed' >姓名</textarea></div><div id='alt' class='q-alternative'><a onclick='changeState(this)' name='required' >改为选答</a></div><div class='q-body'><input type='text' name='q1-body1' class='body no-edit'/></div></div><a href='javascript:;' id='q-del' style='display:none;' class='q-del' title='删除' onclick='qDel(this)'></a></div></li><li><div id='q' class='q4 q-field-before preserved-personality logic-sex' onMouseOver='showon(this)' onMouseOut='showoff(this)'><div class='q-number'><span>Q</span></div><div class='q-whole'><div class='q-title'><textarea type='text' name='q4-title' rows='1' class='title edit changed' >性别</textarea></div><div id='alt' class='q-alternative'><a onclick='changeState(this)' name='required' >改为选答</a></div><div class='q-body'><span><input type='radio' class='body no-edit' /><input type='text' name='q4-body3' class='body edit changed' onblur='delOption(this)'  value='男'/></span><span><input type='radio' class='body no-edit' /><input type='text' name='q4-body3' class='body edit changed' onblur='delOption(this)' value='女'/></span><span><input type='radio' class='body no-edit' /><input type='text' name='q4-body3' class='body edit raw' onfocus='rawChangeRadio(this)' value='点击这里添加选项'/></span></div></div><a href='javascript:;' id='q-del' style='display:none;' class='q-del' title='删除' onclick='qDel(this)'></a></div></li><li><div id='q' class='q1 q-field-before preserved-personality logic-studentID' onMouseOver='showon(this)' onMouseOut='showoff(this)'><div class='q-number'><span>Q</span></div><div class='q-whole'>          <div class='q-title'><textarea type='text' name='q1-title' rows='1' class='title edit changed' >学号</textarea></div><div id='alt' class='q-alternative'><a onclick='changeState(this)' name='required' >改为选答</a></div><div class='q-body'><input type='text' name='q1-body1' class='body no-edit'/></div></div><a href='javascript:;' id='q-del' style='display:none;' class='q-del' title='删除' onclick='qDel(this)'></a></div></li><li><div id='q' class='q1 q-field-before preserved-personality logic-address' onMouseOver='showon(this)' onMouseOut='showoff(this)'><div class='q-number'><span>Q</span></div><div class='q-whole'>          <div class='q-title'><textarea type='text' name='q1-title' rows='1' class='title edit changed' >住址</textarea></div><div id='alt' class='q-alternative'><a onclick='changeState(this)' name='required' >改为选答</a></div><div class='q-body'><input type='text' name='q1-body1' class='body no-edit'/></div></div><a href='javascript:;' id='q-del' style='display:none;' class='q-del' title='删除' onclick='qDel(this)'></a></div></li><li><div id='q' class='q1 q-field-before preserved-personality logic-tel' onMouseOver='showon(this)' onMouseOut='showoff(this)'><div class='q-number'><span>Q</span></div><div class='q-whole'>          <div class='q-title'><textarea type='text' name='q1-title' rows='1' class='title edit changed' >电话长短号</textarea></div><div id='alt' class='q-alternative'><a onclick='changeState(this)' name='required' >改为选答</a></div><div class='q-body'><input type='text' name='q1-body1' class='body no-edit'/>（长号：必填）<input type='text' name='q1-body1' class='body no-edit'/>（短号：可不填）</div></div><a href='javascript:;' id='q-del' style='display:none;' class='q-del' title='删除' onclick='qDel(this)'></a></div></li><li><div id='q' class='q1 q-field-before preserved-personality logic-email' onMouseOver='showon(this)' onMouseOut='showoff(this)'><div class='q-number'><span>Q</span></div><div class='q-whole'>          <div class='q-title'><textarea type='text' name='q1-title' rows='1' class='title edit changed' >邮箱</textarea></div><div id='alt' class='q-alternative'><a onclick='changeState(this)' name='required' >改为选答</a></div><div class='q-body'><input type='text' name='q1-body1' class='body no-edit'/></div></div><a href='javascript:;' id='q-del' style='display:none;' class='q-del' title='删除' onclick='qDel(this)'></a></div></li><li><div id='q' class='q1 q-field-before preserved-personality logic-class' onMouseOver='showon(this)' onMouseOut='showoff(this)'><div class='q-number'><span>Q</span></div><div class='q-whole'>          <div class='q-title'><textarea type='text' name='q1-title' rows='1' class='title edit changed' >专业班级</textarea></div><div id='alt' class='q-alternative'><a onclick='changeState(this)' name='required' >改为选答</a></div><div class='q-body'><input type='text' name='q1-body1' class='body no-edit'/></div></div><a href='javascript:;' id='q-del' style='display:none;' class='q-del' title='删除' onclick='qDel(this)'></a></div></li>";
+	DOMstringArray["singleline"] = "<li><div id='q' class='q1 q-field-before free-singleline' onMouseOver='showon(this)' onMouseOut='showoff(this)'> <div class='q-number'> <span>Q</span> </div> <div class='q-whole'> <div class='q-title'> <textarea type='text' name='q1-title' rows='1' class='title edit raw' onfocus='rawChange(this)' >请在这里输入题干内容</textarea> </div> <div id='alt' class='q-alternative'> <a onclick='changeState(this)' name='required' >改为选答</a> </div> <div class='q-body'> <input type='text' name='q1-body1' class='body no-edit'/></div></div><a href='javascript:;' id='q-del' style='display:none;' class='q-del' title='删除' onclick='qDel(this)'></a></div></li>";
+	DOMstringArray["multiline"] = "<li><div id='q' class='q2 q-field-before free-multiline' onMouseOver='showon(this)' onMouseOut='showoff(this)'><div class='q-number'><span>Q</span></div><div class='q-whole'><div class='q-title'><textarea type='text' name='q2-title' rows='1' class='title edit raw' onfocus='rawChange(this)' >请在这里输入题干内容</textarea></div><div id='alt' class='q-alternative'><a onclick='changeState(this)' name='required' >改为选答</a></div><div class='q-body'><textarea name='q2-body1' class='body no-edit'></textarea></div></div><a href='javascript:;' id='q-del' style='display:none;' class='q-del' title='删除' onclick='qDel(this)'></a></div></li>";
+	DOMstringArray["file"] = "<li><div id='q' class='q6 q-field-before free-file' onMouseOver='showon(this)' onMouseOut='showoff(this)'><div class='q-number'><span>Q</span></div><div class='q-whole'><div class='q-title'><textarea type='text' name='q6-title' rows='1' class='title edit raw' onfocus='rawChange(this)' >请在这里输入题干内容</textarea></div><div id='alt' class='q-alternative'><a onclick='changeState(this)' name='required' >改为选答</a></div><div class='q-body'><input type='file' class='body no-edit'/></div></div><a href='javascript:;' id='q-del' style='display:none;' class='q-del' title='删除' onclick='qDel(this)'></a></div></li>";
+	DOMstringArray["personalphoto"] = "<li><div id='q' class='q5 q-field-before free-personalphoto' onMouseOver='showon(this)' onMouseOut='showoff(this)'><div class='q-number'><span>Q</span></div><div class='q-whole'><div class='q-title'><textarea type='text' name='q5-title' rows='1' class='title edit raw' onfocus='rawChange(this)' >请在这里输入题干内容</textarea></div><div id='alt' class='q-alternative'><a onclick='changeState(this)' name='required' >改为选答</a></div><div class='q-body'><input type='file' class='body no-edit' /></div></div><a href='javascript:;' id='q-del' style='display:none;' class='q-del' title='删除' onclick='qDel(this)'></a></div></li>";
+	DOMstringArray["singlechoice"] = "<li><div id='q' class='q4 q-field-before free-singlechoice' onMouseOver='showon(this)' onMouseOut='showoff(this)'><div class='q-number'><span>Q</span></div><div class='q-whole'><div class='q-title'><textarea type='text' name='q4-title' rows='1' class='title edit raw' onfocus='rawChange(this)' >请在这里输入题干内容</textarea></div><div id='alt' class='q-alternative'><a onclick='changeState(this)' name='required' >改为选答</a></div><div class='q-body'><span><input type='radio' class='body no-edit' /><input type='text' name='q4-body3' class='body edit raw' onfocus='rawChangeRadio(this)' value='点击这里添加选项'/></span></div></div><a href='javascript:;' id='q-del' style='display:none;' class='q-del' title='删除' onclick='qDel(this)'></a></div></li>";
+	DOMstringArray["multichoice"] = "<li><div id='q' class='q3 q-field-before free-multichoice' onMouseOver='showon(this)' onMouseOut='showoff(this)'><div class='q-number'><span>Q</span></div> <div class='q-whole'><div class='q-title'><textarea type='text' name='q3-title' rows='1' class='title edit raw' onfocus='rawChange(this)' >请在这里输入题干内容</textarea></div><div id='alt' class='q-alternative'><a onclick='changeState(this)' name='required' >改为选答</a></div><div class='q-body'><span><input type='checkbox'  class='body no-edit'/><input type='text' name='q3-body3' class='body edit raw' onfocus='rawChangeCheckbox(this)' value='点击这里添加选项'/></span></div></div><a href='javascript:;' id='q-del' style='display:none;' class='q-del' title='删除' onclick='qDel(this)'></a></div></li>";
+}
 //初始化drag和sort部分
 function innitDragNSort (){
     $("#tool-construct-container li").draggable({
@@ -34,52 +48,10 @@ function innitDragNSort (){
         activeclass: "ui-state-hover",
         hover: "ui-state-activeclass",
         drop: function (event, ui) {
-            if ($(ui.draggable).attr("id") == "personality") {
-                $(this)
-                    .find("#form-body")
-                    .append("<li><div id='q' class='q1 q-field-before preserved-personality logic-name' onMouseOver='showon(this)' onMouseOut='showoff(this)'><div class='q-number'><span>Q</span></div><div class='q-whole'>          <div class='q-title'><textarea type='text' name='q1-title' rows='1' class='title edit changed' >姓名</textarea></div><div id='alt' class='q-alternative'><a onclick='changeState(this)' name='required' >改为选答</a></div><div class='q-body'><input type='text' name='q1-body1' class='body no-edit'/></div></div><a href='javascript:;' id='q-del' style='display:none;' class='q-del' title='删除' onclick='qDel(this)'></a></div></li><li><div id='q' class='q4 q-field-before preserved-personality logic-sex' onMouseOver='showon(this)' onMouseOut='showoff(this)'><div class='q-number'><span>Q</span></div><div class='q-whole'><div class='q-title'><textarea type='text' name='q4-title' rows='1' class='title edit changed' >性别</textarea></div><div id='alt' class='q-alternative'><a onclick='changeState(this)' name='required' >改为选答</a></div><div class='q-body'><span><input type='radio' class='body no-edit' /><input type='text' name='q4-body3' class='body edit changed' onblur='delOption(this)'  value='男'/></span><span><input type='radio' class='body no-edit' /><input type='text' name='q4-body3' class='body edit changed' onblur='delOption(this)' value='女'/></span><span><input type='radio' class='body no-edit' /><input type='text' name='q4-body3' class='body edit raw' onfocus='rawChangeRadio(this)' value='点击这里添加选项'/></span></div></div><a href='javascript:;' id='q-del' style='display:none;' class='q-del' title='删除' onclick='qDel(this)'></a></div></li><li><div id='q' class='q1 q-field-before preserved-personality logic-studentID' onMouseOver='showon(this)' onMouseOut='showoff(this)'><div class='q-number'><span>Q</span></div><div class='q-whole'>          <div class='q-title'><textarea type='text' name='q1-title' rows='1' class='title edit changed' >学号</textarea></div><div id='alt' class='q-alternative'><a onclick='changeState(this)' name='required' >改为选答</a></div><div class='q-body'><input type='text' name='q1-body1' class='body no-edit'/></div></div><a href='javascript:;' id='q-del' style='display:none;' class='q-del' title='删除' onclick='qDel(this)'></a></div></li><li><div id='q' class='q1 q-field-before preserved-personality logic-address' onMouseOver='showon(this)' onMouseOut='showoff(this)'><div class='q-number'><span>Q</span></div><div class='q-whole'>          <div class='q-title'><textarea type='text' name='q1-title' rows='1' class='title edit changed' >住址</textarea></div><div id='alt' class='q-alternative'><a onclick='changeState(this)' name='required' >改为选答</a></div><div class='q-body'><input type='text' name='q1-body1' class='body no-edit'/></div></div><a href='javascript:;' id='q-del' style='display:none;' class='q-del' title='删除' onclick='qDel(this)'></a></div></li><li><div id='q' class='q1 q-field-before preserved-personality logic-tel' onMouseOver='showon(this)' onMouseOut='showoff(this)'><div class='q-number'><span>Q</span></div><div class='q-whole'>          <div class='q-title'><textarea type='text' name='q1-title' rows='1' class='title edit changed' >电话长短号</textarea></div><div id='alt' class='q-alternative'><a onclick='changeState(this)' name='required' >改为选答</a></div><div class='q-body'><input type='text' name='q1-body1' class='body no-edit'/>（长号：必填）<input type='text' name='q1-body1' class='body no-edit'/>（短号：可不填）</div></div><a href='javascript:;' id='q-del' style='display:none;' class='q-del' title='删除' onclick='qDel(this)'></a></div></li><li><div id='q' class='q1 q-field-before preserved-personality logic-email' onMouseOver='showon(this)' onMouseOut='showoff(this)'><div class='q-number'><span>Q</span></div><div class='q-whole'>          <div class='q-title'><textarea type='text' name='q1-title' rows='1' class='title edit changed' >邮箱</textarea></div><div id='alt' class='q-alternative'><a onclick='changeState(this)' name='required' >改为选答</a></div><div class='q-body'><input type='text' name='q1-body1' class='body no-edit'/></div></div><a href='javascript:;' id='q-del' style='display:none;' class='q-del' title='删除' onclick='qDel(this)'></a></div></li><li><div id='q' class='q1 q-field-before preserved-personality logic-class' onMouseOver='showon(this)' onMouseOut='showoff(this)'><div class='q-number'><span>Q</span></div><div class='q-whole'>          <div class='q-title'><textarea type='text' name='q1-title' rows='1' class='title edit changed' >专业班级</textarea></div><div id='alt' class='q-alternative'><a onclick='changeState(this)' name='required' >改为选答</a></div><div class='q-body'><input type='text' name='q1-body1' class='body no-edit'/></div></div><a href='javascript:;' id='q-del' style='display:none;' class='q-del' title='删除' onclick='qDel(this)'></a></div></li>")
-            }
-            else if ($(ui.draggable).attr("id") == "singleline") {
-                $(this)
-                    .find("#form-body")
-                    .append("<li><div id='q' class='q1 q-field-before free-singleline' onMouseOver='showon(this)' onMouseOut='showoff(this)'> <div class='q-number'> <span>Q</span> </div> <div class='q-whole'> <div class='q-title'> <textarea type='text' name='q1-title' rows='1' class='title edit raw' onfocus='rawChange(this)' >请在这里输入题干内容</textarea> </div> <div id='alt' class='q-alternative'> <a onclick='changeState(this)' name='required' >改为选答</a> </div> <div class='q-body'> <input type='text' name='q1-body1' class='body no-edit'/></div></div><a href='javascript:;' id='q-del' style='display:none;' class='q-del' title='删除' onclick='qDel(this)'></a></div></li>")
-            }
-            else if ($(ui.draggable).attr("id") == "multiline") {
-                $(this)
-                    .find("#form-body")
-                    .append("<li><div id='q' class='q2 q-field-before free-multiline' onMouseOver='showon(this)' onMouseOut='showoff(this)'><div class='q-number'><span>Q</span></div><div class='q-whole'><div class='q-title'><textarea type='text' name='q2-title' rows='1' class='title edit raw' onfocus='rawChange(this)' >请在这里输入题干内容</textarea></div><div id='alt' class='q-alternative'><a onclick='changeState(this)' name='required' >改为选答</a></div><div class='q-body'><textarea name='q2-body1' class='body no-edit'></textarea></div></div><a href='javascript:;' id='q-del' style='display:none;' class='q-del' title='删除' onclick='qDel(this)'></a></div></li>")
-            }
-            else if ($(ui.draggable).attr("id") == "file") {
-                $(this)
-                    .find("#form-body")
-                    .append("<li><div id='q' class='q6 q-field-before free-file' onMouseOver='showon(this)' onMouseOut='showoff(this)'><div class='q-number'><span>Q</span></div><div class='q-whole'><div class='q-title'><textarea type='text' name='q6-title' rows='1' class='title edit raw' onfocus='rawChange(this)' >请在这里输入题干内容</textarea></div><div id='alt' class='q-alternative'><a onclick='changeState(this)' name='required' >改为选答</a></div><div class='q-body'><input type='file' class='body no-edit'/></div></div><a href='javascript:;' id='q-del' style='display:none;' class='q-del' title='删除' onclick='qDel(this)'></a></div></li>")
-            }
-            else if ($(ui.draggable).attr("id") == "personalphoto") {
-                $(this)
-                    .find("#form-body")
-                    .append("<li><div id='q' class='q5 q-field-before free-personalphoto' onMouseOver='showon(this)' onMouseOut='showoff(this)'><div class='q-number'><span>Q</span></div><div class='q-whole'><div class='q-title'><textarea type='text' name='q5-title' rows='1' class='title edit raw' onfocus='rawChange(this)' >请在这里输入题干内容</textarea></div><div id='alt' class='q-alternative'><a onclick='changeState(this)' name='required' >改为选答</a></div><div class='q-body'><input type='file' class='body no-edit' /></div></div><a href='javascript:;' id='q-del' style='display:none;' class='q-del' title='删除' onclick='qDel(this)'></a></div></li>")
-            }
-            else if ($(ui.draggable).attr("id") == "singlechoice") {
-                $(this)
-                    .find("#form-body")
-                    .append("<li><div id='q' class='q4 q-field-before free-singlechoice' onMouseOver='showon(this)' onMouseOut='showoff(this)'><div class='q-number'><span>Q</span></div><div class='q-whole'><div class='q-title'><textarea type='text' name='q4-title' rows='1' class='title edit raw' onfocus='rawChange(this)' >请在这里输入题干内容</textarea></div><div id='alt' class='q-alternative'><a onclick='changeState(this)' name='required' >改为选答</a></div><div class='q-body'><span><input type='radio' class='body no-edit' /><input type='text' name='q4-body3' class='body edit raw' onfocus='rawChangeRadio(this)' value='点击这里添加选项'/></span></div></div><a href='javascript:;' id='q-del' style='display:none;' class='q-del' title='删除' onclick='qDel(this)'></a></div></li>")
-            }
-            else if ($(ui.draggable).attr("id") == "multichoice") {
-                $(this)
-                    .find("#form-body")
-                    .append("<li><div id='q' class='q3 q-field-before free-multichoice' onMouseOver='showon(this)' onMouseOut='showoff(this)'><div class='q-number'><span>Q</span></div> <div class='q-whole'><div class='q-title'><textarea type='text' name='q3-title' rows='1' class='title edit raw' onfocus='rawChange(this)' >请在这里输入题干内容</textarea></div><div id='alt' class='q-alternative'><a onclick='changeState(this)' name='required' >改为选答</a></div><div class='q-body'><span><input type='checkbox'  class='body no-edit'/><input type='text' name='q3-body3' class='body edit raw' onfocus='rawChangeCheckbox(this)' value='点击这里添加选项'/></span></div></div><a href='javascript:;' id='q-del' style='display:none;' class='q-del' title='删除' onclick='qDel(this)'></a></div></li>")            }
-            else if ($(ui.draggable).attr("id") == "rader") {
-                $(this)
-                    .find("#form-body")
-                    .append(q1.clone())
-
-            }
+			//根据drop的题目类型选择append 相应的domstring
+            $(this).find("#form-body").append(DOMstringArray[$(ui.draggable).attr("id")]);
 			//下面的这些函数的调用有些是因为drag涉及到DOM变化
-			qNumberRefresh ();
-			disableNoEdit ();
-			scrollBottom ();
-			$("#form-body>li:last-child textarea.title.edit").focus();
-			initPin ();			
+			addFallback();		
         },
 
     });
@@ -99,10 +71,20 @@ function innitDragNSort (){
 			qNumberRefresh ();
 			initPin ();
 		},
-		containment: "#tool-construct-container",
+		containment: "#form-body",
 		scroll:true,
     });
 }
+//绑定tool-construct点击事件
+function innitClick2Add(){
+	$("#tool-construct-container .tool-construct-list li.ui-draggable").click(function(){
+		$("#form-construct-field #form-body").append(DOMstringArray[$(this).attr("id")]);
+		//下面的这些函数的调用有些是因为drag涉及到DOM变化
+		addFallback();
+	});
+}
+
+
 //初始化pin
 function initPin (){
 	$("#tool-field").pin({
@@ -120,7 +102,7 @@ function initFormConstructField (){
 //初始化editor
 var editor ;
 function initEditor (){
-	if(   !( (getBrowserType("IEVersion") && (getBrowserType("IEVersion")<=8)) || getBrowserType("isFF") )   ){//判断是否为IE8一下的浏览器
+	if(   !( (getBrowserType("IEVersion") && (getBrowserType("IEVersion")<=8)) || getBrowserType("isFF") || getBrowserType("isSafari") )   ){//判断是否为IE8一下的浏览器
 		var toolbar;
 		toolbar = ['title', 'bold', 'italic', 'underline', 'strikethrough', 'color', '|', 'ol', 'ul', 'blockquote', 'code', 'table', '|', 'link', 'image', 'hr', '|', 'indent', 'outdent'];
 		
@@ -441,6 +423,11 @@ function getBrowserType (getType) {
 		var isFF = navigator.userAgent.indexOf("Firefox") > -1;
 		return isFF;//返回值为true或false
 	break;
+	case "isSafari":
+		//获取是否为Safari浏览器/返回值为true或false
+		var isSafari = navigator.userAgent.indexOf("Safari") > -1;
+		return isSafari;//返回值为true或false
+	break;
 	default:
 	}
 }
@@ -448,4 +435,12 @@ function tipDisappear(id){
 	$id = $(id);
 	$id.parent(".create-tip").slideUp();
 	$("#whole-msg-bg").fadeOut(500);
+}
+function addFallback(){
+	//下面的这些函数的调用有些是因为drag涉及到DOM变化
+	qNumberRefresh ();
+	disableNoEdit ();
+	scrollBottom ();
+	$("#form-body>li:last-child textarea.title.edit").focus();
+	initPin ();		
 }

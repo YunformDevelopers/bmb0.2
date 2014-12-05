@@ -28,7 +28,7 @@
         <i>Witness a new era.</i>
         <br /><br />
         <p class="banner-content">欢迎参加报名吧首次内测！</p>
-        <p><a href="intro.html">了解详情</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="create.php">开始创建第一张报名表</a></p>
+        <p><a href="beta-intro.html">内测福利戳这里！</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="create.php">开始创建第一张报名表</a></p>
     </div>
 </div>
 <div id="tab-container">

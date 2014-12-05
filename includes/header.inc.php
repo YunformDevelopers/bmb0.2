@@ -88,10 +88,10 @@ if(isset($_POST['username'])&&isset($_POST['password'])){
 				</li>
 				<br />
 				<li class="more-item">
-					<a><span>意见反馈</span></a>
+					<a onClick='msgPopOver("msg.php #feedback-msg-content");'><span>建议反馈</span></a>
 				</li>
                 <li class="more-item">
-					<a id="contact-msg"><span>联系我们</span></a>
+					<a id="contact-msg" onclick='msgPopOver("msg.php #contact-msg-content");' ><span>联系我们</span></a>
 				</li>
 				<li class="more-item">
 					<a><span>关于报名吧</span></a>

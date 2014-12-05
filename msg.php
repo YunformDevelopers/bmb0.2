@@ -1,7 +1,13 @@
 <div id="contact-msg-content">
 	<h3>联系我们</h3>
-        <p>您可以加我们的负责人QQ：12345678联系：）</p>
-        <input id="msg-ok-btn" class='btn red' type="button" value='确定' />
+    <div style="margin:0 1em;">
+        <p><b>邮箱:</b> &nbsp;baomingba@126.com</p>
+        <p><b>QQ:</b> &nbsp;&nbsp;&nbsp;907840263</p>
+        <p><b>电话:</b> &nbsp;760976/18868102502</p>
+        <p><b>官方微信:</b></p>
+        <p style="text-align:center;"><img src="images/header-icon/wechat-QR-code.gif" /></p>
+     </div>
+        <input id="msg-ok-btn" onClick="msgSlideDn();" class='btn red' type="button" value='确定' />
 </div>  
 
 <div id="work-msg-content">
@@ -16,11 +22,12 @@
             <form name="" method="post" action="register.php">
                 <ul>
                     <li class="title">邮箱<span class="tip">(*必填，至少两位)</span></li>
-                    <li class="body"><input type="text" required="required" name="username" class="text" /></li>
+                    <li class="body"><input type="email" required="required" name="username" class="text" /></li>
                     <li class="title">密码<span class="tip">(*必填，至少六位)</span></li>
                     <li class="body"><input type="password" required="required" name="password" class="text" /></li>
                     <li class="title">确认密码<span class="tip">(*必填，至少六位)</span></li>
                     <li class="body"><input type="password" required="required" name="notpassword" class="text" /></li>
+                    <li class="remember-me"><label><input required="required" type="checkbox" />我已阅读并同意相关服务条款<a href="policy.html" target="new">《报名吧网站服务条款协议》</a></label></li>
                     <li class=""><input type="submit"  class="submit btn red" value="注册" /></li>
                 </ul>
             </form>
@@ -118,6 +125,7 @@
                     <li class="body"><input type="password" required="required" name="password" class="text" /></li>
                     <li class="title">确认密码<span class="tip">(*必填，至少六位)</span></li>
                     <li class="body"><input type="password" required="required" name="notpassword" class="text" /></li>
+                    <li class="remember-me"><label><input required="required" type="checkbox" />我已阅读并同意相关服务条款<a href="policy.html" target="new">《报名吧网站服务条款协议》</a></label></li>
                     <li class=""><input type="submit"  class="submit btn red" value="注册并登录" /></li>
                 </ul>
             </form>
