@@ -1,0 +1,64 @@
+@CHARSET "UTF-8";
+#my-release,#my-fill,#my-browse {
+	margin-top:1em;
+}/* 关于section的设定请看index.css */
+#my-release .card .img-holder:hover {
+	-moz-transform:translateY(0px);-webkit-transform:translateY(0px);
+}
+#my-release h2 {
+	font-weight:bold;
+}
+#my-release .card {
+	position:relative;
+}
+/* 这里对状态戳进行了裁剪 */
+#my-release .form-status{
+	position:absolute;
+	top:1px;
+	right:1px;
+	width:240px;
+	height:172px;
+	z-index:2;
+	overflow:hidden;
+}
+#my-release .form-status img {
+	margin:-40px  180px ;
+	z-index:1;
+}
+#my-release .form-op {
+	opacity:0;
+	background:rgba(0,0,0,0.7);
+	position:absolute;
+	top:1px;
+	right:1px;
+	width:241px;
+	height:172px;
+	z-index:3;
+	overflow:hidden;
+	transition:ease all 0.5s;
+	border-radius: 0.25em 0.25em/0.25em; /* 0.25*16=4px */
+	-moz-border-radius:0.25em  0.25em/0.25em;  
+}
+#my-release .form-op:hover {
+	opacity:100;
+}
+#my-release .form-op .btn {
+	margin:24px auto 0px auto;
+	display:block;
+}
+#my-release .create-new .img-holder {
+	height:170px;
+	color:#D2D0CE;
+	box-shadow:none;
+	border:2px #D2D0CE dashed;
+	text-align:center;
+}
+#my-release .create-new .img-holder b {/*这里是加号*/
+	font-size:10em;	
+	font-weight:900;
+	line-height:80%;
+}
+#my-release .create-new .img-holder p {/*这里是点此创建新表*/
+	font-weight:bold;
+	font-size:1.4em;
+}

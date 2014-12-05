@@ -1,0 +1,328 @@
+﻿@CHARSET "UTF-8";
+#wrapper {
+	overflow:hidden;
+	width:1300px;
+}
+/* 这个页面分为四个大块，分别是 #create-form-steps #tool-save-container #tool-construct-container #form-construct-field
+具体结构可以用Firebug去看。
+讲一下可操作区域，tool-save-container里面有作为背景的div和作为上面图案的可操作的a，这两个都是有样式的，要更改请看下面注释。
+tool-construct-container里面，bg和side是纯样式不用管，操作的有preserved和free，主要拖拽部分就是li，具体看下面注释。
+form-construct-field里面，分为form-title,form-intro，form-body，具体看下面注释。
+ */
+#create-form-steps {
+	width:90%;
+	margin:1% 5%;
+	height:2em;
+	background:#111;
+	text-align:justify;
+	border-radius:5px;
+	position:relative;
+}
+#create-form-steps div {
+	display:inline-block;
+}
+#create-form-steps .step {
+	height:2em;
+	line-height:2em;
+	width:30%;
+	text-align:center;
+	color:#fff;
+} 
+.step-div {
+	background:url(../images/step-div.svg) no-repeat center;
+	background-size:cover;
+	width:4%;
+	height:2em;
+	margin-bottom:-9px;
+}
+#step-status-set {
+	position:absolute;
+	width:100%;
+	top:0; left:0;
+	text-align:justify;
+}
+#step-status-set div {
+	height:2em;
+	background:rgba(250,248,245,0.3);
+}
+#step-status-set div:hover {
+	background:none;
+}
+#step-status-set .step-status1 {
+	width:32.1%;
+	background:none;
+}
+#step-status-set .step-status2 {
+	width:34%;
+}
+#step-status-set .step-status3 {
+	width:32.1%;
+}
+#step-status-set .justify-helper {
+	height:0;
+}
+#tool-field {
+	float:left;
+	margin:0 5%;
+	width:150px;
+}
+#tool-save-container {
+	width:64px;
+	height:64px;
+	margin:1em auto;
+}
+#tool-save-container .bg {
+	width:64px;
+	height:64px;
+	background-size:64px 64px;
+}
+#tool-save-container .tool {
+	width:64px;
+	height:64px;
+	display:block;
+	background-size:64px 64px;
+}
+#tool-save-container .loading-64 {
+	width:64px;
+	height:64px;
+	background-size:64px 64px;
+	background:url(../images/loading-64.GIF) no-repeat;
+}
+#tool-save-container .bg.blue {
+	background:url(../images/tool-save/bg-b.png) no-repeat;
+}
+#tool-save-container .bg.blue:active {
+	background:url(../images/tool-save/bg-b-active.png) no-repeat;
+}
+#tool-save-container .bg.red {
+	background:url(../images/tool-save/bg-r.png) no-repeat;
+}
+#tool-save-container .bg.red:active {
+	background:url(../images/tool-save/bg-r-active.png) no-repeat;
+}
+#tool-save-container .bg.green {
+	background:url(../images/tool-save/bg-g.png) no-repeat;
+}
+#tool-save-container .bg.green:active {
+	background:url(../images/tool-save/bg-g-active.png) no-repeat;
+}
+#tool-save-container .tool.save {
+	background:url(../images/tool-save/save.png) no-repeat;
+}
+#tool-save-container .tool.success {
+	background:url(../images/tool-save/success.png) no-repeat;
+}
+#tool-save-container .tool.uploading {
+	background:url(../images/tool-save/uploading.png) no-repeat;
+}
+#tool-save-container .tool.failure {
+	background:url(../images/tool-save/failure.png) no-repeat;
+}
+#tool-construct-container {
+	text-align:center;
+	position:relative;
+}
+#tool-container-bg {
+	position:absolute;
+	background:#999 ;
+	width:96%;
+	height:110%;
+	top:0; left:2%;
+	z-index:-1;
+}
+#tool-container-side {
+	position:absolute;
+	background:rgba(51,51,51,0.5);
+	width:20%;
+	height:110%;
+	top:0; left:2%;
+	border-right:#de473a solid 2px;
+	box-shadow:inset rgba(255,255,255,0.5) 0px 5px 5px;
+	z-index:18;
+}
+#tool-construct-container h4{
+	display:block;
+	color:#FFF;
+	background-color:#333;
+	height:2em;
+	line-height:2em;
+	box-shadow: 0px 3px 3px rgba(102,102,102,0.8);
+	z-index:20;
+	position:relative;
+}
+#tool-construct-container a {
+	text-decoration:none;
+	display:block;
+	cursor:move;
+}
+#tool-construct-container ul{
+	position:relative;
+	left:10px;
+}
+#tool-construct-container ul span {/* 为了改变icon在屏幕上表现的颜色 */
+	filter:alpha(opacity=70);
+	-moz-opacity:0.7;
+	-khtml-opacity: 0.7;
+	opacity: 0.7;
+}
+#tool-construct-container li{
+	width:150px;
+	display:block;
+	height:1.5em;
+	line-height:1.5em;
+	background:#FFF;
+	margin:8px 0;
+	box-shadow: 0px 3px 3px #555;
+	border-radius:1px;
+	cursor:move;
+	z-index:16;
+}
+#tool-construct-container span{
+	width:1em; height:1.5em;
+	/* 这里inline-block是为了让icon居右，文字居中，为了达到这一目的左边还有一个空的span */
+	display:inline-block;
+	float:right;
+	margin-right:4px;
+}
+/* 下面就是给每个不同class的tool加上icon */
+.tool-construct-icon-name {
+	background:url(../images/tool/name.png) no-repeat center;
+}
+.tool-construct-icon-singleline {
+	background:url(../images/tool/singleline.png) no-repeat center;
+}
+.tool-construct-icon-multiline {
+	background:url(../images/tool/multiline.png) no-repeat center;
+}
+.tool-construct-icon-file {
+	background:url(../images/tool/file.png) no-repeat center;
+}
+.tool-construct-icon-personalphoto {
+	background:url(../images/tool/personalphoto.png) no-repeat center;
+}
+.tool-construct-icon-singlechoice {
+	background:url(../images/tool/singlechoice.png) no-repeat center;
+}
+.tool-construct-icon-multichoice {
+	background:url(../images/tool/multichoice.png) no-repeat center;
+}
+.tool-construct-icon-rate {
+	background:url(../images/tool/rate.png) no-repeat center;
+}
+.tool-construct-icon-radar {
+	background:url(../images/tool/radar.png) no-repeat center;
+}
+#tool-construct-container .tool-float-left {
+	float:left;
+}
+/* 这里用了几个层级，因为这个区域里面input和textarea很多。
+1.能够编辑的给.edit的class，可编辑的就有一个hover然后背景变黄的效果，没有这个class的是不可编辑的！
+2.form-title是整张表的title，input的text类型，需要限制字符数
+3.form-intro是整张表的介绍，是textarea
+4.form-body里面有很多个q-field，层级很多，用firebug看最好。
+5.拖拽区是q-number，是绝对定位到q-field的左边，它的右边有一条一个像素的边框
+6.整个q-field四周有条3像素的边框
+7.q-alternative是一个a，单击在“改为必答”和“改为选答”切换
+8.q-title是输入的问题的内容，用的是textarea，并且有.edit的class
+9.q-body里面有选项的内容（如果有问题有选项），用q-body1、q-body2……等表示，用的是type为text的input，这些内容也是要存数据库的
+10.q-body里面的选项需要点击一个就能添加选项，一个选项的内容清空之后就把这个选项删除掉。
+11.“点击添加选项”这个选项总是和其他选项隔一行
+ */
+#form-construct-field {
+	float:right;
+	width:855px;
+	margin:1em 5% 0 0;
+	background:#fff;
+	border-radius:;
+	padding:3em;
+	overflow:visible;
+}
+#form-construct-field-test{
+	float:right;
+	width:855px;
+	margin:1em 5% 0 0;
+	background:#888;
+	border-radius:;
+	padding:3em;
+	overflow:visible;
+}
+#form-title {
+	margin:0 auto;
+	margin-bottom:1em;
+	text-align:center;
+}
+#form-title .edit{
+	margin:0 auto;
+	text-align:center;
+}
+#form-intro {
+	padding:10px 0;
+	border-bottom:#de473a solid 2px;
+	margin-bottom:30px;
+}
+#form-body {
+	
+}
+#form-body .q-field {
+	border:#ccc solid 3px;
+	margin:1em 0;
+	position:relative;
+}
+#form-body .q-number {
+	border-right:#CCC solid 1px;
+	display:block;
+	position:absolute;
+	height:100%;
+	width:50px;
+	background:#FFF;
+	text-align:center;
+	font-weight:600;
+}
+#form-body .q-number span {
+	display:block;
+	margin:5px auto;
+}
+#form-body .q-whole {
+	padding:5px 5em 5px 58px;/* 注意这里的5em是“改为选答”这几个字的数量加一 */
+	position:relative;
+} 
+#form-body .q-title {
+	display:inline-block;
+	width:100%;
+}
+#form-body .q-alternative {
+	display:inline-block;
+	float:right;
+	margin-left:1em;
+	position:absolute;
+	top:5px; right:5px;
+}
+#form-body .q-type {
+	display:inline-block;
+	float:right;
+	margin-left:1em;
+}
+#form-body .q-body {
+	margin-top:5px;
+}
+#form-body .no-edit {
+	outline:none;
+	cursor:default;
+	resize:none;
+	width:200px;
+} 
+#form-construct-field .title.edit {
+	width:100%;
+	overflow:auto;
+	font-weight:600;
+}
+#form-construct-field .edit {
+	border:none;
+	outline:none;
+	resize:none;	
+	padding:0; margin:0;
+	transition:all ease 0.1s;
+}
+#form-construct-field .edit:hover,#form-construct-field .edit:active,#form-construct-field .edit:focus {
+	background:#FF9;
+}
