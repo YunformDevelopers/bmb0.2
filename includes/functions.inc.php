@@ -162,11 +162,16 @@ function save_form_to_db($title,$intro,$string,$tip){
 }
 
 function save_answer_to_db($string,$id){
-	echo $string;
+	if (isset($_COOKIE['srtp-username'])) {
+		$username=$_COOKIE['srtp-username'];
+	}else {
+		$username='未登录用户';
+	}
 	connect();
 	$array['form_id']=$id;
 	$array['answer_string'] = $string;
-	$array['username']=$_COOKIE['srtp-username'];
+	$array['username']=$username;
+	do_js_alert($string);
 	date_default_timezone_set("Asia/Shanghai");
 	$array['date'] = date("Y-m-d h:i:s");
 	$array['from_where']=$_COOKIE['fromwhere'];
