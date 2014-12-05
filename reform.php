@@ -100,7 +100,6 @@ window.onresize = function() {
 <?php require 'includes/includes.inc.php';?>
 </head>
 <body>
-
 		        	<?php 
 	        		if(isset($_GET['id'])){
 						connect();
@@ -161,6 +160,13 @@ window.onresize = function() {
 							}
 						}
 						else{
+<<<<<<< HEAD
+							echo '<script>var con=confirm("不注册提交报名表您的报名信息将无法再被找回，确认要继续填写吗？");
+							if(!con){window.location.href="index.html"}</script>';
+=======
+							echo '<script>var con=confirm("不注册填写报名表您将无法找回您填写的数据,您确定要继续填写吗？");
+									if(!con){window.location.href="index.php"}else{}</script>';
+>>>>>>> f34b227dca9156fc585814f55c30d05cabffb8ae
 							$result=mysql_query("select * from question where form_id = '".$_GET['id']."'");
 							$result1=mysql_query("select * from decoration where form_id = '".$_GET['id']."'");
 							while($rows=mysql_fetch_assoc($result)){
@@ -168,7 +174,19 @@ window.onresize = function() {
 								$old=strtotime($rows1['form_expire_time']);
 								date_default_timezone_set("Asia/Shanghai");
 								$now=strtotime(date("Y-m-d h:i:s"));
-								if($now>$old){
+								if(strtotime($old)==''){
+<<<<<<< HEAD
+									create_to_db($rows);
+									$array=$rows;
+									$array['click_times']=intval($array['click_times'])+1;
+									update('question', $array,"form_id='".$_GET['id']."'");
+=======
+										create_to_db($rows);
+										$array=$rows;
+										$array['click_times']=intval($array['click_times'])+1;
+										update('question', $array,"form_id='".$_GET['id']."'");
+>>>>>>> f34b227dca9156fc585814f55c30d05cabffb8ae
+								}else if($now>$old){
 									do_js_alert("该表已超过建表者规定的填表时间！");
 									do_js_link('index.php');
 								}else if($rows['answer_times']>=$rows1['form_number_limit']){

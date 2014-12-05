@@ -10,15 +10,16 @@
 <script type="text/javascript" src="js/jQuery.js"></script>
 </head>
 <body>
-<div id="whole-msg-bg" onclick="msgSlideDn();">
+<!-- <div id="whole-msg-bg" onclick="msgSlideDn();">
 </div>		
 <div class='msg'>
         <div class='msg-border'>
             <div class='msg-content'>
-            <!--内容是动态获得的-->			
+            		
             </div>
         </div>
 </div>
+ -->
 <?php
 require 'includes/includes.inc.php';
 if(isset($_GET['action'])&&$_GET['action']=='save'){
@@ -35,58 +36,29 @@ if(isset($_GET['action'])&&$_GET['action']=='save'){
  	do_js_link('create-2.php?id='.$id);
 }
 else if(isset($_GET['action'])&&$_GET['action']=='answer'){
-	if(isset($_COOKIE['srtp-username'])){
-		$newanswerStore='';
-		$answer_array=explode('δ', $_COOKIE['answerStore']);
-		echo $_COOKIE['answerStore'];
-		print_r($_FILES);
-		for($i=0;$i<count($answer_array);$i++){
-			if(strstr($answer_array[$i],'$_FILES')){
-				$newname=move_file($i+1);
-				$newanswerStore.='$_FILES-'.$newname.'δ';
-			}
-			else{
-				$newanswerStore.=$answer_array[$i].'δ';
-			}
+	$newanswerStore='';
+	$answer_array=explode('δ', $_COOKIE['answerStore']);
+	for($i=0;$i<count($answer_array);$i++){
+		if(strstr($answer_array[$i],'$_FILES')){
+			$newname=move_file($i+1);
+			$newanswerStore.='$_FILES-'.$newname.'δ';
 		}
-		$_COOKIE['answerStore']=$newanswerStore;
-		save_answer_to_db($_COOKIE['answerStore'], $_GET['id']);
-		$result=mysql_query("select * from question where form_id='".$_GET['id']."'");
-		$rows=mysql_fetch_assoc($result);
-		$array=$rows;
-		$array['answer_times']=intval($array['answer_times'])+1;
-		update('question', $array,"form_id='".$_GET['id']."'");
-		do_js_alert("感谢您的回答");
-		setcookie('answerStore','',time()-1);
-		setcookie('form_id','',time()-1);
-		setcookie('fromwhere','',time()-1);
-		do_js_link('index.php');
-	}else{
-		echo '	
-				<script>
-					function get_get(url){
-						querystr = url.split("?");
-						if(querystr[1]){
-							GETs = querystr[1].split("&");
-							GET =new Array();
-							for(i=0;i<GETs.length;i++){
-								tmp_arr = GETs[i].split("=");
-								key=tmp_arr[0];
-								GET[key] = tmp_arr[1];
-							}
-						}
-						return GET["id"];
-					}; 
-				/*var r = confirm("是否要注册后再提交回答，不注册提交将不能再修改你的回答。");
-				if(r==true){*/
-					var id = get_get(window.location.href);
-					document.cookie="form_id="+id+"";
-					msgPopOver("msg.php #after-fill-register-msg-content");
-				/*}else{
-					alert("不注册");
-				}*/
-			</script>';
+		else{
+			$newanswerStore.=$answer_array[$i].'δ';
+		}
 	}
+	$_COOKIE['answerStore']=$newanswerStore;
+	save_answer_to_db($_COOKIE['answerStore'], $_GET['id']);
+	$result=mysql_query("select * from question where form_id='".$_GET['id']."'");
+	$rows=mysql_fetch_assoc($result);
+	$array=$rows;
+	$array['answer_times']=intval($array['answer_times'])+1;
+	update('question', $array,"form_id='".$_GET['id']."'");
+	do_js_alert("感谢您的回答");
+	setcookie('answerStore','',time()-1);
+	setcookie('form_id','',time()-1);
+	setcookie('fromwhere','',time()-1);
+	do_js_link('index.php');
 }
 else if(isset($_GET['action'])&&$_GET['action']=='update'){
 	$newanswerStore='';

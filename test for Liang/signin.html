@@ -1,0 +1,527 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+用户注册页面代码\javascript验证
+
+
+<%@ page contentType="text/html;charset=gb2312"%>
+
+<script language="JavaScript">
+
+    function isValidate(form)
+
+    {
+
+        // 得到用户输入的信息
+
+        userid = form.userid.value;
+
+        username = form.username.value;
+
+        userpass = form.userpass.value;
+
+        userpass2 = form.userpass2.value;
+
+        birthday = form.birthday.value;
+
+        email = form.email.value;
+
+        address = form.address.value;
+
+        phone = form.phone.value;
+
+        // 判断用户ID长度
+
+        if(!minLength(userid,6))
+
+        {
+
+            alert("用户ID长度小于6位！");
+
+            form.userid.focus();
+
+            return false;
+
+        }
+
+        if(!maxLength(userid,8))
+
+        {
+
+            alert("用户ID长度大于8位！");
+
+            form.userid.focus();
+
+            return false;
+
+        }
+
+        // 判断用户名长度
+
+        if(!minLength(username,6))
+
+        {
+
+            alert("用户名长度小于6位！");
+
+            form.username.focus();
+
+            return false;
+
+        }
+
+        if(!maxLength(username,8))
+
+        {
+
+            alert("用户名长度大于8位！");
+
+            form.username.focus();
+
+            return false;
+
+        }
+
+        // 判断口令长度
+
+        if(!minLength(userpass,6))
+
+        {
+
+            alert("口令长度小于6位！");
+
+            form.userpass.focus();
+
+            return false;
+
+        }
+
+        if(!maxLength(userpass,8))
+
+        {
+
+            alert("口令长度大于8位！");
+
+            form.userpass.focus();
+
+            return false;
+
+        }
+
+        // 判断用户名和口令是否相同
+
+        if(username==userpass)
+
+        {
+
+            alert("用户名和口令不能相等！");
+
+            form.userpass.focus();
+
+            return false;
+
+        }
+
+        // 验证两次口令是否相同
+
+        if(userpass != userpass2)
+
+        {
+
+            alert("两次输入的口令不相同！");
+
+            form.userpass.focus();
+
+            return false;
+
+        }
+
+        // 验证生日的格式是否正确
+
+        if(!isDate(birthday))
+
+        {
+
+            alert("生日的格式不正确！");
+
+            form.birthday.focus();
+
+            return false;
+
+        }
+
+        // 验证email的格式是否正确
+
+        if(!isEmail(email))
+
+        {
+
+            alert("Email格式不正确！");
+
+            form.email.focus();
+
+            return false;
+
+        }
+
+        // 验证电话号码的格式是否正确
+
+        if(!isDigital(phone))
+
+        {
+
+            alert("电话号码的格式不正确");
+
+            form.phone.focus();
+
+            return false;
+
+        }
+
+        // 验证地址的长度是否正确
+
+        if(!maxLength(address,50))
+
+        {
+
+            alert("地址长度大于50位！");
+
+            form.address.focus();
+
+            return false;
+
+        }
+
+        return true;
+
+    }
+
+    // 验证是否是空
+
+    function isNull(str)
+
+    {
+
+        if(str.length==0)
+
+            return true;
+
+        else
+
+            return false;
+
+    }
+
+    // 验证是否满足最小长度
+
+    function minLength(str,length)
+
+    {
+
+        if(str.length>=length)
+
+            return true;
+
+        else
+
+            return false;
+
+    }
+
+    // 判断是否满足最大长度
+
+    function maxLength(str,length)
+
+    {
+
+        if(str.length<=length)
+
+            return true;
+
+        else
+
+            return false;
+
+    }
+
+    // 判断是否是数字
+
+    function isDigital(str)
+
+    {
+
+        for(i=0;i<str.length;i++)
+
+        {
+
+            // 允许使用连字符
+
+            if(str.charAt(i)>='0' && str.charAt(i)<='9'
+
+                || str.charAt(i)=="-" && i!=0 && i!=str.length-1)
+
+                continue;
+
+            else
+
+                return false;
+
+        }
+
+        return true;
+
+    }
+
+    // 判断是否是整数
+
+    function isNumber(str)
+
+    {
+
+        for(i=0;i<str.length;i++)
+
+        {
+
+            // 如果要判断小数，需要判断小数点
+
+            if(str.charAt(i)>='0' && str.charAt(i)<='9'
+
+                || str.charAt(i)=="-" && i==0)
+
+                continue;
+
+            else
+
+                return false;
+
+        }
+
+        return true;
+
+    }
+
+    // 判断是否是日期，日期的格式为1988-1-1
+
+    function isDate(date)
+
+    {
+
+        // 查找分隔符
+
+        index1 = date.indexOf("-");
+
+        // 如果分隔符不存在，则不是合法的时间
+
+        if(index1 == -1)
+
+            return false;
+
+        // 获取时间中的年
+
+        year = date.substring(0,index1);
+
+        // 获取时间中的剩下部分
+
+        date = date.substring(index1+1);
+
+        // 查找第二个分隔符
+
+        index1 = date.indexOf("-");
+
+        // 如果不存在第二个分隔符，则不是合法的时间
+
+        if(index1 == -1)
+
+            return false;
+
+        // 获取时间中的月份
+
+        month = date.substring(0,index1);
+
+        // 获取时间中的日
+
+        day = date.substring(index1+1);
+
+        // 判断是否是数字，如果不是则不是合法的时间
+
+        if(isNumber(year) && isNumber(month) && isNumber(day))
+
+        {
+
+            // 判断基本范围
+
+            if(year<1900 || year>9999 || month<1 || month >12 || day<1)
+
+                return false;
+
+            // 判断31天的月
+
+            if((month==1 || month==3 || month==5 || month==7
+
+            || month==8 || month==10 || month==12) && day>31)
+
+                return false;
+
+            // 判断30天的月
+
+            if((month==4 || month==6 || month==9 || month==11)
+
+                && day>30)
+
+                return false;
+
+            // 如果是2月，判断是否为润年
+
+            if(month==2)
+
+            {
+
+                if(year%400==0 || (year%4==0 && year%100!=0))
+
+                {
+
+                    if(day>29)
+
+                        return false;
+
+                }else
+
+                {
+
+                    if(day>28)
+
+                        return false;
+
+                }
+
+            }
+
+        }
+
+        else
+
+            return false;
+
+        return true;
+
+    }
+
+    // 判断是否是Email
+
+    function isEmail(email)
+
+    {
+
+        if(email.length==0)
+
+            return false;
+
+        index1 = email.indexOf('@');
+
+        index2 = email.indexOf('.');
+
+        if(index1 < 1              // @符号不存在，或者在第一个位置
+
+        || index2 < 1          // .符号不存在，或者在第一个位置
+
+        || index2-index1 <2    // .在@的左边或者相邻
+
+        || index2+1 == email.length) // .符号后面没有东西
+
+            return false
+
+        else
+
+            return true;
+
+    }
+
+</script>
+
+
+
+    <title>注册界面</title>
+
+  </head>
+
+  <body>
+
+  <h2 align="center">请注册</h2>
+
+    <form action="register_confirm.jsp" method="get"
+
+    isValidate(form1)">
+
+       <table align="center">
+
+          <tr><td> 用户ID：</td><td><input type="text" value="zhangsan"> 6－8位</td></tr>
+
+   <tr><td> 用户名：</td><td><input type="text" > </td></tr>
+
+   <tr><td> 口令：</td><td><input type="password" ></td></tr>
+
+   <tr><td> 确认口令：</td><td><input type="password" ></td></tr>
+
+   <tr><td> 生日：</td><td><input type="text" >格式为：1988-1-1</td></tr>
+
+   <tr><td> 学历：</td><td>
+
+    <input type="radio" value="专科">专科
+
+           <input type="radio" value="本科" checked>本科
+
+           <input type="radio" value="硕士研究生">硕士研究生
+
+           <input type="radio" value="博士研究生">博士研究生
+
+    <input type="radio" value="其他">其他</td></tr>
+
+   <tr><td> 地区：</td><td>
+
+    <select >
+
+       <option value="华东">华东</option>
+
+    <option value="华南">华南</option>
+
+    <option value="华北">华北</option>
+
+    <option value="东北" selected>东北</option>
+
+    <option value="东南">东南</option>
+
+    <option value="西南">西南</option>
+
+    <option value="西北">西北</option>
+
+    <option value="东北">东北</option>
+
+    <option value="华中">华中</option>
+
+    </select></td></tr>
+
+   <tr><td> E-mail:</td><td><input type="text" ></td></tr>
+
+   <tr><td> 地址：</td><td><input type="text" ></td></tr>
+
+          <tr><td> 电话：</td><td><input type="text" ></td></tr>
+
+   <tr><td> 备注：</td><td>
+
+    <textarea rows="8" cols="40" value="1222222"></textarea></td></tr>
+
+   <tr><td> <input type="reset" value="重置"></td><td>
+
+    <input type="submit" value="提交"></td></tr>
+
+       <table>
+
+    </form>
+
+  </body>
+
+</html>
+
+

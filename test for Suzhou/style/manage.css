@@ -1,0 +1,92 @@
+/* CSS Document */
+#manage-tool,#manage-table {
+	margin-top:1em;
+}
+#manage-tool .section-body {
+	padding-top:20px;
+}
+#manage-tool .tool {
+	margin:16px 48px 0 48px; /* 间距可调节 */
+	width:80px;
+	display:inline-block;
+}
+#manage-tool .tool a {
+	font-size:20px;
+	line-height:80px;
+	text-align:center;
+	color:#FFF;
+	margin:0 auto;
+	display:block;
+	width:80px;
+	height:80px;
+	transition:all ease-out 0.5s;
+	border-radius:8px;
+}
+#manage-tool .tool a:hover {
+	text-decoration:none;
+}
+#manage-xls a {
+	background:#278651;
+}
+#manage-xls a:hover {
+	background:#185433;
+}
+#manage-rar a {
+	background:#0477ad;
+}
+#manage-rar a:hover {
+	background:#0c5276;
+}
+#manage-txt a {
+	background:#f39c12;
+}
+#manage-txt a:hover {
+	background:#d38811;
+}
+#manage-zongsu a {
+	background:#e74c3c;
+}
+#manage-zongsu a:hover {
+	background:#c24134;
+}
+#manage-erke a {
+	background:#9b59b6;
+}
+#manage-erke a:hover {
+	background:#6f4083;
+}
+#manage-add #manage-add-msg {
+	color:#D2D0CE;
+	border:2px dashed #D2D0CE;
+	line-height:76px;
+	height:76px;
+	width:76px;
+}
+#manage-table .section-body {
+	width:100%;
+	height:500px;
+	overflow:auto;
+	padding-top:30px;
+	position:relative;
+}
+#manage-table table {
+	background:#FFF;
+}
+#manage-table table,td,th {
+	border:1px solid #ccc;
+	table-layout:fixed;
+	border-collapse:collapse;
+	padding:0 1em;
+	text-align:center;
+	word-break:break-all;/* 设置换行 */
+	text-overflow:ellipsis; -o-text-overflow:ellipsis; -moz-binding: url('ellipsis.xml#ellipsis');
+	white-space:nowrap;
+	overflow:hidden;
+}
+#manage-table td,th {
+	max-width:400px;
+}
+#manage-table #th {
+	position:absolute;
+	top:0; left:0;
+}
