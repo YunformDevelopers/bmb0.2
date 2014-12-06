@@ -75,7 +75,7 @@ header('Content-Type:text/html; charset=utf-8');
                                 <b>我的认证状态：</b><span style="color:#F60;"><i>未认证</i></span>
                             </p>
                             <p>
-                                <b>提示：</b>内测阶段认证可以获得200张免费二维码名片！<a style="text-decoration:none;" href="beta-intro.html"><input type="button" class="btn green" value="内测介绍"></input></a>
+                                <b>提示：</b>内测阶段认证可以获得200张免费二维码名片！<a style="text-decoration:none;" href="beta-intro.php"><input type="button" class="btn green" value="内测介绍"></input></a>
                             </p>
                             <p>
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;将<b>社团名称、职位、姓名、报名吧注册邮箱</b>通过任何方式发送到我们的运营部门，12小时内回复！
@@ -91,7 +91,7 @@ header('Content-Type:text/html; charset=utf-8');
                                 <input type="button" class="btn blue" value="发送链接" onClick='msgPopOver("msg.php #contact-msg-content");'></input>
                             </p>
                             <p>
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;详细规则及注意事项请戳<a style="text-decoration:none;" href="beta-intro.html"><input type="button" class="btn green" value="规则介绍"></input></a>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;详细规则及注意事项请戳<a style="text-decoration:none;" href="beta-intro.php"><input type="button" class="btn green" value="规则介绍"></input></a>
                             </p>
                         </div>
                     </div>
