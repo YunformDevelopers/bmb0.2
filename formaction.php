@@ -10,16 +10,15 @@
 <script type="text/javascript" src="js/jQuery.js"></script>
 </head>
 <body>
-<!-- <div id="whole-msg-bg" onclick="msgSlideDn();">
+<div id="whole-msg-bg" onclick="msgSlideDn();">
 </div>		
 <div class='msg'>
         <div class='msg-border'>
             <div class='msg-content'>
-            		
+            <!--内容是动态获得的-->			
             </div>
         </div>
 </div>
- -->
 <?php
 require 'includes/includes.inc.php';
 if(isset($_GET['action'])&&$_GET['action']=='save'){
@@ -38,6 +37,7 @@ if(isset($_GET['action'])&&$_GET['action']=='save'){
 else if(isset($_GET['action'])&&$_GET['action']=='answer'){
 	$newanswerStore='';
 	$answer_array=explode('δ', $_COOKIE['answerStore']);
+	do_js_alert($_COOKIE['answerStore']);
 	for($i=0;$i<count($answer_array);$i++){
 		if(strstr($answer_array[$i],'$_FILES')){
 			$newname=move_file($i+1);
@@ -47,8 +47,7 @@ else if(isset($_GET['action'])&&$_GET['action']=='answer'){
 			$newanswerStore.=$answer_array[$i].'δ';
 		}
 	}
-	$_COOKIE['answerStore']=$newanswerStore;
-	save_answer_to_db($_COOKIE['answerStore'], $_GET['id']);
+	save_answer_to_db($newanswerStore, $_GET['id']);
 	$result=mysql_query("select * from question where form_id='".$_GET['id']."'");
 	$rows=mysql_fetch_assoc($result);
 	$array=$rows;
@@ -62,8 +61,8 @@ else if(isset($_GET['action'])&&$_GET['action']=='answer'){
 }
 else if(isset($_GET['action'])&&$_GET['action']=='update'){
 	$newanswerStore='';
-	echo $_COOKIE['answerStore'];
 	$answer_array=explode('δ', $_COOKIE['answerStore']);
+	do_js_alert($_COOKIE['answerStore']);
 	for($i=0;$i<count($answer_array);$i++){
 		if(strstr($answer_array[$i],'$_FILES')){
 			$newname=move_file($i+1);

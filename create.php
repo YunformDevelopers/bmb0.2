@@ -132,11 +132,11 @@ header('Content-Type:text/html; charset=utf-8');
 								<span class="tool-float-left"></span>多选<span class="tool-construct-icon-multichoice"></span>
 							</a>
 						</li>
-						<!--<li id="ratejudge">
+						<li id="ratejudge">
 							<a href="javascript:;">
 								<span class="tool-float-left"></span>评级<span class="tool-construct-icon-rate"></span>
 							</a>
-						</li>-->
+						</li>
 						<!--<li id="rader">
 							<a href="javascript:;">
 								<span class="tool-float-left"></span>雷达图<span class="tool-construct-icon-radar"></span>

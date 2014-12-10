@@ -9,11 +9,6 @@ function connect(){
 	return $link;
 }
 function insert($table,$array){
-	if(!get_magic_quotes_gpc()){
-		foreach($array as $key =>$value){
-			$array[$key]=addslashes($value);
-		}
-	}
 	$keys = join(",", array_keys($array));
 	$values ="'".join("','",array_values($array))."'";
 	$string="insert into {$table} ($keys) values ({$values})";
@@ -66,7 +61,7 @@ function create_to_db($array){
 				<div id="form-intro" >
 	            	'.$array['form_intro'].'
 	        	</div>
-	        		<form enctype="multipart/form-data" novalidate="novalidate" id="formID" method="post" action="formaction.php?action=answer&id='.$_GET['id'].'">
+	        		<form enctype="multipart/form-data" method="post" action="formaction.php?action=answer&id='.$_GET['id'].'">
 					<ul id="form-body">';
 	    				for($i=0;$i<count($string)-1;$i++){
 					    $explode1 = explode('α', $string[$i]);
@@ -143,7 +138,7 @@ function create_to_db($array){
 			echo '<div id="form-tip">
 						<p class="title edit raw" rows="1">'.$array['form_tip'].'</p>
 				</div>
-					<input id="submit" class="btn red" name="submit" type="submit" value="提交" onClick="SetFillCookie(); SetAnswerCookie();"/>
+					<input id="submit" class="btn red" name="submit" type="submit" value="提交" onClick="SetAnswerCookie();"/>
 				</ul>
 				</form>
 			</div>';
@@ -165,24 +160,21 @@ function save_form_to_db($title,$intro,$string,$tip){
 	$result=fetchOne($sql);
 	return $result['form_id'];
 }
+
 function save_answer_to_db($string,$id){
-	if(isset($_COOKIE['srtp-username'])){
+	if (isset($_COOKIE['srtp-username'])) {
 		$username=$_COOKIE['srtp-username'];
-	}else{
-		$username='未注册用户';
-	}
-	if(isset($_COOKIE['fromwhere'])){
-		$fromwhere=$_COOKIE['fromwhere'];
-	}else{
-		$fromwhere='other';
+	}else {
+		$username='未登录用户';
 	}
 	connect();
 	$array['form_id']=$id;
 	$array['answer_string'] = $string;
 	$array['username']=$username;
+	do_js_alert($string);
 	date_default_timezone_set("Asia/Shanghai");
 	$array['date'] = date("Y-m-d h:i:s");
-	$array['from_where']=$fromwhere;
+	$array['from_where']=$_COOKIE['fromwhere'];
 	insert('answer', $array);
 }
 

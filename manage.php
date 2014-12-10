@@ -21,8 +21,9 @@ header('Content-Type:text/html; charset=utf-8');
 <script type="text/javascript" src="js/jQuery.js"></script>
 <script type="text/javascript" src="js/jquery.flot.min.js"></script>
 <script type="text/javascript" src="js/jquery.flot.pie.min.js"></script>
-<script type="text/javascript" src="js/jquery.zclip.min.js"></script>
-<script type="text/javascript" src="js/msg.js"></script>
+<!--<script type="text/javascript" src="js/jquery-ui-1.10.4.js"></script>-->
+<!--<script type="text/javascript" src="test for Liang/test.js"></script>
+--><script type="text/javascript" src="js/msg.js"></script>
 <script type="text/javascript" src="js/manage.js"></script>
 <script type="text/javascript" src="js/jquery.pin.min.js"></script>
 <script src='js/iscroll.js'></script>

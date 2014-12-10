@@ -53,55 +53,51 @@ header('Content-Type:text/html; charset=utf-8');
     </div>
 	<div id="field-wrapper">
 		<div id="tool-field" unselectable="on" onselectstart="return false;" style="-moz-user-select:none;">
-        <?php 
-		connect();
-			$result=mysql_query("select * from question where form_id ='".$_GET['id']."'") or die(mysql_error());
-			$row=mysql_fetch_assoc($result);
-			$result2=mysql_query("select * from decoration where form_id ='".$_GET['id']."'");
-			$row2=mysql_fetch_assoc($result2);
-			make_form_card($row, $row2);
-		?>
-        <!-- 短链接 -->
-        <input type="hidden" id="php-short-link" value="<?php //echo make_short_url("http://www.123bmb.com/reform.php?id=".$_GET['id']); ?>"/>
-        <!-- 长链接 -->
-        <input type="hidden" id="php-long-link" value="<?php echo 'http://www.123bmb.com/reform.php?id='.$_GET['id']; ?>" />
-        <!-- 报名表Id -->
-        <input type="hidden" id="formIdContainer" value="<?php echo $_GET['id'];?>" />
-        <!-- 报名表Title -->
-        <input type="hidden" id="formTitleContainer" value="<?php echo $row['form_title']?>" />
-        <!-- 报名表Intro -->
-        <input type="hidden" id="formIntroContainer" value="<?php echo $row['form_intro']?>" />
-        <!-- 报名表图片 -->
-        <input type="hidden" id="formBgContainer" value="<?php echo $row2['bg']?>" />
-        
-        </div>
+			<div class="card" > 
+				<a target="new" href="<?php echo 'http://www.123bmb.com/reform.php?id='.$_GET['id']; ?>">
+					<div class="img-holder">
+						<div class="fader">
+							<?php
+							connect();
+							$result=mysql_query("select * from decoration where form_id=".$_GET['id']);
+							$rows=mysql_fetch_assoc($result);
+							if($rows['bg']){
+								echo '<img src="uploads/'.$rows['bg'].'" alt="" />';
+							}else{
+								echo '<img src="images/1.jpg" alt="" />';
+							}
+							?>
+						</div>
+						<div class="form-name">
+							刚刚创建的纳新报名表
+						</div>
+						<div class="img-counter">
+							<div class="counter">
+								<span class="time-left">还有30天</span>
+								<span class="written">0次</span>
+							</div>
+						</div>
+					</div>
+				</a>
+			</div>
+		</div>
 		<div id="form-construct-field" unselectable="false" >
         	<div class="form-release-status success">
             	<span>&nbsp;&nbsp;</span>
-            	恭喜您，您的“<?php echo $row['form_title']?>”创建成功！
+            	恭喜您，您的“xx社团报名表”创建成功！
             </div>
             <br />
-			<h3>四种推广方式</h3>
+			<h3>三种推广方式</h3>
 			<br />
 			<div id="form-release">
-            	<div class="release-method publish-link">
-					<div class="section-header">
-                        <h2><b>报名吧</b>&nbsp;&nbsp;<i class="method-intro">让报名表出现在网站首页！</i></h2>
-                        <div class="h2-line">
-                        </div>
-					</div>
-                    <div class="" style="margin-top:5px;">
-                    	<span class="publish-status on" style="display:none;">您的报名表已经默认发布到报名吧首页</span><span class="publish-status off">您的报名表将不会出现在报名吧首页</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" onclick="togglePublishStatus(this);">暂不发布</a>
-                    </div>
-                </div>
-                <div class="release-method share-link">
+            	<div class="release-method share-link">
 					<div class="section-header">
                         <h2><b>一键分享</b>&nbsp;&nbsp;<i class="method-intro">点击图标将活动一键发布到社交平台上</i></h2>
                         <div class="h2-line">
                         </div>
 					</div>
                     <div class="bdsharebuttonbox" style="color:#00f">
-                        <a title="分享到一键分享" href="#" class="bds_mshare" data-cmd="mshare">多平台</a>
+                        <a title="分享到一键分享" href="#" class="bds_mshare" data-cmd="mshare">多个平台</a>
                         <a title="分享到人人网" href="#" class="bds_renren" data-cmd="renren">人人</a>
                         <a title="分享到微信" href="#" class="bds_weixin" data-cmd="weixin">微信</a>
                         <a title="分享到新浪微博" href="#" class="bds_tsina" data-cmd="tsina">微博</a>
@@ -122,7 +118,11 @@ header('Content-Type:text/html; charset=utf-8');
     	                <label  title="(不推荐)未经过百度短网址转码，链接长，可读性好"><input id="long-outer-link" name="link-type" type="radio" value="长链接" onfocus="fillLink('long');">长链接</input></label>
                     </div>
                     <div class="link-holder">
-                    	<input type="text" class="link-container" value="<?php //echo make_short_url("http://www.123bmb.com/reform.php?id=".$_GET['id']); ?>" />
+                    	<!-- 长短链接放在这里 -->
+                    	<input type="hidden" id="php-short-link" value="<?php echo make_short_url("http://www.123bmb.com/reform.php?id=".$_GET['id']); ?>"/>
+                        <input type="hidden" id="php-long-link" value="<?php echo 'http://www.123bmb.com/reform.php?id='.$_GET['id']; ?>" />
+                        <!-- 长短链接结束 -->
+                    	<input type="text" class="link-container" value="<?php echo make_short_url("http://www.123bmb.com/reform.php?id=".$_GET['id']); ?>" />
                         <input type="button" id="outer-link-copy" class="btn green" value="复制" />
                     </div>
                 </div>
@@ -139,6 +139,7 @@ header('Content-Type:text/html; charset=utf-8');
                         <!--<label title="自定义（长宽须相等）" style='margin:0;' ><input name="QR-type" type="radio" value=""></label>
                         	<span>
                             	<input class="QR-width-customize" onfocus="" type="text" />*<input class="QR-height-customize" type="text" />
+                                <input type="hidden" id="formIdContainer" value="<?php echo $_GET['id'];?>" />
                                 <script>
                                 	function checkNfocus (id) {
 										$id = $(id);
@@ -189,11 +190,10 @@ header('Content-Type:text/html; charset=utf-8');
 <script>
 //一键分享部分
 var shareUrl = $("#php-long-link").val();
-var shareText = "我发布了" + $("#formTitleContainer").val() + "，活动很赞，大家快来报名吧！";
-var shareDesc = $("#formIntroContainer").val();
+var shareText = "";
+var shareDesc = "测试";
 var shareComment = "这个活动超级赞，小伙伴们快来报名吧!";
-var sharePic = $("#formBgContainer").val();
-window._bd_share_config={"common":{"bdSnsKey":{},"bdText":shareText,"bdUrl":shareUrl,"bdDes":shareDesc,"bdPic":sharePic,"bdComment":shareComment,"bdMini":"1","bdMiniList":["qzone","tieba","copy","tqq","douban","fx","linkedin"],"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+window._bd_share_config={"common":{"bdSnsKey":{},"bdText":shareText,"bdUrl":shareUrl,"bdDes":shareDesc,"bdComment":shareComment,"bdMini":"1","bdMiniList":["qzone","tieba","copy","tqq","douban","fx","linkedin"],"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
 //加载完成后将一键分享部分的loading隐藏
 document.onreadystatechange = subSomething;//当页面加载状态改变的时候执行这个方法.
 function subSomething()

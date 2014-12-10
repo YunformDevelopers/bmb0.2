@@ -62,17 +62,3 @@
 	font-weight:bold;
 	font-size:1.4em;
 }
-#my-release .delete-button {
-	background:url(../images/card-icon/trash.png) no-repeat center center;
-	width:26px;
-	height:26px;
-	border:none;
-	outline:none;
-	cursor:pointer;
-	position:relative;
-	top:-6px;
-	left:2px;
-}
-#my-release .delete-button:active {
-	background:url(../images/card-icon/trash-hover.png) no-repeat center center;
-}

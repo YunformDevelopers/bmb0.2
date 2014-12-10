@@ -18,18 +18,85 @@ header('Content-Type:text/html; charset=utf-8');
 <script src="js/css3-mediaqueries.js"></script>
 <script type="text/javascript" src="js/jQuery.js"></script>
 <script type="text/javascript" src="js/jquery.pin.min.js"></script>
-<script type="text/javascript" src="js/msg.js"></script>
 <script>
-	$(document).ready(function(){
-		$('.delete-button').click(function(){
-			var con = confirm('确定要删除吗？');
-			if(con){
-				var idarray=$(this).attr('id').split('-');
-				window.location.href="delete.php?id="+idarray[1];
-			}
-		})
-	})
+$(".msg").hide();
+$(document).ready(function(){	
+  	//对每个需要调用message的链接应用下面的click函数
+  	$("#contact-msg").click(function(){
+		//load一个从别的地方拿到的数据
+		$(".msg-content").load("msg.php #contact-msg-content",
+			//做一个msg移到屏幕中央的动画效果
+			function(){
+				//定义topoff为屏幕高度减去通知框高度的一半，这是为了让通知框居中
+				var topoff = ($(window).height()-$(".msg").height())/ 2 + "px";
+				//通知框框弹出的动画
+				$(".msg").animate({
+					top:topoff		
+				},600)//这里的数字是时间
+				$("#msg-ok-btn").click(function(){
+					$(".msg").animate({
+						top:$(window).height()*1.1
+					},500)//这里的数字是时间
+	 			}) 
+			});
+	 })
+  	$("#work-msg").click(function(){
+		//load一个从别的地方拿到的数据
+		$(".msg-content").load("msg.php #work-msg-content",
+			//做一个msg移到屏幕中央的动画效果
+			function(){
+				//定义topoff为屏幕高度减去通知框高度的一半，这是为了让通知框居中
+				var topoff = ($(window).height()-$(".msg").height())/ 2 + "px";
+				//通知框框弹出的动画
+				$(".msg").animate({
+					top:topoff		
+				},600)//这里的数字是时间
+				$("#msg-ok-btn").click(function(){
+					$(".msg").animate({
+						top:$(window).height()*1.1
+					},500)//这里的数字是时间
+	 			}) 
+			});
+	 })
+  	$("#register-msg").click(function(){
+		//load一个从别的地方拿到的数据
+		$(".msg-content").load("msg.php #register-msg-content",
+			//做一个msg移到屏幕中央的动画效果
+			function(){
+				//定义topoff为屏幕高度减去通知框高度的一半，这是为了让通知框居中
+				var topoff = ($(window).height()-$(".msg").height())/ 2 + "px";
+				//通知框框弹出的动画
+				$(".msg").animate({
+					top:topoff		
+				},600)//这里的数字是时间
+				$("#msg-ok-btn").click(function(){
+					$(".msg").animate({
+						top:$(window).height()*1.1
+					},500)//这里的数字是时间
+	 			}) 
+			});
+	 })
+  	$("#login-msg").click(function(){
+		//load一个从别的地方拿到的数据
+		$(".msg-content").load("msg.php #login-msg-content",
+			//做一个msg移到屏幕中央的动画效果
+			function(){
+				//定义topoff为屏幕高度减去通知框高度的一半，这是为了让通知框居中
+				var topoff = ($(window).height()-$(".msg").height())/ 2 + "px";
+				//通知框框弹出的动画
+				$(".msg").animate({
+					top:topoff		
+				},600)//这里的数字是时间
+				$("#msg-ok-btn").click(function(){
+					$(".msg").animate({
+						top:$(window).height()*1.1
+					},500)//这里的数字是时间
+	 			}) 
+			});
+	 })
+})
 </script>
+
 </head>
 <body>
 <?php
@@ -63,41 +130,8 @@ header('Content-Type:text/html; charset=utf-8');
 		<li class="innerWrapper">
 			<div id='my-release' class="section">
 			<br />
-            	<div class="section-header">
-					<h2><b>我的内测</b></h2>
-					<div class="h2-line">
-					</div>
-				</div>
-				<div class="section-body">
-					<div style="background:#fff; border:solid 2px #CCC; border-radius:4px; padding:5px; margin:10px 0;">
-                    	<div id="beta-unauthorized">
-                            <p>
-                                <b>我的认证状态：</b><span style="color:#F60;"><i>未认证</i></span>
-                            </p>
-                            <p>
-                                <b>提示：</b>内测阶段认证可以获得200张免费二维码名片！<a style="text-decoration:none;" href="beta-intro.php"><input type="button" class="btn green" value="内测介绍"></input></a>
-                            </p>
-                            <p>
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;将<b>社团名称、职位、姓名、报名吧注册邮箱</b>通过任何方式发送到我们的运营部门，12小时内回复！
-                                <input type="button" class="btn blue" value="联系认证" onClick='msgPopOver("msg.php #contact-msg-content");'></input>
-                            </p>
-                        </div>
-                        <div id="beta-authorized" style="display:none;">
-                            <p>
-                                <b>我的认证状态：</b><span style="color:#0F3;"><i>已认证</i></span>
-                            </p>
-                            <p>
-                                <b>提示：</b>将你需要生成二维码名片的<b>报名表链接</b>通过任何方式发送到我们的运营部门，我们12小时内回复处理情况！
-                                <input type="button" class="btn blue" value="发送链接" onClick='msgPopOver("msg.php #contact-msg-content");'></input>
-                            </p>
-                            <p>
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;详细规则及注意事项请戳<a style="text-decoration:none;" href="beta-intro.php"><input type="button" class="btn green" value="规则介绍"></input></a>
-                            </p>
-                        </div>
-                    </div>
-				</div>
 				<div class="section-header">
-					<h2>我创建的</h2>
+					<h2>我发布的</h2>
 					<div class="h2-line">
 					</div>
 				</div>
@@ -125,7 +159,6 @@ header('Content-Type:text/html; charset=utf-8');
 		                    	<a href="edit.php?id='.$rows['form_id'].'"><input class="btn red" type="button" value="编辑"/></a>
 		                    	<a href="manage.php?id='.$rows['form_id'].'"><input class="btn blue" type="button" value="管理"/></a>
 	                    		<a href="#"><input class="btn green" type="button" value="查看"/></a>
-  								<a href="#"><input class="delete-button" id="delete-'.$rows['form_id'].'" type="button" value="    "/></a>
 	                		</div>
 	                		<div class="form-status">';
     		if($days>=0){
@@ -226,8 +259,6 @@ header('Content-Type:text/html; charset=utf-8');
 		</li>
 	</ul>
 </div>
-<div id="whole-msg-bg" onclick="msgSlideDn();">
-</div>		
 <div class='msg'>
     <div class='msg-border'>
         <div class='msg-content'>			

@@ -1,8 +1,8 @@
 ﻿<div id='footer'>
 	<div id='footer-info'>
-		<p>设计制作:<a onClick='msgPopOver("msg.php #contact-msg-content");'>Lu</a> | <a onClick='msgPopOver("msg.php #contact-msg-content");'>Su</a> | <a onClick='msgPopOver("msg.php #contact-msg-content");'>Liang</a></p>
-		<p>技术指导:<a onClick='msgPopOver("msg.php #contact-msg-content");'>Li</a> | <a onClick='msgPopOver("msg.php #contact-msg-content");'>Yu</a></p>
-        <p>运营团队:<a onClick='msgPopOver("msg.php #contact-msg-content");'>Tao</a></p>
+		<p>设计制作:Lu | Liang | Su</p>
+		<p>技术指导:Li | Yu</p>
+        <br />
 	</div>
 	<div id='footer-contact'>
 		<ul>

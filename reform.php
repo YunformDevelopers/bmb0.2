@@ -18,44 +18,15 @@
 <script src="js/jQuery.js"></script>
 <script src="js/jquery.validationEngine-zh_CN.js" type="text/javascript" charset="utf-8"></script>
 <script src="js/jquery.validationEngine.js" type="text/javascript" charset="utf-8"></script>
-<script src="js/msg.js" type="text/javascript" charset="utf-8"></script>
 <script src="js/answerCookie.js"></script>
 <script>
-/*$(function(){
-	$('input[value=请注明]').focus(function(){
-        if($(this).val()=="请注明"){
-            $(this).val('');
-        }
-   })
-})*/
-	initFillTool();	
-$(document).ready(function() {
-	//获取浏览器的信息
-	/*var browser = {
-		versions : function() {
-				var u = navigator.userAgent, app = navigator.appVersion;
-				return {//移动终端浏览器版本信息   
-				mobile : !!u.match(/AppleWebKit.*Mobile.*///)
-	/*					|| !!u.match(/AppleWebKit/), //是否为移动终端  
-				
-				};
-		}(),
-		language : (navigator.browserLanguage || navigator.language).toLowerCase()
-	}
-	//为移动端做设置
-	if (true){//是否为移动终端browser.versions.mobile .parent().css("background","#36F")
-		alert($(".q-body input").html());
-	
-	}
-	*/
-});
-function initFillTool() {
+/* function initFillTool() {
 	var leftOffset = $(window).width() - 120 ;
 	$("#fill-tool").css("left" , leftOffset + "px");
 }
 window.onresize = function() {
 	initFillTool();
-}
+} */
 </script>
 <style>
 @media screen and (max-width: 500px) {
@@ -93,14 +64,9 @@ window.onresize = function() {
 }
 
 </style>
-
-
-
-
 <?php require 'includes/includes.inc.php';?>
 </head>
 <body>
-
 		        	<?php 
 	        		if(isset($_GET['id'])){
 						connect();
@@ -161,8 +127,8 @@ window.onresize = function() {
 							}
 						}
 						else{
-							echo '<script>/*var con=confirm("不注册提交报名表您的报名信息将无法再被找回，确认要继续填写吗？");
-							if(!con){window.location.href="index.html"}*/</script>';
+							echo '<script>var con=confirm("不注册填写报名表您将无法找回您填写的数据,您确定要继续填写吗？");
+									if(!con){window.location.href="index.php"}</script>';
 							$result=mysql_query("select * from question where form_id = '".$_GET['id']."'");
 							$result1=mysql_query("select * from decoration where form_id = '".$_GET['id']."'");
 							while($rows=mysql_fetch_assoc($result)){

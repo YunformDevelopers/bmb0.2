@@ -20,7 +20,7 @@
 						 ?>
 						 <script>
 						     alert('注册成功'); 
-							 window.location.href='index.php';
+							 window.location='index.php';
 						 </script>
 						 <?php
 						 
@@ -28,6 +28,6 @@
 			     }
 			 }
 			 else{
-			 echo "<script>alert('请输入正确的邮箱地址'); window.location.href='index.php'; </script>";
+			 echo "<script>alert('请输入正确的邮箱地址'); window.location='index.php'; </script>";
 			 }
 ?>

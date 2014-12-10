@@ -67,13 +67,3 @@ function initPin (){
 	  containerSelector: "#field-wrapper",
 	});
 }
-
-function togglePublishStatus (id){
-	$id = $(id);
-	if($id.parent().find('.publish-status:hidden').hasClass('on')){
-		$id.parent().find('.publish-status.off').hide();$id.parent().find('.publish-status.on').show();
-	}
-	else{
-		$id.parent().find('.publish-status.on').hide();$id.parent().find('.publish-status.off').show();
-		}
-}
