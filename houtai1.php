@@ -17,10 +17,12 @@ if(!isset($_COOKIE['isVIP'])){
 	$sql="select * from _user";
 	$result=mysql_query($sql);
 	while ($rows=mysql_fetch_array($result)){
-		if($rows['VIP']==0){
+		if($rows['user_vip']=='0'){
 			$level='普通用户';
-		}else{
+		}else if($rows['user_vip']=='1'){
 			$level='认证用户';
+		}else{
+			$level='管理员';
 		}
 		echo '<tr>
 		<td>'.$rows['id'].'</td>

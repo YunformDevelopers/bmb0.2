@@ -12,15 +12,47 @@ $result1=mysql_query("select * from question where form_id='".$rows2['form_id'].
 					for($i=0;$i<count($answer)-1;$i++){
 						$answer_array[$i]=explode('γ', $answer[$i]);
 					}
+					echo '
+					<script>
+						function showBtn(id){
+							$id = $(id);
+							$id.children(\'.btn\').show();	
+						}
+						function hideBtn(id){
+							$id = $(id);
+							$id.children(\'.btn\').hide();
+						}
+					</script>
+					<style>
+					.box .box-table {
+						width:100%;
+						border-collapse:collapse;
+					}
+					.box .box-table td {
+						padding:5px;
+						border:solid 1px #ccc;
+					}
+					.box .box-table tr:nth-child(even) {
+						bachground:f7f7f7;
+					}
+					.box .box-table .q-number {
+						text-align:center;
+					}
+					.box .box-table .q-title {
+						font-weight:bold;
+					}
+					.box .box-table .q-body {
+						position:relative;
+					}
+					.box .box-table .copy {
+						position:absolute;
+						right: 2px;
+						bottom: 4px;
+					}
+					
+					</style>';
 					echo '<div id="form-field">';
-					echo '<div id="form-title">';
-					echo '<h3>'.$title.'</h3>';
-					echo '</div>';
-					echo '<div id="form-intro" >
-           '.$rows1['form_intro'].'
-        </div>
-        <ul id="form-body">
-        	<form method="post" enctype="multipart/form-data" action="formaction.php?action=update&id='.$_GET['id'].'&amount='.($question_amount-1).'">';
+					echo '<table class="box-table" cellspacing="0" cellpadding="0" >';
 				for($i=0;$i<count($string)-1;$i++){
 					$explode1 = explode('α', $string[$i]);
 					$question = $explode1[0];
@@ -33,19 +65,19 @@ $result1=mysql_query("select * from question where form_id='".$rows2['form_id'].
 					}else{
 						$re='';
 					}
-					echo '<li id="" class="q'.($i+1).' q-field '.$type.'">';
-					echo '<div class="q-number"><span>'.($i+1).'</span></div>';
-					echo '<div class="q-whole">';
+					echo '<tr id="" class="q'.($i+1).' q-field '.$type.'">';
+					echo '<td class="q-number" style=""><span>'.($i+1).'</span></td>';
+					echo '';
 					if($type=="free-multichoice"){
-						echo '<div class="q-title">'.$question.'(多选)</div>';
+						echo '<td class="q-title"><span class="q-title">'.$question.'(多选)</span>';
 					}
 					else {
-						echo '<div class="q-title">'.$question.'</div>';
+						echo '<td class="q-title"><span class="q-title">'.$question.'</span>';
 					}
 					if($re){
-						echo '<div class="q-alternative">*</div>';
+						echo '<span class="q-alternative">*</span></td>';
 					}
-					echo '<div class="q-body">';
+					echo '<td class="q-body" onmouseover="showBtn(this);" onmouseout="hideBtn(this);" >';
 					if($type=="logic-sex"){
 						for($j=0;$j<count($choice)-1;$j++){
 							if(in_array($choice[$j], $answer_array[$i])){
@@ -69,37 +101,38 @@ $result1=mysql_query("select * from question where form_id='".$rows2['form_id'].
 						}
 					}
 					if($type=="free-multiline"){
-						echo '<textarea disabled="disabled" name="q'.($i+1).'-body" class="body edit">'.$answer_array[$i][0].'</textarea>';
+						echo '<p name="q'.($i+1).'-body" class="body edit">'.$answer_array[$i][0].'</p>';
 					}
 					if($type=="free-singleline"){
-						echo '<input disabled="disabled" type="text" name="q'.($i+1).'-body" class="body edit" '.$re.' value="'.$answer_array[$i][0].'">';
+						echo '<p class="body edit">'.$answer_array[$i][0].'</p>';
 					}
 					if($type=="logic-name"){
-						echo '<input disabled="disabled" type="text" name="q'.($i+1).'-body" class="body edit" '.$re.' value="'.$answer_array[$i][0].'"/>';
+						echo '<p class="body edit">'.$answer_array[$i][0].'</p>';
 					}
 					if($type=="logic-studentID"){
-						echo '<input disabled="disabled" type="number" name="q'.($i+1).'-body" class="body edit" '.$re.' value="'.$answer_array[$i][0].'"/>';
+						echo '<p class="body edit">'.$answer_array[$i][0].'</p>';
 					}
 					if($type=="logic-address"){
-						echo '<input disabled="disabled" type="text" name="q'.($i+1).'-body" class="body edit" '.$re.' value="'.$answer_array[$i][0].'"/>';
+						echo '<p class="body edit">'.$answer_array[$i][0].'</p>';
 					}
 					if($type=="logic-tel"){
-						echo '<input disabled="disabled" type="tel" name="q'.($i+1).'-body" class="body edit" '.$re.' value="'.$answer_array[$i][0].'"/>';
+						echo '<p class="body edit">'.$answer_array[$i][0].'</p>';
 					}
 					if($type=="logic-email"){
-						echo '<input disabled="disabled" type="email" name="q'.($i+1).'-body" class="body edit" '.$re.' value="'.$answer_array[$i][0].'"/>';
+						echo '<p class="body edit">'.$answer_array[$i][0].'</p>';
 					}
 					if($type=="logic-class"){
-						echo '<input disabled="disabled" type="text" name="q'.($i+1).'-body" class="body edit" '.$re.' value="'.$answer_array[$i][0].'"/>';
+						echo '<p class="body edit">'.$answer_array[$i][0].'</p>';
 					}
 					if($type=="free-file"){
-						echo '<input disabled="disabled" type="file" name="q'.($i+1).'-body" class="body edit" '.$re.' ></input>';
+						echo '<p><input disabled="disabled" type="file" name="q'.($i+1).'-body" class="body edit" '.$re.' ></input></p>';
 					}
-					echo '</div>';
-					echo '</div>';
-					echo '</li>';
+					echo '<input class=" copy btn green" type="button" value="复制"></input>';
+					echo '</td>';
+					echo '';
+					echo '</tr>';
 				}
 				echo '
-					</form>
-					</ul>';
+					</table>
+					</div>';
 

@@ -6,7 +6,7 @@ $(document).ready(function(){
 	var currentTimeOrder = "now2past";//顺序为从现在到过去，即先显示最新的
 		$("#time-toggle .now2past").css("color","#DE473A");
 		$("#time-toggle .past2now").css("color","black");
-	trBackgroundColor();//为IE8这样的不支持伪类的浏览器的表格的奇数背景颜色改变
+	trBackgroundColor("#answer-field table.list-table");//为IE8这样的不支持伪类的浏览器的表格的奇数背景颜色改变
 	
 	$(".list-view").click(function(){
 		if (currentView == "matrix"){
@@ -75,9 +75,21 @@ $(document).ready(function(){
 			url:'manageboxajax.php?id='+$(this).attr('id'),
 			success:function(response){
 				$('.box-content').html(response);
+				trBackgroundColor(".box .box-table");
+				boxTableZclip();
+				$('.copy.btn').hide();
 			}
 		})
 	})
+	function boxTableZclip (){
+		$(".box .box-table .btn.copy").zclip({
+			path:'js/ZeroClipboard.swf',
+			copy:function(){
+				return $(this).parent().children(".body").html();
+			}
+		});
+	}
+
 	//图标部分
 	//生成数据
 	var trendGraphData = [{
@@ -184,10 +196,11 @@ function makeCsv() {
 	var type = param.split('=')[1];
 	window.open('makecsv.php?id='+type);
 }
-function trBackgroundColor(){
-	var trTotalNumber = $("#answer-field table.list-table tr").length;
+//tableSlector选择页面上需要应用此函数的表格，注意该表格一定要包含tbody
+function trBackgroundColor(tableSelector){
+	var trTotalNumber = $(tableSelector + " tr").length;
 	for(var i=1;i<trTotalNumber;i=i+2){
-		$("#answer-field table.list-table tbody").children().eq(i).css("background","#f7f7f7");
+		$(tableSelector + " tbody").children().eq(i).css("background","#f7f7f7");
 	}
 }
 
