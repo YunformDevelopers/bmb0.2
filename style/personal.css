@@ -43,7 +43,6 @@
 	opacity:100;
 }
 #my-release .form-op .btn {
-	margin:24px auto 0px auto;
 	display:block;
 }
 #my-release .create-new .img-holder {
@@ -62,17 +61,48 @@
 	font-weight:bold;
 	font-size:1.4em;
 }
-#my-release .delete-button {
-	background:url(../images/card-icon/trash.png) no-repeat center center;
+.card.my-release .form-op {
+	position:relative;
+}
+.card.my-release .toggleOnline-btn-container {
+	position:absolute;
+	top:2px;
+	right:2px;
+}
+.card.my-release .toggleOnline-btn-container, .card.my-release .delete-btn-container {
+	width:26px;
+	height:26px;	
+}
+.card.my-release .toggleOnline-btn, .card.my-release .delete-btn {
+	border:none;
+	outline:none;
+	cursor:pointer;
 	width:26px;
 	height:26px;
 	border:none;
 	outline:none;
 	cursor:pointer;
+}
+.card.my-release .toggleOnline-btn {
+	opacity:0.8;
+}
+.card.my-release .toggleOnline-btn.up-shelf {
+	background:url(../images/card-icon/up-shelf.png) no-repeat center center;
+}
+.card.my-release .toggleOnline-btn.down-shelf {
+	background:url(../images/card-icon/down-shelf.png) no-repeat center center;
+}
+.card.my-release .delete-btn {
+	background:url(../images/card-icon/trash.png) no-repeat center center;
 	position:relative;
 	top:-6px;
 	left:2px;
 }
-#my-release .delete-button:active {
-	background:url(../images/card-icon/trash-hover.png) no-repeat center center;
+.card.my-release .btn-container {
+	display:block;
+	width:50px;
+	margin:24px auto 0px auto;
+}
+.card.my-release a {
+	display:block;
 }

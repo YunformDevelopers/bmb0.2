@@ -73,6 +73,9 @@ if(isset($_POST['username'])&&isset($_POST['password'])){
 				<li class="more-item">
 					<a><span>账号管理</span></a>
 				</li>
+                <li class="more-item">
+					<span><i>(建设中)</i></span>
+				</li>
 				<br />
 				<li class="more-item">
 					<a><span>提醒与通知</span></a>
@@ -86,6 +89,9 @@ if(isset($_POST['username'])&&isset($_POST['password'])){
 				<li class="more-item">
 					<a><span>关闭音效</span></a>
 				</li>
+                <li class="more-item">
+					<span><i>(建设中)</i></span>
+				</li>
 				<br />
 				<li class="more-item">
 					<a onClick='msgPopOver("msg.php #feedback-msg-content");'><span>建议反馈</span></a>
@@ -94,7 +100,7 @@ if(isset($_POST['username'])&&isset($_POST['password'])){
 					<a id="contact-msg" onclick='msgPopOver("msg.php #contact-msg-content");' ><span>联系我们</span></a>
 				</li>
 				<li class="more-item">
-					<a><span>关于报名吧</span></a>
+					<a href="./intro.html"><span>关于报名吧</span></a>
 				</li>
 				<br />
 				<li class="more-item">
@@ -125,7 +131,7 @@ if(isset($_POST['username'])&&isset($_POST['password'])){
 				<li class="search-item">
 					<a><span>某某社团报名表</span></a>
 				</li>
-				<p class="reminder">没有了</p>
+				<p class="reminder">没有了<i>(建设中)</i></p>
 			</ul>
 		</div>
 		

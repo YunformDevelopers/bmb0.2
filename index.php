@@ -74,7 +74,7 @@
 					?>
 				</div>
 				<div id='content-footer'>
-					<a class = "load-more btn white">点击加载更多</a>
+					<!--<a class = "load-more btn white">点击加载更多</a>-->
 					<p class = "reminder">你也可以切换到<a class="btn white" onClick= "slideTo(1)">榜单</a><a class="btn white" onClick="slideTo(2)">筛选</a>标签页</p>
 				</div>
 
@@ -91,7 +91,7 @@
 				<div class="section-body clear-float">
 				</div>
 				<div id='content-footer'>
-					<a class = "load-more btn white">点击加载更多</a>
+					<!--<a class = "load-more btn white">点击加载更多</a>-->
 					<p class = "reminder">你也可以切换到<a class="btn white" onClick= "slideTo(0)">推荐</a><a class="btn white" onClick= "slideTo(2)">筛选</a>标签页</p>
 				</div>
 			</div>
@@ -100,11 +100,11 @@
 			<div id='hottest' class="section">
 				<br />
 				<div class="section-header">
-					<h2>标签云</h2>
+					<h2>标签云<i>(建设中)</i></h2>
 					<div class="h2-line">
 				</div>
 				<div id='content-footer'>
-					<a class = "load-more btn white">点击加载更多</a>
+					<!--<a class = "load-more btn white">点击加载更多</a>-->
 					<p class = "reminder">你也可以切换到<a class="btn white" onClick= "slideTo(0)">推荐</a><a class="btn white" onClick= "slideTo(1)">榜单</a>标签页</p>
 				</div>
 			</div>

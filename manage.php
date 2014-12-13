@@ -126,6 +126,7 @@ if(!isset($_COOKIE['srtp-username']))
                                         <li class="column">
                                             <p class="column-body">0</p>
                                             <p class="column-head">新增收藏人数</p>
+                                            <p><i>(建设中)</i></p>
                                         </li>
                                     </ul>
                                 </div>
@@ -182,13 +183,13 @@ if(!isset($_COOKIE['srtp-username']))
 										
 										</a>
 									</span>
-									<span class="quick-search">
+									<!--<span class="quick-search">
 										<a>
 											<input type="text" class="search" placeholder="搜索答案" >
 											</input>
 											<input type="submit" class="btn red" name="quick-search" value="搜索" />
 										</a>
-									</span>
+									</span>-->
 									
 								</th>
 								<th id="table-select" class="col-2">
@@ -399,7 +400,7 @@ if(!isset($_COOKIE['srtp-username']))
 							RAR
 						</a>
                         <p class="tool-info">
-                        下载打包的Word文档<br /><br />
+                        下载打包的Word文档<i>(建设中)</i><br /><br />
                         </p>
 					</div>
 					<div class="tool" id="manage-txt">
@@ -415,7 +416,7 @@ if(!isset($_COOKIE['srtp-username']))
 							综素
 						</a>
                         <p class="tool-info">
-                        发送申请综素表格<br /><br /><br />
+                        发送申请综素表格<i>(建设中)</i><br /><br />
                         </p>
 					</div>
 					<div class="tool" id="manage-erke">
@@ -423,7 +424,7 @@ if(!isset($_COOKIE['srtp-username']))
 							二课
 						</a>
                         <p class="tool-info">
-                        发送申请二课表格<br /><br /><br />
+                        发送申请二课表格<i>(建设中)</i><br /><br />
                         </p>
 					</div>
 					<div class="tool" id="manage-add">

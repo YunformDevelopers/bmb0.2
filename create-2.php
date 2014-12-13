@@ -80,14 +80,14 @@ header('Content-Type:text/html; charset=utf-8');
     </div>
 	<div id="field-wrapper">
 		<div id="tool-field" unselectable="on" onselectstart="return false;" style="-moz-user-select:none;">
-			<div id="tool-save-container">
+			<!--<div id="tool-save-container">
 				<div class="loading-64" style="display:none">
 				</div>
 				<div class="bg blue"> 
 					<a class="tool save" onclick="toolSaveAct(this);" >
 					</a>
 				</div>
-			</div>
+			</div>-->
 			<div id="tool-construct-container">
 				<div id="tool-personalize">
 					<h4>个性化设置</h4>

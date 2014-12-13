@@ -72,7 +72,7 @@ header('Content-Type:text/html; charset=utf-8');
 					<div style="background:#fff; border:solid 2px #CCC; border-radius:4px; padding:5px; margin:10px 0;">
                     	<div id="beta-unauthorized">
                             <p>
-                                <b>我的认证状态：</b><span style="color:#F60;"><i>未认证</i></span>
+                                <b>状态：</b><span class="status red">未认证</span>
                             </p>
                             <p>
                                 <b>提示：</b>内测阶段认证可以获得200张免费二维码名片！<a style="text-decoration:none;" href="beta-intro.php"><input type="button" class="btn green" value="内测介绍"></input></a>
@@ -84,7 +84,7 @@ header('Content-Type:text/html; charset=utf-8');
                         </div>
                         <div id="beta-authorized" style="display:none;">
                             <p>
-                                <b>我的认证状态：</b><span style="color:#0F3;"><i>已认证</i></span>
+                                <b>状态：</b><span class="status green">已认证！</span>
                             </p>
                             <p>
                                 <b>提示：</b>将你需要生成二维码名片的<b>报名表链接</b>通过任何方式发送到我们的运营部门，我们12小时内回复处理情况！
@@ -120,12 +120,19 @@ header('Content-Type:text/html; charset=utf-8');
 			$minute=intval($minutes);
 			echo '<div class="section-col" >';
     		echo '<div class="card my-release" > 
-            			<a href="#">
-	                		<div class="form-op">
-		                    	<a href="edit.php?id='.$rows['form_id'].'"><input class="btn red" type="button" value="编辑"/></a>
-		                    	<a href="manage.php?id='.$rows['form_id'].'"><input class="btn blue" type="button" value="管理"/></a>
-	                    		<a href="#"><input class="btn green" type="button" value="查看"/></a>
-  								<a href="#"><input class="delete-button" id="delete-'.$rows['form_id'].'" type="button" value="    "/></a>
+            			 	<div class="form-op">
+								<a href="#" class="toggleOnline-btn-container"><input class="toggleOnline-btn ';
+								//这里判断上下架
+								if($days>=0){
+									echo 'down-shelf';
+								}else{
+									echo 'up-shelf';
+								}
+			echo '" id="delete-'.$rows['form_id'].'" title="上架" type="button" value="    " onclick="toggleOnline(this);"/></a>
+		                    	<a href="edit.php?id='.$rows['form_id'].'" class="btn-container"><input class="btn red" type="button" value="编辑"/></a>
+		                    	<a href="manage.php?id='.$rows['form_id'].'" class="btn-container"><input class="btn blue" type="button" value="管理"/></a>
+	                    		<a href="reform.php?id='.$rows['form_id'].'" class="btn-container"><input class="btn green" type="button" value="查看"/></a>
+  								<a href="#" class="delete-btn-container"><input class="delete-btn" id="delete-'.$rows['form_id'].'" title="删除" type="button" value="    "/></a>
 	                		</div>
 	                		<div class="form-status">';
     		if($days>=0){
@@ -196,7 +203,7 @@ header('Content-Type:text/html; charset=utf-8');
 		<li class="innerWrapper3">
 			<div id='my-browse' class="section">
 				<div class="section-header">
-					<h2>我浏览的</h2>
+					<h2>我浏览的<i>(建设中)</i></h2>
 					<div class="h2-line">
 					</div>
 				</div>
@@ -241,4 +248,16 @@ header('Content-Type:text/html; charset=utf-8');
 </body>
 <script src='js/iscroll.js'></script>
 <script src='js/common.js'></script>
+<script>
+function toggleOnline(id) {
+	$id = $(id);
+	if($id.hasClass("up-shelf")){
+		//上架操作
+		$id.removeClass("up-shelf").addClass("down-shelf").attr("title","下架");
+	}else {
+		//下架操作
+		$id.removeClass("down-shelf").addClass("up-shelf").attr("title","上架");
+	}
+}
+</script>
 </html>
