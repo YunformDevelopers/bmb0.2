@@ -90,8 +90,15 @@ header('Content-Type:text/html; charset=utf-8');
                         <div class="h2-line">
                         </div>
 					</div>
-                    <div class="" style="margin-top:5px;">
-                    	<span class="publish-status on" style="display:none;">您的报名表已经默认发布到报名吧首页</span><span class="publish-status off">您的报名表将不会出现在报名吧首页</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" onclick="togglePublishStatus(this);">暂不发布</a>
+                    <div class="publish-status-container" style="margin-top:5px;">
+                    	<span class="publish-status on">您的报名表已经默认发布到报名吧首页&nbsp;&nbsp;&nbsp;
+                        	<b class="status green">已上架</b>
+                        </span>
+                        <span class="publish-status off" style="display:none;">您的报名表将不会出现在报名吧首页&nbsp;&nbsp;&nbsp;
+                        	<b class="status red">已下架</b>
+                        </span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" id="toggle-publish-status-btn" class="btn white" href="javascript:;" onclick="togglePublishStatus(this);" value="暂不发布" />
+                        <span style="display:none;" id="publish-status-loading" class="loading-indicator"><img src="images/loading-16.GIF" alt="加载中" /></span>
                     </div>
                 </div>
                 <div class="release-method share-link">
@@ -108,7 +115,7 @@ header('Content-Type:text/html; charset=utf-8');
                         <a title="分享到QQ好友" href="#" class="bds_sqq" data-cmd="sqq">QQ好友</a>
                         <a title="分享到邮件分享" href="#" class="bds_mail" data-cmd="mail">邮件</a>
                     	<a href="#" class="bds_more" data-cmd="more">更多</a>
-                        <span id="bdshare-loading"><b>加载中……</b></span>
+                        <span id="bdshare-loading" class="loading-indicator"><img src="images/loading-16.GIF" alt="加载中" /></span>
                      </div>
                 </div>
 				<div class="release-method outer-link">
@@ -151,10 +158,10 @@ header('Content-Type:text/html; charset=utf-8');
                         </input>-->
                     </div>
                     <div class="link-holder">
-                        <span id="QR-loading"><b>加载中……</b></span>
+                        <span id="QR-loading" class="loading-indicator"><img src="images/loading-16.GIF" alt="加载中" /></span>
                     	<div class="image-holder">
 							<a id="QRlink" target="new" >
-                            <image onload="$('#QR-loading').hide();" id="QRimg" type="text" class="link-container" /></a>
+                            <image onload="$('#QR-loading').hide(); $(this).show();" id="QRimg" type="text" class="link-container" /></a>
 						</div>
                         <!--<input type="button" class="btn green" value="下载" />-->
                     </div>

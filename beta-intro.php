@@ -58,15 +58,11 @@ span {
 	font-family:"黑体";
 }
 .video-container {
-	width:200px;
-	height:20px;
 	background:rgba(51,51,51,0.3) url(images/beta-intro/play.png) center center no-repeat;
 	border: solid 1px #333;
-	margin:80px auto 10px auto;
-	text-align:center;
-	color:rgba(51,51,51,0.5);
-	padding:30px 0 55px 0;
-	font-size:36px;
+}
+.video-container iframe {
+	overflow:hidden;	
 }
 .intro-btn {
 	display:block;
@@ -122,7 +118,7 @@ minor-fareast;mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin"><s
         </div>
 
     	<div class="video-container">
-        	秘
+        	<iframe height=200 width=300 src="http://player.youku.com/embed/XODQ0MjI2NjY4" frameborder=0 allowfullscreen></iframe>
         </div>
         <a class="intro-btn" href="intro.html">报名吧介绍页面</a>
     </div>

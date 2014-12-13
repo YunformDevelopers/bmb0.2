@@ -69,8 +69,20 @@ a:hover {
 .green {
 	background:#37cd43;
 }
+.dark-green {
+	background:#37cd8e;
+}
 .white {
 	background:#fff;
+	color:#555;
+}
+.status {
+	display:inline-block;
+	color:#fff;
+	font-size:10px;
+	vertical-align:middle;
+	padding:2px;
+	border-radius:2px;	
 }
 div{
     margin:0;
