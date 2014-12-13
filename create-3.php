@@ -6,7 +6,7 @@ header('Content-Type:text/html; charset=utf-8');
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>发布</title>
+<title>发布(3/3)</title>
 <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
 <link rel="stylesheet" href="style/index.css"></link>
 <link rel="stylesheet" href="style/create.css"></link>

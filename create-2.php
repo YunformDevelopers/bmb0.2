@@ -6,7 +6,17 @@ header('Content-Type:text/html; charset=utf-8');
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>创建</title>
+<title>
+	<?php 
+    require 'includes/includes.inc.php';
+    if(ActionIsEdit()){
+        echo "修改(2/3)";
+    }
+	else {
+		echo "创建(2/3)";
+	}
+    ?>
+</title>
 <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
 <link rel="stylesheet" href="style/index.css"></link>
 <link rel="stylesheet" href="style/create.css"></link>
@@ -101,10 +111,27 @@ header('Content-Type:text/html; charset=utf-8');
 							<p class="personalize-tip" >
 								两者满足其一即下架。
 							</p>
-							<div class="personalize-main">
+							<?php
+							if(ActionisEdit()){
+								$EditArray = CreateEditArray();
+								//print_r($EditArray);
+								echo '
+								<div class="personalize-main">
+								当时间到达<input id="form-expire-time" name="form-expire-time" value="'.$EditArray['Date'].'"></input>时，或者
+								当回收的份数达到<input id="form-number-limit" name="form-number-limit" placeholder="默认不限份数" required="required">时。
+								</div>
+								';
+							}
+							else {
+								$EditArray = CreateEditArray();
+								echo '
+								<div class="personalize-main">
 								当时间到达<input id="form-expire-time" name="form-expire-time" placeholder="默认不限期"></input>时，或者
 								当回收的份数达到<input id="form-number-limit" name="form-number-limit" placeholder="默认不限份数" required="required">时。
-							</div>
+								</div>
+								';
+							}
+								?>
 						</li>
 						<li class="tool-personalize-item">
 							<h6>
@@ -115,13 +142,20 @@ header('Content-Type:text/html; charset=utf-8');
 								分辨率为320*200px，格式为jpg。如果不上传，系统将随机分配默认图片。
 							</p>
 							<div class="personalize-main">
-								<input type="file" name="bg"></input>
+								<input type="file" name="bg" value="<?php
+									if(ActionIsEdit()) {
+                                	$decoration_result=mysql_query("select * from decoration where form_id ='".$_GET['id']."'");
+									$decoration_row=mysql_fetch_assoc($decoration_result);
+										echo $decoration_row['bg'];
+									}
+									else;
+								?>"></input>
 							</div>
 						</li>
 						<li class="tool-personalize-item">
 							<h6>
 								<b>3.</b>
-								请为报名表添加标签<i>建设中</i>
+								请为报名表添加标签<i>(建设中)</i>
 							</h6>
 							<p class="personalize-tip" >
 								标签之间请用空格分隔

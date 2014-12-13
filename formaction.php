@@ -35,6 +35,19 @@ if(isset($_GET['action'])&&$_GET['action']=='save'){
 	setcookie('qStore',"",time()-1);
  	do_js_link('create-2.php?id='.$id);
 }
+else if(isset($_GET['action'])&&$_GET['action']=='EditSave'){
+	$data=$_COOKIE['qStore'];
+	$title_string=explode('ζ', $_COOKIE['qStore']);
+	$title=$title_string[0];
+	$intro_string=explode('η', $title_string[1]);
+	$intro=$intro_string[0];
+	$string_tip=explode('θ', $intro_string[1]);
+	$string=$string_tip[0];
+	$tip=$string_tip[1];
+	$id=save_form_to_db($title, $intro, $string, $tip);
+	setcookie('qStore',"",time()-1);
+ 	do_js_link('create-2.php?action=edit&id='.$id);
+}
 else if(isset($_GET['action'])&&$_GET['action']=='answer'){
 	$newanswerStore='';
 	$answer_array=explode('δ', $_COOKIE['answerStore']);

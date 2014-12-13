@@ -136,17 +136,22 @@ function create_to_db($array){
 					echo '<input type="file" name="q'.($i+1).'-body" class="body edit" '.$re.' ></input>';
 					//echo '<input type="file" name="q'.($i+1).'-body" class="body edit" ></input>';
 				}
+				if($type=="free-personalphoto"){
+					echo '<input type="file" name="q'.($i+1).'-body" class="body edit" '.$re.' ></input>';
+				}
+
 				echo '</div>';
 				echo '</div>';
 			echo '</li>';
 			}
-			echo '<div id="form-tip">
-						<p class="title edit raw" rows="1">'.$array['form_tip'].'</p>
-				</div>
-					<input id="submit" class="btn red" name="submit" type="submit" value="提交" onClick="SetFillCookie(); SetAnswerCookie();"/>
+			echo '<input id="submit" class="btn red" name="submit" type="submit" value="提交" onClick="SetFillCookie(); SetAnswerCookie();"/>
 				</ul>
 				</form>
-			</div>';
+				<div id="form-tip">
+					<p class="title edit raw" rows="1">'.$array['form_tip'].'</p>
+				</div>
+			</div>
+			';
     }
 
 function save_form_to_db($title,$intro,$string,$tip){
@@ -261,7 +266,7 @@ function save_decoration_to_db($array,$files,$form_id){
 		}
 		$save_array['bg']=$newname;
 	}else{
-		$save_array['bg']='';
+		$save_array['bg']=rand(1,8).'.jpg';
 	}
 	connect();
 	return insert('decoration', $save_array);
@@ -444,9 +449,139 @@ function getAllfill($id){
 	setcookie('managenumber',$result);
 	setcookie('fromwhereall',$string);
 }
-
-
-
+function ActionIsEdit(){
+	if(isset($_GET['action'])){
+		if($_GET['action']=='edit'){
+			return true;
+		}
+	}
+}
+function CreateEditArray(){
+	connect();
+	$array;
+	$i=0;
+	$sql='select * from question where form_id="'.$_GET['id'].'"';
+	$result=mysql_query($sql);
+	while ($rows=mysql_fetch_assoc($result)){
+		$array[$i++]=$rows;
+	}
+	return $array[0];
+}
+function EditRefillCreate(){
+	if(ActionisEdit()){
+		$EditArray = CreateEditArray();
+		echo '
+		<div id="form-title">
+			<h3><input type="text" value="'.$EditArray['form_title'].'" class="title edit changed"/></h3>
+		</div>
+		<div id="form-intro">
+			<textarea id="simditor" class="title edit changed" contentEditable="true" rows="1">'.$EditArray['form_intro'].'</textarea>
+		</div>
+		<ul id="form-body">';
+		$string=explode('δ', $EditArray['question_string']);
+		for($i=0;$i<count($string)-1;$i++){
+			$explode1 = explode('α', $string[$i]);
+			$question = $explode1[0];
+			$explode2 = explode('β', $explode1[1]);
+			$type=$explode2[0];
+			$choice=explode('γ', $explode2[1]);
+			$re=end($choice);
+			if($re=='required'){
+				$re='required="required"';
+			}else{
+				$re='';
+			}
+			echo '<li>
+					<div id="q" class="q'.($i+1).' q-field-before '.$type.'" onmouseover="showon(this)" onmouseout="showoff(this)">
+					<div class="q-number"><span>'.($i+1).'</span></div>
+					<div class="q-whole">';
+				echo '<div class="q-title">
+						<textarea type="text" name="q'.($i+1).'-title" rows="1" class="title edit changed">'.$question.'</textarea>
+					 </div>';
+				if($re){
+					echo '<div id="alt" class="q-alternative"><a onclick="changeState(this)" name="required">改为选答</a></div>';
+				}
+				else {
+					echo '<div id="alt" class="q-alternative"><a onclick="changeState(this)" name="required">改为必答</a></div>';
+				}
+			echo '<div class="q-body">';
+			if($type=="free-multichoice")
+				for($j=0;$j<count($choice)-1;$j++){
+					echo '<span><input type=\'checkbox\'  class=\'body no-edit\'/><input type=\'text\' name=\'q3-body3\' class=\'body edit changed\' onblur=\'delOption(this)\' value="'.$choice[$j].'"/></span>';
+				}
+			if($type=="free-singlechoice"||$type=="logic-sex")
+				for($j=0;$j<count($choice)-1;$j++){
+					echo '<span><input type=\'radio\' class=\'body no-edit\' /><input type=\'text\' name=\'q4-body3\' class=\'body edit changed\' onblur=\'delOption(this)\' value="'.$choice[$j].'"/></span>';
+				}
+			if($type=="free-multiline"){
+				echo '<textarea name=\'q2-body1\' class=\'body no-edit\'></textarea>';
+			}
+			if($type=="free-singleline"){
+				echo '<input name="q'.($i+1).'-body1" class="body no-edit" type="text" />';
+			}
+			if($type=="logic-name"){
+				echo '<input name="q'.($i+1).'-body1" class="body no-edit" type="text" />';
+			}
+			if($type=="logic-studentID"){
+				echo '<input name="q'.($i+1).'-body1" class="body no-edit" type="text" />';
+			}
+			if($type=="logic-address"){
+				echo '<input name="q'.($i+1).'-body1" class="body no-edit" type="text" />';
+			}
+			if($type=="logic-tel"){
+				echo '<input name="q'.($i+1).'-body1" class="body no-edit" type="text" />';
+			}
+			if($type=="logic-email"){
+				echo '<input name="q'.($i+1).'-body1" class="body no-edit" type="text" />';
+			}
+			if($type=="logic-class"){
+				echo '<input name="q'.($i+1).'-body1" class="body no-edit" type="text" />';
+			}
+			if($type=="free-file"||$type=="free-personalphoto"){
+				echo '<input type=\'file\' class=\'body no-edit\'/>';
+				//echo '<input type="file" name="q'.($i+1).'-body" class="body edit" ></input>';
+			}
+			echo '</div>';
+			echo '</div>';
+			echo '<a href="javascript:;" id="q-del" style="display: none;" class="q-del" title="删除" onclick="qDel(this)"></a>';
+			echo '</div>';
+		echo '</li>';
+		}
+		echo '</ul>
+		<br />
+		<br />
+		<br />
+		<br />
+		<div id="form-tip">
+			<textarea class="title edit changed" contentEditable="true" rows="1">'.$EditArray['form_tip'].'</textarea>
+		</div>
+		<div id="next-step">
+			<input class="btn blue" value="保存并下一步" type="submit" id="step1-step2" onclick="SetCookie(); window.location.href=\'formaction.php?action=EditSave\'"/>
+		</div>
+		';
+	}
+	else {
+		echo '<div id="form-title">
+				<h3><input type="text" value="请在这里输入报名表的名字" class="title edit raw" onfocus=\'rawChange(this)\' /></h3>
+			</div>
+			<div id="form-intro">
+				<textarea id="simditor" class="title edit raw" onfocus=\'rawChange(this)\' contentEditable="true" rows="1" placeholder="请在这里输入报名表的说明">请在这里输入报名表的说明</textarea>
+			</div>
+			<ul id="form-body">
+			</ul>
+			<br />
+			<br />
+			<br />
+			<br />
+			<div id="form-tip">
+				<textarea class="title edit raw" onfocus=\'rawChange(this)\' contentEditable="true" rows="1">请在这里输入报名表的注意事项</textarea>
+			</div>
+			<div id="next-step">
+				<input class="btn blue" value="保存并下一步" type="submit" id="step1-step2" onclick="SetCookie(); window.location.href=\'formaction.php?action=save\'"/>
+	</div>';					
+	}
+	echo '<script>disableNoEdit();</script>';
+}
 
 
 

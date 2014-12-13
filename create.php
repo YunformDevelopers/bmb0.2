@@ -6,7 +6,17 @@ header('Content-Type:text/html; charset=utf-8');
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>创建</title>
+<title>
+	<?php 
+    require 'includes/includes.inc.php';
+    if(ActionIsEdit()){
+        echo "修改(1/3)";
+    }
+	else {
+		echo "创建(1/3)";
+	}
+    ?>
+</title>
 <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
 <link rel="stylesheet" href="style/index.css"></link>
 <link rel="stylesheet" href="style/create.css"></link>
@@ -22,13 +32,6 @@ header('Content-Type:text/html; charset=utf-8');
 <script type="text/javascript" src="js/msg.js"></script>
 
 
-<!-- Include the Quill library 
-<script charset="utf-8" src="editor/kindeditor-all-min.js"></script>
-<script charset="utf-8" src="editor/lang/zh_CN.js"></script>
-
-<script src="js/quill.min.js"></script>
-<link rel="stylesheet" href="style/quill.snow.css" />
--->
 <style >
 	#step-status-set .step-status1 {
 		background:none;
@@ -117,11 +120,11 @@ header('Content-Type:text/html; charset=utf-8');
 								<span class="tool-float-left"></span>文件<span class="tool-construct-icon-file"></span>
 							</a>
 						</li>
-						<li id="personalphoto" class="" name="">
+						<!--<li id="personalphoto" class="" name="">
 							<a href="javascript:;">
 								<span class="tool-float-left"></span>个人照片<span class="tool-construct-icon-personalphoto"></span>
 							</a>
-						</li>
+						</li>-->
 						<li id="singlechoice">
 							<a href="javascript:;">
 								<span class="tool-float-left"></span>单选<span class="tool-construct-icon-singlechoice"></span>
@@ -155,45 +158,9 @@ header('Content-Type:text/html; charset=utf-8');
 		
 		<div id="form-construct-field">
 		<p></p>
-			<div id="form-title">
-				<h3><input type="text" value="请在这里输入报名表的名字" class="title edit raw" onfocus='rawChange(this)' /></h3>
-			</div>
-			<div id="form-intro">
-				<!-- Create the toolbar container 
-				<div id="quill-toolbar">
-				  <button class="ql-bold">Bold</button>
-				  <button class="ql-italic">Italic</button>
-				</div>
-	-->
-				<!-- Create the editor container 
-				<div id="quill-editor">
-				  <div>Hdsaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaalo World!</div>
-				  <div>Some initial <b>bold</b> text</div>
-				  <div><br></div>
-				</div>
-	-->
-				
-
-				<textarea id="simditor" class="title edit raw" onfocus='rawChange(this)' contentEditable="true" rows="1" placeholder="请在这里输入报名表的说明">请在这里输入报名表的说明</textarea>
-			</div>
-
-			<ul id="form-body">
-			
-			
-
-			</ul>
-			<br />
-			<br />
-			<br />
-			<br />
-			<div id="form-tip">
-				<textarea class="title edit raw" onfocus='rawChange(this)' contentEditable="true" rows="1">请在这里输入报名表的注意事项</textarea>
-			</div>
-
-			<div id="next-step">
-				<input class="btn blue" value="保存并下一步" type="submit" id="step1-step2" onclick="SetCookie(); window.location.href='formaction.php?action=save'"/>
-			</div>
-
+        	<?php
+				EditRefillCreate();
+			?>
 		</div>
 	</div>
 </div>

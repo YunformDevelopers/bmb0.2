@@ -129,7 +129,7 @@ header('Content-Type:text/html; charset=utf-8');
 									echo 'up-shelf';
 								}
 			echo '" id="delete-'.$rows['form_id'].'" title="上架" type="button" value="    " onclick="toggleOnline(this);"/></a>
-		                    	<a href="edit.php?id='.$rows['form_id'].'" class="btn-container"><input class="btn red" type="button" value="编辑"/></a>
+		                    	<a href="create.php?action=edit&id='.$rows['form_id'].'" class="btn-container"><input class="btn red" type="button" value="修改"/></a>
 		                    	<a href="manage.php?id='.$rows['form_id'].'" class="btn-container"><input class="btn blue" type="button" value="管理"/></a>
 	                    		<a href="reform.php?id='.$rows['form_id'].'" class="btn-container"><input class="btn green" type="button" value="查看"/></a>
   								<a href="#" class="delete-btn-container"><input class="delete-btn" id="delete-'.$rows['form_id'].'" title="删除" type="button" value="    "/></a>
@@ -144,8 +144,12 @@ header('Content-Type:text/html; charset=utf-8');
 	                		</div>
 	                		<div class="img-holder">
 	                    		<div class="fader">';
-	                        		if(!$rows1['bg'])echo '<img src="images/2.jpg" alt="" />';
-	                        		else echo '<img src="uploads/'.$rows1['bg'].'"'.'alt="" />';
+	                        		if(!$rows1['bg']) {
+										echo '<img src="images/2.jpg" alt="" />';
+										}
+	                        		else {
+										echo '<img src="uploads/'.$rows1['bg'].'"'.'alt="" />';
+										}
 	                    		echo '</div>
 	                    		<div class="form-name">
 	                        		'.$rows['form_title'].'
