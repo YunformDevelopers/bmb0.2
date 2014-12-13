@@ -16,6 +16,18 @@
 <body>
 		        	<?php
 		        	require 'includes/header.inc.php';
+		        	connect();
+		        	$sql="select * from decoration where form_id=".$_GET['id'];
+		        	$result=mysql_query($sql);
+		        	$rows=mysql_fetch_assoc($result);
+		        	date_default_timezone_set("Asia/Shanghai");
+		        	$now = date("Y-m-d h:i:s");
+		        	if(strtotime($rows['form_expire_time'])==null){
+		        		
+		        	}else if(strtotime($rows['form_expire_time'])<=strtotime($now)){
+		        		do_js_alert('该表填写日期已经到了哦');
+		        		do_js_link('index.php');
+		        	}
 		        	if(isset($_GET['data']) && isset($_GET['id'])){
                     	create_to_db($_GET['data'],$_GET['id']);}
                     else if(isset($_GET['id'])){

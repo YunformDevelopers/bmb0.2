@@ -5,13 +5,13 @@ if(isset($_POST['username'])&&isset($_POST['password'])){
     $sql="select * from _user where username='".$_POST['username']."'";
     $result=mysql_query($sql);
     if($row=mysql_fetch_array($result)){
-    if($row['password']==$_POST['password']){
-    	setcookie('srtp-username',$_POST['username']);
-    	do_js_link('index.php');
-    }
-    else{
-    	do_js_alert('密码错误');
-    }
+	    if($row['password']==$_POST['password']){
+	    	setcookie('srtp-username',$_POST['username']);
+	    	do_js_link('index.php');
+	    }
+	    else{
+	    	do_js_alert('密码错误');
+	    }
     }else{
 		//do_js_link('index.php');
 	    do_js_alert('不存在该用户名');
