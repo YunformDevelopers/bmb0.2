@@ -160,6 +160,7 @@ header('Content-Type:text/html; charset=utf-8');
 		<p></p>
         	<?php
 				EditRefillCreate();
+				//函数位于functions.inc.php
 			?>
 		</div>
 	</div>

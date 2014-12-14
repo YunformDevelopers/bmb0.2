@@ -556,13 +556,13 @@ function EditRefillCreate(){
 			<textarea class="title edit changed" contentEditable="true" rows="1">'.$EditArray['form_tip'].'</textarea>
 		</div>
 		<div id="next-step">
-			<input class="btn blue" value="保存并下一步" type="submit" id="step1-step2" onclick="SetCookie(); window.location.href=\'formaction.php?action=EditSave\'"/>
+			<input class="btn blue" value="保存并下一步" type="submit" id="step1-step2" onclick="createProceed(\'EditSave\');"/>
 		</div>
 		';
 	}
 	else {
 		echo '<div id="form-title">
-				<h3><input type="text" value="请在这里输入报名表的名字" class="title edit raw" onfocus=\'rawChange(this)\' /></h3>
+				<h3><input type="text" value="请在这里输入报名表的名字" placeholder="请在这里输入报名表的名字" class="title edit raw" onfocus=\'rawChange(this)\' /></h3>
 			</div>
 			<div id="form-intro">
 				<textarea id="simditor" class="title edit raw" onfocus=\'rawChange(this)\' contentEditable="true" rows="1" placeholder="请在这里输入报名表的说明">请在这里输入报名表的说明</textarea>
@@ -574,10 +574,10 @@ function EditRefillCreate(){
 			<br />
 			<br />
 			<div id="form-tip">
-				<textarea class="title edit raw" onfocus=\'rawChange(this)\' contentEditable="true" rows="1">请在这里输入报名表的注意事项</textarea>
+				<textarea class="title edit raw" onfocus=\'rawChange(this)\' contentEditable="true" rows="1" placeholder="请在这里输入报名表的注意事项">请在这里输入报名表的注意事项</textarea>
 			</div>
 			<div id="next-step">
-				<input class="btn blue" value="保存并下一步" type="submit" id="step1-step2" onclick="SetCookie(); window.location.href=\'formaction.php?action=save\'"/>
+				<input class="btn blue" value="保存并下一步" type="submit" id="step1-step2" onclick="createProceed(\'save\');"/>
 	</div>';					
 	}
 	echo '<script>disableNoEdit();</script>';
