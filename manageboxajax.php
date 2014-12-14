@@ -116,7 +116,7 @@ $result1=mysql_query("select * from question where form_id='".$rows2['form_id'].
 						echo '<p class="body edit">'.$answer_array[$i][0].'</p>';
 					}
 					if($type=="logic-tel"){
-						echo '<p class="body edit">'.$answer_array[$i][0].'</p>';
+						echo '长号：<p class="long-tel body edit">'.$choice[0].'</p>短号：<p class="short-tel body edit" >'.$choice[1].'</p>';
 					}
 					if($type=="logic-email"){
 						echo '<p class="body edit">'.$answer_array[$i][0].'</p>';

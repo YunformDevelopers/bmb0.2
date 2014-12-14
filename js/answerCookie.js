@@ -68,10 +68,13 @@ function SetAnswerCookie () {
 		}
 		else if(qType == "free-personalphoto"){//照片题
 		}
-		else if(qType == "logic-tel"){//长短号待完成
-			var answer = qBody.find("input.body").val();
-			answer = detectUndefined(answer);
-			cookieString += answer+ "γ"//向cookieString添加答案，末尾加分隔符γ
+		else if(qType == "logic-tel"){//长短号
+			for(var j=0; j<2; j++){
+				var qBodyJth = qBody.find("input.body").eq(j);
+				answer = qBodyJth.val();
+				//answer = detectUndefined(answer);
+				cookieString += answer+ "γ"//向cookieString添加答案，末尾加分隔符γ
+			}
 		}else if(qType == "logic-sex"){
 			var answer = qBody.find("input:radio:checked").val();
 			if (qBody.find("input:radio:checked").hasClass("note-title")){
@@ -172,6 +175,9 @@ function initValidationEngine (){
 			if (qFieldIth.hasClass("free-multichoice")){
 				qFieldIth.find('.q-body input').addClass("validate[minCheckbox[1]]");
 				qFieldIth.find('.q-body input').attr('name','q' + i + '-body');
+			}
+			else if (qFieldIth.hasClass("logic-tel")){//电话号的长号为必填，即第一空
+				qFieldIth.find('.q-body input.long-tel').addClass("validate[required]");
 			}
 			else {
 				qFieldIth.find('.q-body input,.q-body textarea').addClass("validate[required]");

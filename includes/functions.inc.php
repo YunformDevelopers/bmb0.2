@@ -124,7 +124,7 @@ function create_to_db($array){
 					echo '<input type="text" name="q'.($i+1).'-body" class="body edit" '.$re.' />';
 				}
 				if($type=="logic-tel"){
-					echo '<input type="tel" name="q'.($i+1).'-body" class="body edit" '.$re.' />';
+					echo '<input type="tel" name="q'.($i+1).'-body" class="long-tel body edit" '.$re.' />（长号：必填）<input type="tel" name="q'.($i+1).'-body" class="short-tel body edit"/>（短号：可不填）';
 				}
 				if($type=="logic-email"){
 					echo '<input type="email" name="q'.($i+1).'-body" class="body edit" '.$re.' />';
@@ -529,7 +529,7 @@ function EditRefillCreate(){
 				echo '<input name="q'.($i+1).'-body1" class="body no-edit" type="text" />';
 			}
 			if($type=="logic-tel"){
-				echo '<input name="q'.($i+1).'-body1" class="body no-edit" type="text" />';
+				echo '<input type=\'text\' name="q'.($i+1).'-body1" class="body no-edit"/>（长号：必填）<input type="text" name="q'.($i+1).'-body1" class="body no-edit"/>（短号：可不填）';
 			}
 			if($type=="logic-email"){
 				echo '<input name="q'.($i+1).'-body1" class="body no-edit" type="text" />';

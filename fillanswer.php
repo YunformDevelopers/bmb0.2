@@ -115,7 +115,7 @@
 								echo '<input type="text" name="q'.($i+1).'-body" class="body edit" '.$re.' value="'.$answer_array[$i][0].'"/>';
 							}
 							if($type=="logic-tel"){
-								echo '<input type="tel" name="q'.($i+1).'-body" class="body edit" '.$re.' value="'.$answer_array[$i][0].'"/>';
+								echo '<input type="tel" name="q'.($i+1).'-body" class="long-tel body edit" '.$re.' value="'.$choice[0].'" />（长号：必填）<input type="tel" name="q'.($i+1).'-body" class="short-tel body edit" value="'.$choice[1].'" />（短号：可不填）';
 							}
 							if($type=="logic-email"){
 								echo '<input type="email" name="q'.($i+1).'-body" class="body edit" '.$re.' value="'.$answer_array[$i][0].'"/>';
