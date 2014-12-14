@@ -104,6 +104,16 @@ window.onresize = function() {
 		        	<?php 
 	        		if(isset($_GET['id'])){
 						connect();
+						$result=mysql_query('select * from decoration where form_id='.$_GET['id']);
+						$rows=mysql_fetch_assoc($result);
+						date_default_timezone_set("Asia/Shanghai");
+						$now = date("Y-m-d h:i:s");
+						if(strtotime($rows['form_expire_time'])==null){
+						
+						}else if(strtotime($rows['form_expire_time'])<=strtotime($now)){
+							do_js_alert('该表填写日期已经到了哦');
+							do_js_link('index.php');
+						}
 						if(isset($_COOKIE['srtp-username'])){
 							$result3=mysql_query("select * from answer where form_id = '".$_GET['id']."' and username='".$_COOKIE['srtp-username']."'");
 							if(mysql_affected_rows()){

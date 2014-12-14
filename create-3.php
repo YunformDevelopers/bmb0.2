@@ -36,7 +36,6 @@ header('Content-Type:text/html; charset=utf-8');
 </head>
 <body>
 <div id="wrapper">
-
     <div id="create-form-steps" unselectable="on" onselectstart="return false;" style="-moz-user-select:none;">
         <div id="create-form-step1" class="step">第一步：基本内容</div>
             <div class="step-div"></div>
@@ -97,7 +96,7 @@ header('Content-Type:text/html; charset=utf-8');
                         <span class="publish-status off" style="display:none;">您的报名表将不会出现在报名吧首页&nbsp;&nbsp;&nbsp;
                         	<b class="status red">已下架</b>
                         </span>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" id="toggle-publish-status-btn" class="btn white" href="javascript:;" onclick="togglePublishStatus(this);" value="暂不发布" />
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" id="toggle-publish-status-btn" class="btn white" href="javascript:;" onclick="togglePublishStatus(this,<?php echo $_GET['id']?>);" value="暂不发布" />
                         <span style="display:none;" id="publish-status-loading" class="loading-indicator"><img src="images/loading-16.GIF" alt="加载中" /></span>
                     </div>
                 </div>

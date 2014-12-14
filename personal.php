@@ -21,7 +21,7 @@ header('Content-Type:text/html; charset=utf-8');
 <script type="text/javascript" src="js/msg.js"></script>
 <script>
 	$(document).ready(function(){
-		$('.delete-button').click(function(){
+		$('.delete-btn').click(function(){
 			var con = confirm('确定要删除吗？');
 			if(con){
 				var idarray=$(this).attr('id').split('-');

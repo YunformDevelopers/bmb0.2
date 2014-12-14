@@ -341,7 +341,7 @@ function make_form_card($row,$row2){
 									</div>
 									<div class="img-counter">
 										<div class="counter">';
-											if(strtotime($old)==''){
+											if($old==''){
 												echo '<span class="time-left">无限期</span>';
 											}else{
 												if($day>=0) echo '<span class="time-left">还有'.$day.'天'.$hour.'小时'.$minute.'分钟</span>';

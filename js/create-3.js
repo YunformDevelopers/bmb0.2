@@ -69,16 +69,27 @@ function initPin (){
 	});
 }
 //切换发布状态
-function togglePublishStatus (id){
+function togglePublishStatus(id,phpid){
 	$id = $(id);
 	if($id.parent().find('.publish-status:hidden').hasClass('on')){
 		$id.parent().find('.publish-status.off').hide();$id.parent().find('.publish-status.on').show();//执行上架操作
 		$("#toggle-publish-status-btn").val("暂不上架");
 		//TODO: ajax 部分
-	}
-	else{
+		$.ajax({
+			type:'GET',
+			url:'stateajax.php?data='+phpid+'&action=on',
+			success:function(response){
+			}
+		});
+	}else{
 		$id.parent().find('.publish-status.on').hide();$id.parent().find('.publish-status.off').show();//执行下架操作
 		$("#toggle-publish-status-btn").val("现在上架");
 		//TODO: ajax 部分
-		}
+		$.ajax({
+			type:'GET',
+			url:'stateajax.php?data='+phpid+'&action=off',
+			success:function(response){
+			}
+		})
+	}
 }
