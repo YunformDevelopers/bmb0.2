@@ -16,13 +16,18 @@
 <script type="text/javascript" src="js/showtips.js"></script>
 <script type="text/javascript" src="test for Liang/test.js"></script>
 <script type="text/javascript" src="js/msg.js"></script>
+<script>
+	$(document).ready(function(){
+		alert($('body').find('#test').html());
+	})
+</script>
 <?php
     require 'includes/header.inc.php';
     
 ?>
 </head>
 <body>
-    <a href="test2.php">跳转到我</a>
+    <a href="test2.php" id="test">跳转到我</a>
 <?php
      include 'includes/footer.inc.php';
 ?>

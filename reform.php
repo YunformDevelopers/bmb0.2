@@ -109,7 +109,6 @@ window.onresize = function() {
 						date_default_timezone_set("Asia/Shanghai");
 						$now = date("Y-m-d h:i:s");
 						if(strtotime($rows['form_expire_time'])==null){
-						
 						}else if(strtotime($rows['form_expire_time'])<=strtotime($now)){
 							do_js_alert('该表填写日期已经到了哦');
 							do_js_link('index.php');
@@ -171,8 +170,8 @@ window.onresize = function() {
 							}
 						}
 						else{
-							echo '<script>/*var con=confirm("不注册提交报名表您的报名信息将无法再被找回，确认要继续填写吗？");
-							if(!con){window.location.href="index.html"}*/</script>';
+							echo '<script>var con=confirm("不注册提交报名表您的报名信息将无法再被找回，确认要继续填写吗？");
+							if(!con){window.location.href="index.html"}</script>';
 							$result=mysql_query("select * from question where form_id = '".$_GET['id']."'");
 							$result1=mysql_query("select * from decoration where form_id = '".$_GET['id']."'");
 							while($rows=mysql_fetch_assoc($result)){

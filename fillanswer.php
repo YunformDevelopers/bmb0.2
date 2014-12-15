@@ -37,11 +37,11 @@
 						$result2=mysql_query("select * from answer where form_id='".$_GET['id']."' and username ='".$_COOKIE['srtp-username']."'");
 						$rows2=mysql_fetch_assoc($result2);
 						$title=$rows1['form_title'];
-						$string=explode('δ', $rows1['question_string']);
-						$answer=explode('δ', $rows2['answer_string']);
-						$question_amount=count(explode('δ', $rows1['question_string']));
+						$string=explode('$$$que_end', $rows1['question_string']);
+						$answer=explode('$$$ans_all', $rows2['answer_string']);
+						$question_amount=count(explode('$$$que_end', $rows1['question_string']));
 						for($i=0;$i<count($answer)-1;$i++){
-							$answer_array[$i]=explode('γ', $answer[$i]);
+							$answer_array[$i]=explode('$$$ans_end', $answer[$i]);
 						}
 						echo '<div id="form-field">';
 						echo '<div id="form-title">';
@@ -53,11 +53,11 @@
 	        <ul id="form-body">
 	        	<form method="post" enctype="multipart/form-data" action="formaction.php?action=update&id='.$_GET['id'].'&amount='.($question_amount-1).'">';
 						for($i=0;$i<count($string)-1;$i++){
-							$explode1 = explode('α', $string[$i]);
+							$explode1 = explode('$$$quetit_end', $string[$i]);
 							$question = $explode1[0];
-							$explode2 = explode('β', $explode1[1]);
+							$explode2 = explode('$$$quetyp_end', $explode1[1]);
 							$type=$explode2[0];
-							$choice=explode('γ', $explode2[1]);
+							$choice=explode('$$$quebod_end', $explode2[1]);
 							$re=end($choice);
 							if($re=='required'){
 								$re='required="required"';

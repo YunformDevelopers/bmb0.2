@@ -33,11 +33,11 @@ function SetAnswerCookie () {
 		if(qType == "free-singlechoice"){//单选题
 			var answer = qBody.find("input:radio:checked").val();
 			if (qBody.find("input:radio:checked").hasClass("note-title")){
-				answer += "λ" + qBody.find("input:radio:checked").closest(".note-position").find("input.note").val();//这里是先向上遍历到span.note-position，然后再向下找到input.note的部分，获得其中的值之后合并到answer里面，用λ分隔
+				answer += "$$$ans_div" + qBody.find("input:radio:checked").closest(".note-position").find("input.note").val();//这里是先向上遍历到span.note-position，然后再向下找到input.note的部分，获得其中的值之后合并到answer里面，用λ分隔
 				//alert(answer);
 			}
 			answer = detectUndefined(answer);
-			cookieString += answer+ "γ"//向cookieString添加答案，末尾加分隔符γ
+			cookieString += answer+ "$$$ans_end"//向cookieString添加答案，末尾加分隔符γ
 		}
 		else if(qType == "free-multichoice"){//多选题
 			var qBodyNoteNumber = qBody.find("input.note").length ;
@@ -45,26 +45,26 @@ function SetAnswerCookie () {
 			 qBody.find("input[type='checkbox']:checked").each(function(){
 				var answer = $(this).val() ;
 				if ($(this).hasClass("note-title")) {
-					answer += "λ" + $(this).closest(".note-position").find("input.note").val();//这里是先向上遍历到span.note-position，然后再向下找到input.note的部分，获得其中的值之后合并到answer里面，用λ分隔
+					answer += "$$$ans_div" + $(this).closest(".note-position").find("input.note").val();//这里是先向上遍历到span.note-position，然后再向下找到input.note的部分，获得其中的值之后合并到answer里面，用λ分隔
 				}
 				answer = detectUndefined(answer);
-				cookieString += answer+ "γ"//向cookieString添加答案，末尾加分隔符γ
+				cookieString += answer+ "$$$ans_end"//向cookieString添加答案，末尾加分隔符γ
 			})				
 		}
 		else if(qType == "free-singleline"){//单行文本题
 			var answer = qBody.find("input.body").val();
 			answer = detectUndefined(answer);
-			cookieString += answer+ "γ"//向cookieString添加答案，末尾加分隔符γ
+			cookieString += answer+ "$$$ans_end"//向cookieString添加答案，末尾加分隔符γ
 		}
 		else if(qType == "free-multiline"){//多行文本题
 			var answer = qBody.find("textarea.body").val();
 			answer = detectUndefined(answer);
-			cookieString += answer+ "γ"//向cookieString添加答案，末尾加分隔符γ
+			cookieString += answer+ "$$$ans_end"//向cookieString添加答案，末尾加分隔符γ
 		}
 		else if(qType == "free-file"){//文件题
 			var answer = qBody.find("input.body").val();
 			answer = detectUndefined(answer);
-			cookieString += "$_FILES-"+answer+ "γ"//向cookieString添加答案，末尾加分隔符γ
+			cookieString += "$_FILES-"+answer+ "$$$ans_end"//向cookieString添加答案，末尾加分隔符γ
 		}
 		else if(qType == "free-personalphoto"){//照片题
 		}
@@ -73,24 +73,24 @@ function SetAnswerCookie () {
 				var qBodyJth = qBody.find("input.body").eq(j);
 				answer = qBodyJth.val();
 				//answer = detectUndefined(answer);
-				cookieString += answer+ "γ"//向cookieString添加答案，末尾加分隔符γ
+				cookieString += answer+ "$$$ans_end"//向cookieString添加答案，末尾加分隔符γ
 			}
 		}else if(qType == "logic-sex"){
 			var answer = qBody.find("input:radio:checked").val();
 			if (qBody.find("input:radio:checked").hasClass("note-title")){
-				answer += "λ" + qBody.find("input:radio:checked").closest(".note-position").find("input.note").val();//这里是先向上遍历到span.note-position，然后再向下找到input.note的部分，获得其中的值之后合并到answer里面，用λ分隔
+				answer += "$$$ans_div" + qBody.find("input:radio:checked").closest(".note-position").find("input.note").val();//这里是先向上遍历到span.note-position，然后再向下找到input.note的部分，获得其中的值之后合并到answer里面，用λ分隔
 				alert(answer);
 			}
 			answer = detectUndefined(answer);
-			cookieString += answer+ "γ"//向cookieString添加答案，末尾加分隔符γ
+			cookieString += answer+ "$$$ans_end"//向cookieString添加答案，末尾加分隔符γ
 		}
 		else {
 			var answer = qBody.find("input.body").val();
 			answer = detectUndefined(answer);
-			cookieString += answer+ "γ"//向cookieString添加答案，末尾加分隔符γ
+			cookieString += answer+ "$$$ans_end"//向cookieString添加答案，末尾加分隔符γ
 		}
 		
-		cookieString += "δ"//向cookieString一道题结束的分隔符δ
+		cookieString += "$$$ans_all"//向cookieString一道题结束的分隔符δ
 		
 
 	
