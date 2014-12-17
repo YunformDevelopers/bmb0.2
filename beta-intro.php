@@ -119,6 +119,10 @@ body {
 	position:relative;
 	top:-170px;
 }
+.video-container, .intro-btn {
+	position:relative;
+	top:-60px;
+}
 
 }
 a {
@@ -208,7 +212,7 @@ function initBetaIntro(){
 $(window).resize(function(){
 		initBetaIntro();
 });
-
+initBetaIntro();
 </script>
 <div id="whole-msg-bg" onclick="msgSlideDn();">
 </div>		
