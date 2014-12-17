@@ -55,7 +55,7 @@ function fetchAll($sql){
 	return $rows;
 } 
 function create_to_db($array){
-		$string=explode('δ', $array['question_string']);
+		$string=explode('$$$que_end', $array['question_string']);
 		echo '<div id="form-field">
 			<div id="form-title-wrapper">
 				<div id="form-title">
@@ -69,11 +69,11 @@ function create_to_db($array){
 	        		<form enctype="multipart/form-data" novalidate="novalidate" id="formID" method="post" action="formaction.php?action=answer&id='.$_GET['id'].'">
 					<ul id="form-body">';
 	    				for($i=0;$i<count($string)-1;$i++){
-					    $explode1 = explode('α', $string[$i]);
+					    $explode1 = explode('$$$quetit_end', $string[$i]);
 						$question = $explode1[0];
-						$explode2 = explode('β', $explode1[1]);
+						$explode2 = explode('$$$quetyp_end', $explode1[1]);
 						$type=$explode2[0];
-						$choice=explode('γ', $explode2[1]);
+						$choice=explode('$$$quebod_end', $explode2[1]);
 						$re=end($choice);
 						if($re=='required'){
 							$re='required="required"';

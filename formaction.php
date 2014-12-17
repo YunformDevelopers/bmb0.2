@@ -24,11 +24,11 @@
 require 'includes/includes.inc.php';
 if(isset($_GET['action'])&&$_GET['action']=='save'){
 	$data=$_COOKIE['qStore'];
-	$title_string=explode('ζ', $_COOKIE['qStore']);
+	$title_string=explode('$$$tit_end', $_COOKIE['qStore']);
 	$title=$title_string[0];
-	$intro_string=explode('η', $title_string[1]);
+	$intro_string=explode('$$$int_end', $title_string[1]);
 	$intro=$intro_string[0];
-	$string_tip=explode('θ', $intro_string[1]);
+	$string_tip=explode('$$$que_all', $intro_string[1]);
 	$string=$string_tip[0];
 	$tip=$string_tip[1];
 	$id=save_form_to_db($title, $intro, $string, $tip);
@@ -37,11 +37,11 @@ if(isset($_GET['action'])&&$_GET['action']=='save'){
 }
 else if(isset($_GET['action'])&&$_GET['action']=='EditSave'){
 	$data=$_COOKIE['qStore'];
-	$title_string=explode('ζ', $_COOKIE['qStore']);
+	$title_string=explode('$$$tit_end', $_COOKIE['qStore']);
 	$title=$title_string[0];
-	$intro_string=explode('η', $title_string[1]);
+	$intro_string=explode('$$$int_end', $title_string[1]);
 	$intro=$intro_string[0];
-	$string_tip=explode('θ', $intro_string[1]);
+	$string_tip=explode('$$$que_all', $intro_string[1]);
 	$string=$string_tip[0];
 	$tip=$string_tip[1];
 	$id=save_form_to_db($title, $intro, $string, $tip);
@@ -50,14 +50,14 @@ else if(isset($_GET['action'])&&$_GET['action']=='EditSave'){
 }
 else if(isset($_GET['action'])&&$_GET['action']=='answer'){
 	$newanswerStore='';
-	$answer_array=explode('δ', $_COOKIE['answerStore']);
+	$answer_array=explode('$$$ans_all', $_COOKIE['answerStore']);
 	for($i=0;$i<count($answer_array);$i++){
 		if(strstr($answer_array[$i],'$_FILES')){
 			$newname=move_file($i+1);
-			$newanswerStore.='$_FILES-'.$newname.'δ';
+			$newanswerStore.='$_FILES-'.$newname.'$$$ans_all';
 		}
 		else{
-			$newanswerStore.=$answer_array[$i].'δ';
+			$newanswerStore.=$answer_array[$i].'$$$ans_all';
 		}
 	}
 	$_COOKIE['answerStore']=$newanswerStore;
@@ -80,10 +80,10 @@ else if(isset($_GET['action'])&&$_GET['action']=='update'){
 	for($i=0;$i<count($answer_array);$i++){
 		if(strstr($answer_array[$i],'$_FILES')){
 			$newname=move_file($i+1);
-			$newanswerStore.='$_FILES-'.$newname.'δ';
+			$newanswerStore.='$_FILES-'.$newname.'$$$ans_all';
 		}
 		else{
-			$newanswerStore.=$answer_array[$i].'δ';
+			$newanswerStore.=$answer_array[$i].'$$$ans_all';
 		}
 	}
 	update_answer_to_db($newanswerStore,$_GET['id']);

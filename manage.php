@@ -201,9 +201,9 @@ if(!isset($_COOKIE['srtp-username']))
 													$result = mysql_query("select * from question where form_id='".$_GET['id']."'");
 													$row = mysql_fetch_array($result);
 													$title=$row['form_title'];
-													$string=explode('δ', $row['question_string']);
+													$string=explode('$$$que_end', $row['question_string']);
 													for($i=0;$i<count($string)-1;$i++){
-														$explode1 = explode('α', $string[$i]);
+														$explode1 = explode('$$$quetit_end', $string[$i]);
 														$question = $explode1[0];
 														echo '<option value="'.($i+1).'-'.$_GET['id'].'">'.($i+1).':'.$question.'</option>';
 													}
@@ -239,8 +239,8 @@ if(!isset($_COOKIE['srtp-username']))
 							$j=1;
 							while($rows=mysql_fetch_assoc($result)){
 									$string="";
-									$answer_array=explode('δ',$rows['answer_string']);
-									$answer=explode('γ',$answer_array[intval($question_num)-1]);
+									$answer_array=explode('$$$ans_all',$rows['answer_string']);
+									$answer=explode('$$$ans_end',$answer_array[intval($question_num)-1]);
 									if(strpos($answer[0],'$_FILES-')===0){
 										$filename=explode('$_FILES-', $answer[0]);
 										echo '
@@ -265,8 +265,8 @@ if(!isset($_COOKIE['srtp-username']))
 										';
 									}else{
 										$string="";
-										$answer_array=explode('δ',$rows['answer_string']);
-										$answer=explode('γ',$answer_array[intval($question_num)-1]);
+										$answer_array=explode('$$$ans_all',$rows['answer_string']);
+										$answer=explode('$$$ans_end',$answer_array[intval($question_num)-1]);
 										echo '<tr class="a-all-msg" id="'.$rows['id'].'" onClick="aAllMsgPopOver();">
 	 									<td class="col-1 a-order">
 	 									'.($j++).'

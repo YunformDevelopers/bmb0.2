@@ -70,7 +70,12 @@ header('Content-Type:text/html; charset=utf-8');
 				</div>
 				<div class="section-body">
 					<div style="background:#fff; border:solid 2px #CCC; border-radius:4px; padding:5px; margin:10px 0;">
-                    	<div id="beta-unauthorized">
+						<?php 
+						connect();
+						$result=mysql_query("select * from _user where username='".$_COOKIE['srtp-username']."'");
+						$rows=mysql_fetch_assoc($result);
+						if($rows['user_vip']==0||$rows['user_vip']==null){
+							echo '<div id="beta-unauthorized">
                             <p>
                                 <b>状态：</b><span class="status red">未认证</span>
                             </p>
@@ -79,21 +84,24 @@ header('Content-Type:text/html; charset=utf-8');
                             </p>
                             <p>
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;将<b>社团名称、职位、姓名、报名吧注册邮箱</b>通过任何方式发送到我们的运营部门，12小时内回复！
-                                <input type="button" class="btn blue" value="联系认证" onClick='msgPopOver("msg.php #contact-msg-content");'></input>
+                                <input type="button" class="btn blue" value="联系认证" onClick=\'msgPopOver("msg.php #contact-msg-content");\'></input>
                             </p>
-                        </div>
-                        <div id="beta-authorized" style="display:none;">
+                        </div>';
+						}else{
+							echo '<div id="beta-authorized">
                             <p>
                                 <b>状态：</b><span class="status green">已认证！</span>
                             </p>
                             <p>
                                 <b>提示：</b>将你需要生成二维码名片的<b>报名表链接</b>通过任何方式发送到我们的运营部门，我们12小时内回复处理情况！
-                                <input type="button" class="btn blue" value="发送链接" onClick='msgPopOver("msg.php #contact-msg-content");'></input>
+                                <input type="button" class="btn blue" value="发送链接" onClick=\'msgPopOver("msg.php #contact-msg-content");\'></input>
                             </p>
                             <p>
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;详细规则及注意事项请戳<a style="text-decoration:none;" href="beta-intro.php"><input type="button" class="btn green" value="规则介绍"></input></a>
                             </p>
-                        </div>
+                        </div>';
+						}
+						?>
                     </div>
 				</div>
 				<div class="section-header">

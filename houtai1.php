@@ -17,7 +17,7 @@ if(!isset($_COOKIE['isVIP'])){
 	$sql="select * from _user";
 	$result=mysql_query($sql);
 	while ($rows=mysql_fetch_array($result)){
-		if($rows['user_vip']=='0'){
+		if($rows['user_vip']=='0'||$rows['user_vip']==null){
 			$level='普通用户';
 		}else if($rows['user_vip']=='1'){
 			$level='认证用户';
@@ -25,10 +25,10 @@ if(!isset($_COOKIE['isVIP'])){
 			$level='管理员';
 		}
 		echo '<tr>
-		<td>'.$rows['id'].'</td>
+		<td>'.$rows['user_id'].'</td>
 		<td>'.$rows['username'].'</td>
 		<td>'.$level.'</td>
-		<td><a href="houtai2.php?id='.$rows['id'].'" style="color:#333;text-decoration:none"><div style="width:66px;height:100%;background:#eee;cursor:pointer">提高权限</div></a></td>
+		<td><a href="houtai2.php?id='.$rows['user_id'].'" style="color:#333;text-decoration:none"><div style="width:66px;height:100%;background:#eee;cursor:pointer">提高权限</div></a></td>
 		</tr>';
 	}
 	?>
