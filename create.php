@@ -54,7 +54,16 @@ header('Content-Type:text/html; charset=utf-8');
 </head>
 <body>
 <div id="wrapper">
-
+	<?php 
+	connect();
+	$result=mysql_query("select * from _user where username='".$_COOKIE['srtp-username']."'");
+	$rows=mysql_fetch_assoc($result);
+	if($rows['is_firstcreate']){
+		echo '<input type="hidden" value="1" id="is-firstcreate"/>';
+	}else{
+		echo '<input type="hidden" value="0" id="is-firstcreate"/>';
+	}
+	?>
     <div id="create-form-steps" unselectable="on" onselectstart="return false;" style="-moz-user-select:none;">
         <div id="create-form-step1" class="step">第一步：基本内容</div>
             <div class="step-div"></div>
