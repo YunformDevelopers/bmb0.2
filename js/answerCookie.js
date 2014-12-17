@@ -176,6 +176,9 @@ function initValidationEngine (){
 				qFieldIth.find('.q-body input').addClass("validate[minCheckbox[1]]");
 				qFieldIth.find('.q-body input').attr('name','q' + i + '-body');
 			}
+			else if (qFieldIth.hasClass("logic-tel")){//电话号的长号为必填，即第一空
+				qFieldIth.find('.q-body input.long-tel').addClass("validate[required]");
+			}
 			else {
 				qFieldIth.find('.q-body input,.q-body textarea').addClass("validate[required]");
 			}

@@ -4,6 +4,13 @@ function GetCookie()
 	
 	return Cookie;
 	}
+//提交前先存cookie，并进行判断
+function createProceed(action){
+	if(SetCookie()){
+		window.location.href='formaction.php?action=' + action;
+	}
+}
+//若通过验证，则返回true，反之返回false
 function SetCookie () {
 	delInvisible ();
 	var qTotalNumber = $("#form-body").children("li").length;//这是获得form-body里面li的数量，也就是题目的总数
@@ -28,7 +35,11 @@ function SetCookie () {
 	for(var i=0;i<qTotalNumber;i++){//这个循环遍历所有题目，并将内容存放到cookie里面
 		var qFieldIth= $("#form-body ").children().eq(i);//获取到#form-body元素里的第i个li
 	/*  3.获取qTitle并放到cookieString里   */
-		var qTitle = qFieldIth.find(".q-title textarea").val()//获取到#form-body元素里的第i道题的q-title 的textarea里的内容(注意不能用html()获取！！！)
+		if(!isChanged(qFieldIth.find(".q-title textarea"))){
+			alert("未填写题目的标题");
+			return false;
+		}
+		var qTitle = valAfterChanged(qFieldIth.find(".q-title textarea"))//获取到#form-body元素里的第i道题的q-title 的textarea里的内容(注意不能用html()获取！！！)
 		//qTitle = escape(qTitle);
 		qTitle = qTitle;//escape转义（可以去除空格）
 		cookieString += qTitle + "$$$quetit_end";//向cookieString添加题目的title，末尾加分隔符α
@@ -76,4 +87,28 @@ function SetCookie () {
 	var formTip = $("#form-tip textarea.edit").val();
 	cookieString += formTip;//向cookieString添加报名表的末尾tip，末尾加分隔符
 	document.cookie = cookieString;
+	return true;
+}
+function lengthValidate(title){
+	
+}
+//验证是否更改
+function isChanged(id){
+	$id = $(id);
+	if($id.hasClass('changed')){
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+//如果更改过，返回val；反之返回空
+function valAfterChanged(input){
+	$input = $(input);
+	if(isChanged($input)){
+		return $input.val();
+	}
+	else {
+		return '';
+	}
 }
