@@ -1,6 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+<?php require 'includes/includes.inc.php';?>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
 <title>表单提交</title>
@@ -21,7 +22,7 @@
 </div>
  -->
 <?php
-require 'includes/includes.inc.php';
+header('Content-Type:text/html; charset=utf-8');
 if(isset($_GET['action'])&&$_GET['action']=='save'){
 	$data=$_COOKIE['qStore'];
 	$title_string=explode('$$$tit_end', $_COOKIE['qStore']);
@@ -49,8 +50,13 @@ else if(isset($_GET['action'])&&$_GET['action']=='EditSave'){
  	do_js_link('create-2.php?action=edit&id='.$id);
 }
 else if(isset($_GET['action'])&&$_GET['action']=='answer'){
+	if(strpos($_SERVER["HTTP_USER_AGENT"],"MSIE 8.0")){
+		$zhuanma=iconv('GB2312', 'UTF-8', $_COOKIE['answerStore']);
+	}else{
+		$zhuanma=$_COOKIE['answerStore'];
+	}
 	$newanswerStore='';
-	$answer_array=explode('$$$ans_all', $_COOKIE['answerStore']);
+	$answer_array=explode('$$$ans_all', $zhuanma);
 	for($i=0;$i<count($answer_array);$i++){
 		if(strstr($answer_array[$i],'$_FILES')){
 			$newname=move_file($i+1);
