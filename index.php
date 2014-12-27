@@ -73,6 +73,55 @@
 						}	
 					?>
 				</div>
+                <div class="section-body club-section-body clear-float">
+                	<div class="club-section-head">
+                    	-<b>已认证社团</b>(排名不分先后)-
+                    </div>
+                	<div class="section-col">
+                        <div class="club-container"> 
+                            <div class="club-logo">
+                            	<div class="club-logo-overlay"></div>
+                                <img class="club-logo-img" width="150px" src="images/club-logo/学生科技探索者协会.gif" />
+                            </div>
+                            <div class="club-name">
+                            	学生科技探索者协会
+                            </div>
+                        </div>
+                    </div>
+                    <div class="section-col">
+                        <div class="club-container"> 
+                            <div class="club-logo">
+                            	<div class="club-logo-overlay"></div>
+                                <img class="club-logo-img" width="150px" src="images/club-logo/建筑工程学院学生会.gif" />
+                            </div>
+                            <div class="club-name">
+                                建筑工程学院学生会
+                            </div>
+                        </div>
+                    </div>
+                    <div class="section-col">
+                        <div class="club-container"> 
+                            <div class="club-logo">
+                            	<div class="club-logo-overlay"></div>
+                                <img class="club-logo-img" width="150px" src="images/club-logo/婉云京剧艺术社.gif" />
+                            </div>
+                            <div class="club-name">
+								婉云京剧艺术社
+                            </div>
+                        </div>
+                    </div>
+                    <div class="section-col">
+                        <div class="club-container"> 
+                            <div class="club-logo">
+                            	<div class="club-logo-overlay"></div>
+                                <img class="club-logo-img" width="150px" src="images/club-logo/无我茶社.gif" />
+                            </div>
+                            <div class="club-name">
+								无我茶社
+                            </div>
+                        </div>
+                    </div>
+				</div>
 				<div id='content-footer'>
 					<!--<a class = "load-more btn white">点击加载更多</a>-->
 					<p class = "reminder">你也可以切换到<a class="btn white" onClick= "slideTo(1)">榜单</a><a class="btn white" onClick="slideTo(2)">筛选</a>标签页</p>
