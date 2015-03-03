@@ -20,7 +20,7 @@ header('Content-Type:text/html; charset=utf-8');
 <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
 <link rel="stylesheet" href="style/index.css"></link>
 <link rel="stylesheet" href="style/create.css"></link>
-<link rel="stylesheet" href="style/form/paper.css"></link>
+<link rel="stylesheet" href="style/form/material.css"></link>
 <link rel="stylesheet" href="style/form/form-responsive.css"></link>
 <link rel="stylesheet" type="text/css" href="style/font-awesome.css" />
 <link rel="stylesheet" type="text/css" href="style/simditor.css" />
@@ -42,11 +42,15 @@ header('Content-Type:text/html; charset=utf-8');
 		overflow-y:auto;	
 		overflow-x:hidden;
 	}
+	#form-wrapper {
+		width:auto;/* 使报名表宽度正常 */
+	}
 	#next-step {
 		width:100%;
 	}
-	#submit {
-		margin:5px auto;	
+	#form-field #submit {
+		margin:5px auto;
+		display:none;/* 隐藏报名表区域提交按钮 */	
 	}
 	#tool-field {
 		width:300px;
@@ -75,9 +79,9 @@ header('Content-Type:text/html; charset=utf-8');
 <body>
 <div id="wrapper">
     <div id="create-form-steps" unselectable="on" onselectstart="return false;" style="-moz-user-select:none;">
-        <div id="create-form-step1" class="step">第一步：基本内容</div>
+        <div id="create-form-step1" class="step">第一步：内容</div>
             <div class="step-div"></div>
-        <div id="create-form-step2" class="step">第二步：个性化</div>
+        <div id="create-form-step2" class="step">第二步：设置</div>
             <div class="step-div"></div>
         <div id="create-form-step3" class="step">第三步：发布</div>
         <div class="justify-helper"></div>
@@ -106,24 +110,23 @@ header('Content-Type:text/html; charset=utf-8');
 						<li class="tool-personalize-item">
 							<h6>
 								<b>1.</b>
-								请设置报名表的下架要求
+								下架要求
 							</h6>
 							<p class="personalize-tip" >
 								两者满足其一即下架。
 							</p>
 							<?php
 							if(ActionisEdit()){
-								$EditArray = CreateEditArray();
+								$EditArray = Create_2EditArray();
 								//print_r($EditArray);
 								echo '
 								<div class="personalize-main">
-								当时间到达<input id="form-expire-time" name="form-expire-time" value="'.$EditArray['Date'].'"></input>时，或者
-								当回收的份数达到<input id="form-number-limit" name="form-number-limit" placeholder="默认不限份数" required="required">时。
+								下架时间：<input id="form-expire-time" name="form-expire-time" value="'.$EditArray['form_expire_time'].'"></input><br />
+								下架数量：<input id="form-number-limit" name="form-number-limit" value="'.$EditArray['form_number_limit'].'">
 								</div>
 								';
 							}
 							else {
-								$EditArray = CreateEditArray();
 								echo '
 								<div class="personalize-main">
 								当时间到达<input id="form-expire-time" name="form-expire-time" placeholder="默认不限期"></input>时，或者
@@ -136,7 +139,7 @@ header('Content-Type:text/html; charset=utf-8');
 						<li class="tool-personalize-item">
 							<h6>
 								<b>2.</b>
-								请上传卡片的背景图
+								封面
 							</h6>
 							<p class="personalize-tip" ><!-- 该图片同时将出现在报名表的标题背景中，并将影响报名表的配色。 -->
 								分辨率为320*200px，格式为jpg。如果不上传，系统将随机分配默认图片。
@@ -155,7 +158,7 @@ header('Content-Type:text/html; charset=utf-8');
 						<li class="tool-personalize-item">
 							<h6>
 								<b>3.</b>
-								请为报名表添加标签<i>(建设中)</i>
+								标签<i>(建设中)</i>
 							</h6>
 							<p class="personalize-tip" >
 								标签之间请用空格分隔
@@ -164,7 +167,7 @@ header('Content-Type:text/html; charset=utf-8');
 								<input id="form-tag" name="form-tag"></input>
 							</div>
 						</li>
-						<input class="btn blue" style="width:auto; padding:0 5px;" type="submit" value="提交相应要求"/>
+						<input class="btn blue" style="width:auto; padding:0 5px;" type="submit" value="保存并下一步"/>
 					</form>
 					</ul>
 			  

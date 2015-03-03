@@ -15,6 +15,7 @@ header('Content-Type:text/html; charset=utf-8');
 <script type="text/javascript" src="js/msg.js"></script>
 <script type="text/javascript" src="js/create-3.js"></script>
 <script type="text/javascript" src="js/commonNoIscroll.js"></script>
+<!--<script type="text/javascript" src="js/oneKeyShare.js"></script>-->
 
 <style>
 #step-status-set .step-status3 {
@@ -37,9 +38,9 @@ header('Content-Type:text/html; charset=utf-8');
 <body>
 <div id="wrapper">
     <div id="create-form-steps" unselectable="on" onselectstart="return false;" style="-moz-user-select:none;">
-        <div id="create-form-step1" class="step">第一步：基本内容</div>
+        <div id="create-form-step1" class="step">第一步：内容</div>
             <div class="step-div"></div>
-        <div id="create-form-step2" class="step">第二步：个性化</div>
+        <div id="create-form-step2" class="step">第二步：设置</div>
             <div class="step-div"></div>
         <div id="create-form-step3" class="step">第三步：发布</div>
         <div class="justify-helper"></div>
@@ -61,9 +62,9 @@ header('Content-Type:text/html; charset=utf-8');
 			make_form_card($row, $row2);
 		?>
         <!-- 短链接 -->
-        <input type="hidden" id="php-short-link" value="<?php //echo make_short_url("http://www.123bmb.com/reform.php?id=".$_GET['id']); ?>"/>
+        <input type="hidden" id="php-short-link" value="<?php //echo make_short_url("https://www.123bmb.com/reform.php?id=".$_GET['id']); ?>"/>
         <!-- 长链接 -->
-        <input type="hidden" id="php-long-link" value="<?php echo 'http://www.123bmb.com/reform.php?id='.$_GET['id']; ?>" />
+        <input type="hidden" id="php-long-link" value="<?php echo 'https://www.123bmb.com/reform.php?id='.$_GET['id']; ?>" />
         <!-- 报名表Id -->
         <input type="hidden" id="formIdContainer" value="<?php echo $_GET['id'];?>" />
         <!-- 报名表Title -->
@@ -100,7 +101,7 @@ header('Content-Type:text/html; charset=utf-8');
                         <span style="display:none;" id="publish-status-loading" class="loading-indicator"><img src="images/loading-16.GIF" alt="加载中" /></span>
                     </div>
                 </div>
-                <div class="release-method share-link">
+                <!--<div class="release-method share-link">
 					<div class="section-header">
                         <h2><b>一键分享</b>&nbsp;&nbsp;<i class="method-intro">点击图标将活动一键发布到社交平台上</i></h2>
                         <div class="h2-line">
@@ -116,7 +117,7 @@ header('Content-Type:text/html; charset=utf-8');
                     	<a href="#" class="bds_more" data-cmd="more">更多</a>
                         <span id="bdshare-loading" class="loading-indicator"><img src="images/loading-16.GIF" alt="加载中" /></span>
                      </div>
-                </div>
+                </div>-->
 				<div class="release-method outer-link">
                     <div class="section-header">
                         <h2><b>发布链接</b>&nbsp;&nbsp;<i class="method-intro">将链接编辑到人人日志、98专楼、微信消息里</i></h2>
@@ -128,7 +129,7 @@ header('Content-Type:text/html; charset=utf-8');
     	                <label  title="(不推荐)未经过百度短网址转码，链接长，可读性好"><input id="long-outer-link" name="link-type" type="radio" value="长链接" onfocus="fillLink('long');">长链接</input></label>
                     </div>
                     <div class="link-holder">
-                    	<input type="text" class="link-container" value="<?php //echo make_short_url("http://www.123bmb.com/reform.php?id=".$_GET['id']); ?>" />
+                    	<input type="text" class="link-container" value="<?php //echo make_short_url("https://www.123bmb.com/reform.php?id=".$_GET['id']); ?>" />
                         <input type="button" id="outer-link-copy" class="btn green" value="复制" />
                     </div>
                 </div>
@@ -199,7 +200,9 @@ var shareText = "我发布了" + $("#formTitleContainer").val() + "，活动很�
 var shareDesc = $("#formIntroContainer").val();
 var shareComment = "这个活动超级赞，小伙伴们快来报名吧!";
 var sharePic = $("#formBgContainer").val();
-window._bd_share_config={"common":{"bdSnsKey":{},"bdText":shareText,"bdUrl":shareUrl,"bdDes":shareDesc,"bdPic":sharePic,"bdComment":shareComment,"bdMini":"1","bdMiniList":["qzone","tieba","copy","tqq","douban","fx","linkedin"],"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+window._bd_share_config={"common":{"bdSnsKey":{},"bdText":shareText,"bdUrl":shareUrl,"bdDes":shareDesc,"bdPic":sharePic,"bdComment":shareComment,"bdMini":"1","bdMiniList":["qzone","tieba","copy","tqq","douban","fx","linkedin"],"bdPic":"","bdStyle":"1","bdSize":"16"},"share":{}};
+//with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+
 //加载完成后将一键分享部分的loading隐藏
 document.onreadystatechange = subSomething;//当页面加载状态改变的时候执行这个方法.
 function subSomething()

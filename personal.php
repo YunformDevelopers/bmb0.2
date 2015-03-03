@@ -80,11 +80,14 @@ header('Content-Type:text/html; charset=utf-8');
                                 <b>状态：</b><span class="status red">未认证</span>
                             </p>
                             <p>
-                                <b>提示：</b>内测阶段认证可以获得200张免费二维码名片！<a style="text-decoration:none;" href="beta-intro.php"><input type="button" class="btn green" value="内测介绍"></input></a>
+                                <b>提示：</b>内测阶段认证可以免费获得200张二维码名片！<a style="text-decoration:none;" href="beta-intro.php"><input type="button" class="btn green" value="内测介绍"></input></a>
                             </p>
                             <p>
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;将<b>社团名称、职位、姓名、报名吧注册邮箱</b>通过任何方式发送到我们的运营部门，12小时内回复！
                                 <input type="button" class="btn blue" value="联系认证" onClick=\'msgPopOver("msg.php #contact-msg-content");\'></input>
+                            </p>
+							<p>
+                                <b>每日签到：</b>签到成功！&nbsp;&nbsp;&nbsp;&nbsp;已连续签到<b>10</b>天，可增加100张免费二维码名片。
                             </p>
                         </div>';
 						}else{

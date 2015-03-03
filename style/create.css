@@ -45,9 +45,6 @@ form-construct-field里面，分为form-title,form-intro，form-body，具体看
 	height:2em;
 	background:rgba(250,248,245,0.3);
 }
-#step-status-set div:hover {
-	background:none;
-}
 #step-status-set .step-status1 {
 	width:32.1%;
 }
@@ -189,6 +186,7 @@ form-construct-field里面，分为form-title,form-intro，form-body，具体看
 	background:rgba(255,255,255,0.9);
 	border:solid 1px #666;
 	padding:2px;
+	display:none;
 }
 #tool-construct-container .tool-construct-list a {
 	text-decoration:none;
@@ -485,7 +483,7 @@ form-construct-field里面，分为form-title,form-intro，form-body，具体看
 	border-bottom:solid 1px #ccc;
 }
 .tool-personalize-list #form-number-limit {
-	width:8.5em;
+	width:5.5em;
 }
 
 /* create-3 */

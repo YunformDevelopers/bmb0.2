@@ -65,9 +65,9 @@ header('Content-Type:text/html; charset=utf-8');
 	}
 	?>
     <div id="create-form-steps" unselectable="on" onselectstart="return false;" style="-moz-user-select:none;">
-        <div id="create-form-step1" class="step">第一步：基本内容</div>
+        <div id="create-form-step1" class="step">第一步：内容</div>
             <div class="step-div"></div>
-        <div id="create-form-step2" class="step">第二步：个性化</div>
+        <div id="create-form-step2" class="step">第二步：设置</div>
             <div class="step-div"></div>
         <div id="create-form-step3" class="step">第三步：发布</div>
         <div class="justify-helper"></div>

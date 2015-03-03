@@ -1,4 +1,5 @@
 $(document).ready(function(){
+	confCreateTip();
 	autoSave (300000);//每隔300s自动保存一次
 	innitDOMstringArray();
 	innitDragNSort();
@@ -6,20 +7,30 @@ $(document).ready(function(){
 	initPin ();
 	initFormConstructField ();//注意要在生成了pin之后再执行该语句
 	initEditor ();
-	$("#whole-msg-bg").fadeIn(500);
 });
 //窗口改变大小时执行的函数
 $(window).resize(function(){
 	initFormConstructField();
 	initEditor ();
 });
+//判断是否为第一次创建决定是否显示create-tip
+function confCreateTip(){
+	if($("#is-firstcreate").val){//如果是第一次创建的话
+		$("#tool-construct-perserved .create-tip").show();
+		$("#whole-msg-bg").show();
+	}
+	else {
+		$("#tool-construct-perserved .create-tip").hide();
+		$("#whole-msg-bg").hide();
+	}
+}
 /***************************** create.js的主要过程引用的函数 *****************************/
 /***************************** start here *****************************/
 //自动保存，参数time单位为毫秒
 function autoSave (time){
 	var saveInterval; //调度器对象。
-	saveInterval = setInterval("SetCookie(); toolSaveAct('#tool-save-container a.tool.save');",time);
-	//保存cookie，同时toolSaveAct弹出slidemsg
+	saveInterval = setInterval(" toolSaveAct('#tool-save-container a.tool.save');",time);
+	//保存cookie，同时toolSaveAct弹出slidemsg 2014-12-27 移除SetCookie();
 }
 //创建包含DOM的字符串数组，
 function innitDOMstringArray(){

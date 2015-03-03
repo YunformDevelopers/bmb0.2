@@ -45,7 +45,7 @@ else if(isset($_GET['action'])&&$_GET['action']=='EditSave'){
 	$string_tip=explode('$$$que_all', $intro_string[1]);
 	$string=$string_tip[0];
 	$tip=$string_tip[1];
-	$id=save_form_to_db($title, $intro, $string, $tip);
+	$id=save_form_to_db($title, $intro, $string, $tip);/* TODO:修改时改变原有记录而非创建新记录,同时记得更改funciton.inc.php的461行 */
 	setcookie('qStore',"",time()-1);
  	do_js_link('create-2.php?action=edit&id='.$id);
 }

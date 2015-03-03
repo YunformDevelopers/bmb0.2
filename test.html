@@ -2,11 +2,23 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <script src="js/jquery-2.1.1.min.js"></script>
-    <script src="js/test.js"></script>
     <title></title>
 </head>
 <body>
-    <div></div>
+
+    <div id="123bmb-embed">
+        <a onclick="var iframe=this.nextElementSibling; iframe.style.display='block';">点击展开报名表</a>
+        <iframe name="123bmb-iframe" id="123bmb-iframe" src="https://www.123bmb.com?id=47" frameborder="0" scrolling="no" onload="var ifm= document.getElementById('123bmb-iframe');
+        ifm.height = window.frames['123bmb-iframe'].document.body.scrollHeight;
+        alert(ifm.height);
+	
+	"  seamless ></iframe>
+    </div>
+    
 </body>
 </html>
+<!--style="display:none; width:90%;"
+var subWeb = document.frames ? document.frames['123bmb-iframe'].document:this.contentDocument; 
+this.height=window.frames['123bmb-iframe'].document.body.scrollHeight; alert(document.frames);
+
+-->

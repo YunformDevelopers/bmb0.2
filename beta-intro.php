@@ -141,9 +141,17 @@ span {
 .video-container {
 	background:rgba(51,51,51,0.3) url(images/beta-intro/play.png) center center no-repeat;
 	border: solid 1px #333;
+	position:relative;
 }
 .video-container iframe {
 	overflow:hidden;	
+}
+#video-tip {
+	position:absolute;
+	top:0;
+	left:10px;
+	color:#fff;
+	width:220px;
 }
 .intro-btn {
 	display:block;
@@ -188,7 +196,10 @@ minor-fareast;mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin"><s
         </div>
 		<div class="pin"></div>
     	<div class="video-container">
-        	<iframe height=200 width=300 src="http://player.youku.com/embed/XODQ0MjI2NjY4" frameborder=0 allowfullscreen></iframe>
+        	<iframe height=200 width=300 src="http://player.youku.com/player.php/sid/XODQ0MjI2NjY4/v.swf" frameborder=0 allowfullscreen></iframe>
+            <p id="video-tip">温馨提示：若视频加载不出来，可以复制<b>http://player.youku.com/player</b><b>.php/sid/XODQ0MjI2NjY4/v.swf</b>到优酷观看( ^_^ )</p>
+            <!--http://player.youku.com/player.php/sid/XODQ0MjI2NjY4/v.swf-->
+            <!--<embed src="http://player.youku.com/player.php/sid/XODQ0MjI2NjY4/v.swf" allowFullScreen="true" quality="high" width="300" height="200" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"></embed>-->
         </div>
         <a class="intro-btn" href="intro.html">报名吧介绍页面</a>
     </div>

@@ -456,6 +456,17 @@ function ActionIsEdit(){
 		}
 	}
 }
+function Create_2EditArray(){
+	connect();
+	$form_id = $_GET['id'] - 1;
+	$result=mysql_query('select * from question where form_id="'.$form_id.'"') or die(mysql_error());
+	while($row=mysql_fetch_assoc($result)){
+		$result2=mysql_query("select * from decoration where form_id ='".$form_id."'");
+		while ($row2=mysql_fetch_assoc($result2)){
+			return $row2;
+		}
+	}	
+}
 function CreateEditArray(){
 	connect();
 	$array;
@@ -470,6 +481,8 @@ function CreateEditArray(){
 function EditRefillCreate(){
 	if(ActionisEdit()){
 		$EditArray = CreateEditArray();
+		foreach($EditArray as $key=>$value)
+		echo $key."=>".$value;
 		echo '
 		<div id="form-title">
 			<h3><input type="text" value="'.$EditArray['form_title'].'" class="title edit changed"/></h3>
@@ -478,13 +491,13 @@ function EditRefillCreate(){
 			<textarea id="simditor" class="title edit changed" contentEditable="true" rows="1">'.$EditArray['form_intro'].'</textarea>
 		</div>
 		<ul id="form-body">';
-		$string=explode('δ', $EditArray['question_string']);
+		$string=explode('$$$que_end', $EditArray['question_string']);
 		for($i=0;$i<count($string)-1;$i++){
-			$explode1 = explode('α', $string[$i]);
+			$explode1 = explode('$$$quetit_end', $string[$i]);
 			$question = $explode1[0];
-			$explode2 = explode('β', $explode1[1]);
+			$explode2 = explode('$$$quetyp_end', $explode1[1]);
 			$type=$explode2[0];
-			$choice=explode('γ', $explode2[1]);
+			$choice=explode('$$$quebod_end', $explode2[1]);
 			$re=end($choice);
 			if($re=='required'){
 				$re='required="required"';
