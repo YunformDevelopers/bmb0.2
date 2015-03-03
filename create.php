@@ -60,16 +60,17 @@ header('Content-Type:text/html; charset=utf-8');
 	$rows=mysql_fetch_assoc($result);
 	if($rows['is_firstcreate']){
 		echo '<input type="hidden" value="1" id="is-firstcreate"/>';
+		/* 缺少一个把数据库is_firstcreate更改的操作 */
 	}else{
 		echo '<input type="hidden" value="0" id="is-firstcreate"/>';
 	}
 	?>
     <div id="create-form-steps" unselectable="on" onselectstart="return false;" style="-moz-user-select:none;">
-        <div id="create-form-step1" class="step">第一步：内容</div>
+        <div id="create-form-step1" class="step">一：内容</div>
             <div class="step-div"></div>
-        <div id="create-form-step2" class="step">第二步：设置</div>
+        <div id="create-form-step2" class="step">二：设置</div>
             <div class="step-div"></div>
-        <div id="create-form-step3" class="step">第三步：发布</div>
+        <div id="create-form-step3" class="step">三：发布</div>
         <div class="justify-helper"></div>
         <div id="step-status-set">
             <div class="step-status1"></div>

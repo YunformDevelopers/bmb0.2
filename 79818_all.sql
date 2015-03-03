@@ -8,10 +8,11 @@ CREATE TABLE `feedback` (
   `contact` text,
   `date` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=gbk;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=gbk;
 
 insert into `feedback`(`id`,`title`,`content`,`contact`,`date`) values
-('1','测试','测试','1295274684','2014-12-13 07:38:20');
+('1','测试','测试','1295274684','2014-12-13 07:38:20'),
+('2','','','','2014-12-27 10:04:28');
 DROP TABLE IF EXISTS  `decoration`;
 CREATE TABLE `decoration` (
   `form_id` int(11) NOT NULL,
@@ -71,7 +72,32 @@ insert into `decoration`(`form_id`,`form_expire_time`,`form_number_limit`,`bg`,`
 ('69','2014-12-25','50','69-decoration.jpg',''),
 ('70','2014-12-24','50','70-decoration.jpg',''),
 ('71','2014-12-25','50','4.jpg',''),
-('72','2014-12-27','2900','72-decoration.jpg','');
+('72','2014-12-27','2900','72-decoration.jpg',''),
+('73','2014-12-31','1800','73-decoration.png',''),
+('74','2015-01-03','150','6.jpg',''),
+('75','2014-12-31','300','3.jpg',''),
+('76','2014-12-31','1500','3.jpg',''),
+('77','0000-00-00','0','4.jpg',''),
+('78','2015-01-31','550','6.jpg',''),
+('80','2015-01-13','13','6.jpg',''),
+('81','2015-01-13','13','3.jpg',''),
+('82','2015-01-13','14','8.jpg',''),
+('88','2015-01-31','500','4.jpg',''),
+('89','2015-01-13','50','7.jpg',''),
+('90','0000-00-00','0','5.jpg',''),
+('91','0000-00-00','0','1.jpg',''),
+('91','0000-00-00','0','6.jpg',''),
+('93','0000-00-00','0','1.jpg',''),
+('95','0000-00-00','0','7.jpg',''),
+('95','2015-01-23','100','8.jpg','z'),
+('99','2015-01-22','100','6.jpg',''),
+('101','0000-00-00','0','1.jpg',''),
+('102','2015-01-22','50','8.jpg',''),
+('102','2015-01-22','50','6.jpg',''),
+('105','2015-01-31','800','4.jpg',''),
+('107','2015-01-31','400','2.jpg',''),
+('110','0000-00-00','0','6.jpg',''),
+('111','2015-05-31','2400','4.jpg','');
 DROP TABLE IF EXISTS  `answer`;
 CREATE TABLE `answer` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
@@ -81,7 +107,7 @@ CREATE TABLE `answer` (
   `date` datetime NOT NULL,
   `from_where` varchar(32) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=86 DEFAULT CHARSET=gbk;
+) ENGINE=InnoDB AUTO_INCREMENT=112 DEFAULT CHARSET=gbk;
 
 insert into `answer`(`id`,`form_id`,`username`,`answer_string`,`date`,`from_where`) values
 ('1','1','','','2014-07-30 01:10:10',''),
@@ -168,7 +194,33 @@ insert into `answer`(`id`,`form_id`,`username`,`answer_string`,`date`,`from_wher
 ('82','70','未注册用户','卢智雄$$$ans_end$$$ans_all男$$$ans_end$$$ans_all3120103599$$$ans_end$$$ans_all反倒是$$$ans_end$$$ans_all发送到$$$ans_end$$$ans_all发送到$$$ans_end$$$ans_all发送到$$$ans_end$$$ans_all防守对方$$$ans_end佛挡杀佛$$$ans_end$$$ans_all$$$ans_all','2014-12-20 10:11:22','other'),
 ('83','70','未注册用户','非得卢智雄$$$ans_end$$$ans_all男$$$ans_end$$$ans_all23$$$ans_end$$$ans_all32$$$ans_end$$$ans_all32$$$ans_end$$$ans_all32$$$ans_end$$$ans_all23$$$ans_end$$$ans_all32$$$ans_end32$$$ans_end$$$ans_all$$$ans_all','2014-12-23 03:13:03','other'),
 ('84','71','未注册用户','','2014-12-23 10:50:02','other'),
-('85','71','未注册用户','dfs lzx$$$ans_end$$$ans_all男$$$ans_end$$$ans_all2332$$$ans_end$$$ans_all23$$$ans_end$$$ans_all32$$$ans_end$$$ans_end$$$ans_all23$$$ans_end$$$ans_all23$$$ans_end$$$ans_all$$$ans_all','2014-12-23 11:43:32','other');
+('85','71','未注册用户','dfs lzx$$$ans_end$$$ans_all男$$$ans_end$$$ans_all2332$$$ans_end$$$ans_all23$$$ans_end$$$ans_all32$$$ans_end$$$ans_end$$$ans_all23$$$ans_end$$$ans_all23$$$ans_end$$$ans_all$$$ans_all','2014-12-23 11:43:32','other'),
+('86','73','lzxto123-dnf@qq.com','火狐$$$ans_end$$$ans_all男$$$ans_end$$$ans_all45$$$ans_end$$$ans_all$$$ans_end$$$ans_all232323$$$ans_end32$$$ans_end$$$ans_all2332$$$ans_end$$$ans_all3223$$$ans_end$$$ans_all$$$ans_all','2014-12-27 05:10:00','other'),
+('87','73','未注册用户','IE8$$$ans_end$$$ans_all男$$$ans_end$$$ans_all2332$$$ans_end$$$ans_all白沙2舍"$$$ans_end$$$ans_all123222323$$$ans_end344$$$ans_end$$$ans_alllzxtor-234#fedfki@$$$ans_end$$$ans_allfds$$$ans_end$$$ans_all$$$ans_all','2014-12-27 05:13:12','other'),
+('88','73','未注册用户','移动 猎豹$$$ans_end$$$ans_all男$$$ans_end$$$ans_all6616874$$$ans_end$$$ans_all白沙二舍mmm$$$ans_end$$$ans_all186810533$$$ans_end158976$$$ans_end$$$ans_alllzndbbf@jdjd.ckmd$$$ans_end$$$ans_all科技局$$$ans_end$$$ans_all$$$ans_all','2014-12-27 05:15:28','other'),
+('89','73','未注册用户','xiaomi$$$ans_end$$$ans_all男$$$ans_end$$$ans_all5688770$$$ans_end$$$ans_all白沙jnmmmmb、“$$$ans_end$$$ans_all18868105722$$$ans_end$$$ans_end$$$ans_allllj@dfnn.com$$$ans_end$$$ans_all不得不看不到$$$ans_end$$$ans_all$$$ans_all','2014-12-27 09:12:35','other'),
+('90','73','未注册用户','UC O','2014-12-27 09:23:30','other'),
+('91','73','未注册用户','UC2$$$ans_end$$$ans_all7$$$ans_end$$$ans_all$$$ans_end$$$ans_all$$$ans_end$$$ans_all666$$$ans_end6461$$$ans_end$$$ans_allfd$$$ans_end$$$ans_allvGG$$$ans_end$$$ans_all$$$ans_all','2014-12-27 09:30:16','other'),
+('92','73','未注册用户','UC3$$$ans_end$$$ans_all<i>dz*k','2014-12-27 09:31:06','other'),
+('93','73','未注册用户','UC3O','2014-12-27 09:32:22','other'),
+('94','73','未注册用户','IE8第二次$$$ans_end$$$ans_all男$$$ans_end$$$ans_all$$$ans_end$$$ans_all$$$ans_end$$$ans_all244555444444444$$$ans_end353553$$$ans_end$$$ans_allgfdgfdgfds@gerggr$$$ans_end$$$ans_allgregrgrg$$$ans_end$$$ans_all$$$ans_all','2014-12-27 09:37:15','other'),
+('95','73','未注册用户','iPad. Safari$$$ans_all','2014-12-27 09:51:42','other'),
+('96','78','lzxto123-dnf@qq.com','卢智雄$$$ans_end$$$ans_all男$$$ans_end$$$ans_all计算机学院$$$ans_end$$$ans_all大三$$$ans_end$$$ans_all3120103599$$$ans_end$$$ans_all平民$$$ans_end$$$ans_all江西$$$ans_end$$$ans_all18868105722$$$ans_end766926$$$ans_end$$$ans_all$$$ans_all','2015-01-11 05:19:16','other'),
+('97','79','lkyo90@gmail.com','$$$ans_all','2015-01-12 08:47:46','other'),
+('98','80','lkyo90@gmail.com','$$$ans_all','2015-01-12 08:48:29','other'),
+('99','82','lkyo90@gmail.com','ASEDF$$$ans_end$$$ans_all男$$$ans_end$$$ans_all1234123452$$$ans_end$$$ans_all23423$$$ans_end$$$ans_all2341234125$$$ans_end34123412341$$$ans_end$$$ans_all12343@ETWE.COM$$$ans_end$$$ans_all324FW$$$ans_end$$$ans_all$$$ans_all','2015-01-12 08:50:23','other'),
+('100','83','craphiny@163.com','$$$ans_all','2015-01-12 09:49:22','other'),
+('101','84','craphiny@163.com','$$$ans_all','2015-01-12 09:52:04','other'),
+('102','85','craphiny@163.com','$$$ans_all','2015-01-12 10:02:40','other'),
+('103','92','wendong_liu@outlook.com','$$$ans_all','2015-01-22 07:59:53','other'),
+('104','96','849531628@qq.com','$$$ans_all','2015-01-22 10:05:21','other'),
+('105','97','849531628@qq.com','$$$ans_all','2015-01-22 10:10:15','other'),
+('106','98','849531628@qq.com','$$$ans_all','2015-01-22 10:12:14','other'),
+('107','108','jichuangshe@163.com','$$$ans_all','2015-03-02 10:57:25','other'),
+('108','109','jichuangshe@163.com','$$$ans_all','2015-03-02 11:21:05','other'),
+('109','111','未注册用户','测试$$$ans_end$$$ans_all卢智雄测试$$$ans_end$$$ans_all12$$$ans_end$$$ans_all12$$$ans_end12$$$ans_end$$$ans_all12$$$ans_end$$$ans_all12$$$ans_end$$$ans_all12$$$ans_end$$$ans_all12$$$ans_end12$$$ans_end$$$ans_all12$$$ans_end$$$ans_all12$$$ans_end$$$ans_all12$$$ans_end$$$ans_all12$$$ans_end$$$ans_end$$$ans_all12$$$ans_end$$$ans_all$$$ans_all','2015-03-03 02:31:06','other'),
+('110','111','未注册用户','魅族测试$$$ans_end$$$ans_all测定$$$ans_end$$$ans_all5668$$$ans_end$$$ans_all5668$$$ans_end8669$$$ans_end$$$ans_allghb$$$ans_end$$$ans_all哈哈哈$$$ans_end$$$ans_all5398$$$ans_end$$$ans_all5598$$$ans_end5368$$$ans_end$$$ans_allfhkn$$$ans_end$$$ans_all你女v$$$ans_end$$$ans_all566$$$ans_end$$$ans_all85697$$$ans_end85$$$ans_end$$$ans_allghjb@.com$$$ans_end$$$ans_all$$$ans_all','2015-03-03 02:34:25','other'),
+('111','111','未注册用户','ucK','2015-03-03 02:41:26','other');
 DROP TABLE IF EXISTS  `survey`;
 CREATE TABLE `survey` (
   `q1` text NOT NULL,
@@ -201,7 +253,7 @@ CREATE TABLE `click` (
   `time` varchar(11) NOT NULL,
   `form_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=64 DEFAULT CHARSET=gbk;
+) ENGINE=InnoDB AUTO_INCREMENT=82 DEFAULT CHARSET=gbk;
 
 insert into `click`(`id`,`time`,`form_id`) values
 ('1','2014-11-11','29'),
@@ -266,7 +318,25 @@ insert into `click`(`id`,`time`,`form_id`) values
 ('60','2014-12-20','68'),
 ('61','2014-12-20','68'),
 ('62','2014-12-20','68'),
-('63','2014-12-25','72');
+('63','2014-12-25','72'),
+('64','2014-12-27','73'),
+('65','2015-01-05','77'),
+('66','2015-01-08','73'),
+('67','2015-01-08','77'),
+('68','2015-01-08','71'),
+('69','2015-01-11','78'),
+('70','2015-01-12','80'),
+('71','2015-01-12','77'),
+('72','2015-01-12','73'),
+('73','2015-01-12','71'),
+('74','2015-01-12','82'),
+('75','2015-01-22','95'),
+('76','2015-01-22','101'),
+('77','2015-01-22','101'),
+('78','2015-01-22','99'),
+('79','2015-01-22','99'),
+('80','2015-01-23','102'),
+('81','2015-01-23','105');
 DROP TABLE IF EXISTS  `question`;
 CREATE TABLE `question` (
   `form_id` int(11) NOT NULL AUTO_INCREMENT,
@@ -280,7 +350,7 @@ CREATE TABLE `question` (
   `answer_times` int(11) NOT NULL,
   `formstate` int(1) DEFAULT '1',
   PRIMARY KEY (`form_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=73 DEFAULT CHARSET=gbk;
+) ENGINE=InnoDB AUTO_INCREMENT=112 DEFAULT CHARSET=gbk;
 
 insert into `question`(`form_id`,`username`,`form_title`,`form_intro`,`question_string`,`form_tip`,`Date`,`click_times`,`answer_times`,`formstate`) values
 ('1','404764607@qq.com','请在这里输入报名表的名字','<p>请在这里输入报名表的说明</p>','姓名$$$quetit_endlogic-name$$$quetyp_end$$$quebod_endrequired$$$que_end性别$$$quetit_endlogic-sex$$$quetyp_end男$$$quebod_end女$$$quebod_endrequired$$$que_end学号$$$quetit_endlogic-studentID$$$quetyp_end$$$quebod_endrequired$$$que_end住址$$$quetit_endlogic-address$$$quetyp_end$$$quebod_endrequired$$$que_end电话长短号$$$quetit_endlogic-tel$$$quetyp_end$$$quebod_endrequired$$$que_end邮箱$$$quetit_endlogic-email$$$quetyp_end$$$quebod_endrequired$$$que_end专业班级$$$quetit_endlogic-class$$$quetyp_end$$$quebod_endrequired$$$que_end','<p>请在这里输入报名表的说明</p>','2014-09-01 06:45:40','1','0','1'),
@@ -296,38 +366,43 @@ insert into `question`(`form_id`,`username`,`form_title`,`form_intro`,`question_
 ('18','404764607@qq.com','请在这里输入报名表的名字','<p>请在这里输入报名表的说明</p>','请在这里输入题干内容$$$quetit_endfree-singleline$$$quetyp_end$$$quebod_endrequired$$$que_end姓名$$$quetit_endlogic-name$$$quetyp_end$$$quebod_endrequired$$$que_end性别$$$quetit_endlogic-sex$$$quetyp_end男$$$quebod_end女$$$quebod_endrequired$$$que_end学号$$$quetit_endlogic-studentID$$$quetyp_end$$$quebod_endrequired$$$que_end住址$$$quetit_endlogic-address$$$quetyp_end$$$quebod_endrequired$$$que_end电话长短号$$$quetit_endlogic-tel$$$quetyp_end$$$quebod_endrequired$$$que_end邮箱$$$quetit_endlogic-email$$$quetyp_end$$$quebod_endrequired$$$que_end专业班级$$$quetit_endlogic-class$$$quetyp_end$$$quebod_endrequired$$$que_end','请在这里输入报名表的注意事项','2014-10-10 01:56:09','0','0','1'),
 ('19','404764607@qq.com','请在这里输入报名表的名字','<p>请在这里输入报名表的说明</p>','请在这里输入题干内容$$$quetit_endfree-singleline$$$quetyp_end$$$quebod_endrequired$$$que_end姓名$$$quetit_endlogic-name$$$quetyp_end$$$quebod_endrequired$$$que_end性别$$$quetit_endlogic-sex$$$quetyp_end男$$$quebod_end女$$$quebod_endrequired$$$que_end学号$$$quetit_endlogic-studentID$$$quetyp_end$$$quebod_endrequired$$$que_end住址$$$quetit_endlogic-address$$$quetyp_end$$$quebod_endrequired$$$que_end电话长短号$$$quetit_endlogic-tel$$$quetyp_end$$$quebod_endrequired$$$que_end邮箱$$$quetit_endlogic-email$$$quetyp_end$$$quebod_endrequired$$$que_end专业班级$$$quetit_endlogic-class$$$quetyp_end$$$quebod_endrequired$$$que_end','请在这里输入报名表的注意事项','2014-10-10 01:56:16','0','0','1'),
 ('20','404764607@qq.com','请在这里输入报名表的名字','<p>请在这里输入报名表的说明</p>','姓名$$$quetit_endlogic-name$$$quetyp_end$$$quebod_endrequired$$$que_end性别$$$quetit_endlogic-sex$$$quetyp_end男$$$quebod_end女$$$quebod_endrequired$$$que_end学号$$$quetit_endlogic-studentID$$$quetyp_end$$$quebod_endrequired$$$que_end住址$$$quetit_endlogic-address$$$quetyp_end$$$quebod_endrequired$$$que_end电话长短号$$$quetit_endlogic-tel$$$quetyp_end$$$quebod_endrequired$$$que_end邮箱$$$quetit_endlogic-email$$$quetyp_end$$$quebod_endrequired$$$que_end专业班级$$$quetit_endlogic-class$$$quetyp_end$$$quebod_endrequired$$$que_end','请在这里输入报名表的注意事项','2014-10-10 01:56:34','1','0','1'),
-('28','lzxto123-dnf@qq.com','“西湖骑行”报名表','活动时间在11月22日和23日，大家注意时间，自行选择哦~~','姓名$$$quetit_endlogic-name$$$quetyp_end$$$quebod_endrequired$$$que_end性别$$$quetit_endlogic-sex$$$quetyp_end男$$$quebod_end女$$$quebod_endrequired$$$que_end电话长短号$$$quetit_endlogic-tel$$$quetyp_end$$$quebod_endrequired$$$que_end合适的时间段$$$quetit_endfree-multichoice$$$quetyp_end11月22日$$$quebod_end11月23日$$$quebod_endrequired$$$que_end','多谢填表！','2014-11-12 11:08:05','11','0','1'),
-('29','lzxto123-dnf@qq.com','活动报名表测试（赣协同学进）','看看好不好用哈，好用下次就可以试下','姓名$$$quetit_endlogic-name$$$quetyp_end$$$quebod_endrequired$$$que_end性别$$$quetit_endlogic-sex$$$quetyp_end男$$$quebod_end女$$$quebod_endrequired$$$que_end学号$$$quetit_endlogic-studentID$$$quetyp_end$$$quebod_endrequired$$$que_end住址$$$quetit_endlogic-address$$$quetyp_end$$$quebod_endrequired$$$que_end电话长短号$$$quetit_endlogic-tel$$$quetyp_end$$$quebod_endrequired$$$que_end邮箱$$$quetit_endlogic-email$$$quetyp_end$$$quebod_endrequired$$$que_end专业班级$$$quetit_endlogic-class$$$quetyp_end$$$quebod_endrequired$$$que_end你的皂片$$$quetit_endfree-personalphoto$$$quetyp_end$$$quebod_endrequired$$$que_end','嗯','2014-11-12 11:17:36','13','0','1'),
-('30','lzxto123-dnf@qq.com','结构大赛','说明','姓名$$$quetit_endlogic-name$$$quetyp_end$$$quebod_endrequired$$$que_end性别$$$quetit_endlogic-sex$$$quetyp_end男$$$quebod_end女$$$quebod_end$$$quebod_endrequired$$$que_end学号$$$quetit_endlogic-studentID$$$quetyp_end$$$quebod_endrequired$$$que_end住址$$$quetit_endlogic-address$$$quetyp_end$$$quebod_endrequired$$$que_end电话长短号$$$quetit_endlogic-tel$$$quetyp_end$$$quebod_endrequired$$$que_end邮箱$$$quetit_endlogic-email$$$quetyp_end$$$quebod_endrequired$$$que_end专业班级$$$quetit_endlogic-class$$$quetyp_end$$$quebod_endrequired$$$que_end作品$$$quetit_endfree-file$$$quetyp_end$$$quebod_endrequired$$$que_end请在这里输入题干内容$$$quetit_endfree-multichoice$$$quetyp_endrequired$$$que_end请在这里输入题干内容$$$quetit_endfree-singlechoice$$$quetyp_end佛挡杀佛$$$quebod_end对方是否$$$quebod_end佛挡杀佛$$$quebod_end发生的$$$quebod_endrequired$$$que_end','发生的','2014-11-13 12:47:18','15','0','1'),
 ('31','','','','','','2014-11-16 04:23:01','0','0','1'),
 ('32','','','','','','2014-11-22 01:14:36','0','0','1'),
 ('35','zjuzjgjy@163.com','','','','','2014-12-03 10:46:30','0','0','1'),
-('37','lzxto123-dnf@qq.com','EPD回国接机事宜统计表','用于统计EPD回国信息，若第4题无人接机，5、6接机人的姓名及联系方式无需填写，','姓名$$$quetit_endlogic-name$$$quetyp_end$$$quebod_endrequired$$$que_end到达当日所需返回的校区$$$quetit_endfree-singleline$$$quetyp_end$$$quebod_endrequired$$$que_end是否有家长开车接送？$$$quetit_endfree-singlechoice$$$quetyp_end是$$$quebod_end否$$$quebod_endrequired$$$que_end是否有家长或同学乘校车来接机（21：30紫金港大门口出发）？$$$quetit_endfree-singlechoice$$$quetyp_end是$$$quebod_end否$$$quebod_endrequired$$$que_end接机人姓名$$$quetit_endfree-singleline$$$quetyp_end$$$quebod_endalternative$$$que_end接机人联系方式$$$quetit_endfree-singleline$$$quetyp_end$$$quebod_endalternative$$$que_end','由EPD组长卢智雄创建','2014-12-05 10:40:08','8','1','1'),
-('38','lzxto123-dnf@qq.com','EPD回国接机事宜统计表','用于统计EPD回国信息，若第4题无人接机，5、6接机人的姓名及联系方式无需填写。','姓名$$$quetit_endlogic-name$$$quetyp_end$$$quebod_endrequired$$$que_end到达当日需返回的校区$$$quetit_endfree-singlechoice$$$quetyp_end紫金港$$$quebod_end玉泉$$$quebod_end西溪$$$quebod_end华家池$$$quebod_end之江$$$quebod_endrequired$$$que_end是否有家长开车接送$$$quetit_endfree-singlechoice$$$quetyp_end是$$$quebod_end否$$$quebod_endrequired$$$que_end是否有同学或家长接机$$$quetit_endfree-singlechoice$$$quetyp_end是$$$quebod_end否$$$quebod_endrequired$$$que_end接机人姓名$$$quetit_endlogic-name$$$quetyp_end$$$quebod_endalternative$$$que_end接机人电话$$$quetit_endlogic-tel$$$quetyp_end$$$quebod_endalternative$$$que_end','EPD卢智雄创建','2014-12-05 10:57:02','2','0','1'),
 ('39','lzxto123-dnf@qq.com','EPD回国接机事宜统计表','用于统计EPD回国信息，若第4题无人接机，5、6接机人的姓名及联系方式无需填写。','姓名$$$quetit_endlogic-name$$$quetyp_end$$$quebod_endrequired$$$que_end到达当日需返回的校区$$$quetit_endfree-singlechoice$$$quetyp_end紫金港$$$quebod_end玉泉$$$quebod_end西溪$$$quebod_end华家池$$$quebod_end之江$$$quebod_endrequired$$$que_end是否有家长开车接送$$$quetit_endfree-singlechoice$$$quetyp_end是$$$quebod_end否$$$quebod_endrequired$$$que_end是否有同学或家长接机$$$quetit_endfree-singlechoice$$$quetyp_end是$$$quebod_end否$$$quebod_endrequired$$$que_end接机人姓名$$$quetit_endlogic-name$$$quetyp_end$$$quebod_endalternative$$$que_end接机人电话$$$quetit_endlogic-tel$$$quetyp_end$$$quebod_endalternative$$$que_end','EPD卢智雄创建','2014-12-05 11:06:38','43','34','1'),
-('40','taoningying@sina.com','测试版','飞信测试','姓名$$$quetit_endlogic-name$$$quetyp_end$$$quebod_endrequired$$$que_end电话长短号$$$quetit_endlogic-tel$$$quetyp_end$$$quebod_endrequired$$$que_end邮箱$$$quetit_endlogic-email$$$quetyp_end$$$quebod_endrequired$$$que_end','仅为测试','2014-12-05 11:51:43','7','1','1'),
 ('41','404764607@qq.com','报名纳新','请在这里输入报名表的说明','名字$$$quetit_endfree-singleline$$$quetyp_end$$$quebod_endrequired$$$que_end','请在这里输入报名表的注意事项','2014-12-05 06:05:23','2','1','1'),
 ('42','lvzhiyuan1999@126.com','','','','','2014-12-05 06:57:00','0','0','1'),
-('44','lzxto123-dnf@qq.com','请在这里输入报名表的名字','Sharon Lim from SUTD Career Development offered the class of Entrepreneurship an opportunity to visit NUS incubator.','','请在这里输入报名表的注意事项','2014-12-05 11:23:20','0','0','1'),
-('45','lzxto123-dnf@qq.com','请在这里输入报名表的名字','Sharon Lim from SUTD Career Development offered the class of Entrepreneurship an opportunity to visit NUS incubator. An entrepreneur would give us an introduction and we are free to ask any questions.','','','2014-12-05 11:25:54','0','0','1'),
-('46','lzxto123-dnf@qq.com','A Trip to NUS Incubator','Sharon Lim from SUTD Career Development offered the class of Entrepreneurship an opportunity to visit NUS incubator. An entrepreneur would give us an introduction and we are free to ask any questions.','','','2014-12-05 11:30:08','3','1','1'),
-('48','lzxto123-dnf@qq.com','A Trip to NUS Incubator','This form is designed to collect the schedule of the class to arrange the time.','','','2014-12-05 11:38:08','0','0','1'),
-('49','lzxto123-dnf@qq.com','A Visit to NUS Incubator','请在这里输入报名表的说明','Name$$$quetit_endlogic-name$$$quetyp_end$$$quebod_endrequired$$$que_end','请在这里输入报名表的注意事项','2014-12-05 11:38:32','0','0','1'),
-('51','lzxto123-dnf@qq.com','A Visit to NUS Incubator','This form is designed to collect the schedule of the class to arrange the time','Name$$$quetit_endlogic-name$$$quetyp_end$$$quebod_endrequired$$$que_endEmail Address (For updates and reminders)$$$quetit_endfree-singleline$$$quetyp_end$$$quebod_endrequired$$$que_endAvaliable Time$$$quetit_endfree-multiline$$$quetyp_end$$$quebod_endrequired$$$que_end','Thx','2014-12-05 11:40:36','0','0','1'),
-('52','lzxto123-dnf@qq.com','A Visit to NUS Incubator','This form is designed to collect the schedule of the class to arrange the time.','','','2014-12-05 11:41:14','0','0','1'),
-('53','lzxto123-dnf@qq.com','A Visit to NUS Incubator','This form is designed to collect the schedule of the class to arrange the time.','','','2014-12-05 11:41:26','0','0','1'),
-('54','lzxto123-dnf@qq.com','A Visit to NUS Incubator','This form is designed to collect the schedule of the class to arrange the time.','Name$$$quetit_endlogic-name$$$quetyp_end$$$quebod_endrequired$$$que_endEmail Address (For updates and reminders)$$$quetit_endfree-singleline$$$quetyp_end$$$quebod_endrequired$$$que_endAvaliable Time(The more the better)$$$quetit_endfree-multiline$$$quetyp_end$$$quebod_endrequired$$$que_end','Thx','2014-12-05 11:41:47','16','6','1'),
-('55','lzxto123-dnf@qq.com','yyvtvtvcrvfr','','','','2014-12-06 03:45:13','0','0','1'),
+('54','lzxto123-dnf@qq.com','A Visit to NUS Incubator','This form is designed to collect the schedule of the class to arrange the time.','Name$$$quetit_endlogic-name$$$quetyp_end$$$quebod_endrequired$$$que_endEmail Address (For updates and reminders)$$$quetit_endfree-singleline$$$quetyp_end$$$quebod_endrequired$$$que_endAvaliable Time(The more the better)$$$quetit_endfree-multiline$$$quetyp_end$$$quebod_endrequired$$$que_end','Thx','2014-12-05 11:41:47','22','6','1'),
 ('56','test@test.com','A new form','请在这里输入报名表的说明','姓名$$$quetit_endlogic-name$$$quetyp_end$$$quebod_endrequired$$$que_end性别$$$quetit_endlogic-sex$$$quetyp_end男$$$quebod_end女$$$quebod_endrequired$$$que_end学号$$$quetit_endlogic-studentID$$$quetyp_end$$$quebod_endrequired$$$que_end住址$$$quetit_endlogic-address$$$quetyp_end$$$quebod_endrequired$$$que_end电话长短号$$$quetit_endlogic-tel$$$quetyp_end$$$quebod_endrequired$$$que_end邮箱$$$quetit_endlogic-email$$$quetyp_end$$$quebod_endrequired$$$que_end专业班级$$$quetit_endlogic-class$$$quetyp_end$$$quebod_endrequired$$$que_endWhat is your dream$$$quetit_endfree-singlechoice$$$quetyp_endsell sugar water$$$quebod_endchange the world$$$quebod_endrequired$$$que_end','Thanks!','2014-12-07 12:07:07','9','2','1'),
-('57','1234@1234.com','Another good event','Welcome!','请在这里输入题干内容$$$quetit_endfree-singleline$$$quetyp_end$$$quebod_endrequired$$$que_end姓名$$$quetit_endlogic-name$$$quetyp_end$$$quebod_endrequired$$$que_end性别$$$quetit_endlogic-sex$$$quetyp_end男$$$quebod_end女$$$quebod_endrequired$$$que_end学号$$$quetit_endlogic-studentID$$$quetyp_end$$$quebod_endrequired$$$que_end电话长短号$$$quetit_endlogic-tel$$$quetyp_end$$$quebod_endrequired$$$que_end邮箱$$$quetit_endlogic-email$$$quetyp_end$$$quebod_endrequired$$$que_end专业班级$$$quetit_endlogic-class$$$quetyp_end$$$quebod_endrequired$$$que_endWhat is your dream?$$$quetit_endfree-multichoice$$$quetyp_endsell sugar water$$$quebod_endchange the world$$$quebod_endalternative$$$que_end','Thanks!','2014-12-07 01:17:10','25','4','1'),
+('57','1234@1234.com','Another good event','Welcome!','请在这里输入题干内容$$$quetit_endfree-singleline$$$quetyp_end$$$quebod_endrequired$$$que_end姓名$$$quetit_endlogic-name$$$quetyp_end$$$quebod_endrequired$$$que_end性别$$$quetit_endlogic-sex$$$quetyp_end男$$$quebod_end女$$$quebod_endrequired$$$que_end学号$$$quetit_endlogic-studentID$$$quetyp_end$$$quebod_endrequired$$$que_end电话长短号$$$quetit_endlogic-tel$$$quetyp_end$$$quebod_endrequired$$$que_end邮箱$$$quetit_endlogic-email$$$quetyp_end$$$quebod_endrequired$$$que_end专业班级$$$quetit_endlogic-class$$$quetyp_end$$$quebod_endrequired$$$que_endWhat is your dream?$$$quetit_endfree-multichoice$$$quetyp_endsell sugar water$$$quebod_endchange the world$$$quebod_endalternative$$$que_end','Thanks!','2014-12-07 01:17:10','33','4','1'),
 ('58','ayuh_zju@qq.com','1234123413','请在这里输入报名表的说明','','请在这里输入报名表的注意事项','2014-12-07 07:08:50','0','0','1'),
 ('59','ayuh_zju@qq.com','1234123413','请在这里输入报名表的说明','','请在这里输入报名表的注意事项','2014-12-07 07:09:34','0','0','1'),
 ('60','ayuh_zju@qq.com','请在这里输入报名表的名字','1431234','姓名$$$quetit_endlogic-name$$$quetyp_end$$$quebod_endrequired$$$que_end性别$$$quetit_endlogic-sex$$$quetyp_end男$$$quebod_end女$$$quebod_endrequired$$$que_end学号$$$quetit_endlogic-studentID$$$quetyp_end$$$quebod_endrequired$$$que_end住址$$$quetit_endlogic-address$$$quetyp_end$$$quebod_endrequired$$$que_end电话长短号$$$quetit_endlogic-tel$$$quetyp_end$$$quebod_endrequired$$$que_end邮箱$$$quetit_endlogic-email$$$quetyp_end$$$quebod_endrequired$$$que_end专业班级$$$quetit_endlogic-class$$$quetyp_end$$$quebod_endrequired$$$que_end请在这里输入题干内容$$$quetit_endfree-singleline$$$quetyp_end$$$quebod_endrequired$$$que_end请在这里输入题干内容$$$quetit_endfree-singleline$$$quetyp_end$$$quebod_endrequired$$$que_end请在这里输入题干内容$$$quetit_endfree-file$$$quetyp_end$$$quebod_endrequired$$$que_end请在这里输入题干内容$$$quetit_endfree-personalphoto$$$quetyp_end$$$quebod_endrequired$$$que_end请在这里输入题干内容$$$quetit_endfree-singlechoice$$$quetyp_endrequired$$$que_end请在这里输入题干内容$$$quetit_endfree-singlechoice$$$quetyp_endrequired$$$que_end3143$$$quetit_endfree-file$$$quetyp_end$$$quebod_endrequired$$$que_end13123$$$quetit_endfree-singleline$$$quetyp_end$$$quebod_endrequired$$$que_end14312$$$quetit_endfree-personalphoto$$$quetyp_end$$$quebod_endrequired$$$que_end143143$$$quetit_endfree-file$$$quetyp_end$$$quebod_endrequired$$$que_end请在这里输入题干内容$$$quetit_endfree-file$$$quetyp_end$$$quebod_endrequired$$$que_end143$$$quetit_endfree-singleline$$$quetyp_end$$$quebod_endrequired$$$que_end13412341$$$quetit_endfree-multiline$$$quetyp_end$$$quebod_endrequired$$$que_end姓名$$$quetit_endlogic-name$$$quetyp_end$$$quebod_endrequired$$$que_end性别$$$quetit_endlogic-sex$$$quetyp_end男$$$quebod_end女$$$quebod_endrequired$$$que_end学号$$$quetit_endlogic-studentID$$$quetyp_end$$$quebod_endrequired$$$que_end住址$$$quetit_endlogic-address$$$quetyp_end$$$quebod_endrequired$$$que_end电话长短号$$$quetit_endlogic-tel$$$quetyp_end$$$quebod_endrequired$$$que_end邮箱$$$quetit_endlogic-email$$$quetyp_end$$$quebod_endrequired$$$que_end专业班级$$$quetit_endlogic-class$$$quetyp_end$$$quebod_endrequired$$$que_end','14313','2014-12-07 07:11:11','0','1','1'),
 ('65','zdstep@163.com','请在这里输入报名表的名字','请在这里输入报名表的说明','姓名$$$quetit_endlogic-name$$$quetyp_end$$$quebod_endrequired$$$que_end性别$$$quetit_endlogic-sex$$$quetyp_end男$$$quebod_end女$$$quebod_endrequired$$$que_end学号$$$quetit_endlogic-studentID$$$quetyp_end$$$quebod_endrequired$$$que_end住址$$$quetit_endlogic-address$$$quetyp_end$$$quebod_endrequired$$$que_end电话长短号$$$quetit_endlogic-tel$$$quetyp_end$$$quebod_endrequired$$$que_end邮箱$$$quetit_endlogic-email$$$quetyp_end$$$quebod_endrequired$$$que_end专业班级$$$quetit_endlogic-class$$$quetyp_end$$$quebod_endrequired$$$que_end','请在这里输入报名表的注意事项','2014-12-10 03:50:46','0','0','1'),
 ('66','Xuanyuan-Land@163.com','请在这里输入报名表的名字','请在这里输入报名表的说明','请在这里输入题干内容$$$quetit_endfree-singleline$$$quetyp_end$$$quebod_endrequired$$$que_end请在这里输入题干内容$$$quetit_endfree-multiline$$$quetyp_end$$$quebod_endrequired$$$que_end请在这里输入题干内容$$$quetit_endfree-personalphoto$$$quetyp_end$$$quebod_endrequired$$$que_end请在这里输入题干内容$$$quetit_endfree-singlechoice$$$quetyp_endrequired$$$que_end请在这里输入题干内容$$$quetit_endfree-multichoice$$$quetyp_endrequired$$$que_end姓名$$$quetit_endlogic-name$$$quetyp_end$$$quebod_endrequired$$$que_end性别$$$quetit_endlogic-sex$$$quetyp_end男$$$quebod_end女$$$quebod_endrequired$$$que_end学号$$$quetit_endlogic-studentID$$$quetyp_end$$$quebod_endrequired$$$que_end住址$$$quetit_endlogic-address$$$quetyp_end$$$quebod_endrequired$$$que_end电话长短号$$$quetit_endlogic-tel$$$quetyp_end$$$quebod_endrequired$$$que_end邮箱$$$quetit_endlogic-email$$$quetyp_end$$$quebod_endrequired$$$que_end专业班级$$$quetit_endlogic-class$$$quetyp_end$$$quebod_endrequired$$$que_end','请在这里输入报名表的注意事项','2014-12-10 03:53:44','0','0','1'),
 ('67','zjdxwuwochashe@163.com','2015年浙江大学无我茶社会员报名表','用于浙江大学无我茶社的会员招收','','请认真填写','2014-12-11 06:33:51','0','1','1'),
-('71','taoningying@sina.com','Test','','姓名$$$quetit_endlogic-name$$$quetyp_end$$$quebod_endrequired$$$que_end性别$$$quetit_endlogic-sex$$$quetyp_end男$$$quebod_end女$$$quebod_endrequired$$$que_end学号$$$quetit_endlogic-studentID$$$quetyp_end$$$quebod_endrequired$$$que_end住址$$$quetit_endlogic-address$$$quetyp_end$$$quebod_endrequired$$$que_end电话长短号$$$quetit_endlogic-tel$$$quetyp_end$$$quebod_endrequired$$$que_end邮箱$$$quetit_endlogic-email$$$quetyp_end$$$quebod_endrequired$$$que_end专业班级$$$quetit_endlogic-class$$$quetyp_end$$$quebod_endrequired$$$que_end','','2014-12-23 10:48:42','4','2','1'),
-('72','lzxto123-dnf@qq.com','测试','','姓名$$$quetit_endlogic-name$$$quetyp_end$$$quebod_endrequired$$$que_end性别$$$quetit_endlogic-sex$$$quetyp_end男$$$quebod_end女$$$quebod_endrequired$$$que_end学号$$$quetit_endlogic-studentID$$$quetyp_end$$$quebod_endrequired$$$que_end住址$$$quetit_endlogic-address$$$quetyp_end$$$quebod_endrequired$$$que_end电话长短号$$$quetit_endlogic-tel$$$quetyp_end$$$quebod_endrequired$$$que_end邮箱$$$quetit_endlogic-email$$$quetyp_end$$$quebod_endrequired$$$que_end专业班级$$$quetit_endlogic-class$$$quetyp_end$$$quebod_endrequired$$$que_end','','2014-12-25 05:21:07','4','0','1');
+('73','lzxto123-dnf@qq.com','测试','本报名表只做测试目的。','姓名$$$quetit_endlogic-name$$$quetyp_end$$$quebod_endrequired$$$que_end性别$$$quetit_endlogic-sex$$$quetyp_end男$$$quebod_end女$$$quebod_endalternative$$$que_end学号$$$quetit_endlogic-studentID$$$quetyp_end$$$quebod_endalternative$$$que_end住址$$$quetit_endlogic-address$$$quetyp_end$$$quebod_endalternative$$$que_end电话长短号$$$quetit_endlogic-tel$$$quetyp_end$$$quebod_endrequired$$$que_end邮箱$$$quetit_endlogic-email$$$quetyp_end$$$quebod_endrequired$$$que_end专业班级$$$quetit_endlogic-class$$$quetyp_end$$$quebod_endrequired$$$que_end','非测试人员请勿填写。','2014-12-27 04:54:02','55','10','1'),
+('76','lzxto123-dnf@qq.com','反倒是','','姓名$$$quetit_endlogic-name$$$quetyp_end$$$quebod_endrequired$$$que_end性别$$$quetit_endlogic-sex$$$quetyp_end男$$$quebod_end女$$$quebod_endrequired$$$que_end学号$$$quetit_endlogic-studentID$$$quetyp_end$$$quebod_endrequired$$$que_end住址$$$quetit_endlogic-address$$$quetyp_end$$$quebod_endrequired$$$que_end电话长短号$$$quetit_endlogic-tel$$$quetyp_end$$$quebod_endrequired$$$que_end邮箱$$$quetit_endlogic-email$$$quetyp_end$$$quebod_endrequired$$$que_end专业班级$$$quetit_endlogic-class$$$quetyp_end$$$quebod_endrequired$$$que_end','','2014-12-28 10:07:52','0','0','0'),
+('77','619417288@qq.com','111','11','姓名$$$quetit_endlogic-name$$$quetyp_end$$$quebod_endrequired$$$que_end性别$$$quetit_endlogic-sex$$$quetyp_end男$$$quebod_end女$$$quebod_endrequired$$$que_end学号$$$quetit_endlogic-studentID$$$quetyp_end$$$quebod_endrequired$$$que_end住址$$$quetit_endlogic-address$$$quetyp_end$$$quebod_endrequired$$$que_end电话长短号$$$quetit_endlogic-tel$$$quetyp_end$$$quebod_endrequired$$$que_end邮箱$$$quetit_endlogic-email$$$quetyp_end$$$quebod_endrequired$$$que_end专业班级$$$quetit_endlogic-class$$$quetyp_end$$$quebod_endrequired$$$que_end','','2015-01-05 11:31:04','33','0','1'),
+('79','lkyo90@gmail.com','TEST1','test','姓名$$$quetit_endlogic-name$$$quetyp_end$$$quebod_endrequired$$$que_end性别$$$quetit_endlogic-sex$$$quetyp_end男$$$quebod_end女$$$quebod_endrequired$$$que_end住址$$$quetit_endlogic-address$$$quetyp_end$$$quebod_endrequired$$$que_end电话长短号$$$quetit_endlogic-tel$$$quetyp_end$$$quebod_endrequired$$$que_end邮箱$$$quetit_endlogic-email$$$quetyp_end$$$quebod_endrequired$$$que_end76$$$quetit_endfree-singleline$$$quetyp_end$$$quebod_endrequired$$$que_end54$$$quetit_endfree-multiline$$$quetyp_end$$$quebod_endrequired$$$que_end1424$$$quetit_endfree-file$$$quetyp_end$$$quebod_endrequired$$$que_end1$$$quetit_endfree-singlechoice$$$quetyp_end34$$$quebod_endrequired$$$que_end2$$$quetit_endfree-singlechoice$$$quetyp_endWR$$$quebod_endrequired$$$que_end3$$$quetit_endfree-singlechoice$$$quetyp_end123$$$quebod_endrequired$$$que_end4$$$quetit_endfree-singlechoice$$$quetyp_endEQF$$$quebod_endrequired$$$que_end5$$$quetit_endfree-multichoice$$$quetyp_endSDF$$$quebod_endrequired$$$que_end6$$$quetit_endfree-multichoice$$$quetyp_enddsad$$$quebod_end12334$$$quebod_endrequired$$$que_end','','2015-01-12 08:47:40','0','1','1'),
+('82','lkyo90@gmail.com','TEST1','test','姓名$$$quetit_endlogic-name$$$quetyp_end$$$quebod_endrequired$$$que_end性别$$$quetit_endlogic-sex$$$quetyp_end男$$$quebod_end女$$$quebod_endrequired$$$que_end学号$$$quetit_endlogic-studentID$$$quetyp_end$$$quebod_endrequired$$$que_end住址$$$quetit_endlogic-address$$$quetyp_end$$$quebod_endrequired$$$que_end电话长短号$$$quetit_endlogic-tel$$$quetyp_end$$$quebod_endrequired$$$que_end邮箱$$$quetit_endlogic-email$$$quetyp_end$$$quebod_endrequired$$$que_end专业班级$$$quetit_endlogic-class$$$quetyp_end$$$quebod_endrequired$$$que_end','','2015-01-12 08:49:49','10','1','1'),
+('90','zjuxtgc@163.com','lv','','','','2015-01-14 11:35:13','5','0','1'),
+('93','wendong_liu@outlook.com','hj','','姓名$$$quetit_endlogic-name$$$quetyp_end$$$quebod_endrequired$$$que_end性别$$$quetit_endlogic-sex$$$quetyp_end男$$$quebod_end女$$$quebod_endrequired$$$que_end学号$$$quetit_endlogic-studentID$$$quetyp_end$$$quebod_endrequired$$$que_end住址$$$quetit_endlogic-address$$$quetyp_end$$$quebod_endrequired$$$que_end电话长短号$$$quetit_endlogic-tel$$$quetyp_end$$$quebod_endrequired$$$que_end邮箱$$$quetit_endlogic-email$$$quetyp_end$$$quebod_endrequired$$$que_end专业班级$$$quetit_endlogic-class$$$quetyp_end$$$quebod_endrequired$$$que_end','','2015-01-22 08:01:06','0','0','0'),
+('94','xukaidi13@126.com','绿之源社团纳新报名表','关于纳新流程的说明','','','2015-01-22 09:45:14','0','0','1'),
+('97','849531628@qq.com','1','1','姓名$$$quetit_endlogic-name$$$quetyp_end$$$quebod_endrequired$$$que_end性别$$$quetit_endlogic-sex$$$quetyp_end男$$$quebod_end女$$$quebod_endrequired$$$que_end学号$$$quetit_endlogic-studentID$$$quetyp_end$$$quebod_endrequired$$$que_end住址$$$quetit_endlogic-address$$$quetyp_end$$$quebod_endrequired$$$que_end电话长短号$$$quetit_endlogic-tel$$$quetyp_end$$$quebod_endrequired$$$que_end邮箱$$$quetit_endlogic-email$$$quetyp_end$$$quebod_endrequired$$$que_end专业班级$$$quetit_endlogic-class$$$quetyp_end$$$quebod_endrequired$$$que_end截止日期$$$quetit_endfree-singleline$$$quetyp_end$$$quebod_endrequired$$$que_end发布时间$$$quetit_endfree-singlechoice$$$quetyp_endrequired$$$que_end1$$$quetit_endfree-singleline$$$quetyp_end$$$quebod_endrequired$$$que_end姓名$$$quetit_endlogic-name$$$quetyp_end$$$quebod_endrequired$$$que_end性别$$$quetit_endlogic-sex$$$quetyp_end男$$$quebod_end女$$$quebod_endrequired$$$que_end学号$$$quetit_endlogic-studentID$$$quetyp_end$$$quebod_endrequired$$$que_end住址$$$quetit_endlogic-address$$$quetyp_end$$$quebod_endrequired$$$que_end电话长短号$$$quetit_endlogic-tel$$$quetyp_end$$$quebod_endrequired$$$que_end邮箱$$$quetit_endlogic-email$$$quetyp_end$$$quebod_endrequired$$$que_end专业班级$$$quetit_endlogic-class$$$quetyp_end$$$quebod_endrequired$$$que_end','','2015-01-22 10:10:07','0','1','1'),
+('98','849531628@qq.com','1','1','','1','2015-01-22 10:10:31','0','1','1'),
+('99','849531628@qq.com','1','1','','1','2015-01-22 10:14:47','2','0','1'),
+('100','wendong_liu@outlook.com','frefr','','dede$$$quetit_endfree-singleline$$$quetyp_end$$$quebod_endrequired$$$que_enddede$$$quetit_endfree-multiline$$$quetyp_end$$$quebod_endrequired$$$que_end','','2015-01-22 10:35:16','0','0','1'),
+('101','wendong_liu@outlook.com','大扫荡','打算的撒','大扫荡$$$quetit_endfree-singleline$$$quetyp_end$$$quebod_endrequired$$$que_end大爱是$$$quetit_endfree-multiline$$$quetyp_end$$$quebod_endrequired$$$que_end大神的$$$quetit_endfree-file$$$quetyp_end$$$quebod_endrequired$$$que_end','大扫荡','2015-01-22 10:51:46','2','0','1'),
+('102','wendong_liu@outlook.com','hj','','','','2015-01-22 10:56:05','1','0','1'),
+('103','287937059@qq.com','k','','姓名$$$quetit_endlogic-name$$$quetyp_end$$$quebod_endrequired$$$que_end性别$$$quetit_endlogic-sex$$$quetyp_end男$$$quebod_end女$$$quebod_endrequired$$$que_end学号$$$quetit_endlogic-studentID$$$quetyp_end$$$quebod_endrequired$$$que_end住址$$$quetit_endlogic-address$$$quetyp_end$$$quebod_endrequired$$$que_end电话长短号$$$quetit_endlogic-tel$$$quetyp_end$$$quebod_endrequired$$$que_end邮箱$$$quetit_endlogic-email$$$quetyp_end$$$quebod_endrequired$$$que_end专业班级$$$quetit_endlogic-class$$$quetyp_end$$$quebod_endrequired$$$que_end','','2015-01-22 10:57:28','0','0','1'),
+('104','287937059@qq.com','f','','','','2015-01-23 01:39:29','0','0','1'),
+('105','lzxto123-dnf@qq.com','测试','测试','姓名$$$quetit_endlogic-name$$$quetyp_end$$$quebod_endrequired$$$que_end性别$$$quetit_endlogic-sex$$$quetyp_end男$$$quebod_end女$$$quebod_endrequired$$$que_end学号$$$quetit_endlogic-studentID$$$quetyp_end$$$quebod_endrequired$$$que_end住址$$$quetit_endlogic-address$$$quetyp_end$$$quebod_endrequired$$$que_end电话长短号$$$quetit_endlogic-tel$$$quetyp_end$$$quebod_endrequired$$$que_end邮箱$$$quetit_endlogic-email$$$quetyp_end$$$quebod_endrequired$$$que_end专业班级$$$quetit_endlogic-class$$$quetyp_end$$$quebod_endrequired$$$que_end','发','2015-01-23 01:57:16','21','0','1'),
+('106','wendong_liu@outlook.com','社衫','','','','2015-01-23 02:13:45','0','0','1'),
+('107','lzxto123-dnf@qq.com','ces','测试','姓名$$$quetit_endlogic-name$$$quetyp_end$$$quebod_endrequired$$$que_end性别$$$quetit_endlogic-sex$$$quetyp_end男$$$quebod_end女$$$quebod_endrequired$$$que_end学号$$$quetit_endlogic-studentID$$$quetyp_end$$$quebod_endrequired$$$que_end住址$$$quetit_endlogic-address$$$quetyp_end$$$quebod_endrequired$$$que_end电话长短号$$$quetit_endlogic-tel$$$quetyp_end$$$quebod_endrequired$$$que_end邮箱$$$quetit_endlogic-email$$$quetyp_end$$$quebod_endrequired$$$que_end专业班级$$$quetit_endlogic-class$$$quetyp_end$$$quebod_endrequired$$$que_end','测试','2015-01-29 10:27:37','17','0','1'),
+('108','jichuangshe@163.com','结构力学大赛报名表','','小组名称$$$quetit_endfree-singleline$$$quetyp_end$$$quebod_endrequired$$$que_end队长姓名$$$quetit_endlogic-name$$$quetyp_end$$$quebod_endrequired$$$que_end学号$$$quetit_endlogic-studentID$$$quetyp_end$$$quebod_endrequired$$$que_end电话长短号$$$quetit_endlogic-tel$$$quetyp_end$$$quebod_endrequired$$$que_end邮箱$$$quetit_endlogic-email$$$quetyp_end$$$quebod_endalternative$$$que_end姓名$$$quetit_endlogic-name$$$quetyp_end$$$quebod_endrequired$$$que_end学号$$$quetit_endlogic-studentID$$$quetyp_end$$$quebod_endrequired$$$que_end电话长短号$$$quetit_endlogic-tel$$$quetyp_end$$$quebod_endalternative$$$que_end邮箱$$$quetit_endlogic-email$$$quetyp_end$$$quebod_endalternative$$$que_end姓名$$$quetit_endlogic-name$$$quetyp_end$$$quebod_endrequired$$$que_end学号$$$quetit_endlogic-studentID$$$quetyp_end$$$quebod_endrequired$$$que_end电话长短号$$$quetit_endlogic-tel$$$quetyp_end$$$quebod_endalternative$$$que_end邮箱$$$quetit_endlogic-email$$$quetyp_end$$$quebod_endalternative$$$que_end','凡我校本科生均可组队报名参赛，每组不多于3人。鼓励跨专业组队，每人只允许参加一个队','2015-03-02 10:55:19','2','1','1'),
+('109','jichuangshe@163.com','结构力学大赛报名表','凡我校本科生均可组队报名参赛，每组不多于3人。鼓励跨专业组队，每人只允许参加一个队','','','2015-03-02 11:20:56','0','1','1'),
+('111','jichuangshe@163.com','结构力学大赛报名表','凡我校本科生均可组队报名参赛，每组不多于3人。鼓励跨专业组队，每人只允许参加一个队。','小组名称$$$quetit_endfree-singleline$$$quetyp_end$$$quebod_endrequired$$$que_end队长姓名$$$quetit_endlogic-name$$$quetyp_end$$$quebod_endrequired$$$que_end学号$$$quetit_endlogic-studentID$$$quetyp_end$$$quebod_endrequired$$$que_end电话长短号$$$quetit_endlogic-tel$$$quetyp_end$$$quebod_endrequired$$$que_end邮箱$$$quetit_endlogic-email$$$quetyp_end$$$quebod_endrequired$$$que_end第一位队员姓名$$$quetit_endlogic-name$$$quetyp_end$$$quebod_endrequired$$$que_end第一位队员学号$$$quetit_endlogic-studentID$$$quetyp_end$$$quebod_endrequired$$$que_end第一位队员电话长短号$$$quetit_endlogic-tel$$$quetyp_end$$$quebod_endrequired$$$que_end第一位队员邮箱$$$quetit_endlogic-email$$$quetyp_end$$$quebod_endrequired$$$que_end第二位队员姓名$$$quetit_endlogic-name$$$quetyp_end$$$quebod_endrequired$$$que_end第二位队员学号$$$quetit_endlogic-studentID$$$quetyp_end$$$quebod_endrequired$$$que_end第二位队员电话长短号$$$quetit_endlogic-tel$$$quetyp_end$$$quebod_endrequired$$$que_end第二位队员邮箱$$$quetit_endlogic-email$$$quetyp_end$$$quebod_endrequired$$$que_end','谢谢您的填写！','2015-03-03 02:29:17','5','3','1');
 DROP TABLE IF EXISTS  `_user`;
 CREATE TABLE `_user` (
   `user_id` mediumint(8) NOT NULL AUTO_INCREMENT,
@@ -341,42 +416,59 @@ CREATE TABLE `_user` (
   `user_regdate` date DEFAULT NULL,
   `user_logdate` date DEFAULT NULL,
   `formstate` int(1) DEFAULT '1',
+  `is_firstcreate` int(1) DEFAULT '1',
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=gbk;
+) ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=gbk;
 
-insert into `_user`(`user_id`,`username`,`password`,`user_question`,`user_answer`,`user_vip`,`user_email`,`user_telephone`,`user_regdate`,`user_logdate`,`formstate`) values
-('1','404764607@qq.com','qweqwe',null,null,null,null,null,null,null,'1'),
-('2','1@2.com','qweqwe',null,null,null,null,null,null,null,'1'),
-('3','test@qq.com','testtest',null,null,null,null,null,null,null,'1'),
-('4','ljh19950713@gmail.com','445998700',null,null,null,null,null,null,null,'1'),
-('5','lzxto123-dnf@qq.com','testtest',null,null,null,null,null,null,null,'1'),
-('6','iamzerolu@gmail.com','123123',null,null,null,null,null,null,null,'1'),
-('7','baomingba@126.com','taodada',null,null,null,null,null,null,null,'1'),
-('8','suzhou@ceshi.com','qweqwe',null,null,null,null,null,null,null,'1'),
-('9','122@222.com','122222',null,null,null,null,null,null,null,'1'),
-('10','suzhou@123.com','qweqwe',null,null,null,null,null,null,null,'1'),
-('11','taoningying@sina.com','taodada','','','1','','','0000-00-00','0000-00-00','1'),
-('12','zjuzjgjy@163.com','jy_1103',null,null,null,null,null,null,null,'1'),
-('13','555@qq.com','555qqq',null,null,null,null,null,null,null,'1'),
-('14','lvzhiyuan1999@126.com','goaers',null,null,null,null,null,null,null,'1'),
-('15','test@test.com','testtest',null,null,null,null,null,null,null,'1'),
-('16','1234@1234.com','12341234',null,null,null,null,null,null,null,'1'),
-('17','ayuh_zju@qq.com','hycjhdd',null,null,null,null,null,null,null,'1'),
-('18','623553675@qq.com','996655','','','1','','','0000-00-00','0000-00-00','1'),
-('19','wenzp1995@163.com','375105','','','1','','','0000-00-00','0000-00-00','1'),
-('20','18868180968@126.com','zjuwsd',null,null,null,null,null,null,null,'1'),
-('21','zdstep@qq.com','zdstep',null,null,null,null,null,null,null,'1'),
-('22','Xuanyuan-Land@163.com','921975',null,null,null,null,null,null,null,'1'),
-('23','zdstep@163.com','123456','','','1','','','0000-00-00','0000-00-00','1'),
-('24','taodd@163.com','taodada',null,null,null,null,null,null,null,'1'),
-('25','bmb','bmb123',null,null,'2',null,null,null,null,'1'),
-('26','something@test.com','something',null,null,null,null,null,null,null,'1'),
-('27','zjdxwuwochashe@163.com','wuwochashe','','','1','','','0000-00-00','0000-00-00','1'),
-('28','host@bmb.com','123bmb',null,null,null,null,null,null,null,'1'),
-('29','manager@bmb.com','123bmb',null,null,'2',null,null,null,null,'1'),
-('30','ceshi@ceshi.cn','ceshiceshi',null,null,null,null,null,null,null,'1'),
-('31','364044816@qq.com','123456',null,null,null,null,null,null,null,'1'),
-('32','Yixirlmeng@163.com','1314mm',null,null,null,null,null,null,null,'1'),
-('33','601155275@qq.com','3130103451','','','1','','','0000-00-00','0000-00-00','1');
+insert into `_user`(`user_id`,`username`,`password`,`user_question`,`user_answer`,`user_vip`,`user_email`,`user_telephone`,`user_regdate`,`user_logdate`,`formstate`,`is_firstcreate`) values
+('1','404764607@qq.com','qweqwe',null,null,null,null,null,null,null,'1','1'),
+('2','1@2.com','qweqwe',null,null,null,null,null,null,null,'1','1'),
+('3','test@qq.com','testtest',null,null,null,null,null,null,null,'1','1'),
+('4','ljh19950713@gmail.com','445998700',null,null,null,null,null,null,null,'1','1'),
+('5','lzxto123-dnf@qq.com','testtest',null,null,null,null,null,null,null,'1','1'),
+('6','iamzerolu@gmail.com','123123',null,null,null,null,null,null,null,'1','1'),
+('7','baomingba@126.com','taodada',null,null,null,null,null,null,null,'1','1'),
+('8','suzhou@ceshi.com','qweqwe',null,null,null,null,null,null,null,'1','1'),
+('9','122@222.com','122222',null,null,null,null,null,null,null,'1','1'),
+('10','suzhou@123.com','qweqwe',null,null,null,null,null,null,null,'1','1'),
+('11','taoningying@sina.com','taodada','','','1','','','0000-00-00','0000-00-00','1','1'),
+('12','zjuzjgjy@163.com','jy_1103',null,null,null,null,null,null,null,'1','1'),
+('13','555@qq.com','555qqq',null,null,null,null,null,null,null,'1','1'),
+('14','lvzhiyuan1999@126.com','goaers',null,null,null,null,null,null,null,'1','1'),
+('15','test@test.com','testtest',null,null,null,null,null,null,null,'1','1'),
+('16','1234@1234.com','12341234',null,null,null,null,null,null,null,'1','1'),
+('17','ayuh_zju@qq.com','hycjhdd',null,null,null,null,null,null,null,'1','1'),
+('18','623553675@qq.com','996655','','','1','','','0000-00-00','0000-00-00','1','1'),
+('19','wenzp1995@163.com','375105','','','1','','','0000-00-00','0000-00-00','1','1'),
+('20','18868180968@126.com','zjuwsd',null,null,null,null,null,null,null,'1','1'),
+('21','zdstep@qq.com','zdstep',null,null,null,null,null,null,null,'1','1'),
+('22','Xuanyuan-Land@163.com','921975',null,null,null,null,null,null,null,'1','1'),
+('23','zdstep@163.com','123456','','','1','','','0000-00-00','0000-00-00','1','1'),
+('24','taodd@163.com','taodada',null,null,null,null,null,null,null,'1','1'),
+('25','bmb','bmb123',null,null,'2',null,null,null,null,'1','1'),
+('26','something@test.com','something',null,null,null,null,null,null,null,'1','1'),
+('27','zjdxwuwochashe@163.com','wuwochashe','','','1','','','0000-00-00','0000-00-00','1','1'),
+('28','host@bmb.com','123bmb',null,null,null,null,null,null,null,'1','1'),
+('29','manager@bmb.com','123bmb',null,null,'2',null,null,null,null,'1','1'),
+('30','ceshi@ceshi.cn','ceshiceshi',null,null,null,null,null,null,null,'1','1'),
+('31','364044816@qq.com','123456',null,null,null,null,null,null,null,'1','1'),
+('32','Yixirlmeng@163.com','1314mm',null,null,null,null,null,null,null,'1','1'),
+('33','601155275@qq.com','3130103451','','','1','','','0000-00-00','0000-00-00','1','1'),
+('34','missingmsn@qq.com','123456',null,null,null,null,null,null,null,'1','1'),
+('35','294239597@qq.com','111111',null,null,null,null,null,null,null,'1','1'),
+('36','ricozju@gmail.com','654321',null,null,null,null,null,null,null,'1','1'),
+('37','bludy1993@sina.cn','19931011df',null,null,null,null,null,null,null,'1','1'),
+('38','619417288@qq.com','123456',null,null,null,null,null,null,null,'1','1'),
+('39','he@he.com','hehehe',null,null,null,null,null,null,null,'1','1'),
+('40','lkyo90@gmail.com','lkylky9918',null,null,null,null,null,null,null,'1','1'),
+('41','craphiny@163.com','tym6jolin8',null,null,null,null,null,null,null,'1','1'),
+('42','aaaddqe@163.com','123456',null,null,null,null,null,null,null,'1','1'),
+('43','zjuxtgc@163.com','62883873',null,null,null,null,null,null,null,'1','1'),
+('44','wendong_liu@outlook.com','1234567890',null,null,null,null,null,null,null,'1','1'),
+('45','xukaidi13@126.com','xukaidi',null,null,null,null,null,null,null,'1','1'),
+('46','849531628@qq.com','hyt1994092',null,null,null,null,null,null,null,'1','1'),
+('47','287937059@qq.com','62883873',null,null,null,null,null,null,null,'1','1'),
+('48','7407680@qq.com','l790406x',null,null,null,null,null,null,null,'1','1'),
+('49','jichuangshe@163.com','jxkjcxxh',null,null,null,null,null,null,null,'1','1');
 SET FOREIGN_KEY_CHECKS = 1;
 

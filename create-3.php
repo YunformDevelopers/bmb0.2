@@ -38,11 +38,11 @@ header('Content-Type:text/html; charset=utf-8');
 <body>
 <div id="wrapper">
     <div id="create-form-steps" unselectable="on" onselectstart="return false;" style="-moz-user-select:none;">
-        <div id="create-form-step1" class="step">第一步：内容</div>
+        <div id="create-form-step1" class="step">一：内容</div>
             <div class="step-div"></div>
-        <div id="create-form-step2" class="step">第二步：设置</div>
+        <div id="create-form-step2" class="step">二：设置</div>
             <div class="step-div"></div>
-        <div id="create-form-step3" class="step">第三步：发布</div>
+        <div id="create-form-step3" class="step">三：发布</div>
         <div class="justify-helper"></div>
         <div id="step-status-set">
             <div class="step-status1"></div>
@@ -78,10 +78,10 @@ header('Content-Type:text/html; charset=utf-8');
 		<div id="form-construct-field" unselectable="false" >
         	<div class="form-release-status success">
             	<span>&nbsp;&nbsp;</span>
-            	恭喜您，您的“<?php echo $row['form_title']?>”创建成功！
+            	恭喜您，您的“<?php echo $row['form_title']?>”<?php if(ActionIsEdit()){echo "修改成功！";} else {echo "创建成功！";} ?>
             </div>
             <br />
-			<h3>四种推广方式</h3>
+			<h3>推广方式</h3>
 			<br />
 			<div id="form-release">
             	<div class="release-method publish-link">

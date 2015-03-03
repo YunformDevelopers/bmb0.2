@@ -170,6 +170,20 @@ function save_form_to_db($title,$intro,$string,$tip){
 	$result=fetchOne($sql);
 	return $result['form_id'];
 }
+//修改创建的报名表时把原有的记录修改
+function EditSave_form_to_db($title,$intro,$string,$tip,$formId){
+	connect();
+	$array['question_string'] = $string;
+	$array['username']=$_COOKIE['srtp-username'];
+	$array['form_title']=$title;
+	date_default_timezone_set("Asia/Shanghai");
+	$array['Date'] = date("Y-m-d h:i:s");
+	$array['form_intro']=$intro;
+	$array['form_tip']=$tip;
+	$array['click_times']=0;
+	$array['answer_times']=0;
+	update('question', $array," form_id='".$formId."'");
+}
 function save_answer_to_db($string,$id){
 	if(isset($_COOKIE['srtp-username'])){
 		$username=$_COOKIE['srtp-username'];
@@ -246,7 +260,30 @@ function getExt($name){
 	$a=explode('.', $name);
 	return strtolower(end($a));
 }
-
+function EditSave_decoration_to_db($array,$files,$form_id){
+	$save_array['form_id']=$form_id;
+	$save_array['form_expire_time'] =$array['form-expire-time'];
+	$save_array['form_number_limit'] = $array['form-number-limit'];
+	$save_array['form_tag']=$array['form-tag'];
+	if($files['bg']['name']!=''){
+		$name=$files['bg']['name'];
+		$type=$files['bg']['type'];
+		$tmp_name=$files['bg']['tmp_name'];
+		$error=$files['bg']['error'];
+		$size=$files['bg']['size'];
+		$ext=getExt($name);
+		$newname=$save_array['form_id'].'-decoration.'.$ext;
+		$destination="uploads/".$newname;
+		if(is_uploaded_file($tmp_name)){
+			move_uploaded_file($tmp_name, $destination);
+		}
+		$save_array['bg']=$newname;
+	}else{
+		//$save_array['bg']=rand(1,8).'.jpg';
+	}
+	connect();
+	return update('decoration', $save_array," form_id='".$form_id."'");
+}
 function save_decoration_to_db($array,$files,$form_id){
 	$save_array['form_id']=$form_id;
 	$save_array['form_expire_time'] =$array['form-expire-time'];
@@ -458,7 +495,7 @@ function ActionIsEdit(){
 }
 function Create_2EditArray(){
 	connect();
-	$form_id = $_GET['id'] - 1;
+	$form_id = $_GET['id'];
 	$result=mysql_query('select * from question where form_id="'.$form_id.'"') or die(mysql_error());
 	while($row=mysql_fetch_assoc($result)){
 		$result2=mysql_query("select * from decoration where form_id ='".$form_id."'");
@@ -481,8 +518,6 @@ function CreateEditArray(){
 function EditRefillCreate(){
 	if(ActionisEdit()){
 		$EditArray = CreateEditArray();
-		foreach($EditArray as $key=>$value)
-		echo $key."=>".$value;
 		echo '
 		<div id="form-title">
 			<h3><input type="text" value="'.$EditArray['form_title'].'" class="title edit changed"/></h3>

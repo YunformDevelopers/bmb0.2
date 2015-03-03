@@ -79,11 +79,11 @@ header('Content-Type:text/html; charset=utf-8');
 <body>
 <div id="wrapper">
     <div id="create-form-steps" unselectable="on" onselectstart="return false;" style="-moz-user-select:none;">
-        <div id="create-form-step1" class="step">第一步：内容</div>
+        <div id="create-form-step1" class="step">一：内容</div>
             <div class="step-div"></div>
-        <div id="create-form-step2" class="step">第二步：设置</div>
+        <div id="create-form-step2" class="step">二：设置</div>
             <div class="step-div"></div>
-        <div id="create-form-step3" class="step">第三步：发布</div>
+        <div id="create-form-step3" class="step">三：发布</div>
         <div class="justify-helper"></div>
         <div id="step-status-set">
             <div class="step-status1"></div>
@@ -104,9 +104,9 @@ header('Content-Type:text/html; charset=utf-8');
 			</div>-->
 			<div id="tool-construct-container">
 				<div id="tool-personalize">
-					<h4>个性化设置</h4>
+					<h4>设置</h4>
 					<ul class="tool-personalize-list">
-					<form id="formPersonalize" name="formPersonalize" action="formdecoration.php?<?php echo "id=".$_GET['id']?>" method='post' enctype="multipart/form-data">
+					<form id="formPersonalize" name="formPersonalize" action="formdecoration.php?<?php if(ActionIsEdit()){echo "action=EditSave";} echo "&id=".$_GET['id']; ?>" method='post' enctype="multipart/form-data">
 						<li class="tool-personalize-item">
 							<h6>
 								<b>1.</b>
@@ -147,9 +147,7 @@ header('Content-Type:text/html; charset=utf-8');
 							<div class="personalize-main">
 								<input type="file" name="bg" value="<?php
 									if(ActionIsEdit()) {
-                                	$decoration_result=mysql_query("select * from decoration where form_id ='".$_GET['id']."'");
-									$decoration_row=mysql_fetch_assoc($decoration_result);
-										echo $decoration_row['bg'];
+										echo $EditArray['bg'];
 									}
 									else;
 								?>"></input>

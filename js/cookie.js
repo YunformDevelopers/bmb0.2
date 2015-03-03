@@ -7,8 +7,14 @@ function GetCookie()
 //提交前先存cookie，并进行判断
 function createProceed(action){
 	if(SetCookie()){
-		window.location.href='formaction.php?action=' + action;
+		window.location.href='formaction.php?action=' + action + '&id=' + getUrlParam('id');
 	}
+}
+//获取url中的参数
+function getUrlParam(name) {
+	var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+	var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+	if (r != null) return unescape(r[2]); return null; //返回参数值
 }
 //若通过验证，则返回true，反之返回false
 function SetCookie () {
