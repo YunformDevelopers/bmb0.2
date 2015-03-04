@@ -323,6 +323,18 @@ form-construct-field里面，分为form-title,form-intro，form-body，具体看
 #form-intro {
 	border-bottom:#de473a solid 2px;
 	margin-bottom:30px;
+	position:relative;
+}
+#form-intro textarea#simditor {
+	position:absolute;
+    top:0;
+    left:0;
+    height:100%;
+	padding:0;
+}
+#form-intro .textarea_pre {
+	display:block;
+    visibility:hidden;
 }
 #form-body .q-field-before {
 	position:relative;

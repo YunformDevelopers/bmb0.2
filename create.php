@@ -60,7 +60,8 @@ header('Content-Type:text/html; charset=utf-8');
 	$rows=mysql_fetch_assoc($result);
 	if($rows['is_firstcreate']){
 		echo '<input type="hidden" value="1" id="is-firstcreate"/>';
-		/* 缺少一个把数据库is_firstcreate更改的操作 */
+		$create_array['is_firstcreate'] = 0;
+		update('_user', $create_array," username='".$_COOKIE['srtp-username']."'");
 	}else{
 		echo '<input type="hidden" value="0" id="is-firstcreate"/>';
 	}

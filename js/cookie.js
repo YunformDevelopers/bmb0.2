@@ -84,15 +84,14 @@ function SetCookie () {
 	
 		cookieString += "$$$que_end";//向cookieString添加题目结束的分隔符δ
 		//alert(cookieString);
-	
-
-	
 	}
 	cookieString +="$$$que_all";//向cookieString添加全部结束的分隔符θ
 	/*  6.获取formTip并放到cookieString里   */
 	var formTip = valAfterChanged($("#form-tip textarea.edit"));
 	cookieString += formTip;//向cookieString添加报名表的末尾tip，末尾加分隔符
+	cookieString = cookieString.replace(/\n/g,"<br />");
 	document.cookie = cookieString;
+	//alert(cookieString);
 	return true;
 }
 function lengthValidate(title){

@@ -15,7 +15,7 @@ $(window).resize(function(){
 });
 //判断是否为第一次创建决定是否显示create-tip
 function confCreateTip(){
-	if($("#is-firstcreate").val){//如果是第一次创建的话
+	if($("#is-firstcreate").val()=="1"){//如果是第一次创建的话
 		$("#tool-construct-perserved .create-tip").show();
 		$("#whole-msg-bg").show();
 	}
@@ -113,7 +113,8 @@ function initFormConstructField (){
 //初始化editor
 var editor ;
 function initEditor (){
-	if(   !( (getBrowserType("IEVersion") && (getBrowserType("IEVersion")<=8)) || getBrowserType("isFF") || getBrowserType("isSafari") )   ){//判断是否为IE8一下的浏览器
+	$(".textarea_pre span").html($("textarea#simditor").val());//初始化textarea 的高度
+	if(  !( (getBrowserType("IEVersion") && (getBrowserType("IEVersion")<=8)) || getBrowserType("isFF") || getBrowserType("isSafari") )  ){//判断是否为IE8一下的浏览器  
 		var toolbar;
 		toolbar = ['title', 'bold', 'italic', 'underline', 'strikethrough', 'color', '|', 'ol', 'ul', 'blockquote', 'code', 'table', '|', 'link', 'image', 'hr', '|', 'indent', 'outdent'];
 		
@@ -128,11 +129,22 @@ function initEditor (){
 		$(".simditor-body").addClass("raw");
 		$(".simditor-wrapper .simditor-popover input, .simditor-wrapper .simditor-popover select").attr("onfocus","rawEditor('down')");
 		editor.on('focus',function(e){
-			rawEditor("down");
+			rawEditor("down","simditor");
 		})
 		editor.on('blur',function(e){
-			rawEditor("up");
+			rawEditor("up","simditor");
 		})
+	}
+	else {
+		$("textarea#simditor").keyup(function(){
+			$(".textarea_pre span").html($("textarea#simditor").val());
+		});
+		/*$("textarea#simditor").on('focus',function(e){
+			rawEditor("down","textarea");
+		})
+		$("textarea#simditor").on('blur',function(e){
+			rawEditor("up","textarea");
+		})*/
 	}
 	//editor.focus(rawEditor());//添加onfocus事件，调用rawEditor函数
 	//editor.blur(rawEditor());
@@ -145,16 +157,25 @@ function initEditor (){
 
 
 //对于editor focus和blur时高度不同
-function rawEditor (command){
-	if(command == "down"){
-		$(".simditor-toolbar").slideDown(300,function(){//隐藏toolbar
-			$(".simditor-body").animate({minHeight:"8em",height:"auto"},300);//增加高度，注意height改为auto
-		});
-	}
-	else if (command == "up"){
-		$(".simditor-toolbar").slideUp(300,function(){//显示toolbar
-			$(".simditor-body").animate({height:"2em",minHeight:"2em"},300);//减小高度
-		});
+function rawEditor (command,type){
+	if(type == "simditor"){
+		if(command == "down"){
+			$(".simditor-toolbar").slideDown(300,function(){//隐藏toolbar
+				$(".simditor-body").animate({minHeight:"8em",height:"auto"},300);//增加高度，注意height改为auto
+			});
+		}
+		else if (command == "up"){
+			$(".simditor-toolbar").slideUp(300,function(){//显示toolbar
+				$(".simditor-body").animate({height:"2em",minHeight:"2em"},300);//减小高度
+			});
+		}
+	}else if(type == "textarea"){
+		if(command == "down"){
+			$("textarea#simditor").animate({minHeight:"8em",height:"8em"},800);//增加高度，注意height改为auto
+		}
+		else if (command == "up"){
+			$("textarea#simditor").animate({height:"2em",minHeight:"2em"},800);//减小高度
+		}
 	}
 }
 //改变Q-number的值

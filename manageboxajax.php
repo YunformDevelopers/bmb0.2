@@ -81,20 +81,27 @@ $result1=mysql_query("select * from question where form_id='".$rows2['form_id'].
 					if($type=="logic-sex"){
 						for($j=0;$j<count($choice)-1;$j++){
 							if(in_array($choice[$j], $answer_array[$i])){
-								echo '<label><input disabled="disabled" name="q'.($i+1).'-body" type="radio" '.$re.' value="'.$choice[$j].'" checked="checked"/>'.$choice[$j].'</label>';
+								echo '<label><input disabled="disabled" name="q'.($i+1).'-body" type="radio" '.$re.' value="'.$choice[$j].'" class="body" checked="checked"/>'.$choice[$j].'</label>';
 							}else{
 								echo '<label><input disabled="disabled" name="q'.($i+1).'-body" type="radio" '.$re.' value="'.$choice[$j].'"/>'.$choice[$j].'</label>';
 							}
 						}
 					}
-					if($type=="free-multichoice")
-					for($j=0;$j<count($choice)-1;$j++){
-						echo '<label><input disabled="disabled" name="q'.($i+1).'-'.$choice[$j].'" type="checkbox" '.$re.' value="'.$choice[$j].'"/>'.$choice[$j].'</label>';
+					if($type=="free-multichoice"){
+						for($j=0;$j<count($choice)-1;$j++){
+							if(in_array($choice[$j], $answer_array[$i])){
+								echo '<label><input disabled="disabled" name="q'.($i+1).'-'.$choice[$j].'" type="checkbox" '.$re.' value="'.$choice[$j].'" class="body" checked="checked"/>'.$choice[$j].'</label>';
+							}
+							else{
+								echo '<label><input disabled="disabled" name="q'.($i+1).'-'.$choice[$j].'" type="checkbox" '.$re.' value="'.$choice[$j].'"/>'.$choice[$j].'</label>';
+							}
+						}
+						//print_r($answer_array[$i]);
 					}
 					if($type=="free-singlechoice")
 					for($j=0;$j<count($choice)-1;$j++){
 						if(in_array($choice[$j], $answer_array[$i])){
-							echo '<label><input disabled="disabled" name="q'.($i+1).'-body" type="radio" '.$re.' value="'.$choice[$j].'" checked="checked"/>'.$choice[$j].'</label>';
+							echo '<label><input disabled="disabled" name="q'.($i+1).'-body" type="radio" '.$re.' value="'.$choice[$j].'" class="body" checked="checked"/>'.$choice[$j].'</label>';
 						}
 						else{
 							echo '<label><input disabled="disabled" name="q'.($i+1).'-body" type="radio" '.$re.' value="'.$choice[$j].'"/>'.$choice[$j].'</label>';
@@ -116,7 +123,7 @@ $result1=mysql_query("select * from question where form_id='".$rows2['form_id'].
 						echo '<p class="body edit">'.$answer_array[$i][0].'</p>';
 					}
 					if($type=="logic-tel"){
-						echo '长号：<p class="long-tel body edit">'.$choice[0].'</p>短号：<p class="short-tel body edit" >'.$choice[1].'</p>';
+						echo '长号：<p class="long-tel body edit">'.$answer_array[$i][0].'</p>短号：<p class="short-tel body edit" >'.$answer_array[$i][1].'</p>';
 					}
 					if($type=="logic-email"){
 						echo '<p class="body edit">'.$answer_array[$i][0].'</p>';

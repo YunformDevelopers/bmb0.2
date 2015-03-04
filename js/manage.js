@@ -85,7 +85,13 @@ $(document).ready(function(){
 		$(".box .box-table .btn.copy").zclip({
 			path:'js/ZeroClipboard.swf',
 			copy:function(){
-				return $(this).parent().children(".body").html();
+				var copyContent;
+				if(copyContent = $(this).parent().children(".body").html()){
+					return copyContent;
+				}
+				else{
+					return $(this).parent().children(".body").value;
+				}
 			}
 		});
 	}

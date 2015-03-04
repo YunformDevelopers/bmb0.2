@@ -95,6 +95,7 @@ function SetAnswerCookie () {
 
 	
 	}
+	cookieString = cookieString.replace(/\r\n/g,"<br />");
 	document.cookie = cookieString;
 }
 function validateForm(){

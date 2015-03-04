@@ -5,17 +5,20 @@
 <!--下面这meta意思是告知浏览器的宽度是设备的宽度，缩放值为1.0-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>表格填写</title>
-<link rel="stylesheet" href="style/form/paper.css" />
+<link rel="stylesheet" href="style/form/material.css" />
 <link rel="stylesheet" href="style/form/form-responsive.css"/>
 <link rel="stylesheet" href="style/index.css"></link>
 <link rel="stylesheet" href="style/msg.css"></link>
 <link rel="stylesheet" href="style/responsive.css"></link>
-<script src="js/jquery-2.1.1.min.js"></script>
+<link rel="stylesheet" href="style/form/validationEngine.jquery.css"/>
+<script src="js/jQuery.js"></script>
+<script src="js/jquery.validationEngine-zh_CN.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/jquery.validationEngine.js" type="text/javascript" charset="utf-8"></script>
 <script src="js/answerCookie.js"></script>
 </head>
 <body>
 		        	<?php
-		        	require 'includes/header.inc.php';
+		        	require 'includes/includes.inc.php';
 		        	connect();
 		        	$sql="select * from decoration where form_id=".$_GET['id'];
 		        	$result=mysql_query($sql);
@@ -43,15 +46,18 @@
 						for($i=0;$i<count($answer)-1;$i++){
 							$answer_array[$i]=explode('$$$ans_end', $answer[$i]);
 						}
-						echo '<div id="form-field">';
-						echo '<div id="form-title">';
-						echo '<h3>'.$title.'</h3>';
-						echo '</div>';
-						echo '<div id="form-intro" >
-	           '.$rows1['form_intro'].'
-	        </div>
-	        <ul id="form-body">
-	        	<form method="post" enctype="multipart/form-data" action="formaction.php?action=update&id='.$_GET['id'].'&amount='.($question_amount-1).'">';
+						echo '<div id="form-field">
+								<div id="form-title-wrapper">
+									<div id="form-title">
+										<h3>'.$title.'</h3>
+									</div>
+								</div>
+							<div id="form-wrapper">
+									<div id="form-intro" >
+										'.$rows1['form_intro'].'
+									</div>
+										<form enctype="multipart/form-data" novalidate="novalidate" id="formID" method="post" action="formaction.php?action=update&id='.$_GET['id'].'&amount='.($question_amount-1).'">
+	        <ul id="form-body">';
 						for($i=0;$i<count($string)-1;$i++){
 							$explode1 = explode('$$$quetit_end', $string[$i]);
 							$question = $explode1[0];
@@ -86,21 +92,28 @@
 									}
 								}
 							}
-							if($type=="free-multichoice")
-							for($j=0;$j<count($choice)-1;$j++){
-								echo '<label><input name="q'.($i+1).'-'.$choice[$j].'" type="checkbox" '.$re.' value="'.$choice[$j].'"/>'.$choice[$j].'</label>';
+							if($type=="free-multichoice"){
+								for($j=0;$j<count($choice)-1;$j++){
+									if(in_array($choice[$j], $answer_array[$i])){
+										echo '<label><input name="q'.($i+1).'-'.$choice[$j].'" type="checkbox" '.$re.' value="'.$choice[$j].'" checked="checked"/>'.$choice[$j].'</label>';
+									}
+									else{
+										echo '<label><input name="q'.($i+1).'-'.$choice[$j].'" type="checkbox" '.$re.' value="'.$choice[$j].'"/>'.$choice[$j].'</label>';
+									}
+								}
+								//print_r($answer_array[$i]);
 							}
 							if($type=="free-singlechoice")
-							for($j=0;$j<count($choice)-1;$j++){
-								if(in_array($choice[$j], $answer_array[$i])){
-									echo '<label><input name="q'.($i+1).'-body" type="radio" '.$re.' value="'.$choice[$j].'" checked="checked"/>'.$choice[$j].'</label>';
+								for($j=0;$j<count($choice)-1;$j++){
+									if(in_array($choice[$j], $answer_array[$i])){
+										echo '<label><input name="q'.($i+1).'-body" type="radio" '.$re.' value="'.$choice[$j].'" checked="checked"/>'.$choice[$j].'</label>';
+									}
+									else{
+										echo '<label><input name="q'.($i+1).'-body" type="radio" '.$re.' value="'.$choice[$j].'"/>'.$choice[$j].'</label>';
+									}
 								}
-								else{
-									echo '<label><input name="q'.($i+1).'-body" type="radio" '.$re.' value="'.$choice[$j].'"/>'.$choice[$j].'</label>';
-								}
-							}
 							if($type=="free-multiline"){
-								echo '<textarea name="q'.($i+1).'-body" class="body edit">'.$answer_array[$i][0].'</textarea>';
+								echo '<textarea name="q'.($i+1).'-body" class="body edit">'.str_replace('<br />', chr(13),$answer_array[$i][0]).'</textarea>';
 							}
 							if($type=="free-singleline"){
 								echo '<input type="text" name="q'.($i+1).'-body" class="body edit" '.$re.' value="'.$answer_array[$i][0].'">';
@@ -115,7 +128,8 @@
 								echo '<input type="text" name="q'.($i+1).'-body" class="body edit" '.$re.' value="'.$answer_array[$i][0].'"/>';
 							}
 							if($type=="logic-tel"){
-								echo '<input type="tel" name="q'.($i+1).'-body" class="long-tel body edit" '.$re.' value="'.$choice[0].'" />（长号：必填）<input type="tel" name="q'.($i+1).'-body" class="short-tel body edit" value="'.$choice[1].'" />（短号：可不填）';
+								echo '<input type="tel" name="q'.($i+1).'-body" class="long-tel body edit" '.$re.' value="'.$answer_array[$i][0].'" />（长号：必填）<input type="tel" name="q'.($i+1).'-body" class="short-tel body edit" value="'.$answer_array[$i][1].'" />（短号：可不填）';
+								//print_r($answer_array[$i]);
 							}
 							if($type=="logic-email"){
 								echo '<input type="email" name="q'.($i+1).'-body" class="body edit" '.$re.' value="'.$answer_array[$i][0].'"/>';
@@ -135,13 +149,14 @@
                     	do_js_alert('请从正确路径访问该页');
                     	do_js_link('index.php');
                     }
-                    
-		        	echo '<div id="form-tip">
-							<p class="title edit raw" contentEditable="true" rows="1">'.$result1['form_tip'].'</p>
-							</div>';?>
-		        	<input id="submit" class="btn red" type="submit" value="提交" onClick="SetAnswerCookie();"/>
-                </form>   
-            </ul>
-	</div>
+                    echo '<input id="submit" class="btn red" name="submit" type="submit" value="提交修改" onClick="SetFillCookie(); SetAnswerCookie();"/>
+								</ul>
+								</form>
+								<div id="form-tip">
+									<p class="title edit raw" rows="1">'.$result1['form_tip'].'</p>
+								</div>
+							</div>
+						</div>
+					';?>
 </body>
 </html>

@@ -523,7 +523,8 @@ function EditRefillCreate(){
 			<h3><input type="text" value="'.$EditArray['form_title'].'" class="title edit changed"/></h3>
 		</div>
 		<div id="form-intro">
-			<textarea id="simditor" class="title edit changed" contentEditable="true" rows="1">'.$EditArray['form_intro'].'</textarea>
+			<pre class="textarea_pre"><span></span><br></pre>
+			<textarea id="simditor" class="title edit changed" contentEditable="true" rows="1">'.str_replace('<br />', chr(13), $EditArray['form_intro']).'</textarea>
 		</div>
 		<ul id="form-body">';
 		$string=explode('$$$que_end', $EditArray['question_string']);
@@ -553,14 +554,18 @@ function EditRefillCreate(){
 					echo '<div id="alt" class="q-alternative"><a onclick="changeState(this)" name="required">改为必答</a></div>';
 				}
 			echo '<div class="q-body">';
-			if($type=="free-multichoice")
+			if($type=="free-multichoice"){
 				for($j=0;$j<count($choice)-1;$j++){
 					echo '<span><input type=\'checkbox\'  class=\'body no-edit\'/><input type=\'text\' name=\'q3-body3\' class=\'body edit changed\' onblur=\'delOption(this)\' value="'.$choice[$j].'"/></span>';
 				}
-			if($type=="free-singlechoice"||$type=="logic-sex")
+				echo '<span><input type=\'checkbox\' class=\'body no-edit\' /><input type=\'text\' name=\'q4-body3\' class=\'body edit raw\' onfocus=\'rawChangeRadio(this)\' value=\'点击这里添加选项\'/></span>';
+			}
+			if($type=="free-singlechoice"||$type=="logic-sex"){
 				for($j=0;$j<count($choice)-1;$j++){
 					echo '<span><input type=\'radio\' class=\'body no-edit\' /><input type=\'text\' name=\'q4-body3\' class=\'body edit changed\' onblur=\'delOption(this)\' value="'.$choice[$j].'"/></span>';
 				}
+				echo '<span><input type=\'radio\' class=\'body no-edit\' /><input type=\'text\' name=\'q4-body3\' class=\'body edit raw\' onfocus=\'rawChangeRadio(this)\' value=\'点击这里添加选项\'/></span>';
+			}
 			if($type=="free-multiline"){
 				echo '<textarea name=\'q2-body1\' class=\'body no-edit\'></textarea>';
 			}
@@ -601,7 +606,7 @@ function EditRefillCreate(){
 		<br />
 		<br />
 		<div id="form-tip">
-			<textarea class="title edit changed" contentEditable="true" rows="1">'.$EditArray['form_tip'].'</textarea>
+			<textarea class="title edit changed" contentEditable="true" rows="1">'.str_replace('<br />', chr(13), $EditArray['form_tip']).'</textarea>
 		</div>
 		<div id="next-step">
 			<input class="btn blue" value="保存并下一步" type="submit" id="step1-step2" onclick="createProceed(\'EditSave\');"/>
@@ -613,6 +618,7 @@ function EditRefillCreate(){
 				<h3><input type="text" value="请在这里输入报名表的名字" placeholder="请在这里输入报名表的名字" class="title edit raw" onfocus=\'rawChange(this)\' /></h3>
 			</div>
 			<div id="form-intro">
+				<pre class="textarea_pre"><span></span><br></pre>
 				<textarea id="simditor" class="title edit raw" onfocus=\'rawChange(this)\' contentEditable="true" rows="1" placeholder="请在这里输入报名表的说明">请在这里输入报名表的说明</textarea>
 			</div>
 			<ul id="form-body">
