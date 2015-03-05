@@ -5,11 +5,11 @@
 <!--下面这meta意思是告知浏览器的宽度是设备的宽度，缩放值为1.0-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>表格填写</title>
-<link rel="stylesheet" href="style/form/material.css" />
+<link rel="stylesheet" href="style/form/material_jixie.css" />
 <link rel="stylesheet" href="style/form/form-responsive.css"/>
-<link rel="stylesheet" href="style/index.css"></link>
-<link rel="stylesheet" href="style/msg.css"></link>
-<link rel="stylesheet" href="style/responsive.css"></link>
+<link rel="stylesheet" href="style/index.css"/>
+<link rel="stylesheet" href="style/msg.css" />
+<link rel="stylesheet" href="style/responsive.css" />
 <link rel="stylesheet" href="style/form/validationEngine.jquery.css"/>
 <script src="js/jQuery.js"></script>
 <script src="js/jquery.validationEngine-zh_CN.js" type="text/javascript" charset="utf-8"></script>

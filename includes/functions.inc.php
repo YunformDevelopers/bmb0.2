@@ -551,7 +551,7 @@ function EditRefillCreate(){
 					echo '<div id="alt" class="q-alternative"><a onclick="changeState(this)" name="required">改为选答</a></div>';
 				}
 				else {
-					echo '<div id="alt" class="q-alternative"><a onclick="changeState(this)" name="required">改为必答</a></div>';
+					echo '<div id="alt" class="q-alternative"><a onclick="changeState(this)" name="alternative">改为必答</a></div>';
 				}
 			echo '<div class="q-body">';
 			if($type=="free-multichoice"){

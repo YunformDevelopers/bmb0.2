@@ -9,11 +9,11 @@ connect();
 $sql="select * from question where form_id='".$_GET['id']."'";
 $result=mysql_query($sql);
 $rows=mysql_fetch_assoc($result);
-$eachquestion=explode('δ', $rows['question_string']);
-$question=explode('α', $eachquestion[0]);
+$eachquestion=explode('$$$que_end', $rows['question_string']);
+$question=explode('$$$quetit_end', $eachquestion[0]);
 $questionstring='';
 for($i=0;$i<count($eachquestion)-1;$i++){
-	$question=explode('α', $eachquestion[$i]);
+	$question=explode('$$$quetit_end', $eachquestion[$i]);
 	if($i==(count($eachquestion)-2)){
 		$questionstring.=$question[0];
 	}else{
@@ -27,9 +27,9 @@ $result=mysql_query($sql);
 $answerstring='';
 while($rows=mysql_fetch_assoc($result)){
 	$answerstring='';
-	$eachanswer=explode('δ', $rows['answer_string']);
+	$eachanswer=explode('$$$ans_all', $rows['answer_string']);
 	for($i=0;$i<count($eachanswer)-2;$i++){
-		$answer=explode('γ', $eachanswer[$i]);
+		$answer=explode('$$$ans_end', $eachanswer[$i]);
 		if($i==(count($eachanswer)-3)){
 			$answerstring.=$answer[0];
 		}else{

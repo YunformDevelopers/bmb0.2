@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
 <title>表格填写</title>
 <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
-<link rel="stylesheet" href="style/form/material.css" />
+<link rel="stylesheet" href="style/form/material_jixie.css" />
 <link rel="stylesheet" href="style/msg.css" />
 <!--<link rel="stylesheet" href="style/form/form-responsive.css"/>
 -->

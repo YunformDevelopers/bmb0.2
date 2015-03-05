@@ -9,13 +9,13 @@ connect();
 $sql="select * from question where form_id='".$_GET['id']."'";
 $result=mysql_query($sql);
 $rows=mysql_fetch_assoc($result);
-$eachquestion=explode('δ', $rows['question_string']);
-$question=explode('α', $eachquestion[0]);
+$eachquestion=explode('$$$que_end', $rows['question_string']);
+$question=explode('$$$quetit_end', $eachquestion[0]);
 $questionstring='';
 $localid=-1;
 for($i=0;$i<count($eachquestion)-1;$i++){
-	$question=explode('α', $eachquestion[$i]);
-	$type=explode('β', $question[1]);
+	$question=explode('$$$quetit_end', $eachquestion[$i]);
+	$type=explode('$$$quetyp_end', $question[1]);
 	$pattern='/logic-name/';
 	if(preg_match($pattern,$type[0])){
 		$questionstring='姓名,手机,手机2,办公电话号码,家庭电话号码,公司住址,电子邮件';
@@ -33,9 +33,9 @@ while($rows=mysql_fetch_assoc($result)){
 	for($i=0;$i<7;$i++){
 		$array[$i]='';
 	}
-	$eachanswer=explode('δ', $rows['answer_string']);
+	$eachanswer=explode('$$$ans_all', $rows['answer_string']);
 	for($i=0;$i<count($eachanswer)-2;$i++){
-		$answer=explode('γ', $eachanswer[$i]);
+		$answer=explode('$$$ans_end', $eachanswer[$i]);
 		//姓名
 		if($i==$localid){
 			$array[0]=$answer[0];

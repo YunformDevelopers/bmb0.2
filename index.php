@@ -121,6 +121,17 @@
                             </div>
                         </div>
                     </div>
+                    <div class="section-col">
+                        <div class="club-container"> 
+                            <div class="club-logo">
+                            	<div class="club-logo-overlay"></div>
+                                <img class="club-logo-img" width="150px" src="images/club-logo/学生机械科技创新协会.gif" />
+                            </div>
+                            <div class="club-name">
+								学生机械科技创新协会
+                            </div>
+                        </div>
+                    </div>
 				</div>
 				<div id='content-footer'>
 					<!--<a class = "load-more btn white">点击加载更多</a>-->
