@@ -1,0 +1,661 @@
+
+/* CSS Document */
+/*清理样式*/
+body{
+    color:#000;
+    /* 注意这里一次定义了font-weight font-size/line-height font-family ,微软正黑（Microsoft Jhenghei）是个有待发掘的字体：）*/
+    /* 整个body除了特别定义font-size都是16px，除了这里之外其他地方少定义font-size，因为这样会改变整个网页布局*/
+    font: normal 100%/1.4 'Microsoft Jhenghei', 'Microsoft Yahei', sans-serif;
+	margin:0 auto !important;
+}
+input,textarea,select{
+    font-size:1em;    
+    font-family:inherit;
+	outline:none;
+}
+body,p,ul,ol,form{
+    margin:0;
+}
+ul,ol{
+    padding-left:0; 
+    list-style-type:none;
+}
+
+*::-moz-selection{
+	color:#fff;
+	background:#de473a;
+}
+/*image with no-border*/
+a img{border:0;}
+img{border:0;}
+
+.btn {
+	width:50px;
+	height:25px;
+	cursor:pointer;
+	color:#fff;
+	border:none;
+	border-radius:2px;	
+	box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), 0 1px 1px rgba(255, 255, 255, 0.3) inset;-moz-box-shadow: 0 1px 0 rgba(0, 0, 0, 0.2), 0 1px 1px rgba(255, 255, 255, 0.3) inset;	
+}
+.btn:active {
+	box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3), 0 1px 1px rgba(0, 0, 0, 0.2) inset;-moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3), 0 1px 1px rgba(0, 0, 0, 0.2) inset;
+}
+input.red {
+	background:#cd4337;
+}
+input.blue {
+	background:#37c1cd;
+}
+input.green {
+	background:#37cd43;
+}
+div{
+    margin:0;
+	padding:0;
+}
+
+
+#form-border {
+	position:absolute;
+	top:0; left:0;
+	width:100%;
+	height:100%;
+	z-index:-2;
+	background:#ccc;
+	opacity:0.5;
+}
+#bg {
+	position:absolute;
+	top:0;left:0;
+	width:100%;
+	height:1500px;
+	background:url(../../images/1.jpg) center top ;
+	background-size:cover;
+	z-index:-2;
+	 -webkit-filter: blur(20px); /* Chrome, Opera */
+       -moz-filter: blur(20px);
+        -ms-filter: blur(20px);    
+            filter: blur(20px);    
+}
+#form-field {
+	width:100%;
+	margin:0 auto;
+	background:#020210;
+	/* Prevent native touch events on Windows */
+	-ms-touch-action: none;
+
+	/* Prevent the callout on tap-hold and text selection 
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;*/
+	-webkit-touch-callout: none;
+
+	/* Prevent text resize on orientation change, useful for web-apps */
+	-webkit-text-size-adjust: none;
+	-moz-text-size-adjust: none;
+	-ms-text-size-adjust: none;
+	-o-text-size-adjust: none;
+	text-size-adjust: none;
+	/* Prevent elements to be highlighted on tap */
+	-webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+#form-title-wrapper, #form-wrapper {
+	box-shadow:0px 5px 5px 3px rgba(0,0,0,0.5);
+}
+#form-title-wrapper {
+	padding:2em 0px 120px 0px;
+	background:#DDC07E;/* 标题区颜色 */
+	box-shadow:0px 0px 5px 3px rgba(0,0,0,0.5);
+	color:#000;
+	position:relative;
+}
+#form-title {
+	margin:0 auto;
+	margin-bottom:1em;
+	text-align:center;
+}
+#form-wrapper {
+	position:relative;
+	top:-120px;
+	background:#6C5C4D;/* 说明区颜色 */
+	width:800px;
+	padding:1em;
+	margin:0 auto;
+}
+#form-title h3 {
+	font-size:30px;
+	margin:0;
+}
+#form-intro {
+	padding:10px 0;
+	color:#fff;
+}
+#form-body {
+	background:#fff;
+	padding:1em 0;
+	border-radius:5px 5px;
+}
+#form-body .q-field {
+	margin:1.5em 0;
+	position:relative;
+}
+#form-body .q-number {
+	border-right:#CCC solid 1px;
+	display:block;
+	position:absolute;
+	height:100%;
+	width:50px;
+	padding:5px 0;
+	background:#FFF;
+	color:#aaa;
+	text-align:center;
+}
+#form-body .q-whole {
+	padding:5px 0 5px 58px;
+	position:relative;
+} 
+#form-body .q-title {
+	display:inline;
+	font-weight:bold;
+}
+#form-body .q-alternative {
+	display:inline;
+	font-weight:bold;
+}
+#form-body .q-body {
+	margin-top:10px;
+	font-size:14px;
+}
+#form-body .q-body input[type="text"],
+#form-body .q-body input[type="password"],
+#form-body .q-body input[type="email"],
+#form-body .q-body input[type="url"],
+#form-body .q-body input[type="date"],
+#form-body .q-body input[type="month"],
+#form-body .q-body input[type="time"],
+#form-body .q-body input[type="datetime"],
+#form-body .q-body input[type="datetime-local"],
+#form-body .q-body input[type="week"],
+#form-body .q-body input[type="number"],
+#form-body .q-body input[type="tel"],
+#form-body .q-body input[type="search"],
+#form-body .q-body input[type="color"],
+#form-body .q-body textarea{
+	padding: 0.5em 0.6em;
+	width:300px;
+	border:solid 1px #ccc;
+}
+#form-body .q-body input:hover , #form-body .q-body textarea:hover, #form-body .q-body input[type="text"]:focus , #form-body .q-body textarea:focus {
+	border:solid 1px #DDC07E;/* 高亮颜色 */
+}
+.q-body label {
+	display:inline-block;
+	border-radius:4px 4px;
+	padding:8px 5px 8px 0;
+}
+.q-body label:hover {
+	background:#3399ff;	
+	color:#FFF;
+}
+.q-body .note-position {
+	position:relative;
+}
+.q-body .note {
+	position:absolute;
+	color:#666;
+	left: 4em;
+}
+.q-body .note:hover {
+	color:#000;
+}
+/*
+.q1 .q-body label,
+.q2 .q-body label,
+.q3 .q-body label {
+	width:24%;
+}
+.q4 .q-body label,
+.q5 .q-body label,
+.q6 .q-body label,
+.q7 .q-body label {
+	width:30%;
+}
+.q8 .q-body label {
+	width:96%;
+}
+.q9 .q-body label {
+	width:30%;
+}
+*/
+
+.free-multiline .q-body textarea {
+	width:90%;
+	height:200px;
+	font-size:16px;
+	resize:none;
+}
+
+#submit {
+	display:block;
+	font-size:16px;
+	margin:5px auto;
+	text-align:center;
+	border:none;
+	outline:none;
+}
+#form-tip {
+	text-align:center;
+	margin-top:1em;
+	color:#fff;
+}
+.form-footer {
+	width:100%;
+	margin:0 auto;
+	padding:2em 0 ; 
+	text-align:center;
+	font-size:12px;
+	color:#d9cfbf;
+}
+#fill-tool {
+	position:fixed;
+	bottom:20px;
+	left:85%;
+	right:5%;
+}
+#fill-tool .square {
+	margin-bottom:10px;
+}
+#fill-tool div .tool, #back-tool .tool {
+	display:block;
+	position:relative;
+	cursor:pointer;
+	width:50px; height:50px;
+	border-radius:5px;
+	border:solid 1px #999;
+	background-color:rgba(255,255,255,0.5);
+	position:relative;
+	transition:all ease-out 0.2s;
+	color:rgba(255,255,255,0);
+}
+#fill-tool div .tool:hover, #back-tool .tool:hover { /* , #back-tool .tool:hover */
+	background-color:#999 !important;
+	width:100px;
+	color:#fff;
+}
+#fill-tool div .tool span, #back-tool .tool span {
+	position:absolute;
+	left:50px;
+	text-align:center;
+/*	position:relative;
+	left:50px;	
+*/	width:50px;	
+}
+#back-tool .tool span {
+	left:41px;
+}
+#fill-tool .tool-name {
+	width:100%;
+	font-size:16px;
+	margin:0 auto;
+	position:absolute;
+	bottom:2px; left:0;
+}
+#fill-tool .login-reg a.tool {
+	background:url(../../images/fill-tool/login-reg.png) no-repeat 9px center;
+}
+#fill-tool .quick-fill a.tool {
+	background:url(../../images/fill-tool/quick-fill.png) no-repeat 9px center;
+}
+#fill-tool .save a.tool {
+	background:url(../../images/fill-tool/save.png) no-repeat 9px center;
+}
+#back-tool a.tool {
+	background:url(../../images/fill-tool/return.png) no-repeat 9px center;
+}
+#back-tool .tool {
+	border-radius:25px;
+	line-height:50px;
+}
+#back-tool {
+	position:fixed;
+	top:20px;
+	left:5%;
+}
+
+
+/* 以下是jQuery ui部分的样式 */
+.ui-datepicker {
+	padding: .2em .2em 0;
+	display: none;
+	font-size:12px;
+}
+.ui-datepicker .ui-datepicker-header {
+	position: relative;
+	padding: .2em 0;
+}
+.ui-datepicker .ui-datepicker-prev,
+.ui-datepicker .ui-datepicker-next {
+	position: absolute;
+	top: 2px;
+	width: 1.8em;
+	height: 1.8em;
+}
+.ui-datepicker .ui-datepicker-prev-hover,
+.ui-datepicker .ui-datepicker-next-hover {
+	top: 1px;
+}
+.ui-datepicker .ui-datepicker-prev {
+	left: 2px;
+}
+.ui-datepicker .ui-datepicker-next {
+	right: 2px;
+}
+.ui-datepicker .ui-datepicker-prev-hover {
+	left: 1px;
+}
+.ui-datepicker .ui-datepicker-next-hover {
+	right: 1px;
+}
+.ui-datepicker .ui-datepicker-prev span,
+.ui-datepicker .ui-datepicker-next span {
+	display: block;
+	position: absolute;
+	left: 50%;
+	margin-left: -8px;
+	top: 50%;
+	margin-top: -8px;
+}
+.ui-datepicker .ui-datepicker-title {
+	margin: 0 2.3em;
+	line-height: 1.8em;
+	text-align: center;
+}
+.ui-datepicker .ui-datepicker-title .ui-datepicker-year, .ui-datepicker .ui-datepicker-title .ui-datepicker-month {
+	font-weight:bold;
+	color:#000;
+}
+.ui-datepicker .ui-datepicker-title select {
+	font-size: 1em;
+	margin: 1px 0;
+}
+.ui-datepicker select.ui-datepicker-month,
+.ui-datepicker select.ui-datepicker-year {
+	width: 45%;
+}
+.ui-datepicker table {
+	width: 100%;
+	font-size: .9em;
+	border-collapse: collapse;
+	margin: 0 0 .4em;
+}
+.ui-datepicker th {
+	padding: .7em .3em;
+	text-align: center;
+	font-weight: bold;
+	border: 0;
+}
+.ui-datepicker td {
+	border: 0;
+	padding: 1px;
+	text-align:center;
+	valign:middle;	
+}
+.ui-datepicker td span,
+.ui-datepicker td a {
+	display: block;
+	padding: .2em;
+	text-align: center;
+	text-decoration: none;
+	width: 24px; height:24px; line-height:24px;
+}
+.ui-datepicker .ui-datepicker-buttonpane {
+	background-image: none;
+	margin: .7em 0 0 0;
+	padding: 0 .2em;
+	border-left: 0;
+	border-right: 0;
+	border-bottom: 0;
+}
+.ui-datepicker .ui-datepicker-buttonpane button {
+	float: right;
+	margin: .5em .2em .4em;
+	cursor: pointer;
+	padding: .2em .6em .3em .6em;
+	width: auto;
+	overflow: visible;
+}
+.ui-datepicker .ui-datepicker-buttonpane button.ui-datepicker-current {
+	float: left;
+}
+
+/* with multiple calendars */
+.ui-datepicker.ui-datepicker-multi {
+	width: auto;
+}
+.ui-datepicker-multi .ui-datepicker-group {
+	float: left;
+}
+.ui-datepicker-multi .ui-datepicker-group table {
+	width: 95%;
+	margin: 0 auto .4em;
+}
+.ui-datepicker-multi-2 .ui-datepicker-group {
+	width: 50%;
+}
+.ui-datepicker-multi-3 .ui-datepicker-group {
+	width: 33.3%;
+}
+.ui-datepicker-multi-4 .ui-datepicker-group {
+	width: 25%;
+}
+.ui-datepicker-multi .ui-datepicker-group-last .ui-datepicker-header,
+.ui-datepicker-multi .ui-datepicker-group-middle .ui-datepicker-header {
+	border-left-width: 0;
+}
+.ui-datepicker-multi .ui-datepicker-buttonpane {
+	clear: left;
+}
+.ui-datepicker-row-break {
+	clear: both;
+	width: 100%;
+	font-size: 0;
+}
+
+/* RTL support */
+.ui-datepicker-rtl {
+	direction: rtl;
+}
+.ui-datepicker-rtl .ui-datepicker-prev {
+	right: 2px;
+	left: auto;
+}
+.ui-datepicker-rtl .ui-datepicker-next {
+	left: 2px;
+	right: auto;
+}
+.ui-datepicker-rtl .ui-datepicker-prev:hover {
+	right: 1px;
+	left: auto;
+}
+.ui-datepicker-rtl .ui-datepicker-next:hover {
+	left: 1px;
+	right: auto;
+}
+.ui-datepicker-rtl .ui-datepicker-buttonpane {
+	clear: right;
+}
+.ui-datepicker-rtl .ui-datepicker-buttonpane button {
+	float: left;
+}
+.ui-datepicker-rtl .ui-datepicker-buttonpane button.ui-datepicker-current,
+.ui-datepicker-rtl .ui-datepicker-group {
+	float: right;
+}
+.ui-datepicker-rtl .ui-datepicker-group-last .ui-datepicker-header,
+.ui-datepicker-rtl .ui-datepicker-group-middle .ui-datepicker-header {
+	border-right-width: 0;
+	border-left-width: 1px;
+}
+.ui-helper-clearfix:before,
+.ui-helper-clearfix:after {
+	content: "";
+	display: table;
+	border-collapse: collapse;
+}
+.ui-helper-clearfix:after {
+	clear: both;
+}
+.ui-helper-clearfix {
+	min-height: 0; /* support: IE7 */
+}
+.ui-widget-content {
+	border: 1px solid #aaaaaa;
+	background: #fff ;
+	color: #222222;
+}
+.ui-widget-content a {
+	color: #222222;
+}
+/* Corner radius 
+.ui-corner-all,
+.ui-corner-top,
+.ui-corner-left,
+.ui-corner-tl {
+	border-top-left-radius: 4px;
+}
+.ui-corner-all,
+.ui-corner-top,
+.ui-corner-right,
+.ui-corner-tr {
+	border-top-right-radius: 4px;
+}
+.ui-corner-all,
+.ui-corner-bottom,
+.ui-corner-left,
+.ui-corner-bl {
+	border-bottom-left-radius: 4px;
+}
+.ui-corner-all,
+.ui-corner-bottom,
+.ui-corner-right,
+.ui-corner-br {
+	border-bottom-right-radius: 4px;
+}
+*/
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+    font-weight: normal;
+    color: #555;
+}
+.ui-state-highlight, .ui-widget-content .ui-state-highlight, .ui-widget-header .ui-state-highlight {
+	border-radius:24px;
+    background: #E1331C;
+    color: #fff;
+}
+.ui-state-hover,
+.ui-widget-content .ui-state-hover,
+.ui-widget-header .ui-state-hover,
+.ui-state-focus,
+.ui-widget-content .ui-state-focus,
+.ui-widget-header .ui-state-focus {
+	font-weight: normal;
+	color: #DE473A;
+}
+.ui-state-hover a,
+.ui-state-hover a:hover,
+.ui-state-hover a:link,
+.ui-state-hover a:visited,
+.ui-state-focus a,
+.ui-state-focus a:hover,
+.ui-state-focus a:link,
+.ui-state-focus a:visited {
+	color: #DE473A;
+	text-decoration: none;
+}
+.ui-datepicker .ui-state-active,
+.ui-datepicker .ui-widget-content .ui-state-active,
+.ui-datepicker .ui-widget-header .ui-state-active {
+	border: 1px solid #E1331C;
+	border-radius:24px;
+    background: #fff;
+    color: #E1331C;
+}
+.ui-datepicker .ui-state-active a,
+.ui-datepicker .ui-state-active a:link,
+.ui-datepicker .ui-state-active a:visited {
+	color: #E1331C;
+	text-decoration: none;
+}
+	
+.ui-datepicker-prev, .ui-datepicker-next {
+	cursor:pointer;
+}
+.ui-datepicker-prev span, .ui-datepicker-next span {
+	font-weight:900;
+}
+
+.ui-spinner {
+	position: relative;
+	display: inline-block;
+	overflow: hidden;
+	padding: 0;
+	vertical-align: middle;
+	border:none;
+}
+.ui-spinner-input {
+	border: none;
+	background: none;
+	color: inherit;
+	padding: 0;
+	margin: 0;
+	vertical-align: middle;
+}
+.ui-spinner-button {
+	width: 16px;
+	height: 50%;
+	font-size: .5em;
+	padding: 0;
+	margin: 0;
+	text-align: center;
+	position: absolute;
+	cursor: default;
+	display: block;
+	overflow: hidden;
+	right: 0;
+}
+/* more specificity required here to override default borders */
+.ui-spinner a.ui-spinner-button {
+	border-top: none;
+	border-bottom: none;
+	border-right: none;
+}
+/* vertically center icon */
+.ui-spinner .ui-icon {
+	position: absolute;
+	margin-top: -8px;
+	top: 50%;
+	left: 0;
+	line-height:100%;
+	text-align:center;
+	vertical-align:central;
+}
+.ui-spinner-up {
+	top: 0;
+}
+.ui-spinner-down {
+	bottom: 0;
+}
+/* TR overrides */
+.ui-spinner .ui-icon-triangle-1-s {
+	/* need to fix icons sprite */
+	background-position: -65px -16px;
+}
+
+
+@media screen and (max-width: 900px) {
+	#form-wrapper {
+		width:88.888%;
+	}
+}

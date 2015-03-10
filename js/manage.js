@@ -96,14 +96,24 @@ $(document).ready(function(){
 		});
 	}
 
-	//图标部分
-	//生成数据
-	var trendGraphData = [{
-			// Visits
-			data: [ [10.11, 13], [10.12, 16], [10.13, 19], [10.14, 21], [10.15, 25], [10.16, 22], [10.17, 200], [10.18, 19], [10.19, 19], [10.20, 20] ],
-			color: '#71c73e'
-    	}, 
-	];
+	//图表部分
+    //从cookie中取出数据
+    //生成数据
+    var trendGraphData = [
+        {
+            data: [],//[10.11,10],[10.12,11],[10.13,13],[10.15,15]
+            color: '#71c73e'
+        }
+    ];
+    var fillNumberEachDayString = getCookie("fillNumberEachDay");
+    var arrfillNumberEachDayString = fillNumberEachDayString.split(":")[1].split("&");
+    for(var l = 0; l < arrfillNumberEachDayString.length-1; l++){
+        arrfillNumberEachDayString[l] = arrfillNumberEachDayString[l].split("=");
+        add = [arrfillNumberEachDayString[l][0],arrfillNumberEachDayString[l][1]];
+        trendGraphData[0].data[l] = add;
+    }
+
+
 	// Lines
 	$.plot($('#trend-graph'), trendGraphData, {
 		series: {
@@ -131,15 +141,35 @@ $(document).ready(function(){
 			//tickSize: 1000
 		}
 	});
-	//生成数据
+    //从cookie中取出数据
+    var fromWhereAllString = getCookie("fromWhereAll");
+    var arrFromWhereAllString = fromWhereAllString.split("&");
+    var keyValuePairFromWhereAll = new Array;
+    for(var i = 0; i < arrFromWhereAllString.length; i++){
+        arrFromWhereAllString[i] = arrFromWhereAllString[i].split("=");
+        keyValuePairFromWhereAll[arrFromWhereAllString[i][0]] = arrFromWhereAllString[i][1];
+    }
+    //生成数据
 	var sourceGraphData = [
-		{ label: "cc98",  data: [[1,10]]},
-		{ label: "微信",  data: [[1,30]]},
-		{ label: "二维码200px",  data: [[1,90]]},
-		{ label: "二维码500px",  data: [[1,70]]},
-		{ label: "人人",  data: [[1,80]]},
-		{ label: "独立链接",  data: [[1,0]]}
-	];
+        { label: "二维码200px",  data: keyValuePairFromWhereAll["sqr"] },//sqr
+        { label: "二维码400px",  data: keyValuePairFromWhereAll["mqr"] },//mqr
+        { label: "二维码800px",  data: keyValuePairFromWhereAll["bqr"] },//bqr
+        { label: "人人",  data: keyValuePairFromWhereAll["renren"] },//renren
+        { label: "报名吧",  data: keyValuePairFromWhereAll["123bmb"] },//123bmb
+		{ label: "cc98",  data: keyValuePairFromWhereAll["cc98"] },//cc98
+        { label: "微信",  data: keyValuePairFromWhereAll["wechat"] },//wechat
+        { label: "微博",  data: keyValuePairFromWhereAll["weibo"] },//weibo
+        { label: "iZJU",  data: keyValuePairFromWhereAll["izju"] },//izju
+        { label: "其他",  data: keyValuePairFromWhereAll["other"] },//other
+        { label: "直接打开",  data: keyValuePairFromWhereAll["newpage"] },//newpage
+
+	]
+    //移除为零的数据
+    for(var j = 0; j < sourceGraphData.length; j++){
+        if(sourceGraphData[j].data == "0") {//如果来源为零从json数据中移除
+            sourceGraphData.splice(j--,1);//移除一个之后指针往回退一个
+        }
+    }
 	// pie
 	$.plot($('#source-graph'), sourceGraphData, {
 		series: {
@@ -181,14 +211,14 @@ $(document).ready(function(){
 	var previousSector = null;
 	$('#source-graph').bind('plothover', function (event, pos, item) {
 		if (item) {
-			if (previousSector != item.seriesIndex) {
+			//if (previousSector != item.seriesIndex) {
 				previousSector = item.seriesIndex;
 				$('#tooltip').remove();
 				var label = item.series.label,
 					number = item.datapoint[1][0][1];
 					percentage = Math.round(item.datapoint[0]);
 					showTooltip(pos.pageX, pos.pageY,  label + '<br />' + number + '个,占<b>' + percentage + '%</b>');
-			}
+			//}
 		} else {
 			$('#tooltip').remove();
 			previousPoint = null;
@@ -209,4 +239,10 @@ function trBackgroundColor(tableSelector){
 		$(tableSelector + " tbody").children().eq(i).css("background","#f7f7f7");
 	}
 }
-
+function getCookie(objName){//获取指定名称的cookie的值
+    var arrStr = document.cookie.split("; ");
+    for(var i = 0;i < arrStr.length;i ++){
+        var temp = arrStr[i].split("=");
+        if(temp[0] == objName) return unescape(temp[1]);
+    }
+}

@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <!--下面这meta意思是告知浏览器的宽度是设备的宽度，缩放值为1.0-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>表格填写</title>
+<title>报名表修改</title>
 <link rel="stylesheet" href="style/form/material_jixie.css" />
 <link rel="stylesheet" href="style/form/form-responsive.css"/>
 <link rel="stylesheet" href="style/index.css"/>

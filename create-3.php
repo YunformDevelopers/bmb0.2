@@ -3,13 +3,13 @@ header('Content-Type:text/html; charset=utf-8');
 ?>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/html">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>发布(3/3)</title>
 <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
-<link rel="stylesheet" href="style/index.css"></link>
-<link rel="stylesheet" href="style/create.css"></link>
+<link rel="stylesheet" href="style/index.css" />
+<link rel="stylesheet" href="style/create.css" />
 <script type="text/javascript" src="js/jQuery.js"></script>
 <script type="text/javascript" src="js/jquery.zclip.min.js"></script>
 <script type="text/javascript" src="js/msg.js"></script>
@@ -78,7 +78,7 @@ header('Content-Type:text/html; charset=utf-8');
 		<div id="form-construct-field" unselectable="false" >
         	<div class="form-release-status success">
             	<span>&nbsp;&nbsp;</span>
-            	恭喜您，您的“<?php echo $row['form_title']?>”<?php if(ActionIsEdit()){echo "修改成功！";} else {echo "创建成功！";} ?>
+            	恭喜您，您的“<b><?php echo $row['form_title']?></b>”<?php if(ActionIsEdit()){echo "修改成功！";} else {echo "创建成功！";} ?>
             </div>
             <br />
 			<h3>推广方式</h3>
@@ -91,10 +91,10 @@ header('Content-Type:text/html; charset=utf-8');
                         </div>
 					</div>
                     <div class="publish-status-container" style="margin-top:5px;">
-                    	<span class="publish-status on">您的报名表已经默认发布到报名吧首页&nbsp;&nbsp;&nbsp;
+                    	<span class="publish-status on">默认发布到首页&nbsp;&nbsp;&nbsp;
                         	<b class="status green">已上架</b>
                         </span>
-                        <span class="publish-status off" style="display:none;">您的报名表将不会出现在报名吧首页&nbsp;&nbsp;&nbsp;
+                        <span class="publish-status off" style="display:none;">不会出现在首页&nbsp;&nbsp;&nbsp;
                         	<b class="status red">已下架</b>
                         </span>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" id="toggle-publish-status-btn" class="btn white" href="javascript:;" onclick="togglePublishStatus(this,<?php echo $_GET['id']?>);" value="暂不发布" />
@@ -160,10 +160,11 @@ header('Content-Type:text/html; charset=utf-8');
                     <div class="link-holder">
                         <span id="QR-loading" class="loading-indicator"><img src="images/loading-16.GIF" alt="加载中" /></span>
                     	<div class="image-holder">
-							<a id="QRlink" target="new" >
-                            <image onload="$('#QR-loading').hide(); $(this).show();" id="QRimg" type="text" class="link-container" /></a>
+                            <image onload="$('#QR-loading').hide(); $(this).show();" id="QRimg" type="text" class="link-container"></image>
+                            <br />
+                            <a id="QRlink" class="no-decoration-a" target="_blank" ><input type="button" class="btn green" value="下载二维码" /></a>
 						</div>
-                        <!--<input type="button" class="btn green" value="下载" />-->
+                        <!--<input type="button" class="btn green" value="$(this).parent().find('#QRimg').toggle();下载" />-->
                     </div>
                 </div>
 <!--                <div class="release-method embed">

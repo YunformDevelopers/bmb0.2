@@ -10,10 +10,10 @@ header('Content-Type:text/html; charset=utf-8');
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>管理——某次活动报名表</title>
 <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
-<link rel="stylesheet" href="style/index.css"></link>
-<link rel="stylesheet" href="style/msg.css"></link>
-<link rel="stylesheet" href="style/manage.css"></link>
-<link rel="stylesheet" href="style/responsive.css"></link>
+<link rel="stylesheet" href="style/index.css" />
+<link rel="stylesheet" href="style/msg.css" />
+<link rel="stylesheet" href="style/manage.css" />
+<link rel="stylesheet" href="style/responsive.css" />
 <!--下面这个样式是提示框的一个样式-->
 <link rel="stylesheet" href="style/test.css" />
 <!--下面这个js文件是为了兼容IE的媒体查询而准备的-->
@@ -25,7 +25,7 @@ header('Content-Type:text/html; charset=utf-8');
 <script type="text/javascript" src="js/msg.js"></script>
 <script type="text/javascript" src="js/manage.js"></script>
 <script type="text/javascript" src="js/jquery.pin.min.js"></script>
-<script src='js/iscroll.js'></script>
+<script type="text/javascript" src='js/iscroll.js'></script>
 </head>
 <body>
 <?php include 'includes/header.inc.php';
@@ -135,7 +135,7 @@ if(!isset($_COOKIE['srtp-username']))
                         <div class="graph-col">
                             <div class="graph-card source">
                                 <div class="card-header">
-                                    <h4>流量来源分布(<i>建设中</i>)</h4>
+                                    <h4>流量来源分布</h4>
                                 </div>
                                 <div class="card-control">
                                 <?php 
@@ -149,11 +149,11 @@ if(!isset($_COOKIE['srtp-username']))
                         <div class="graph-col trend">
                             <div class="graph-card trend">
                                 <div class="card-header">
-                                    <h4>总趋势折线图(<i>建设中</i>)</h4>
+                                    <h4>本月趋势折线图</h4>
                                 </div>
                                 <div class="card-control"></div>
                                 <div class="card-content">
-                                    <div class="graph-container" id="trend-graph" style="width:800px; height:250px; margin:0 auto;">
+                                    <div class="graph-container" id="trend-graph" style="width:900px; height:250px; margin:0 auto;">
                                     </div>
                                 </div>
                             </div>
@@ -332,46 +332,6 @@ if(!isset($_COOKIE['srtp-username']))
 										} 
 								
 								?>
-								<!--<td class="answer-container a-all-msg">
-									<p class="a-content">
-										<a href="#" title="" id="">
-											请问你的梦想是什。欢迎
-										</a>
-									</p>
-									<p class="a-time">2014-6-17 18:45 填写</p>
-								</td>
-								<td class="answer-container a-all-msg">
-									<p class="a-content">
-										<a href="#" title="" id="">
-											请问你的梦想是什么呢？你是怎么走到这我培养过一个冠军。欢迎
-										</a>
-									</p>
-									<p class="a-time">2014-6-17 18:45 填写</p>
-								</td>
-								<td class="answer-container a-all-msg">
-									<p class="a-content">
-										<a href="#" title="" id="">
-											请问你的梦想是什么呢？你是怎么走到这个舞台上的？能和我们说说吗？我培养过一个冠军。欢迎
-										</a>
-									</p>
-									<p class="a-time">2014-6-17 18:45 填写</p>
-								</td>
-								<td class="answer-container a-all-msg">
-									<p class="a-content">
-										<a href="#" title="" id="">
-											请
-										</a>
-									</p>
-									<p class="a-time">2014-6-17 18:45 填写</p>
-								</td>
-								<td class="answer-container a-all-msg">
-									<p class="a-content">
-										<a href="#" title="" id="">
-											请问过一个冠军。欢迎
-										</a>
-									</p>
-									<p class="a-time">2014-6-17 18:45 填写</p>
-								</td>  -->
 							</tr>
 						 </table>
 					</div>
@@ -385,14 +345,14 @@ if(!isset($_COOKIE['srtp-username']))
 					<div class="h2-line">
 					</div>
 				</div>
-				<div class="section-body" unselectable="on" onselectstart="return false;" style="-moz-user-select:none;">
+				<div class="section-body" unselectable="on" onselectstart="return false;" style=" -moz-user-select:none;">
 					<div class="tool" id="manage-xls">
 						<!--<a target="_blank" class="tool-btn" <?php echo 'href="makecsv.php?id='.$_GET['id'].'"'; ?> title="下载已填写的数据的表格">-->
-						<a onclick="makeCsv();" class="tool-btn" href="#" title="下载已填写的数据的表格">
+						<a onclick="makeCsv();" target="_blank"  class="tool-btn" href="#" title="下载已填写的数据的表格">
 							XLS
 						</a>
                         <p class="tool-info">
-                        下载已填写的数据的表格<br /><br />
+                        下载数据表格<br /><br /><br />
                         </p>
 					</div>
 					<div class="tool" id="manage-rar">
@@ -400,15 +360,15 @@ if(!isset($_COOKIE['srtp-username']))
 							RAR
 						</a>
                         <p class="tool-info">
-                        下载打包的Word文档<i>(建设中)</i><br /><br />
+                        下载Word文档<i>(建设中)</i><br /><br />
                         </p>
 					</div>
 					<div class="tool" id="manage-txt">
-						<a class="tool-btn" <?php echo 'href="makefetioncsv.php?id='.$_GET['id'].'"'; ?> title="向联系人群发短信">
+						<a class="tool-btn" target="_blank" <?php echo 'href="makefetioncsv.php?id='.$_GET['id'].'"'; ?> title="向联系人群发短信">
 							短信
 						</a>
                         <p class="tool-info">
-                        向联系人群发短信<br /><a style="color:#F00;" href="fetion-tutorial.html" title="飞信批量加好友教程">飞信批量加好友教程</a><br />
+                        群发短信<i>修复中</i><br /><a style="color:#F00;" href="fetion-tutorial.html" title="飞信批量加好友教程">飞信批量加好友教程</a><br />
                         </p>
 					</div>
 					<div class="tool" id="manage-zongsu">
@@ -416,7 +376,7 @@ if(!isset($_COOKIE['srtp-username']))
 							综素
 						</a>
                         <p class="tool-info">
-                        发送申请综素表格<i>(建设中)</i><br /><br />
+                        发送综素表格<i>(建设中)</i><br /><br />
                         </p>
 					</div>
 					<div class="tool" id="manage-erke">
@@ -424,7 +384,7 @@ if(!isset($_COOKIE['srtp-username']))
 							二课
 						</a>
                         <p class="tool-info">
-                        发送申请二课表格<i>(建设中)</i><br /><br />
+                        发送二课表格<i>(建设中)</i><br /><br />
                         </p>
 					</div>
 					<div class="tool" id="manage-add">

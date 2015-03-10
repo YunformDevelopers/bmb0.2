@@ -25,10 +25,24 @@ function fillLink(linkType){
 function fillQR(size){
 	var m = Math.round(size/10);
 	var formId = $("#formIdContainer").val();
+    var source = "sqr";
+    switch (size) {
+        case 200 :
+            source = "sqr";
+            break;
+        case 400 :
+            source = "mqr";
+            break;
+        case 800 :
+            source = "bqr";
+            break;
+        default :
+            source = "sqr";
+    }
 	$("#QR-loading").show();
 	$(".image-holder img.link-container").hide();
-	$("#QRlink").attr('href','http://qr.liantu.com/api.php?w='+size+'&m='+m+'&text=http://www.123bmb.com/reform.php?id='+formId);
-	$("#QRimg").attr('src','http://qr.liantu.com/api.php?w='+size+'&m='+m+'&text=http://www.123bmb.com/reform.php?id='+formId);
+	$("#QRlink").attr('href','http://qr.liantu.com/api.php?w='+size+'&m='+m+'&text=http://www.123bmb.com/reform.php?id='+formId+'&source='+source);
+	$("#QRimg").attr('src','http://qr.liantu.com/api.php?w='+size+'&m='+m+'&text=http://www.123bmb.com/reform.php?id='+formId+'&source='+source);
 }
 function zclip (){
 	$("#outer-link-copy").zclip({
@@ -52,20 +66,10 @@ function initFormConstructFieldWidth (){
 	$("#form-construct-field").css("width",formConstructFieldWidth);
 }
 
-function initFormFieldHeight (){
-	var windowHeight = $(window).height();
-	var headerHeight = $("#header").height();
-	var createFormStepsHeight = $("#create-form-steps").height();
-	//alert(windowHeight);
-	var formFieldHeight = windowHeight - headerHeight - createFormStepsHeight-200 ;
-	//alert(formConstructFieldHeight);
-	$("#form-field").css("height",formFieldHeight);
-}
-
 //初始化pin
 function initPin (){
 	$("#tool-field").pin({
-	  containerSelector: "#field-wrapper",
+	  containerSelector: "#field-wrapper"
 	});
 }
 //切换发布状态
@@ -74,7 +78,6 @@ function togglePublishStatus(id,phpid){
 	if($id.parent().find('.publish-status:hidden').hasClass('on')){
 		$id.parent().find('.publish-status.off').hide();$id.parent().find('.publish-status.on').show();//执行上架操作
 		$("#toggle-publish-status-btn").val("暂不上架");
-		//TODO: ajax 部分
 		$.ajax({
 			type:'GET',
 			url:'stateajax.php?data='+phpid+'&action=on',
@@ -84,7 +87,6 @@ function togglePublishStatus(id,phpid){
 	}else{
 		$id.parent().find('.publish-status.on').hide();$id.parent().find('.publish-status.off').show();//执行下架操作
 		$("#toggle-publish-status-btn").val("现在上架");
-		//TODO: ajax 部分
 		$.ajax({
 			type:'GET',
 			url:'stateajax.php?data='+phpid+'&action=off',

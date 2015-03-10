@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <!--下面这meta意思是告知浏览器的宽度是设备的宽度，缩放值为1.0-->
 <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
-<title>表格填写</title>
+<title>报名表填写</title>
 <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
 <link rel="stylesheet" href="style/form/material_jixie.css" />
 <link rel="stylesheet" href="style/msg.css" />
@@ -131,9 +131,17 @@ window.onresize = function() {
 										$last_page=$_SERVER['HTTP_REFERER'];
 										if(preg_match("/renren/",$last_page)){
 											$last_page='renren';
-										}else if(preg_match("/cc98/",$last_page)){
+										}else if(preg_match("/123bmb/",$last_page)){
+                                            $last_page='123bmb';
+                                        }else if(preg_match("/cc98/",$last_page)){
 											$last_page='cc98';
-										}
+										}else if(preg_match("/wechat/",$last_page)){
+                                            $last_page='wechat';
+                                        }else if(preg_match("/weibo/",$last_page)){
+                                            $last_page='weibo';
+                                        }else if(preg_match("/izju/",$last_page)){
+                                            $last_page='izju';
+                                        }
 										else{
 											$last_page='other';
 										}

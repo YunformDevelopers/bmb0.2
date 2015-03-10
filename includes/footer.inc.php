@@ -20,7 +20,12 @@
             <p>微信公众号：<b>报名吧</b></p>
         </div>
         <p>报名吧@ZJU</p>
-        <br />
+        <p>用<a href="http://rj.baidu.com/soft/detail/14744.html?ald">谷歌</a>.
+            <a href="http://www.firefox.com.cn/download/">火狐</a>.
+            <a href="http://ie.sogou.com/">搜狗</a>.
+            <a href="http://se.360.cn/">360</a>
+            好
+        </p>
 	</div>
 	<div class='justify-helper'></div>
 </div>

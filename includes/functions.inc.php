@@ -462,12 +462,17 @@ function getAllfill($id){
 	}
 	$sql="select * from answer where form_id=".$id;
 	$result=mysql_query($sql);
-	$array['cc98']=0;
+    $array['bqr']=0;
+    $array['mqr']=0;
+    $array['sqr']=0;
 	$array['renren']=0;
+    $array['123bmb']=0;
+    $array['cc98']=0;
+    $array['wechat']=0;
+	$array['weibo']=0;
+    $array['izju']=0;
 	$array['other']=0;
 	$array['newpage']=0;
-	$array['bqr']=0;
-	$array['sqr']=0;
 	$string='';
 	while($row=mysql_fetch_array($result)){
 		$date2=strtotime($row['date']);
@@ -475,16 +480,22 @@ function getAllfill($id){
 		$date_number[$daynum-1]++;
 		$array[$row['from_where']==''?'other':$row['from_where']]++;
 	}
-	$result=date("m-d",strtotime("-".$days." day")).'γ';
-	for($i=0;$i<=$days;$i++){
-		$result.=date("m-d",strtotime("-".($days-$i)." day")).'α'.$date_number[$i].'β';
+	$result=date("m.d",strtotime("-".$days." day")).':';
+	for($i=0;$i<=$days;$i++){//$days
+        if(date("m",strtotime("-".($i)." day"))-date("m",strtotime("-".($i+1)." day"))){
+            $result .= date("m.d", strtotime("-" . ($i) . " day")) . '=' . $date_number[$days - $i] . '&';
+            break;//如果横跨两个月，break
+        }
+        else {
+            $result .= date("m.d", strtotime("-" . ($i) . " day")) . '=' . $date_number[$days - $i] . '&';
+        }
 	}
 	foreach($array as $key => $value){
 		$string.=$key.'='.$value.'&';
 	}
 	//得到来自哪里的信息
-	setcookie('managenumber',$result);
-	setcookie('fromwhereall',$string);
+	setcookie('fillNumberEachDay',$result);
+	setcookie('fromWhereAll',$string);
 }
 function ActionIsEdit(){
 	if(isset($_GET['action'])){
