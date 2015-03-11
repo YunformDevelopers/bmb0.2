@@ -10,7 +10,7 @@ header('Content-Type:text/html; charset=utf-8');
 <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
 <link rel="stylesheet" href="style/index.css" />
 <link rel="stylesheet" href="style/create.css" />
-<script type="text/javascript" src="js/jQuery.js"></script>
+    <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
 <script type="text/javascript" src="js/jquery.zclip.min.js"></script>
 <script type="text/javascript" src="js/msg.js"></script>
 <script type="text/javascript" src="js/create-3.js"></script>

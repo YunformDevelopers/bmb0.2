@@ -494,8 +494,10 @@ function getAllfill($id){
 		$string.=$key.'='.$value.'&';
 	}
 	//得到来自哪里的信息
-	setcookie('fillNumberEachDay',$result);
-	setcookie('fromWhereAll',$string);
+	setcookie('fillNumberEachDay',$result,time()+3600);
+	setcookie('fromWhereAll',$string,time()+3600);
+    echo('<input type="hidden" id="fillNumberEachDay" name="fillNumberEachDay" value="'.$result.'"></input>');
+    echo('<input type="hidden" id="fromWhereAll" name="fromWhereAll" value="'.$string.'"></input>');
 }
 function ActionIsEdit(){
 	if(isset($_GET['action'])){

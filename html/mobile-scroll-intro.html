@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <!--下面这meta意思是告知浏览器的宽度是设备的宽度，缩放值为1.0-->
+    <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+    <title>为何选择报名吧？</title>
+    <link rel="stylesheet" href="css/jquery.fullPage.css">
+    <style>
+        .section {
+            font: 16px "Microsoft Yahei";
+            color: #555;
+            padding: 0px 20px;
+        }
+        .section h3 {
+            font-size: 25px;
+            text-align: center;
+            margin-bottom: 2px;
+        }
+        .signature {
+            margin-bottom: 2px;
+        }
+        .btn {
+            color:#E1331C; text-decoration:none; font-weight: normal; display: block; border: 2px solid #E1331C; border-radius: 5px;
+        }
+        .btn:hover {
+            background: #e1c3bf;
+        }
+        body {
+            /* Prevent native touch events on Windows */
+            -ms-touch-action: none;
+
+            /* Prevent the callout on tap-hold and text selection */
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+
+            /* Prevent text resize on orientation change, useful for web-apps */
+            -webkit-text-size-adjust: none;
+            -moz-text-size-adjust: none;
+            -ms-text-size-adjust: none;
+            -o-text-size-adjust: none;
+            text-size-adjust: none;
+        }
+        /* 去除移动端上点击元素时产生的highlight边框和背景等 */
+        * {
+            -moz-tap-highlight-color: rgba(0,0,0,0);
+            tap-highlight-color: rgba(0,0,0,0);
+            -webkit-tap-highlight-color:rgba(0,0,0,0); /* 去掉点击链接和文本框对象的半透明覆盖层(iOS)或者虚框(Android) */
+            -webkit-touch-callout:none; /* 禁用长按页面时的弹出菜单(iOS下有效) */
+            -webkit-text-size-adjust: none; /* 禁止文字自动调整大小(默认情况下旋转设备的时候文字大小会发生变化) */
+            -webkit-overflow-scrolling:touch;/* 局部滚动(仅iOS 5以上支持) */
+        }
+        input,textarea,select{
+            font-size:1em;
+            font-family:inherit;
+            outline:none;
+            padding:0;
+            margin:0;
+        }
+        body,h1,h2,h3,h4,h5,h6,p,ul,ol,form{
+            margin:0;
+        }
+        h4,h5,h6{
+            font-size:1em;
+        }
+        ul,ol{
+            padding-left:0;
+            list-style-type:none;
+        }
+    </style>
+</head>
+
+<body>
+
+<div id="dowebok">
+    <div class="section">
+        <img class="signature" src="../images/header-icon/logo.png" style="width: 100%;">
+        <br>
+        <br>
+        <br>
+        <br>
+        <h3>为什么选择报名吧？</h3>
+    </div>
+    <div class="section">
+        <img class="signature" src="../images/banner/banner1.gif" style="width: 100%;">
+        <h3>解放你的时间</h3>
+        <p>一站式管理上交的报名表，在线查看、统计，并可随时导出处理。
+            <br/>
+            支持将数据导出为xlsx、docx、csv等，满足加飞信、发邮件、存档等需要。
+        </p>
+    </div>
+    <div class="section">
+        <h3>给力工具</h3>
+        <div class="slide">
+            <img class="signature" src="../images/banner/banner1.gif" style="width: 100%;">
+            <h3>数据管理</h3>
+            <p>一站式管理上交的报名表，在线查看、统计，并可随时导出处理。
+                支持将数据导出为xlsx、docx、csv等，满足加飞信、发邮件、存档等需要。
+            </p>
+        </div>
+        <div class="slide">
+            <img class="signature" src="../images/banner/banner2.gif" style="width: 100%;">
+            <h3>更现代、更多样的发布方式</h3>
+            <p>你将创建的报名表放到人人主页、98专楼、微信里，还可通过二维码放到海报、横幅上！
+                <br/>
+                同时，报名吧首页也会汇集所有创建的报名表。
+            </p>
+        </div>
+        <div class="slide">
+            <img class="signature" src="../images/banner/banner2.gif" style="width: 100%;">
+            <h3>更现代、更多样的发布方式</h3>
+            <p>你将创建的报名表放到人人主页、98专楼、微信里，还可通过二维码放到海报、横幅上！
+                <br/>
+                同时，报名吧首页也会汇集所有创建的报名表。
+            </p>
+        </div>
+    </div>
+    <div class="section">
+        <img class="signature" src="../images/banner/banner2.gif" style="width: 100%;">
+        <h3>更现代、更多样的发布方式</h3>
+        <p>你将创建的报名表放到人人主页、98专楼、微信里，还可通过二维码放到海报、横幅上！
+            <br/>
+            同时，报名吧首页也会汇集所有创建的报名表。
+        </p>
+    </div>
+    <div class="section">
+        <img class="signature" src="../images/banner/banner3.gif" style="width: 100%;">
+        <h3>方便、个性的操作方式 </h3>
+        <p>
+            内置多种模板，简单拖曳完成报名表创建。图片、照片随心上传，让你的报名表更具个性。
+        </p>
+    </div>
+    <div class="section">
+        <img class="signature" src="../images/banner/banner4.gif" style="width: 100%;">
+        <h3>安全的数据存储和传输</h3>
+        <p>报名吧全站应用SSL加密，128位加密，保证你的数据在传输过程中不被监听和截取。
+            <br/>
+            报名吧网站声明绝不涉及任何表单的数据内容，点击查看<a href="../policy.html">《报名吧网站服务条款协议》</a>。
+        </p>
+    </div>
+    <div class="section">
+        <h3><a class="btn" style="" href="../index.php">开启我的报名吧之旅</a></h3>
+    </div>
+</div>
+
+<script src="../js/jquery-2.1.1.min.js"></script>
+<script src="../js/includes/jquery.fullPage.min.js"></script>
+<script>
+    $(function(){
+        $('#dowebok').fullpage({
+            sectionsColor: ['#fff'],
+            'navigation': false,
+            loopBottom: true,
+            controlArrowColor: '#efefef'
+        });
+
+        setInterval(function(){
+            $.fn.fullpage.moveSlideRight();
+        }, 2000);
+    });
+</script>
+<a href="http://www.dowebok.com/" style="display: none;">dowebok</a>
+<a href="http://www.dowebok.com/77.html" style="display: none;">jQuery全屏滚动插件fullPage.js</a>
+
+</body>
+</html>

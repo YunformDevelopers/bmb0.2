@@ -105,7 +105,7 @@ $(document).ready(function(){
             color: '#71c73e'
         }
     ];
-    var fillNumberEachDayString = getCookie("fillNumberEachDay");
+    var fillNumberEachDayString = $("#fillNumberEachDay").val();
     var arrfillNumberEachDayString = fillNumberEachDayString.split(":")[1].split("&");
     for(var l = 0; l < arrfillNumberEachDayString.length-1; l++){
         arrfillNumberEachDayString[l] = arrfillNumberEachDayString[l].split("=");
@@ -142,7 +142,7 @@ $(document).ready(function(){
 		}
 	});
     //从cookie中取出数据
-    var fromWhereAllString = getCookie("fromWhereAll");
+    var fromWhereAllString = $("#fromWhereAll").val();
     var arrFromWhereAllString = fromWhereAllString.split("&");
     var keyValuePairFromWhereAll = new Array;
     for(var i = 0; i < arrFromWhereAllString.length; i++){
@@ -234,7 +234,7 @@ function makeCsv() {
 }
 //tableSlector选择页面上需要应用此函数的表格，注意该表格一定要包含tbody
 function trBackgroundColor(tableSelector){
-	var trTotalNumber = $(tableSelector + " tr").length;
+	var trTotalNumber = $(tableSelector  + " tr").length;
 	for(var i=1;i<trTotalNumber;i=i+2){
 		$(tableSelector + " tbody").children().eq(i).css("background","#f7f7f7");
 	}

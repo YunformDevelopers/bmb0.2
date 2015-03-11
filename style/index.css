@@ -708,7 +708,7 @@ div{
 }
 #footer .wechat-QR-code {
 	position:absolute; 
-	bottom:101px; left:-150px; 
+	bottom:101px; left:-25px;
 	padding:10px; 
 	background:#fff; 
 	border:solid 1px #999; 

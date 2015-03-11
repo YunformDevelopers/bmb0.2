@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="style/msg.css" />
 <link rel="stylesheet" href="style/index.css" />
 <script src="js/msg.js" type="text/javascript" charset="utf-8"></script>
-<script type="text/javascript" src="js/jQuery.js"></script>
+<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
 </head>
 <body>
 <!-- <div id="whole-msg-bg" onclick="msgSlideDn();">

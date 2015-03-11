@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="style/msg.css" />
 <link rel="stylesheet" href="style/responsive.css" />
 <link rel="stylesheet" href="style/form/validationEngine.jquery.css"/>
-<script src="js/jQuery.js"></script>
+<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
 <script src="js/jquery.validationEngine-zh_CN.js" type="text/javascript" charset="utf-8"></script>
 <script src="js/jquery.validationEngine.js" type="text/javascript" charset="utf-8"></script>
 <script src="js/answerCookie.js"></script>

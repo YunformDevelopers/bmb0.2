@@ -18,13 +18,13 @@ header('Content-Type:text/html; charset=utf-8');
     ?>
 </title>
 <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
-<link rel="stylesheet" href="style/index.css"></link>
-<link rel="stylesheet" href="style/create.css"></link>
-<link rel="stylesheet" href="style/form/material.css"></link>
-<link rel="stylesheet" href="style/form/form-responsive.css"></link>
+<link rel="stylesheet" href="style/index.css"/>
+<link rel="stylesheet" href="style/create.css"/>
+<link rel="stylesheet" href="style/form/material.css"/>
+<link rel="stylesheet" href="style/form/form-responsive.css"/>
 <link rel="stylesheet" type="text/css" href="style/font-awesome.css" />
 <link rel="stylesheet" type="text/css" href="style/simditor.css" />
-<script type="text/javascript" src="js/jQuery.js"></script>
+<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
 <script type="text/javascript" src="js/jquery-ui-1.10.4.js"></script>
 <script type="text/javascript" src="js/simditor-all.js"></script>
 <script type="text/javascript" src="js/msg.js"></script>

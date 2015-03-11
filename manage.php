@@ -18,7 +18,7 @@ header('Content-Type:text/html; charset=utf-8');
 <link rel="stylesheet" href="style/test.css" />
 <!--下面这个js文件是为了兼容IE的媒体查询而准备的-->
 <script src="js/css3-mediaqueries.js"></script>
-<script type="text/javascript" src="js/jQuery.js"></script>
+<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
 <script type="text/javascript" src="js/jquery.flot.min.js"></script>
 <script type="text/javascript" src="js/jquery.flot.pie.min.js"></script>
 <script type="text/javascript" src="js/jquery.zclip.min.js"></script>
@@ -33,7 +33,9 @@ if(!isset($_COOKIE['srtp-username']))
 	{
 		do_js_alert("请先登录再访问该页");
 		do_js_link('index.php');
-	}?>
+	}
+getAllfill($_GET['id']);//打印fillNumberEachDay、fromWhereAll
+?>
 <div id="tab-container">
 	<ul class="tab-list clear-float">
     	<li class="tab-item left active">
@@ -111,7 +113,7 @@ if(!isset($_COOKIE['srtp-username']))
                                 <div class="card-content">
                                     <ul class="yesterday-kpi-list clear-float">
                                         <li class="column">
-                                            <p class="column-body has-border"><?php echo $number['yesterday'];getAllfill($_GET['id']);?></p>
+                                            <p class="column-body has-border"><?php echo $number['yesterday'];?></p>
                                             <p class="column-head">新增填写人数</p>
                                         </li>
                                         <li class="column">
@@ -368,27 +370,27 @@ if(!isset($_COOKIE['srtp-username']))
 							短信
 						</a>
                         <p class="tool-info">
-                        群发短信<i>修复中</i><br /><a style="color:#F00;" href="fetion-tutorial.html" title="飞信批量加好友教程">飞信批量加好友教程</a><br />
+                        群发短信<i>修复中</i><br /><a style="color:#F00;" href="html/fetion-tutorial.html" title="飞信批量加好友教程">飞信批量加好友教程</a><br />
                         </p>
 					</div>
 					<div class="tool" id="manage-zongsu">
-						<a class="tool-btn" href="#" title="发送申请综素表格">
+						<a class="tool-btn" href="html/zongsu-tutorial.html" title="综素小助手">
 							综素
 						</a>
                         <p class="tool-info">
-                        发送综素表格<i>(建设中)</i><br /><br />
+                            综素小助手<br /><br /><br/>
                         </p>
 					</div>
 					<div class="tool" id="manage-erke">
-						<a class="tool-btn" href="#" title="发送申请二课表格">
+						<a class="tool-btn" href="html/erke-tutorial.html" title="二课小助手">
 							二课
 						</a>
                         <p class="tool-info">
-                        发送二课表格<i>(建设中)</i><br /><br />
+                            二课小助手<br /><br /><br/>
                         </p>
 					</div>
 					<div class="tool" id="manage-add">
-						<a class="tool-btn" href="#" title="发送申请二课表格" id="manage-add-msg">
+						<a class="tool-btn" href="#" onclick='msgPopOver("msg.php #feedback-msg-content");' title="发送申请二课表格" id="manage-add-msg">
 							+
 						</a>
                         <p class="tool-info">
