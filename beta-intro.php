@@ -201,7 +201,7 @@ minor-fareast;mso-hansi-font-family:Calibri;mso-hansi-theme-font:minor-latin"><s
             <!--http://player.youku.com/player.php/sid/XODQ0MjI2NjY4/v.swf-->
             <!--<embed src="http://player.youku.com/player.php/sid/XODQ0MjI2NjY4/v.swf" allowFullScreen="true" quality="high" width="300" height="200" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"></embed>-->
         </div>
-        <a class="intro-btn" href="intro.html">报名吧介绍页面</a>
+        <a class="intro-btn" href="html/intro.html">报名吧介绍页面</a>
     </div>
      	 
     </div>

@@ -17,8 +17,58 @@
             text-align: center;
             margin-bottom: 2px;
         }
+        #cover {
+            padding: 0px;
+            background: #E1331C url("../images/banner/cover_bg.png") repeat top;
+            background-size: 16% 100% ;
+            text-align: center;
+        }
+        #door_section {
+            padding: 0px;
+            position: relative;
+        }
+        #door_section img {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        #door_trigger {
+            position: absolute;
+            top:27.917%;
+            left: 33.59375%;
+        }
+        #door_light_2 {
+            opacity: 0;
+        }
+        #door_light_2:hover {
+            opacity: 1;
+        }
+        #door_light_1 {
+            opacity: 0.25;
+        }
+        #door_light_1:hover {
+            opacity: 1;
+            -moz-opacity: 1;
+        }
+        #door, #door_light_1, #door_light_2 {
+            transition: 1s all linear;
+            -moz-transition: 1s all linear ;
+            -webkit-transition: 1s all linear ;
+            -o-transition: 1s all linear ;
+        }
+        /*#door:hover {
+            transform: perspective(800px) rotateY(-30deg);
+            transform-origin: 33.59375% 60% 0;
+        }*/
+        #section_1,#section_4 {
+            color: #fff;
+        }
         .signature {
             margin-bottom: 2px;
+        }
+        .slides_title {
+            position: relative;
+            top: 40px;
         }
         .btn {
             color:#E1331C; text-decoration:none; font-weight: normal; display: block; border: 2px solid #E1331C; border-radius: 5px;
@@ -76,73 +126,59 @@
 <body>
 
 <div id="dowebok">
-    <div class="section">
-        <img class="signature" src="../images/header-icon/logo.png" style="width: 100%;">
-        <br>
-        <br>
-        <br>
-        <br>
-        <h3>为什么选择报名吧？</h3>
+    <div class="section" id="cover">
+        <img class="signature" src="../images/banner/cover_content.png" style="width: 50%; ">
     </div>
-    <div class="section">
-        <img class="signature" src="../images/banner/banner1.gif" style="width: 100%;">
-        <h3>解放你的时间</h3>
-        <p>一站式管理上交的报名表，在线查看、统计，并可随时导出处理。
-            <br/>
-            支持将数据导出为xlsx、docx、csv等，满足加飞信、发邮件、存档等需要。
-        </p>
-    </div>
-    <div class="section">
-        <h3>给力工具</h3>
-        <div class="slide">
-            <img class="signature" src="../images/banner/banner1.gif" style="width: 100%;">
-            <h3>数据管理</h3>
-            <p>一站式管理上交的报名表，在线查看、统计，并可随时导出处理。
-                支持将数据导出为xlsx、docx、csv等，满足加飞信、发邮件、存档等需要。
-            </p>
-        </div>
-        <div class="slide">
-            <img class="signature" src="../images/banner/banner2.gif" style="width: 100%;">
-            <h3>更现代、更多样的发布方式</h3>
-            <p>你将创建的报名表放到人人主页、98专楼、微信里，还可通过二维码放到海报、横幅上！
-                <br/>
-                同时，报名吧首页也会汇集所有创建的报名表。
-            </p>
-        </div>
-        <div class="slide">
-            <img class="signature" src="../images/banner/banner2.gif" style="width: 100%;">
-            <h3>更现代、更多样的发布方式</h3>
-            <p>你将创建的报名表放到人人主页、98专楼、微信里，还可通过二维码放到海报、横幅上！
-                <br/>
-                同时，报名吧首页也会汇集所有创建的报名表。
-            </p>
-        </div>
-    </div>
-    <div class="section">
-        <img class="signature" src="../images/banner/banner2.gif" style="width: 100%;">
+    <div class="section" id="section_1">
+        <img class="signature" src="../images/banner/banner2.png" style="width: 100%;">
         <h3>更现代、更多样的发布方式</h3>
         <p>你将创建的报名表放到人人主页、98专楼、微信里，还可通过二维码放到海报、横幅上！
             <br/>
             同时，报名吧首页也会汇集所有创建的报名表。
         </p>
     </div>
-    <div class="section">
-        <img class="signature" src="../images/banner/banner3.gif" style="width: 100%;">
+    <div class="section" id="section_2">
+        <img class="signature" src="../images/banner/banner3.png" style="width: 100%;">
         <h3>方便、个性的操作方式 </h3>
         <p>
             内置多种模板，简单拖曳完成报名表创建。图片、照片随心上传，让你的报名表更具个性。
         </p>
     </div>
     <div class="section">
-        <img class="signature" src="../images/banner/banner4.gif" style="width: 100%;">
+        <h3 class="slides_title">给力工具</h3>
+        <div class="slide">
+            <img class="signature" src="../images/banner/banner5.png" style="width: 100%;">
+            <h3>免费通知短信</h3>
+            <p>直接下载飞信添加通讯录文件，免费群发通知短信！
+            </p>
+        </div>
+        <div class="slide">
+            <img class="signature" src="../images/banner/banner6.png" style="width: 100%;">
+            <h3>流量分析</h3>
+            <p>分析不同来源的用户数量，让你的宣传更加精准有效！
+            </p>
+        </div>
+        <div class="slide">
+            <img class="signature" src="../images/banner/banner1.png" style="width: 100%;">
+            <h3>数据管理</h3>
+            <p>一站式管理上交的报名表，在线查看、统计，并可随时导出为xlsx、docx、csv等，满足加飞信、发邮件、存档等需要。
+            </p>
+        </div>
+    </div>
+    <div class="section" id="section_4">
+        <img class="signature" src="../images/banner/banner4.png" style="width: 100%;">
         <h3>安全的数据存储和传输</h3>
         <p>报名吧全站应用SSL加密，128位加密，保证你的数据在传输过程中不被监听和截取。
             <br/>
             报名吧网站声明绝不涉及任何表单的数据内容，点击查看<a href="../policy.html">《报名吧网站服务条款协议》</a>。
         </p>
     </div>
-    <div class="section">
-        <h3><a class="btn" style="" href="../index.php">开启我的报名吧之旅</a></h3>
+    <div class="section" id="door_section">
+        <img id="door_bg" src="../images/banner/door_bg.png" style="width: 100%; height: 100%">
+        <img id="door_light_1" src="../images/banner/door_light_1.png" style="width: 100%; height: 100%">
+        <img id="door_light_2" src="../images/banner/door_light_2.png" style="width: 100%; height: 100%">
+        <img id="door" src="../images/banner/door.png" style="width: 100%; height: 100%">
+        <div id="door_trigger" style="display:block;margin: 0 auto; width: 31.8125%; height: 42.396%; z-index: 100000;"></div>
     </div>
 </div>
 
@@ -151,7 +187,7 @@
 <script>
     $(function(){
         $('#dowebok').fullpage({
-            sectionsColor: ['#fff'],
+            sectionsColor: ['#e1331c', '#FFA115', '#F1FDFE', '#fff', '#00121A'],
             'navigation': false,
             loopBottom: true,
             controlArrowColor: '#efefef'
@@ -160,10 +196,49 @@
         setInterval(function(){
             $.fn.fullpage.moveSlideRight();
         }, 2000);
+/*
+transform: perspective(800px) rotateY(-30deg);
+transform-origin: 33.59375% 60% 0;
+*/
+        var door_trigger = $('#door_trigger');
+        var door = $('#door');
+        var door_light_1 = $('#door_light_1');
+        var door_light_2 = $('#door_light_2');
+        door_trigger.hover(function(){
+            door.css("transform","perspective(800px) rotateY(-30deg)");
+            door.css("-webkit-transform","perspective(800px) rotateY(-30deg)");
+            door.css("-moz-transform","perspective(800px) rotateY(-30deg)");
+            door.css("-o-transform","perspective(800px) rotateY(-30deg)");
+            door.css("-ms-transform","perspective(800px) rotateY(-30deg)");
+            door.css("transform-origin","33.59375% 60% 0");
+            door.css("-webkit-transform-origin","33.59375% 60% 0");
+            door.css("-moz-transform-origin","33.59375% 60% 0");
+            door.css("-o-transform-origin","33.59375% 60% 0");
+            door.css("-ms-transform-origin","33.59375% 60% 0");
+            door_light_1.css("opacity","0.9");
+            door_light_2.css("opacity","0.9");
+        });
+        door_trigger.mouseout(function(){
+            door.css("transform"," rotateY(0deg)");
+            door.css("-webkit-transform"," rotateY(0deg)");
+            door.css("-moz-transform"," rotateY(0deg)");
+            door.css("-o-transform"," rotateY(0deg)");
+            door.css("-ms-transform"," rotateY(0deg)");
+            door.css("transform-origin","0 0 0");
+            door.css("-webkit-transform-origin","0 0 0");
+            door.css("-moz-transform-origin","0 0 0");
+            door.css("-o-transform-origin","0 0 0");
+            door.css("-ms-transform-origin","0 0 0");
+            door_light_1.css("opacity","0.25");
+            door_light_2.css("opacity","0");
+        });
+        door_trigger.click(function(){
+            setTimeout(function(){
+                window.location.href = "../index.php";
+            },1500);
+
+        })
     });
 </script>
-<a href="http://www.dowebok.com/" style="display: none;">dowebok</a>
-<a href="http://www.dowebok.com/77.html" style="display: none;">jQuery全屏滚动插件fullPage.js</a>
-
 </body>
 </html>
