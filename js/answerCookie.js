@@ -36,7 +36,7 @@ function SetAnswerCookie () {
 				answer += "$$$ans_div" + qBody.find("input:radio:checked").closest(".note-position").find("input.note").val();//这里是先向上遍历到span.note-position，然后再向下找到input.note的部分，获得其中的值之后合并到answer里面，用λ分隔
 				//alert(answer);
 			}
-            answer = encodeURIComponent(detectUndefined(answer));
+            answer = detectUndefined(answer);
 			cookieString += answer+ "$$$ans_end"//向cookieString添加答案，末尾加分隔符γ
 		}
 		else if(qType == "free-multichoice"){//多选题
@@ -47,23 +47,23 @@ function SetAnswerCookie () {
 				if ($(this).hasClass("note-title")) {
 					answer += "$$$ans_div" + $(this).closest(".note-position").find("input.note").val();//这里是先向上遍历到span.note-position，然后再向下找到input.note的部分，获得其中的值之后合并到answer里面，用λ分隔
 				}
-                 answer = encodeURIComponent(detectUndefined(answer));
+                 answer = detectUndefined(answer);
 				cookieString += answer+ "$$$ans_end"//向cookieString添加答案，末尾加分隔符γ
 			})				
 		}
 		else if(qType == "free-singleline"){//单行文本题
 			var answer = qBody.find("input.body").val();
-            answer = encodeURIComponent(detectUndefined(answer));
+            answer = detectUndefined(answer);
 			cookieString += answer+ "$$$ans_end"//向cookieString添加答案，末尾加分隔符γ
 		}
 		else if(qType == "free-multiline"){//多行文本题
 			var answer = qBody.find("textarea.body").val();
-            answer = encodeURIComponent(detectUndefined(answer));
+            answer = detectUndefined(answer);
 			cookieString += answer+ "$$$ans_end"//向cookieString添加答案，末尾加分隔符γ
 		}
 		else if(qType == "free-file"){//文件题
 			var answer = qBody.find("input.body").val();
-            answer = encodeURIComponent(detectUndefined(answer));
+            answer = detectUndefined(answer);
 			cookieString += "$_FILES-"+answer+ "$$$ans_end"//向cookieString添加答案，末尾加分隔符γ
 		}
 		else if(qType == "free-personalphoto"){//照片题
@@ -71,7 +71,7 @@ function SetAnswerCookie () {
 		else if(qType == "logic-tel"){//长短号
 			for(var j=0; j<2; j++){
 				var qBodyJth = qBody.find("input.body").eq(j);
-				answer = encodeURIComponent(qBodyJth.val());
+				answer = qBodyJth.val();
 				//answer = detectUndefined(answer);
 				cookieString += answer+ "$$$ans_end"//向cookieString添加答案，末尾加分隔符γ
 			}
@@ -81,12 +81,12 @@ function SetAnswerCookie () {
 				answer += "$$$ans_div" + qBody.find("input:radio:checked").closest(".note-position").find("input.note").val();//这里是先向上遍历到span.note-position，然后再向下找到input.note的部分，获得其中的值之后合并到answer里面，用λ分隔
 				alert(answer);
 			}
-            answer = encodeURIComponent(detectUndefined(answer));
+            answer = detectUndefined(answer);
 			cookieString += answer+ "$$$ans_end"//向cookieString添加答案，末尾加分隔符γ
 		}
 		else {
 			var answer = qBody.find("input.body").val();
-			answer = encodeURIComponent(detectUndefined(answer));
+			answer = detectUndefined(answer);
 			cookieString += answer+ "$$$ans_end"//向cookieString添加答案，末尾加分隔符γ
 		}
 		
