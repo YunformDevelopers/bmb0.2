@@ -23,7 +23,7 @@ header('Content-Type:text/html; charset=utf-8');
 <link rel="stylesheet" href="style/msg.css"/>
 <link rel="stylesheet" type="text/css" href="style/font-awesome.css" />
 <link rel="stylesheet" type="text/css" href="style/simditor.css" />
-<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="js/jQuery.js"></script>
 <script type="text/javascript" src="js/jquery-ui-1.10.4.js"></script>
 <script type="text/javascript" src="js/simditor-all.js"></script>
 <script type="text/javascript" src="js/commonNoIscroll.js"></script>

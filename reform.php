@@ -15,11 +15,11 @@
 <link rel="stylesheet" href="style/responsive.css"></link>
 -->
 <link rel="stylesheet" href="style/form/validationEngine.jquery.css"/>
-<script src="js/jquery-2.1.1.min.js"></script>
+<script src="js/jQuery.js" type="text/javascript"></script>
 <script src="js/jquery.validationEngine-zh_CN.js" type="text/javascript" charset="utf-8"></script>
 <script src="js/jquery.validationEngine.js" type="text/javascript" charset="utf-8"></script>
 <script src="js/msg.js" type="text/javascript" charset="utf-8"></script>
-<script src="js/answerCookie.js"></script>
+<script src="js/answerCookie.js" type="text/javascript"></script>
 <script>
 /*$(function(){
 	$('input[value=请注明]').focus(function(){

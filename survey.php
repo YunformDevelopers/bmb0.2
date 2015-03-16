@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="style/form/material.css" />
 <!--<link rel="stylesheet" href="style/form/form-responsive.css"/>-->
 <link rel="stylesheet" href="style/form/validationEngine.jquery.css"/>
-<script src="js/jquery-2.1.1.min.js"></script>
+<script src="js/jQuery.js"></script>
 <script src="js/jquery.validationEngine-zh_CN.js" type="text/javascript" charset="utf-8"></script>
 <script src="js/jquery.validationEngine.js" type="text/javascript" charset="utf-8"></script>
 <script src="js/answerCookie.js"></script>

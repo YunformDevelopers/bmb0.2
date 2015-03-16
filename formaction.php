@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="style/msg.css" />
 <link rel="stylesheet" href="style/index.css" />
 <script src="js/msg.js" type="text/javascript" charset="utf-8"></script>
-<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="js/jQuery.js"></script>
 </head>
 <body>
 <!-- <div id="whole-msg-bg" onclick="msgSlideDn();">
@@ -50,14 +50,22 @@ else if(isset($_GET['action'])&&$_GET['action']=='EditSave'){
  	do_js_link('create-2.php?action=edit&id='.$_GET['id']);
 }
 else if(isset($_GET['action'])&&$_GET['action']=='answer'){
-    do_js_alert($_COOKIE['answerStore']);
-    do_js_alert($_SERVER["HTTP_USER_AGENT"]);
-	if(strpos($_SERVER["HTTP_USER_AGENT"],"MSIE 8.0")||strpos($_SERVER["HTTP_USER_AGENT"],"MQQBrowser")){
-		$zhuanma=iconv('GB2312', 'UTF-8', $_COOKIE['answerStore']);
-	}else{
-		$zhuanma=$_COOKIE['answerStore'];
-	}
-    do_js_alert($zhuanma);
+    $encode = mb_detect_encoding($string, array('UTF-8','GB2312','GBK','BIG5'));
+    if($encode!='UTF-8'){
+        $zhuanma=iconv($encode, 'UTF-8', $_COOKIE['answerStore']);
+    }
+    else{
+        $zhuanma=$_COOKIE['answerStore'];
+    }
+    //if(strpos($_SERVER["HTTP_USER_AGENT"],"MSIE 8.0")){
+		//$zhuanma=iconv('GB2312', 'UTF-8', $_COOKIE['answerStore']);
+      //  $zhuanma=$_COOKIE['answerStore'];
+        //do_js_alert("IE8");
+	//}
+    //else{
+     //   $zhuanma=iconv('GB2312', 'UTF-8', $_COOKIE['answerStore']);
+	//	$zhuanma=$_COOKIE['answerStore'];
+	//}
 	$newanswerStore='';
 	$answer_array=explode('$$$ans_all', $zhuanma);
 	for($i=0;$i<count($answer_array);$i++){
@@ -70,7 +78,6 @@ else if(isset($_GET['action'])&&$_GET['action']=='answer'){
 		}
 	}
 	$_COOKIE['answerStore']=$newanswerStore;
-    do_js_alert($_COOKIE['answerStore']);
 	save_answer_to_db($_COOKIE['answerStore'], $_GET['id']);
 	$result=mysql_query("select * from question where form_id='".$_GET['id']."'");
 	$rows=mysql_fetch_assoc($result);

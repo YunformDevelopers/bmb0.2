@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="style/responsive.css"/>
 <!--下面这个js文件是为了兼容IE的媒体查询而准备的-->
 <script src="js/css3-mediaqueries.js"></script>
-<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="js/jQuery.js"></script>
 <script type="text/javascript" src="js/showtips.js"></script>
 <script type="text/javascript" src="js/msg.js"></script>
 <script type="text/javascript" src="js/jquery.pin.min.js"></script>
